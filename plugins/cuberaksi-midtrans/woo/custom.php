@@ -30,6 +30,7 @@ class Cuberaksi_Custom
 		$this->init_checkout();
 		$this->smooth_scroll();
 		$this->override_checkout();
+		$this->custom_customer_panel_content();
 	}
 
 	function init_checkout()
@@ -38,9 +39,21 @@ class Cuberaksi_Custom
 		add_filter('woocommerce_checkout_fields', [$this, 'override_checkout_fields']);
 		add_filter('wp_nav_menu_items', [$this, 'add_login_logout_menu'], 10, 2);
 		// Our hooked in function - $fields is passed via the filter! 
-
+		add_filter('woocommerce_order_button_text', function(){ return 'Procced to payment';});
 		
 
+	}
+
+	function custom_customer_panel_content()
+	{
+		add_action( 'template_redirect', function ($template){
+			global $post;
+			if ( isset($post->post_name) )
+			if ( $post->post_name === 'customer') {
+				wp_enqueue_script('woo-cuberaksi',CUBERAKSI_MIDTRANS_BASE_URL . 'woo/customer11.js',array('jquery') );
+			}
+			return $template;
+		} );
 	}
 
 	function add_login_logout_menu($items, $args)
