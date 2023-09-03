@@ -52,6 +52,9 @@ class Cuberaksi_Custom
 			if ( $post->post_name === 'customer') {
 				wp_enqueue_script('woo-cuberaksi',CUBERAKSI_MIDTRANS_BASE_URL . 'woo/customer11.js',array('jquery') );
 			}
+
+			wp_enqueue_script('amelbr',CUBERAKSI_MIDTRANS_BASE_URL . 'woo/ameliabr.js',['jquery']);
+			
 			return $template;
 		} );
 	}

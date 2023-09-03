@@ -45,3 +45,16 @@ if (!defined('ABSPATH')) {
 <?php do_action('woocommerce_receipt_' . $order->get_payment_method(), $order->get_id()); ?>
 
 <div class="clear"></div>
+<script>
+	document.addEventListener('DOMContentLoaded', function() {
+		var iframe = document.getElementById('snap-midtrans').contentWindow.document;
+
+		// iframe.querySelector('.close-snap-button.clickable').addEventListener('click', Handler)
+		console.log('llllll', iframe);
+	})
+
+
+	function Handler() {
+		alert('works');
+	}
+</script>
