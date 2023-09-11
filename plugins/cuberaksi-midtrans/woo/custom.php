@@ -39,24 +39,30 @@ class Cuberaksi_Custom
 		add_filter('woocommerce_checkout_fields', [$this, 'override_checkout_fields']);
 		add_filter('wp_nav_menu_items', [$this, 'add_login_logout_menu'], 10, 2);
 		// Our hooked in function - $fields is passed via the filter! 
-		add_filter('woocommerce_order_button_text', function(){ return 'Procced to payment';});
-		
-
+		add_filter('woocommerce_order_button_text', function () {
+			return 'Procced to payment';
+		});
 	}
 
 	function custom_customer_panel_content()
 	{
-		add_action( 'template_redirect', function ($template){
+		add_action('template_redirect', function ($template) {
 			global $post;
-			if ( isset($post->post_name) )
-			if ( $post->post_name === 'customer') {
-				wp_enqueue_script('woo-cuberaksi',CUBERAKSI_MIDTRANS_BASE_URL . 'woo/customer11.js',array('jquery') );
+			if (isset($post->post_name)) {
+				// error_log(wp_upload_dir(),3,.);
+				// echo wp_upload_dir();
+				if ($post->post_name === 'customer') {
+					wp_enqueue_script('woo-cuberaksi', CUBERAKSI_MIDTRANS_BASE_URL . 'woo/customer11b.js', array('jquery'));
+					if (!is_user_logged_in()) {
+						wp_redirect(home_url());
+					}
+				}
 			}
 
-			wp_enqueue_script('amelbr',CUBERAKSI_MIDTRANS_BASE_URL . 'woo/ameliabr.js',['jquery']);
-			
+			wp_enqueue_script('amelbr', CUBERAKSI_MIDTRANS_BASE_URL . 'woo/ameliabr.js', ['jquery']);
+
 			return $template;
-		} );
+		});
 	}
 
 	function add_login_logout_menu($items, $args)
@@ -64,8 +70,12 @@ class Cuberaksi_Custom
 		ob_start();
 		if (\is_user_logged_in()) {
 ?>
-			<style>.mr-2{margin-right: 0.4rem;}</style>
-			<li class="menu-item "> <a role="button" class="elementor-button elementor-button-link elementor-size-sm pad10 btn-logout" style="margin:10px;padding:10px" href="<?php echo \wp_logout_url(\get_permalink()); ?>"><i class="fa fa-sign-out mr-2" aria-hidden="true"></i>Log Out</a></li>
+			<style>
+				.mr-2 {
+					margin-right: 0.4rem;
+				}
+			</style>
+
 			<?php
 			$url_target = "/order-first";
 			if (is_user_logged_in() && defined('AMELIA_VERSION')) {
@@ -80,6 +90,7 @@ class Cuberaksi_Custom
 			?>
 
 			<li class="menu-item "><a role="button" style="margin:10px;padding:10px" class="elementor-button elementor-button-link elementor-size-sm pad10 btn-panel" href="<?= $url_target ?>"><i class="fa fa-user mr-2"></i>My Account</a></li>
+			<li class="menu-item "> <a role="button" class="elementor-button elementor-button-link elementor-size-sm pad10 btn-logout" style="margin:10px;padding:10px" href="<?php echo \wp_logout_url(\get_permalink()); ?>"><i class="fa fa-sign-out mr-2" aria-hidden="true"></i>Log Out</a></li>
 <?php
 		} else {
 			echo \do_shortcode('[google_login]');
@@ -103,7 +114,7 @@ class Cuberaksi_Custom
 		unset($fields['billing']['billing_city']);
 		unset($fields['billing']['billing_state']);
 		unset($fields['billing']['billing_postcode']);
-	
+
 		return $fields;
 	}
 
