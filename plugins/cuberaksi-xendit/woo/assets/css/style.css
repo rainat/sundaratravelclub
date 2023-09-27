@@ -1,0 +1,19 @@
+#trip-duration, #trip-user{
+	margin-left:20px;
+	display: flex;
+	align-items: center;
+
+}
+
+#trip-duration span, #trip-user span{
+	margin-left:10px;
+	color:#252525;
+	font-size:14px;
+}
+
+
+#trip-duration-time,#trip-duration-user{
+	width:20px;
+
+}
+
