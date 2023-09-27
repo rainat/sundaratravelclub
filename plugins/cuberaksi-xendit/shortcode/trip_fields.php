@@ -35,7 +35,7 @@ class Shortcode_Trip
 		// 	'id' => '1650'
 		// ],$atts,$shortcode));
 
-		wp_enqueue_style('shortcode_fields',CUBERAKSI_XENDIT_BASE_URL . 'woo/assets/css/style.css');
+		wp_enqueue_style('shortcode_fields',CUBERAKSI_XENDIT_BASE_URL . 'woo/assets/css/style.css',[],'1c');
 		
 		$product = wc_get_product($post->ID);
 		
@@ -57,12 +57,22 @@ class Shortcode_Trip
 		$time = CUBERAKSI_XENDIT_BASE_URL . 'woo/assets/images/time.svg';
 		$user = CUBERAKSI_XENDIT_BASE_URL . 'woo/assets/images/user.svg';
 		
+		$is_single_page_product = false;
+		$margin_zero = '';
 
 		ob_start();
+		if (function_exists('is_product')) {
+			if (is_product()) {
+				$is_single_page_product = true;
+				$margin_zero = "m-zero";
+			}	
+		}
 		
+
+
 		echo $view_logo['duration'] ? "	
-		<div id='trip-duration' ><img id='trip-duration-time'  src='{$time}'/><span>{$product_meta_duration}</span></div>" : "";
-		echo $view_logo['max_people'] ? "<div id='trip-user' ><img id='trip-duration-user' src='{$user}'/><span>{$product_meta_max} person</span></div>" : "";
+		<div id='trip-duration' class='{$margin_zero}'><img id='trip-duration-time'  src='{$time}'/><span>{$product_meta_duration}</span></div>" : "";
+		echo $view_logo['max_people'] ? "<div class='{$margin_zero}' id='trip-user' ><img id='trip-duration-user' src='{$user}'/><span>{$product_meta_max} person</span></div>" : "";
 
 		return ob_get_clean();
 	}
