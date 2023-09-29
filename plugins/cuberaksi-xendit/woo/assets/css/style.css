@@ -20,3 +20,9 @@
 .m-zero {
 	margin-left : 0px!important;
 }
+
+.sc-product-price{
+	margin-left:20px;
+	font-size: 30px;
+    margin-top: 15px;
+}

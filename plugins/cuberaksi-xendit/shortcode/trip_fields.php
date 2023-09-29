@@ -35,15 +35,17 @@ class Shortcode_Trip
 		// 	'id' => '1650'
 		// ],$atts,$shortcode));
 
-		wp_enqueue_style('shortcode_fields',CUBERAKSI_XENDIT_BASE_URL . 'woo/assets/css/style.css',[],'1c');
+		wp_enqueue_style('shortcode_fields',CUBERAKSI_XENDIT_BASE_URL . 'woo/assets/css/style.css',[],time());
 		
 		$product = wc_get_product($post->ID);
 		
-		$product_meta_duration = $product->get_meta('duration_text_field');
-		$product_meta_max = $product->get_meta('max_people_number_field',true);
+		$product_meta_duration = $product ?  $product->get_meta('duration_text_field') : false;
+		$product_meta_max = $product ? $product->get_meta('max_people_number_field',true) : false;
+		$product_price = $product ? $product->get_price_html() : false;
 		
 		$view_logo['duration'] = true;
 		$view_logo['max_people'] = true;
+		$view_logo['price'] = true;
 
 		if (!$product_meta_duration) { 
 			$product_meta_duration = '-'; 
@@ -52,6 +54,16 @@ class Shortcode_Trip
 		if (!$product_meta_max) { 
 			$product_meta_max = '-'; 
 			$view_logo['max_people'] = false;
+		}
+
+		if (!$product_price)  {
+			$view_logo['price'] = false;
+			$product_price = '';
+		}
+
+		if (is_product()) {
+			$view_logo['price'] = false;
+			$product_price = '';
 		}
 		// exit;
 		$time = CUBERAKSI_XENDIT_BASE_URL . 'woo/assets/images/time.svg';
@@ -71,8 +83,9 @@ class Shortcode_Trip
 
 
 		echo $view_logo['duration'] ? "	
-		<div id='trip-duration' class='{$margin_zero}'><img id='trip-duration-time'  src='{$time}'/><span>{$product_meta_duration}</span></div>" : "";
-		echo $view_logo['max_people'] ? "<div class='{$margin_zero}' id='trip-user' ><img id='trip-duration-user' src='{$user}'/><span>{$product_meta_max} person</span></div>" : "";
+		<div id='trip-duration' class='{$margin_zero}'><img class='lazy' id='trip-duration-time'  data-src='{$time}'/><span>{$product_meta_duration}</span></div>" : "";
+		echo $view_logo['max_people'] ? "<div class='{$margin_zero}' id='trip-user' ><img class='lazy' id='trip-duration-user' data-src='{$user}'/><span>{$product_meta_max} person</span></div>" : "";
+		echo $view_logo['price'] ? "<div class='sc-product-price'>$product_price</div>" : "";
 
 		return ob_get_clean();
 	}

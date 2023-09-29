@@ -41,6 +41,8 @@ class Cuberaksi_Custom
 	{
 		add_action('wp_enqueue_scripts',function(){
 			wp_enqueue_style('cb-xd-globals',CUBERAKSI_XENDIT_BASE_URL . 'woo/assets/css/global.css');
+			// wp_enqueue_script('jquery-lazy','https://cdnjs.cloudflare.com/ajax/libs/jquery.lazy/1.7.11/jquery.lazy.min.js',['jquery']);
+			wp_enqueue_script('jquery-lazy-custom',CUBERAKSI_XENDIT_BASE_URL . 'woo/assets/js/global.js',['jquery'],WC_XENDIT_PG_VERSION . '-' . time());
 		});
 
 		add_action('admin_enqueue_scripts',function(){
