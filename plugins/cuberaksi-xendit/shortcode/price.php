@@ -38,12 +38,17 @@ class Shortcode_Price
 		
 		$product = wc_get_product($post->ID);
 		$price='';
-		if ($product) $price = $product->get_price_html();
+		$thumbnail ='';
+		if ($product) {
+			$price = $product->get_price_html();
+			$img_url = wp_get_attachment_image_url($product->get_image_id());
+			$thumbnail = "<img src='$img_url' width='30'/>";
+		}
 		
 		
 		ob_start();
-		
-		echo "<div style='text-align:center'>{$price}</div>		
+		?><style>.flex{display: flex;flex-direction: row; gap:1rem;align-items: center; }</style>
+		<?php echo "<div id='price-bottom' class='flex gap-4' style='text-align:center'>{$thumbnail}{$price}</div>		
 		";
 
 		return ob_get_clean();

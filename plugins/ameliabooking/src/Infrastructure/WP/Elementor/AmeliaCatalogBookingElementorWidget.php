@@ -117,6 +117,18 @@ class AmeliaCatalogBookingElementorWidget extends Widget_Base
         );
 
         $this->add_control(
+            'skip_categories',
+            [
+                'label' => BackendStrings::getWordPressStrings()['skip_categories'],
+                'type' => Controls_Manager::SWITCHER,
+                'default' => false,
+                'label_on' => BackendStrings::getCommonStrings()['yes'],
+                'label_off' => BackendStrings::getCommonStrings()['no'],
+                'condition' => ['preselect' => 'yes'],
+            ]
+        );
+
+        $this->add_control(
             'select_employee',
             [
                 'label' => BackendStrings::getWordPressStrings()['select_employee'],
@@ -173,6 +185,17 @@ class AmeliaCatalogBookingElementorWidget extends Widget_Base
             ]
         );
 
+        $this->add_control(
+            'in_dialog',
+            [
+                'label' => BackendStrings::getWordPressStrings()['in_dialog'],
+                'type' => Controls_Manager::SWITCHER,
+                'default' => false,
+                'label_on' => BackendStrings::getCommonStrings()['yes'],
+                'label_off' => BackendStrings::getCommonStrings()['no'],
+            ]
+        );
+
         $this->end_controls_section();
     }
 
@@ -183,8 +206,11 @@ class AmeliaCatalogBookingElementorWidget extends Widget_Base
             $this->remove_control('select_show');
         }
 
+        $skip_categories = $settings['skip_categories'] === 'yes' ? ' categories_hidden=1' : '';
+
         $trigger = $settings['load_manually'] !== '' ? ' trigger=' . $settings['load_manually'] : '';
         $trigger_type = $settings['load_manually'] && $settings['trigger_type'] !== '' ? ' trigger_type=' . $settings['trigger_type'] : '';
+        $in_dialog = $settings['load_manually'] && $settings['in_dialog'] === 'yes' ? ' in_dialog=1' : '';
 
         $show = '';
 
@@ -217,7 +243,7 @@ class AmeliaCatalogBookingElementorWidget extends Widget_Base
             $employee = '';
             $location = '';
         }
-        echo esc_html('[ameliacatalogbooking' . $show . $trigger . $trigger_type . $category_service . $employee . $location . ']');
+        echo esc_html('[ameliacatalogbooking' . $show . $trigger . $trigger_type . $in_dialog . $category_service . $employee . $location . $skip_categories . ']');
     }
 
     public static function amelia_elementor_get_data() {

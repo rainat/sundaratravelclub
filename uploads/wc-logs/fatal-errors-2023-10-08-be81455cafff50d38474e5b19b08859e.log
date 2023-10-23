@@ -1,0 +1,18 @@
+2023-10-08T10:14:37+00:00 CRITICAL Uncaught Error: Cannot use object of type stdClass as array in /home/u822946699/domains/sundaratravelclub.com/public_html/staging/wp-content/plugins/cuberaksi-xendit/woo/amelia_data.php:77
+Stack trace:
+#0 /home/u822946699/domains/sundaratravelclub.com/public_html/staging/wp-content/plugins/cuberaksi-xendit/woo/amelia_data.php(63): Cuberaksi\Amelia\Service\Amelia_Data->update_table(3169)
+#1 /home/u822946699/domains/sundaratravelclub.com/public_html/staging/wp-content/plugins/cuberaksi-xendit/woo/custom.php(151): Cuberaksi\Amelia\Service\Amelia_Data->update_service(3169, Array)
+#2 /home/u822946699/domains/sundaratravelclub.com/public_html/staging/wp-includes/class-wp-hook.php(312): Cuberaksi\WooCommerce\Cuberaksi_Custom->save_update_service(3169)
+#3 /home/u822946699/domains/sundaratravelclub.com/public_html/staging/wp-includes/class-wp-hook.php(334): WP_Hook->apply_filters(3169, Array)
+#4 /home/u822946699/domains/sundaratravelclub.com/public_html/staging/wp-includes/plugin.php(517): WP_Hook->do_action(Array)
+#5 in /home/u822946699/domains/sundaratravelclub.com/public_html/staging/wp-content/plugins/cuberaksi-xendit/woo/amelia_data.php on line 77
+
+2023-10-08T10:25:47+00:00 CRITICAL Uncaught Error: Cannot use object of type stdClass as array in /home/u822946699/domains/sundaratravelclub.com/public_html/staging/wp-content/plugins/cuberaksi-xendit/woo/amelia_data.php:77
+Stack trace:
+#0 /home/u822946699/domains/sundaratravelclub.com/public_html/staging/wp-content/plugins/cuberaksi-xendit/woo/amelia_data.php(63): Cuberaksi\Amelia\Service\Amelia_Data->update_table(3169)
+#1 /home/u822946699/domains/sundaratravelclub.com/public_html/staging/wp-content/plugins/cuberaksi-xendit/woo/custom.php(151): Cuberaksi\Amelia\Service\Amelia_Data->update_service(3169, Array)
+#2 /home/u822946699/domains/sundaratravelclub.com/public_html/staging/wp-includes/class-wp-hook.php(312): Cuberaksi\WooCommerce\Cuberaksi_Custom->save_update_service(3169)
+#3 /home/u822946699/domains/sundaratravelclub.com/public_html/staging/wp-includes/class-wp-hook.php(334): WP_Hook->apply_filters(3169, Array)
+#4 /home/u822946699/domains/sundaratravelclub.com/public_html/staging/wp-includes/plugin.php(517): WP_Hook->do_action(Array)
+#5 in /home/u822946699/domains/sundaratravelclub.com/public_html/staging/wp-content/plugins/cuberaksi-xendit/woo/amelia_data.php on line 77
+

@@ -4,9 +4,10 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 /** @var Hostinger_Onboarding $onboarding_steps */
-$onboarding_steps = $onboarding;
-$content          = $onboarding_steps->get_content();
-$remaining_tasks  = 0;
+$onboarding_steps  = $onboarding;
+$content           = $onboarding_steps->get_content();
+$remaining_tasks   = 0;
+$survey            = new Hostinger_Surveys();
 /** @var Hostinger_Onboarding_Step $step */
 foreach ( $onboarding_steps->get_steps() as $step ) {
 	$remaining_tasks = ! $step->completed() ? ++ $remaining_tasks : $remaining_tasks;
@@ -57,8 +58,22 @@ $videoArray = [
 <div class="hsr-onboarding-navbar">
 	<div class="hsr-onboarding-navbar__wrapper">
 		<ul class="hsr-wrapper__list">
-			<li class="hsr-list__item hsr-active" data-name="home"><?php _e( 'Home', 'hostinger' ); ?></li>
-			<li class="hsr-list__item" data-name="learn"><?php _e( 'Learn', 'hostinger' ); ?></li>
+			<li class="hsr-list__item hsr-active hts-home-tab" data-name="home"><?php _e( 'Get started', 'hostinger' ); ?></li>
+			<li class="hsr-list__item hts-learn-tab" data-name="learn"><?php _e( 'Learn', 'hostinger' ); ?></li>
+			<?php if( has_action('hostinger_ai_assistant_tab_view') && current_user_can('edit_posts') ) : ?>
+				<li class="hsr-list__item hts-ai-assistant-tab" data-name="ai-assistant">
+					<svg width="22" height="23" viewBox="0 0 22 23" fill="none" xmlns="http://www.w3.org/2000/svg">
+						<path d="M18.3 8.1251L17.225 5.6251L14.625 4.4751L17.225 3.3501L18.3 0.975098L19.375 3.3501L21.975 4.4751L19.375 5.6251L18.3 8.1251ZM18.3 23.0001L17.225 20.6001L14.625 19.4751L17.225 18.3501L18.3 15.8251L19.375 18.3501L21.975 19.4751L19.375 20.6001L18.3 23.0001ZM7.325 19.1501L5.025 14.2251L0 11.9751L5.025 9.7251L7.325 4.8251L9.65 9.7251L14.65 11.9751L9.65 14.2251L7.325 19.1501Z" fill="#673DE6"/>
+					</svg>
+					<?php _e( 'AI assistant', 'hostinger' ); ?>
+				</li>
+			<?php endif; ?>
+			<li class="hsr-list__item hts-ai-website-tab" data-name="ai-website">
+				<svg width="22" height="23" viewBox="0 0 22 23" fill="none" xmlns="http://www.w3.org/2000/svg">
+					<path d="M18.3 8.1251L17.225 5.6251L14.625 4.4751L17.225 3.3501L18.3 0.975098L19.375 3.3501L21.975 4.4751L19.375 5.6251L18.3 8.1251ZM18.3 23.0001L17.225 20.6001L14.625 19.4751L17.225 18.3501L18.3 15.8251L19.375 18.3501L21.975 19.4751L19.375 20.6001L18.3 23.0001ZM7.325 19.1501L5.025 14.2251L0 11.9751L5.025 9.7251L7.325 4.8251L9.65 9.7251L14.65 11.9751L9.65 14.2251L7.325 19.1501Z" fill="#673DE6"/>
+				</svg>
+				<?php _e( 'Regenerate website with AI', 'hostinger' ); ?>
+			</li>
 		</ul>
 	</div>
 </div>
@@ -106,7 +121,7 @@ $videoArray = [
 						   id="hst-<?php echo $step->step_identifier() ?>"
 						   rel="noopener noreferrer"
 						   href="<?php echo $step->get_redirect_link() ?>">
-							<?php _e( 'Take me there', 'hostinger' ); ?>
+							<?php echo $step->button_text() ?>
 						</a>
 					</div>
 				</div>
@@ -195,7 +210,17 @@ $videoArray = [
 			<div class="hsr-video-wrapper">
 				<div class="hsr-video-content">
 					<div class="hsr-main-video">
-						<iframe width="682" height="410" class="hsr-video-frame" title="YouTube video player" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share;"></iframe>
+						<video
+								id="hts-video-player"
+								class="video-js vjs-big-play-centered vjs-default-skin"
+								controls
+								preload="auto"
+								fluid="true"
+								poster="//img.youtube.com/vi/WkbQr5dSGLs/maxresdefault.jpg"
+								data-setup='{"techOrder": ["youtube"], "sources": [{
+      "type": "video/youtube", "src":
+      "https://www.youtube.com/watch?v=WkbQr5dSGLs"}] }'
+						>
 					</div>
 					<div class="hsr-main-video-info">
 						<div class="hsr-main-video-title">
@@ -209,7 +234,7 @@ $videoArray = [
 						foreach ( $videoArray as $item ) {
 							?>
 							<div class="hsr-playlist-item" id="hsr-playlist-item"
-							     data-title="<?php echo $item['title']; ?>" data-id="<?php echo $item['id']; ?>">
+							     data-title="<?php echo $item['title']; ?>" data-id="<?php echo $item['id']; ?>" data-video-src="https://www.youtube.com/watch?v=<?php echo $item['id']; ?>">
 								<div class="hsr-playlist-item-arrow">
 									<img class="hsr-arrow-icon"
 									     src="<?php echo esc_url( HOSTINGER_ASSETS_URL . '/images/play-icon.svg' ); ?>"
@@ -258,3 +283,38 @@ $videoArray = [
 		</div>
 	</div>
 </div>
+
+<?php if ( has_action( 'hostinger_ai_assistant_tab_view' ) && current_user_can( 'edit_posts' ) ) : ?>
+<!--AI ASSISTANT-->
+<div class="hostinger hsr-ai-assistant-tab">
+	<?php do_action( 'hostinger_ai_assistant_tab_view' ); ?>
+</div>
+<?php endif; ?>
+<!--REGENERATE WEBSITE-->
+<div class="hostinger hsr-ai-website-tab">
+	<div class="hts-ai-website hts-tab-content">
+		<div class="wrapper">
+			<div class="hts-heading">
+				<h2><?= __('AI Website Regeneration','hostinger')?></h2>
+			</div>
+			<div class="hts-container">
+				<div class="hts-content">
+					<p><?= __('We\'re developing an upcoming WordPress plugin feature that will enable website regeneration using our advanced AI tools. In the near future, you\'ll have the option to refresh your website with this innovative functionality. Stay informed about our latest developments as we work on this addition.','hostinger') ?></p>
+					<div class="hts-btn-wrapper">
+						<a class="hsr-btn hsr-primary-btn" id="hts-notify" rel="noopener noreferrer"><?= __('Notify Me', 'hostinger')?></a>
+						<div class="hts-response-msg"></div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<?php if( $survey->is_survey_enabled() ): ?>
+<div class="hts-survey-wrapper">
+	<?php wp_nonce_field( 'get_questions', 'get_questions_nonce' ); ?>
+	<?php wp_nonce_field( 'submit_questions', 'submit_questions_nonce' ); ?>
+	<div id="hostinger-feedback-survey"></div>
+	<div id="hts-questionsLeft"><span id="hts-currentQuestion">1</span> <?php _e( 'Question', 'hostinger' ); ?> <?php _e( 'of ', 'hostinger' ); ?><span id="hts-allQuestions"></span></div>
+</div>
+<?php endif ?>
+

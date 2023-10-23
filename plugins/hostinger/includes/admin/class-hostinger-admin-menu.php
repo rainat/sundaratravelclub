@@ -20,6 +20,50 @@ class Hostinger_Admin_Menu {
 			$icon,
 			1
 		);
+
+		add_submenu_page(
+			'hostinger',
+			__( 'Get started', 'hostinger' ),
+			__( 'Get started', 'hostinger' ),
+			'manage_options',
+			'hostinger&#home',
+			'__return_empty_string',
+			2
+		);
+
+		add_submenu_page(
+			'hostinger',
+			__( 'Learn', 'hostinger' ),
+			__( 'Learn', 'hostinger' ),
+			'manage_options',
+			'hostinger&#learn',
+			'__return_empty_string',
+			3
+		);
+		if ( has_action( 'hostinger_ai_assistant_tab_view' ) && current_user_can( 'edit_posts' ) ) {
+			add_submenu_page(
+				'hostinger',
+				__( 'AI assistant', 'hostinger' ),
+				__( 'AI assistant', 'hostinger' ),
+				'manage_options',
+				'hostinger&#ai-assistant',
+				'__return_empty_string',
+				4
+			);
+		}
+
+		add_submenu_page(
+			'hostinger',
+			__( 'Regenerate website with AI', 'hostinger' ),
+			__( 'Regenerate website with AI', 'hostinger' ),
+			'manage_options',
+			'hostinger&#ai-website',
+			'__return_empty_string',
+			5
+		);
+
+		remove_submenu_page( 'hostinger', 'hostinger' );
+
 	}
 
 	public function render(): void {

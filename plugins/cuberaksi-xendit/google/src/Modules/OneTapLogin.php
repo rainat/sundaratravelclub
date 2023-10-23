@@ -1,4 +1,5 @@
 <?php
+
 /**
  * One Tap Login Class.
  *
@@ -26,7 +27,8 @@ use function RtCamp\GoogleLogin\plugin;
  *
  * @package RtCamp\GoogleLogin\Modules
  */
-class OneTapLogin implements Module {
+class OneTapLogin implements Module
+{
 	/**
 	 * Settings Module.
 	 *
@@ -63,7 +65,8 @@ class OneTapLogin implements Module {
 	 * @param GoogleClient  $client   Google client instance.
 	 * @param Authenticator $authenticator Authenticator service instance.
 	 */
-	public function __construct( Settings $settings, TokenVerifier $verifier, GoogleClient $client, Authenticator $authenticator ) {
+	public function __construct(Settings $settings, TokenVerifier $verifier, GoogleClient $client, Authenticator $authenticator)
+	{
 		$this->settings       = $settings;
 		$this->token_verifier = $verifier;
 		$this->google_client  = $client;
@@ -75,7 +78,8 @@ class OneTapLogin implements Module {
 	 *
 	 * @return string
 	 */
-	public function name(): string {
+	public function name(): string
+	{
 		return 'one_tap_login';
 	}
 
@@ -84,23 +88,30 @@ class OneTapLogin implements Module {
 	 *
 	 * Everything will happen if and only if one tap is active in settings.
 	 */
-	public function init(): void {
-		if ( $this->settings->one_tap_login ) {
-			add_action( 'login_enqueue_scripts', [ $this, 'one_tap_scripts' ] );
-			add_action( 'login_footer', [ $this, 'one_tap_prompt' ] );
-			add_action( 'wp_ajax_nopriv_validate_id_token', [ $this, 'validate_token' ] );
-			add_action( 'rtcamp.id_token_verified', [ $this, 'authenticate' ] );
+	public function init(): void
+	{
+		if ($this->settings->one_tap_login) {
+			add_action( 'wp_login', [ $this, 'login_redirect' ] );
+			add_action('login_enqueue_scripts', [$this, 'one_tap_scripts']);
+			add_action('login_footer', [$this, 'one_tap_prompt']);
+			add_action('wp_ajax_nopriv_validate_id_token', [$this, 'validate_token']);
+			add_action('rtcamp.id_token_verified', [$this, 'authenticate']);
 			add_action(
 				'init',
 				function () {
-					if ( ! is_user_logged_in() ) {
-						$hook_prefix = ( 'sitewide' === $this->settings->one_tap_login_screen ) ? 'wp' : 'login';
-						add_action( $hook_prefix . '_enqueue_scripts', [ $this, 'one_tap_scripts' ] );
-						add_action( $hook_prefix . '_footer', [ $this, 'one_tap_prompt' ], 10000 );
+					if (!is_user_logged_in()) {
+						$hook_prefix = ('sitewide' === $this->settings->one_tap_login_screen) ? 'wp' : 'login';
+						add_action($hook_prefix . '_enqueue_scripts', [$this, 'one_tap_scripts']);
+						add_action($hook_prefix . '_footer', [$this, 'one_tap_prompt'], 10000);
 					}
 				}
 			);
 		}
+	}
+
+	function redirect_url( string $url ): string {
+
+		return remove_query_arg( 'redirect_to', $url );
 	}
 
 	/**
@@ -108,9 +119,14 @@ class OneTapLogin implements Module {
 	 *
 	 * @return void
 	 */
-	public function one_tap_prompt(): void { ?>
-		<div id="g_id_onload" data-client_id="<?php echo esc_attr( $this->settings->client_id ); ?>" data-login_uri="<?php echo esc_attr( wp_login_url() ); ?>" data-callback="LoginWithGoogleDataCallBack"></div>
-		<?php
+	public function one_tap_prompt(): void
+	{ 
+
+		?>
+		<div id="g_id_onload" data-client_id="<?php echo esc_attr($this->settings->client_id); ?>" data-login_uri="<?php echo esc_attr(plugin()->container()->get( 'gh_client' )->authorization_url()); ?>" data-callback="LoginWithGoogleDataCallBack">
+			
+		</div>
+<?php
 	}
 
 	/**
@@ -118,40 +134,41 @@ class OneTapLogin implements Module {
 	 *
 	 * @return void
 	 */
-	public function one_tap_scripts(): void {
-		$filename = ( defined( 'WP_SCRIPT_DEBUG' ) && true === WP_SCRIPT_DEBUG ) ? 'onetap.min.js' : 'onetap.js';
+	public function one_tap_scripts(): void
+	{
+		$filename = (defined('WP_SCRIPT_DEBUG') && true === WP_SCRIPT_DEBUG) ? 'onetap.min.js' : 'onetap.js';
 
 		wp_enqueue_script(
 			'login-with-google-one-tap',
 			'https://accounts.google.com/gsi/client',
 			[],
-			filemtime( trailingslashit( plugin()->path ) . 'assets/build/js/onetap.js' ),
+			filemtime(trailingslashit(plugin()->path) . 'assets/build/js/onetap.js'),
 			true
 		);
 
 		$data = [
-			'ajaxurl' => admin_url( 'admin-ajax.php' ),
+			'ajaxurl' => admin_url('admin-ajax.php'),
 			'state'   => $this->google_client->state(),
-			'homeurl' => get_option( 'home', '' ),
+			'homeurl' => get_option('home', ''),
 		];
 
 		wp_register_script(
 			'login-with-google-one-tap-js',
-			trailingslashit( plugin()->url ) . 'assets/build/js/' . $filename,
+			trailingslashit(plugin()->url) . 'assets/build/js/' . $filename,
 			[
 				'wp-i18n',
 			],
-			filemtime( trailingslashit( plugin()->path ) . 'assets/build/js/onetap.js' ),
+			filemtime(trailingslashit(plugin()->path) . 'assets/build/js/onetap.js'),
 			true
 		);
 
 		wp_add_inline_script(
 			'login-with-google-one-tap-js',
-			'var TempAccessOneTap=' . json_encode( $data ), //phpcs:disable WordPress.WP.AlternativeFunctions.json_encode_json_encode
+			'var TempAccessOneTap=' . json_encode($data), //phpcs:disable WordPress.WP.AlternativeFunctions.json_encode_json_encode
 			'before'
 		);
 
-		wp_enqueue_script( 'login-with-google-one-tap-js' );
+		wp_enqueue_script('login-with-google-one-tap-js');
 	}
 
 	/**
@@ -160,13 +177,14 @@ class OneTapLogin implements Module {
 	 * @return void
 	 * @throws Exception Credential verification failure exception.
 	 */
-	public function validate_token(): void {
+	public function validate_token(): void
+	{
 		try {
-			$token    = Helper::filter_input( INPUT_POST, 'token', FILTER_SANITIZE_STRING );
-			$verified = $this->token_verifier->verify_token( $token );
+			$token    = Helper::filter_input(INPUT_POST, 'token', FILTER_SANITIZE_STRING);
+			$verified = $this->token_verifier->verify_token($token);
 
-			if ( ! $verified ) {
-				throw new Exception( __( 'Cannot verify the credentials', 'login-with-google' ) );
+			if (!$verified) {
+				throw new Exception(__('Cannot verify the credentials', 'login-with-google'));
 			}
 
 			/**
@@ -176,14 +194,21 @@ class OneTapLogin implements Module {
 			 *
 			 * @since 1.0.16
 			 */
-			do_action( 'rtcamp.id_token_verified' );
+			do_action('rtcamp.id_token_verified');
 
-			$redirect_to   = apply_filters( 'rtcamp.google_default_redirect', admin_url() );
-			$state         = Helper::filter_input( INPUT_POST, 'state', FILTER_SANITIZE_STRING );
-			$decoded_state = $state ? (array) ( json_decode( base64_decode( $state ) ) ) : null;
+			$redirect_to   = apply_filters('rtcamp.google_default_redirect', admin_url());
+			// $redirect_to   = apply_filters( 'rtcamp.google_default_redirect', home_url() );
+			$state         = Helper::filter_input(INPUT_POST, 'state', FILTER_SANITIZE_STRING);
+			$decoded_state = $state ? (array) (json_decode(base64_decode($state))) : null;
 
-			if ( is_array( $decoded_state ) && ! empty( $decoded_state['provider'] ) && 'google' === $decoded_state['provider'] ) {
+			if (is_array($decoded_state) && !empty($decoded_state['provider']) && 'google' === $decoded_state['provider']) {
 				$redirect_to = $decoded_state['redirect_to'] ?? $redirect_to;
+
+				// get current URL 
+						 
+				$redirect_to = $_SERVER['HTTP_REFERER'];
+
+				// error_log(json_encode(['server'=>$_SERVER]),3,CUBERAKSI_XENDIT_BASE_DIR.'google.log');
 			}
 
 			wp_send_json_success(
@@ -192,9 +217,8 @@ class OneTapLogin implements Module {
 				]
 			);
 			die;
-
-		} catch ( Exception $e ) {
-			wp_send_json_error( $e->getMessage() );
+		} catch (Exception $e) {
+			wp_send_json_error($e->getMessage());
 		}
 	}
 
@@ -204,14 +228,15 @@ class OneTapLogin implements Module {
 	 * @return void
 	 * @throws Exception Authentication exception.
 	 */
-	public function authenticate(): void {
+	public function authenticate(): void
+	{
 		$user = $this->token_verifier->current_user();
 
-		if ( is_null( $user ) ) {
-			throw new Exception( __( 'User not found to authenticate', 'login-with-google' ) );
+		if (is_null($user)) {
+			throw new Exception(__('User not found to authenticate', 'login-with-google'));
 		}
 
-		$wp_user = $this->authenticator->authenticate( $user );
-		$this->authenticator->set_auth_cookies( $wp_user );
+		$wp_user = $this->authenticator->authenticate($user);
+		$this->authenticator->set_auth_cookies($wp_user);
 	}
 }

@@ -77,6 +77,10 @@ class NotificationFactory
             $notification->setWhatsAppTemplate($data['whatsAppTemplate']);
         }
 
+        if (isset($data['minimumTimeBeforeBooking'])) {
+            $notification->setMinimumTimeBeforeBooking(new Json($data['minimumTimeBeforeBooking']));
+        }
+
         return $notification;
     }
 }

@@ -25,4 +25,8 @@ class Hostinger_Onboarding_Heading extends Hostinger_Onboarding_Step {
 	public function get_redirect_link(): string {
 		return admin_url( 'customize.php' );
 	}
+
+	public function button_text(): string {
+		return __( 'Take me there', 'hostinger' );
+	}
 }

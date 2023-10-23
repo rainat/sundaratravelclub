@@ -67,6 +67,9 @@ class Notification
     /** @var BooleanValueObject */
     private $sendOnlyMe;
 
+    /** @var Json */
+    private $minimumTimeBeforeBooking;
+
     /** @var string */
     private $whatsAppTemplate;
 
@@ -355,6 +358,22 @@ class Notification
         $this->whatsAppTemplate = $whatsAppTemplate;
     }
 
+    /**
+     * @return Json
+     */
+    public function getMinimumTimeBeforeBooking()
+    {
+        return $this->minimumTimeBeforeBooking;
+    }
+
+    /**
+     * @param Json $minimumTimeBeforeBooking
+     */
+    public function setMinimumTimeBeforeBooking($minimumTimeBeforeBooking)
+    {
+        $this->minimumTimeBeforeBooking = $minimumTimeBeforeBooking;
+    }
+
 
     /**
      * @return array
@@ -378,6 +397,7 @@ class Notification
             'entityIds'    => $this->getEntityIds(),
             'sendOnlyMe'   => $this->getSendOnlyMe() ? $this->getSendOnlyMe()->getValue() : null,
             'whatsAppTemplate' => $this->getWhatsAppTemplate() ?: null,
+            'minimumTimeBeforeBooking' => $this->getMinimumTimeBeforeBooking() ? $this->getMinimumTimeBeforeBooking()->getValue() : null
         ];
     }
 }

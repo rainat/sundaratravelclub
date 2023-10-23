@@ -127,6 +127,10 @@
         type: 'string',
         default: 'id'
       },
+      in_dialog: {
+        type: 'boolean',
+        default: false
+      },
       show: {
         type: 'string',
         default: ''
@@ -156,6 +160,10 @@
         default: ''
       },
       parametars: {
+        type: 'boolean',
+        default: false
+      },
+      skip_categories: {
         type: 'boolean',
         default: false
       }
@@ -270,6 +278,14 @@
             shortCode += ' trigger_type=' + attributes.trigger_type + ''
           }
 
+          if (attributes.trigger && attributes.in_dialog) {
+            shortCode += ' in_dialog=1'
+          }
+
+          if (attributes.skip_categories) {
+            shortCode += ' categories_hidden=1'
+          }
+
           shortCode += ']'
         } else {
           shortCode = 'Notice: Please create category, service and employee first.'
@@ -357,6 +373,20 @@
         inspectorElements.push(el('div', {style: {'margin-bottom': '1em'}}, ''))
 
         if (attributes.parametars) {
+          inspectorElements.push(el(components.PanelRow,
+            {},
+            el('label', {htmlFor: 'amelia-js-skip-categores'}, wpAmeliaLabels.skip_categories),
+            el(components.FormToggle, {
+              id: 'amelia-js-skip-categores',
+              checked: attributes.skip_categories,
+              onChange: function () {
+                return props.setAttributes({skip_categories: !props.attributes.skip_categories})
+              }
+            })
+          ))
+
+          inspectorElements.push(el('div', {style: {'margin-bottom': '1em'}}, ''))
+
           inspectorElements.push(el(components.SelectControl, {
             id: 'amelia-js-select-employee',
             label: wpAmeliaLabels.select_employee,
@@ -399,8 +429,8 @@
         } else {
           attributes.employee = ''
           attributes.location = ''
+          attributes.skip_categories = false
         }
-
 
         inspectorElements.push(el(components.TextControl, {
           id: 'amelia-js-trigger',
@@ -422,6 +452,18 @@
             return props.setAttributes({trigger_type: selectControl})
           }
         }))
+
+        inspectorElements.push(el(components.PanelRow,
+          {},
+          el('label', {htmlFor: 'amelia-js-in-dialog'}, wpAmeliaLabels.in_dialog),
+          el(components.FormToggle, {
+            id: 'amelia-js-in-dialog',
+            checked: attributes.in_dialog,
+            onChange: function () {
+              return props.setAttributes({in_dialog: !props.attributes.in_dialog})
+            }
+          })
+        ))
 
         return [
           el(blockControls, {key: 'controls'}),

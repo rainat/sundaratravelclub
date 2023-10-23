@@ -19,6 +19,7 @@ window.history.replaceState(null, null, url);
   var wpAmeliaPluginAjaxURL = '<?php echo AMELIA_ACTION_URL; ?>';
   var wpAmeliaPluginStoreURL = '<?php echo AMELIA_STORE_API_URL; ?>';
   var wpAmeliaSiteURL = '<?php echo AMELIA_SITE_URL; ?>';
+  var wpAmeliaNonce = '<?php echo wp_create_nonce('ajax-nonce'); ?>';
   var menuPage = '<?php echo isset($page) ? (string)$page : ''; ?>';
   var wpAmeliaSMSVendorId = '<?php echo AMELIA_SMS_VENDOR_ID; ?>';
   var wpAmeliaSMSProductId10 = '<?php echo AMELIA_SMS_PRODUCT_ID_10; ?>';

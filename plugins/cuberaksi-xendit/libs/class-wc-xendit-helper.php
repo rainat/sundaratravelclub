@@ -4,6 +4,8 @@ if (!defined('ABSPATH')) {
     exit;
 }
 
+
+
 final class WC_Xendit_PG_Helper
 {
     public static function is_wc_lt($version)
@@ -24,6 +26,8 @@ final class WC_Xendit_PG_Helper
      */
     public static function generate_items_and_customer(WC_Order $order)
     {
+        require_once CUBERAKSI_XENDIT_BASE_DIR . 'woo/helper.php';
+        
         if (!is_object($order)) {
             return [];
         }
@@ -47,7 +51,7 @@ final class WC_Xendit_PG_Helper
             $item = array();
             $item['id']         = $product->get_id();
             $item['name']       = $product->get_name();
-            $item['price']      = $order->get_item_subtotal($item_data);
+            $item['price']      = $order->get_item_subtotal($item_data)*CUBERAKSI_XENDIT_USD_IDR();
             $item['type']       = "PRODUCT";
             $item['quantity']   = $item_data->get_quantity();
 

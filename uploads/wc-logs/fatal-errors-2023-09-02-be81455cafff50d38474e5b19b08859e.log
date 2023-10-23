@@ -1,0 +1,11 @@
+2023-09-02T03:15:10+00:00 CRITICAL Uncaught Error: Cannot use object of type WP_Post as array in /home/u822946699/domains/sundaratravelclub.com/public_html/staging/wp-content/plugins/cuberaksi-midtrans/woo/custom.php:51
+Stack trace:
+#0 /home/u822946699/domains/sundaratravelclub.com/public_html/staging/wp-includes/class-wp-hook.php(310): Cuberaksi_Custom->{closure}()
+#1 /home/u822946699/domains/sundaratravelclub.com/public_html/staging/wp-includes/class-wp-hook.php(334): WP_Hook->apply_filters()
+#2 /home/u822946699/domains/sundaratravelclub.com/public_html/staging/wp-includes/plugin.php(517): WP_Hook->do_action()
+#3 /home/u822946699/domains/sundaratravelclub.com/public_html/staging/wp-includes/template-loader.php(13): do_action()
+#4 /home/u822946699/domains/sundaratravelclub.com/public_html/staging/wp-blog-header.php(19): require_once('/home/u82294669...')
+#5 /home/u822946699/domains/sundaratravelclub.com/public_html/staging/index.php(17): require('/home/u82294669...')
+#6 {main}
+  thrown in /home/u822946699/domains/sundaratravelclub.com/public_html/staging/wp-content/plugins/cuberaksi-midtrans/woo/custom.php on line 51
+

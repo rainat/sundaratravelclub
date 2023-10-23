@@ -21,11 +21,7 @@ class Hostinger_Admin_Redirect {
 	}
 
 	private function loginRedirect(): void {
-		$allowed_segments = [
-			Hostinger_Settings::BUSINESS_BEGINNER_SEGMENT,
-			Hostinger_Settings::LEARNER_SEGMENT,
-		];
-		if ( $this->platform === self::PLATFORM_HPANEL && in_array( Hostinger_Settings::get_setting( 'user_segment' ), $allowed_segments, true ) ) {
+		if ( $this->platform === self::PLATFORM_HPANEL ) {
 			add_action( 'init', static function () {
 				$redirect_url = admin_url( 'admin.php?page=hostinger' );
 				wp_redirect( $redirect_url );

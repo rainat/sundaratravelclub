@@ -1,6 +1,6 @@
 <?php
 
-namespace Cuberaksi\Shortcode\Calendar;
+namespace Cuberaksi\Shortcode\Tripfields;
 
 class Shortcode_Trip
 {
@@ -39,8 +39,8 @@ class Shortcode_Trip
 		
 		$product = wc_get_product($post->ID);
 		
-		$product_meta_duration = $product ?  $product->get_meta('duration_text_field') : false;
-		$product_meta_max = $product ? $product->get_meta('max_people_number_field',true) : false;
+		$product_meta_duration = $product ?  \get_field('duration_trip') : false;
+		$product_meta_max = $product ? \get_field('max_people') : false;
 		$product_price = $product ? $product->get_price_html() : false;
 		
 		$view_logo['duration'] = true;

@@ -460,6 +460,7 @@ class EventFactory
                     'aggregatedPrice' => isset($row['booking_aggregatedPrice']) ?
                         $row['booking_aggregatedPrice'] : null,
                     'token'         => isset($row['booking_token']) ? $row['booking_token'] : null,
+                    'created'       => !empty($row['booking_created']) ? DateTimeService::getCustomDateTimeFromUtc($row['booking_created']) : null,
                 ];
             }
 

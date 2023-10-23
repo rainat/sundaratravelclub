@@ -117,6 +117,63 @@ class NotificationLogRepository extends AbstractRepository
     }
 
     /**
+     * @param int    $entityId
+     * @param string $entityType
+     * @param int    $userId
+     * @param array  $notificationsIds
+     *
+     * @return void
+     * @throws QueryExecutionException
+     */
+    public function invalidateSentEmails($entityId, $entityType, $userId, $notificationsIds)
+    {
+        if (empty($notificationsIds)) {
+            return;
+        }
+
+        $params = [
+            ":$entityType" . 'Id' => $entityId,
+        ];
+
+        $userQuery = '';
+
+        if ($userId) {
+            $params[':userId'] = $userId;
+
+            $userQuery = ' AND userId = :userId';
+        }
+
+        $queryNotificationsIds = [];
+
+        foreach ($notificationsIds as $index => $value) {
+            $param = ':notificationId' . $index;
+
+            $queryNotificationsIds[] = $param;
+
+            $params[$param] = $value;
+        }
+
+        try {
+            $statement = $this->connection->prepare(
+                "UPDATE {$this->table} SET 
+                `sent` = -1
+                WHERE
+                {$entityType}Id = :{$entityType}Id
+                AND notificationId IN (" . implode(', ', $queryNotificationsIds) . ')'
+                . $userQuery
+            );
+
+            $res = $statement->execute($params);
+
+            if (!$res) {
+                throw new QueryExecutionException('Unable to save data in ' . __CLASS__);
+            }
+        } catch (\Exception $e) {
+            throw new QueryExecutionException('Unable to save data in ' . __CLASS__, $e->getCode(), $e);
+        }
+    }
+
+    /**
      * Return a collection of tomorrow appointments where customer notification is not sent and should be.
      *
      * @param int   $notificationId
@@ -188,6 +245,7 @@ class NotificationLogRepository extends AbstractRepository
                     cb.aggregatedPrice AS booking_aggregatedPrice,
                     cb.persons AS booking_persons,
                     cb.duration AS booking_duration,
+                    cb.created AS booking_created,
                     
                     p.id AS payment_id,
                     p.amount AS payment_amount,
@@ -316,6 +374,7 @@ class NotificationLogRepository extends AbstractRepository
                     cb.utcOffset AS booking_utcOffset,
                     cb.aggregatedPrice AS booking_aggregatedPrice,
                     cb.persons AS booking_persons,
+                    cb.created AS booking_created,
         
                     p.id AS payment_id,
                     p.amount AS payment_amount,
@@ -354,6 +413,7 @@ class NotificationLogRepository extends AbstractRepository
                 LEFT JOIN {$couponsTable} c ON c.id = cb.couponId
                 WHERE ep.periodStart BETWEEN {$startCurrentDate} AND {$endCurrentDate}
                 AND cb.status = 'approved'
+                AND e.status = 'approved'
                 AND e.notifyParticipants = 1 AND
                 e.id NOT IN (
                     SELECT nl.eventId 
@@ -440,6 +500,7 @@ class NotificationLogRepository extends AbstractRepository
                     cb.persons AS booking_persons,
                     cb.aggregatedPrice AS booking_aggregatedPrice,
                     cb.duration AS booking_duration,
+                    cb.created AS booking_created,
         
                     p.id AS payment_id,
                     p.amount AS payment_amount,
@@ -573,6 +634,7 @@ class NotificationLogRepository extends AbstractRepository
                     cb.price AS booking_price,
                     cb.customFields AS booking_customFields,
                     cb.persons AS booking_persons,
+                    cb.created AS booking_created,
                      
                     p.id AS payment_id,
                     p.amount AS payment_amount,
@@ -599,6 +661,7 @@ class NotificationLogRepository extends AbstractRepository
                 LEFT JOIN {$this->usersTable} pu ON pu.id = epr.userId
                 WHERE ep.periodStart BETWEEN {$startCurrentDate} AND {$endCurrentDate}
                 AND cb.status = 'approved' 
+                AND e.status = 'approved' 
                 AND e.id NOT IN (
                     SELECT nl.eventId 
                     FROM {$this->table} nl 
@@ -641,7 +704,7 @@ class NotificationLogRepository extends AbstractRepository
                 $where     = "{$currentDateTime} BETWEEN DATE_ADD(a.bookingEnd, INTERVAL {$timeAfter} SECOND) AND DATE_ADD(a.bookingEnd, INTERVAL {$lastTime} SECOND)";
             } else if ($notification->getTimeBefore()) {
                 $timeBefore = $notification->getTimeBefore()->getValue();
-                $where      = "({$currentDateTime} BETWEEN DATE_SUB(a.bookingStart, INTERVAL {$timeBefore} SECOND) AND a.bookingStart) AND (a.bookingStart >= DATE_ADD(p.created, INTERVAL {$timeBefore} SECOND))";
+                $where      = "({$currentDateTime} BETWEEN DATE_SUB(a.bookingStart, INTERVAL {$timeBefore} SECOND) AND a.bookingStart) AND (a.bookingStart >= DATE_ADD(cb.created, INTERVAL {$timeBefore} SECOND))";
             }
 
             $whereStatuses = [];
@@ -678,6 +741,7 @@ class NotificationLogRepository extends AbstractRepository
                     cb.aggregatedPrice AS booking_aggregatedPrice,
                     cb.persons AS booking_persons,
                     cb.duration AS booking_duration,
+                    cb.created AS booking_created,
                     
                     p.id AS payment_id,
                     p.amount AS payment_amount,
@@ -748,6 +812,7 @@ class NotificationLogRepository extends AbstractRepository
 
         $where = "WHERE e.notifyParticipants = 1 
                 AND cb.status = 'approved' 
+                AND e.status = 'approved' 
                 AND e.id NOT IN (
                     SELECT nl.eventId 
                     FROM {$this->table} nl 
@@ -778,7 +843,7 @@ class NotificationLogRepository extends AbstractRepository
                     e.recurringCycle AS event_recurringCycle,
                     e.recurringOrder AS event_recurringOrder,
                     e.recurringUntil AS event_recurringUntil,
-                    e.recurringCycle AS event_recurringInterval,
+                    e.recurringInterval AS event_recurringInterval,
                     e.bringingAnyone AS event_bringingAnyone,
                     e.bookMultipleTimes AS event_bookMultipleTimes,
                     e.maxCapacity AS event_maxCapacity,
@@ -813,7 +878,8 @@ class NotificationLogRepository extends AbstractRepository
                     cb.utcOffset AS booking_utcOffset,
                     cb.aggregatedPrice AS booking_aggregatedPrice,
                     cb.persons AS booking_persons,
-                    cb.duration AS booking_duration
+                    cb.duration AS booking_duration,
+                    cb.created AS booking_created
                 FROM {$eventsTable} e
                 INNER JOIN {$eventsPeriodsTable} ep ON ep.eventId = e.id
                 INNER JOIN {$customerBookingsEventsPeriods} cbe ON cbe.eventPeriodId = ep.id

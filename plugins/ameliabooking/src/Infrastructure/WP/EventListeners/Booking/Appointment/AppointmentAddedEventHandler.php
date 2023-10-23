@@ -91,7 +91,7 @@ class AppointmentAddedEventHandler
 
         $bookingApplicationService->setAppointmentEntities($appointmentObject, $appointments);
 
-        $appointments->addItem($appointmentObject, $appointmentObject->getId()->getValue());
+        $appointments->addItem($appointmentObject, $appointmentObject->getId()->getValue(), true);
 
         $pastAppointment =  $appointmentObject->getBookingStart()->getValue() < DateTimeService::getNowDateTimeObject();
 
@@ -141,7 +141,7 @@ class AppointmentAddedEventHandler
 
             $bookingApplicationService->setAppointmentEntities($recurringReservationObject, $appointments);
 
-            $appointments->addItem($recurringReservationObject, $recurringReservationObject->getId()->getValue());
+            $appointments->addItem($recurringReservationObject, $recurringReservationObject->getId()->getValue(), true);
 
             if ($zoomService && !$pastAppointment) {
                 $zoomService->handleAppointmentMeeting($recurringReservationObject, self::BOOKING_ADDED);

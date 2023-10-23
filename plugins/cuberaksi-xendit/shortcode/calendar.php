@@ -64,6 +64,8 @@ class Shortcode_GCalendar
 		<a rel='noopener' target='_blank' href='https://calendar.google.com/calendar/render?action=TEMPLATE&dates={$data['dates']}&details={$data['details']}&location={$data['location']}&text={$data['text']}' class='cta btn-yellow' style='background-color: #F4D66C; font-size: 18px; font-family: Helvetica, Arial, sans-serif; font-weight:bold; text-decoration: none; padding: 14px 20px; color: #1D2025; border-radius: 5px; display:inline-block; mso-padding-alt:0; box-shadow:0 3px 6px rgba(0,0,0,.2);'><span style='mso-text-raise:15pt;'>Add to your Google Calendar</span></a>			
 		";
 
+		// https://www.google.com/calendar/render?action=TEMPLATE&text=Trip%20D&dates=20231022T120000Z/20231023T120000Z&details=&location=Sei%20Buluh,%20Kabupaten%20Serdang%20Bedagai,%20Sumatera%20Utara&sprop=&sprop=name:
+
 		return ob_get_clean();
 	}
 }

@@ -10,6 +10,7 @@ use AmeliaBooking\Application\Services\Payment\PaymentApplicationService;
 use AmeliaBooking\Application\Services\Placeholder\PlaceholderService;
 use AmeliaBooking\Domain\Collection\Collection;
 use AmeliaBooking\Domain\Common\Exceptions\BookingCancellationException;
+use AmeliaBooking\Domain\Common\Exceptions\BookingUnavailableException;
 use AmeliaBooking\Domain\Common\Exceptions\InvalidArgumentException;
 use AmeliaBooking\Domain\Entity\Bookable\Service\Extra;
 use AmeliaBooking\Domain\Entity\Bookable\Service\Package;
@@ -116,6 +117,7 @@ class WooCommerceService
         add_filter('woocommerce_thankyou', [self::class, 'redirectAfterOrderReceived'], 10, 2);
 
         add_action('woocommerce_before_checkout_process', [self::class, 'beforeCheckoutProcess'], 10, 1);
+        add_action('woocommerce_checkout_create_order', [self::class, 'beforeCheckoutProcess'], 10, 2);
         add_filter('woocommerce_before_calculate_totals', [self::class, 'beforeCalculateTotals'], 10, 3);
     }
 
@@ -350,6 +352,7 @@ class WooCommerceService
      * @param mixed $orderItem
      *
      * @return CustomerBooking|null
+     * @throws \Exception
      */
     private static function saveBooking($data, $orderItem)
     {
@@ -1060,6 +1063,8 @@ class WooCommerceService
         if (!$wooCommerceCart) {
             return false;
         }
+
+        do_action('AmeliaAddBookingToWcCart', $data);
 
         foreach ($wooCommerceCart->get_cart() as $wc_key => $wc_item) {
             if (isset($wc_item[self::AMELIA])) {
@@ -1828,10 +1833,11 @@ class WooCommerceService
      * Before checkout process
      *
      * @param $array
+     * @param $data
      *
      * @throws \Exception
      */
-    public static function beforeCheckoutProcess($array)
+    public static function beforeCheckoutProcess($array, $data = null)
     {
         $wooCommerceCart = self::getWooCommerceCart();
 

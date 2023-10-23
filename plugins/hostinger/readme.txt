@@ -1,13 +1,15 @@
 === Hostinger ===
 Tags: onboarding, hostinger
 Requires at least: 5.9
-Tested up to: 6.1
+Tested up to: 6.3
 Requires PHP: 7.4
-Stable tag: 7.4.0
+Stable tag: 1.8.3
 License: GPLv3
 License URI: https://www.gnu.org/licenses/gpl-3.0.html
 
 == Description ==
+
+Hostinger Onboarding WordPress Plugin simplifies and speeds up the setup of WordPress websites.
 
 == Installation ==
 
@@ -59,3 +61,59 @@ Automatic updates should work smoothly, but we still recommend you back up your 
 
 1.5.0 (2023-05-23)
 - Add onboarding steps autocomplete date
+
+1.6.0 (2023-06-08)
+- Add plugin update feature
+
+1.6.1 (2023-06-13)
+- Fixed unused assets
+- Fixed maintenance mode cache
+
+1.6.2 (2023-06-15)
+- Fixed maintenance mode conflicts with other plugins
+
+1.6.3 (2023-07-11)
+- Add AI asistant
+
+1.6.4 (2023-08-08)
+- Add additional AI assistant buttons
+
+1.6.5 (2023-08-14)
+- Add translations
+
+1.6.6 (2023-08-17)
+- Add additional submenu items
+
+1.6.7 (2023-09-08)
+- Bugfixes
+- Redirect all users from hpanel
+- Text changes
+
+1.7.0 (2023-09-08)
+- Add CSAT survey
+
+1.7.1 (2023-09-20)
+- Add additional request header
+
+1.7.2 (2023-09-22)
+- Hide notices in hostinger page
+
+1.8.0 (2023-09-27)
+- Additional amplitude events
+
+1.8.1 (2023-10-03)
+- Remove video iframes
+
+1.8.2 (2023-10-05)
+- Adjust CSAT survey
+
+1.8.3 (2023-10-13)
+- Add domain connection step
+- Hide preview banner
+
+1.8.4 (2023-10-20)
+- Added regenerate website tab
+- Style corrections
+
+1.8.5 (2023-10-20)
+- Text corrections

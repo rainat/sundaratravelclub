@@ -11,6 +11,7 @@ use AmeliaBooking\Domain\Common\Exceptions\InvalidArgumentException;
 use AmeliaBooking\Domain\Entity\Entities;
 use AmeliaBooking\Domain\Entity\Notification\Notification;
 use AmeliaBooking\Domain\Factory\Notification\NotificationFactory;
+use AmeliaBooking\Domain\ValueObjects\Json;
 use AmeliaBooking\Infrastructure\Common\Exceptions\NotFoundException;
 use AmeliaBooking\Infrastructure\Common\Exceptions\QueryExecutionException;
 use AmeliaBooking\Infrastructure\Repository\Booking\Event\EventRepository;
@@ -44,7 +45,7 @@ class UpdateNotificationCommandHandler extends CommandHandler
      */
     public function handle(UpdateNotificationCommand $command)
     {
-        if (!$this->getContainer()->getPermissionsService()->currentUserCanWrite(Entities::NOTIFICATIONS)) {
+        if (!$command->getPermissionService()->currentUserCanWrite(Entities::NOTIFICATIONS)) {
             throw new AccessDeniedException('You are not allowed to update notification');
         }
 
@@ -113,6 +114,11 @@ class UpdateNotificationCommandHandler extends CommandHandler
             'whatsAppTemplate' => $command->getField('whatsAppTemplate'),
             ]
         );
+
+        $minimumTime = $command->getField('minimumTimeBeforeBooking');
+        if (!empty($minimumTime) && json_encode($minimumTime)) {
+            $notification->setMinimumTimeBeforeBooking(new Json(json_encode($minimumTime)));
+        }
 
         if (!$notification instanceof Notification) {
             $result->setResult(CommandResult::RESULT_ERROR);

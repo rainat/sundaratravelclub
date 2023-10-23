@@ -263,7 +263,7 @@ class AppointmentRepository extends AbstractRepository implements AppointmentRep
                     c.expirationDate AS coupon_expirationDate,
                     c.limit AS coupon_limit,
                     c.customerLimit AS coupon_customerLimit,
-                    c.status AS coupon_status
+                    c.status AS coupon_status        
                 FROM {$this->table} a
                 INNER JOIN {$this->bookingsTable} cb ON cb.appointmentId = a.id
                 LEFT JOIN {$this->packagesCustomersTable} pc ON pc.customerId = cb.customerId
@@ -1057,7 +1057,7 @@ class AppointmentRepository extends AbstractRepository implements AppointmentRep
 
             if (!empty($criteria['withLocations'])) {
                 $locationsFields = '
-                    l.id AS appointment_locationId,
+                    l.id AS location_id,
                     l.name AS location_name,
                     l.address AS location_address,
                 ';

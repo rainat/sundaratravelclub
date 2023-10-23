@@ -43,6 +43,7 @@ class AddNotificationController extends Controller
         'duplicate',
         'entity',
         'whatsAppTemplate',
+        'minimumTimeBeforeBooking'
     ];
 
     /**

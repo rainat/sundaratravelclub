@@ -1,0 +1,9 @@
+2023-10-16T16:24:22+00:00 CRITICAL Uncaught Error: Object of class WP_Post could not be converted to string in /home/u822946699/domains/sundaratravelclub.com/public_html/staging/wp-includes/class-wp-embed.php:454
+Stack trace:
+#0 /home/u822946699/domains/sundaratravelclub.com/public_html/staging/wp-includes/class-wp-embed.php(454): str_replace('<!-- wp-line-br...', '\n', Object(WP_Post))
+#1 /home/u822946699/domains/sundaratravelclub.com/public_html/staging/wp-includes/class-wp-hook.php(310): WP_Embed->autoembed(Object(WP_Post))
+#2 /home/u822946699/domains/sundaratravelclub.com/public_html/staging/wp-includes/plugin.php(205): WP_Hook->apply_filters(Object(WP_Post), Array)
+#3 /home/u822946699/domains/sundaratravelclub.com/public_html/staging/wp-content/plugins/cuberaksi-xendit/woo/templates/order/order-details.php(115): apply_filters('the_content', Object(WP_Post))
+#4 /home/u822946699/domains/sundaratravelclub.com/public_html/staging/wp-content/plugins/woocommerce/includes/wc-core-functions.php(345): include('/home/u82294669...')
+#5 /home/u822946 in /home/u822946699/domains/sundaratravelclub.com/public_html/staging/wp-includes/class-wp-embed.php on line 454
+

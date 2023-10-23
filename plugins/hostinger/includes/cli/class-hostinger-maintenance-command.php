@@ -5,7 +5,6 @@ class Hostinger_Maintenance_Command {
 	public static function define_command(): void {
 		WP_CLI::add_command( 'hostinger maintenance', Hostinger_Maintenance_Command::class );
 	}
-
 	/**
 	 * Command allows enable/disable maintenance mode.
 	 *
@@ -24,6 +23,10 @@ class Hostinger_Maintenance_Command {
 	public function mode( array $args ): void {
 		if ( empty( $args ) ) {
 			WP_CLI::error( 'Arguments cannot be empty. Use 0 or 1' );
+		}
+
+		if ( has_action( 'litespeed_purge_all' ) ) {
+			do_action( 'litespeed_purge_all' );
 		}
 
 		switch ( $args[0] ) {

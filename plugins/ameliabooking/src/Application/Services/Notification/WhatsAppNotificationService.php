@@ -418,7 +418,7 @@ class WhatsAppNotificationService extends AbstractNotificationService
     private function getComponentData($notification, $data)
     {
         $placeholdersBody   = $this->getPlaceholdersObject($notification->getContent()->getValue(), $data);
-        $placeholdersHeader = $notification->getSubject() ? $this->getPlaceholdersObject($notification->getSubject()->getValue(), $data) : null;
+        $placeholdersHeader = $notification->getSubject() ? $this->getPlaceholdersObject($notification->getSubject()->getValue(), $data, true) : null;
 
         $components = [];
         if ($placeholdersHeader) {
@@ -437,20 +437,31 @@ class WhatsAppNotificationService extends AbstractNotificationService
     /**
      * @param $content
      * @param $data
+     * @param $isHeader
      * @return array
      */
-    private function getPlaceholdersObject($content, $data)
+    private function getPlaceholdersObject($content, $data, $isHeader = false)
     {
+        $isImageHeader = $isHeader && !empty($content) && $content[0] !== '%';
         $parameters   = explode('%', $content);
         $placeholders = [];
         foreach ($parameters as $parameter) {
             $parameter = trim($parameter);
             if (!empty($parameter)) {
-                $data[$parameter] = !empty($data[$parameter]) ? $data[$parameter] : ' ';
-                $placeholders[]   = [
-                    'type'  =>  'text',
-                    'text'  =>  $data[$parameter]
-                ];
+                if ($isImageHeader) {
+                    $placeholders[]   = [
+                        'type'  =>  'image',
+                        'image' =>  [
+                            'link' => $parameter
+                        ]
+                    ];
+                } else {
+                    $data[$parameter] = !empty($data[$parameter]) ? $data[$parameter] : ' ';
+                    $placeholders[]   = [
+                        'type'  =>  'text',
+                        'text'  =>  $data[$parameter]
+                    ];
+                }
             }
         }
         return $placeholders;

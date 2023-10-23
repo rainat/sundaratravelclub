@@ -66,10 +66,12 @@ class SubmenuPageHandler
         }
 
 
-        wp_enqueue_script(
-            'papaparse',
-            "https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.3.1/papaparse.min.js"
-        );
+        if ($page === 'wpamelia-customers') {
+            wp_enqueue_script(
+                'papaparse',
+                "https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.3.1/papaparse.min.js"
+            );
+        }
 
 
         if ($page === 'wpamelia-notifications') {
@@ -317,9 +319,7 @@ class SubmenuPageHandler
                 wp_localize_script(
                     'amelia_booking_scripts',
                     'wpAmeliaLabels',
-                    array_merge(
-                        BackendStrings::getWhatsNewStrings(),
-                    )
+                    BackendStrings::getWhatsNewStrings()
                 );
 
                 break;
@@ -370,7 +370,7 @@ class SubmenuPageHandler
         } else {
             wp_enqueue_script(
                 $scriptId,
-                AMELIA_URL . 'v3/public/assets/admin.4c24e41f.js',
+                AMELIA_URL . 'v3/public/assets/admin.ba740645.js',
                 [],
                 AMELIA_VERSION,
                 true

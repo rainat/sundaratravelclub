@@ -43,7 +43,9 @@ class AddBookingController extends Controller
         'recaptcha',
         'deposit',
         'ticketsData',
-        'isBackendOrCabinet'
+        'isBackendOrCabinet',
+        'packageBookingFromBackend',
+        'runInstantPostBookingActions'
     ];
 
     /**

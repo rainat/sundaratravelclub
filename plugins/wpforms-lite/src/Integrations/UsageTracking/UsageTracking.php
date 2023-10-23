@@ -4,6 +4,7 @@ namespace WPForms\Integrations\UsageTracking;
 
 use WPForms\Admin\Builder\Templates;
 use WPForms\Integrations\IntegrationInterface;
+use WPForms\Integrations\LiteConnect\Integration;
 
 /**
  * Usage Tracker functionality to understand what's going on on client's sites.
@@ -103,10 +104,11 @@ class UsageTracking implements IntegrationInterface {
 	public function settings_misc_option( $settings ) {
 
 		$settings['misc'][ self::SETTINGS_SLUG ] = [
-			'id'   => self::SETTINGS_SLUG,
-			'name' => esc_html__( 'Allow Usage Tracking', 'wpforms-lite' ),
-			'desc' => esc_html__( 'By allowing us to track usage data, we can better help you, as we will know which WordPress configurations, themes, and plugins we should test.', 'wpforms-lite' ),
-			'type' => 'checkbox',
+			'id'     => self::SETTINGS_SLUG,
+			'name'   => esc_html__( 'Allow Usage Tracking', 'wpforms-lite' ),
+			'desc'   => esc_html__( 'By allowing us to track usage data, we can better help you, as we will know which WordPress configurations, themes, and plugins we should test.', 'wpforms-lite' ),
+			'type'   => 'toggle',
+			'status' => true,
 		];
 
 		return $settings;
@@ -130,6 +132,8 @@ class UsageTracking implements IntegrationInterface {
 	 * @since 1.6.1
 	 *
 	 * @return array
+	 * @noinspection PhpUndefinedConstantInspection
+	 * @noinspection PhpUndefinedFunctionInspection
 	 */
 	public function get_data() {
 
@@ -156,6 +160,8 @@ class UsageTracking implements IntegrationInterface {
 			'is_wpcom'                       => defined( 'IS_WPCOM' ) && IS_WPCOM,
 			'is_wpcom_vip'                   => ( defined( 'WPCOM_IS_VIP_ENV' ) && WPCOM_IS_VIP_ENV ) || ( function_exists( 'wpcom_is_vip' ) && wpcom_is_vip() ),
 			'is_wp_cache'                    => defined( 'WP_CACHE' ) && WP_CACHE,
+			'is_wp_rest_api_enabled'         => $this->is_rest_api_enabled(),
+			'is_user_logged_in'              => is_user_logged_in(),
 			'sites_count'                    => $this->get_sites_total(),
 			'active_plugins'                 => $this->get_active_plugins(),
 			'theme_name'                     => $theme_data->name,
@@ -184,10 +190,15 @@ class UsageTracking implements IntegrationInterface {
 			'wpforms_multiple_confirmations' => count( $this->get_forms_with_multiple_confirmations( $forms ) ),
 			'wpforms_multiple_notifications' => count( $this->get_forms_with_multiple_notifications( $forms ) ),
 			'wpforms_ajax_form_submissions'  => count( $this->get_ajax_form_submissions( $forms ) ),
+			'wpforms_notification_count'     => wpforms()->get( 'notifications' )->get_count(),
 		];
 
 		if ( ! empty( $first_form_date ) ) {
 			$data['wpforms_forms_first_created'] = $first_form_date;
+		}
+
+		if ( $data['is_multisite'] ) {
+			$data['url_primary'] = network_site_url();
 		}
 
 		return $data;
@@ -265,6 +276,10 @@ class UsageTracking implements IntegrationInterface {
 					'stripe-test-publishable-key',
 					'stripe-live-secret-key',
 					'stripe-live-publishable-key',
+					'stripe-webhooks-secret-test',
+					'stripe-webhooks-secret-live',
+					'stripe-webhooks-id-test',
+					'stripe-webhooks-id-live',
 					'authorize_net-test-api-login-id',
 					'authorize_net-test-transaction-key',
 					'authorize_net-live-api-login-id',
@@ -281,6 +296,7 @@ class UsageTracking implements IntegrationInterface {
 					'hcaptcha-site-key',
 					'hcaptcha-secret-key',
 					'hcaptcha-fail-msg',
+					'pdf-ninja-api_key',
 				]
 			)
 		);
@@ -294,6 +310,19 @@ class UsageTracking implements IntegrationInterface {
 			}
 
 			$data[ $key ] = $value;
+		}
+
+		$lite_connect_data = get_option( Integration::get_option_name() );
+
+		// If lite connect has been restored, set lite connect data.
+		if (
+			isset( $lite_connect_data['import']['status'] ) &&
+			$lite_connect_data['import']['status'] === 'done'
+		) {
+			$data['lite_connect'] = [
+				'restore_date'         => $lite_connect_data['import']['ended_at'],
+				'restored_entry_count' => Integration::get_entries_count(),
+			];
 		}
 
 		// Add favorite templates to the settings array.
@@ -352,7 +381,9 @@ class UsageTracking implements IntegrationInterface {
 		if ( ! function_exists( 'get_plugins' ) ) {
 			include ABSPATH . '/wp-admin/includes/plugin.php';
 		}
-		$active  = get_option( 'active_plugins', [] );
+		$active  = is_multisite() ?
+			array_merge( get_option( 'active_plugins', [] ), array_flip( get_site_option( 'active_sitewide_plugins', [] ) ) ) :
+			get_option( 'active_plugins', [] );
 		$plugins = array_intersect_key( get_plugins(), array_flip( $active ) );
 
 		return array_map(
@@ -541,26 +572,22 @@ class UsageTracking implements IntegrationInterface {
 	 *
 	 * @return int
 	 */
-	private function get_entries_total( $period = 'all' ) {
+	private function get_entries_total( string $period = 'all' ): int {
 
 		if ( ! wpforms()->is_pro() ) {
-
-			switch ( $period ) {
-				case '7days':
-				case '30days':
-					$count = 0;
-					break;
-
-				default:
-					global $wpdb;
-					$count = $wpdb->get_var( // phpcs:ignore WordPress.DB.DirectDatabaseQuery.NoCaching
-						"SELECT SUM(meta_value)
-						FROM {$wpdb->postmeta}
-						WHERE meta_key = 'wpforms_entries_count';"
-					);
+			if ( $period === '7days' || $period === '30days' ) {
+				return 0;
 			}
 
-			return $count;
+			global $wpdb;
+
+			$count = $wpdb->get_var( // phpcs:ignore WordPress.DB.DirectDatabaseQuery.NoCaching
+				"SELECT SUM(meta_value)
+				FROM $wpdb->postmeta
+				WHERE meta_key = 'wpforms_entries_count';"
+			);
+
+			return (int) $count;
 		}
 
 		$args = [];
@@ -585,7 +612,9 @@ class UsageTracking implements IntegrationInterface {
 				break;
 		}
 
-		return wpforms()->entry->get_entries( $args, true );
+		$entry_obj = wpforms()->get( 'entry' );
+
+		return $entry_obj ? $entry_obj->get_entries( $args, true ) : 0;
 	}
 
 	/**
@@ -705,5 +734,55 @@ class UsageTracking implements IntegrationInterface {
 		}
 
 		return $settings;
+	}
+
+	/**
+	 * Test if the REST API is accessible.
+	 *
+	 * The REST API might be inaccessible due to various security measures,
+	 * or it might be completely disabled by a plugin.
+	 *
+	 * @since 1.8.2.2
+	 *
+	 * @return bool
+	 */
+	private function is_rest_api_enabled() {
+
+		// phpcs:disable WPForms.PHP.ValidateHooks.InvalidHookName
+		/** This filter is documented in wp-includes/class-wp-http-streams.php */
+		$sslverify = apply_filters( 'https_local_ssl_verify', false );
+		// phpcs:enable WPForms.PHP.ValidateHooks.InvalidHookName
+
+		$url      = rest_url( 'wp/v2/types/post' );
+		$response = wp_remote_get(
+			$url,
+			[
+				'timeout'   => 10,
+				'cookies'   => is_user_logged_in() ? wp_unslash( $_COOKIE ) : [],
+				'sslverify' => $sslverify,
+				'headers'   => [
+					'Cache-Control' => 'no-cache',
+					'X-WP-Nonce'    => wp_create_nonce( 'wp_rest' ),
+				],
+			]
+		);
+
+		// When testing the REST API, an error was encountered, leave early.
+		if ( is_wp_error( $response ) ) {
+			return false;
+		}
+
+		// When testing the REST API, an unexpected result was returned, leave early.
+		if ( wp_remote_retrieve_response_code( $response ) !== 200 ) {
+			return false;
+		}
+
+		// The REST API did not behave correctly, leave early.
+		if ( ! wpforms_is_json( wp_remote_retrieve_body( $response ) ) ) {
+			return false;
+		}
+
+		// We are all set. Confirm the connection.
+		return true;
 	}
 }

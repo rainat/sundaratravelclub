@@ -16,6 +16,8 @@
       'hasApiCall': (typeof hasAmeliaEntitiesApiCall !== 'undefined') && hasAmeliaEntitiesApiCall,
       'trigger': '<?php echo esc_js($params['trigger']); ?>',
       'trigger_type': '<?php echo esc_js($params['trigger_type']); ?>',
+      'triggered_form': 'sbsNew',
+      'in_dialog': '<?php echo esc_js($params['in_dialog']); ?>',
       'show': '<?php echo esc_js($params['show']); ?>',
       'counter': '<?php echo esc_js($params['counter']); ?>',
       'category': '<?php echo esc_js($params['category']); ?>',
@@ -25,17 +27,29 @@
       'package': '<?php echo esc_js($params['package']); ?>'
     }
   );
+
   var ameliaShortcodeDataTriggered = (typeof ameliaShortcodeDataTriggered === 'undefined') ? [] : ameliaShortcodeDataTriggered;
   if (ameliaShortcodeData[ameliaShortcodeData.length - 1].trigger !== '') {
-    ameliaShortcodeDataTriggered.push(ameliaShortcodeData.pop());
+    if (ameliaShortcodeDataTriggered.filter(a => a.counter === ameliaShortcodeData[ameliaShortcodeData.length - 1].counter).length === 0) {
+      ameliaShortcodeDataTriggered.push(ameliaShortcodeData.pop());
+    } else {
+      ameliaShortcodeData.pop()
+    }
   }
   if (typeof hasAmeliaEntitiesApiCall !== 'undefined' && hasAmeliaEntitiesApiCall) {
     hasAmeliaEntitiesApiCall = false;
   }
 </script>
 
-<div id="amelia-v2-booking-<?php echo $params['counter']; ?>"
-     class="amelia-v2-booking<?php echo $params['trigger'] !== '' ? ' amelia-skip-load amelia-skip-load-' . $params['counter'] : ''; ?>"
->
-  <step-form-wrapper></step-form-wrapper>
+<div
+  id="amelia-v2-booking-<?php echo $params['counter']; ?>"
+  class="amelia-v2-booking<?php echo $params['trigger'] !== '' ? ' amelia-skip-load amelia-skip-load-' . $params['counter'] : ''; ?>"
+ >
+    <?php
+      if(!$params['in_dialog']) {
+        echo '<step-form-wrapper></step-form-wrapper>';
+      } else {
+        echo '<dialog-forms></dialog-forms>';
+      }
+    ?>
 </div>

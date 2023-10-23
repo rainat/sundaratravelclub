@@ -223,6 +223,7 @@ class SettingsStorage implements SettingsStorageInterface
                 'hideCurrencySymbolFrontend' => $this->getSetting('payments', 'hideCurrencySymbolFrontend'),
                 'defaultPaymentMethod'       => $this->getSetting('payments', 'defaultPaymentMethod'),
                 'onSite'                     => $this->getSetting('payments', 'onSite'),
+                'couponsCaseInsensitive'     => $this->getSetting('payments', 'couponsCaseInsensitive'),
                 'coupons'                    => $this->getSetting('payments', 'coupons'),
                 'paymentLinks'               => [
                     'enabled'              => $this->getSetting('payments', 'paymentLinks')['enabled'],

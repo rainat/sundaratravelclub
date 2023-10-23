@@ -1,0 +1,9 @@
+.elementor-editor-active .hidden { 
+    display:block; 
+} 
+.hidden{
+        display:none;
+    }
+.shown{ 
+    display: block !important; 
+} 

@@ -12,6 +12,7 @@ use AmeliaBooking\Domain\Entity\Booking\Event\Event;
 use AmeliaBooking\Domain\Entity\Coupon\Coupon;
 use AmeliaBooking\Domain\Entity\Entities;
 use AmeliaBooking\Domain\Services\DateTime\DateTimeService;
+use AmeliaBooking\Domain\Services\Settings\SettingsService;
 use AmeliaBooking\Domain\ValueObjects\Number\Integer\WholeNumber;
 use AmeliaBooking\Domain\ValueObjects\String\BookingStatus;
 use AmeliaBooking\Infrastructure\Common\Exceptions\QueryExecutionException;
@@ -238,12 +239,18 @@ class CouponApplicationService
                 break;
         }
 
+        /** @var SettingsService $settingsService */
+        $settingsService = $this->container->get('domain.settings.service');
+
+        $couponsCaseInsensitive = $settingsService->getSetting('payments', 'couponsCaseInsensitive');
+
         /** @var Collection $coupons */
         $coupons = $couponRepository->getAllByCriteria(
             [
-                'code'       => $couponCode,
-                'entityType' => $couponEntityType,
-                'entityIds'  => $entityIds,
+                'code'                   => $couponCode,
+                'entityType'             => $couponEntityType,
+                'entityIds'              => $entityIds,
+                'couponsCaseInsensitive' => $couponsCaseInsensitive,
             ]
         );
 

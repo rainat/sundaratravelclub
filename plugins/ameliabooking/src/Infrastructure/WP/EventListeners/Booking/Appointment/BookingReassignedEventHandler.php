@@ -109,7 +109,7 @@ class BookingReassignedEventHandler
 
         $bookingApplicationService->setAppointmentEntities($oldAppointmentObject, $appointments);
 
-        $appointments->addItem($oldAppointmentObject, $oldAppointmentObject->getId()->getValue());
+        $appointments->addItem($oldAppointmentObject, $oldAppointmentObject->getId()->getValue(), true);
 
         $oldAppointment = $oldAppointmentObject->toArray();
 
@@ -124,7 +124,7 @@ class BookingReassignedEventHandler
 
             $bookingApplicationService->setAppointmentEntities($newAppointmentObject, $appointments);
 
-            $appointments->addItem($newAppointmentObject, $newAppointmentObject->getId()->getValue());
+            $appointments->addItem($newAppointmentObject, $newAppointmentObject->getId()->getValue(), true);
 
             $newAppointment = $newAppointmentObject->toArray();
         }
@@ -142,7 +142,7 @@ class BookingReassignedEventHandler
 
             $bookingApplicationService->setAppointmentEntities($existingAppointmentObject, $appointments);
 
-            $appointments->addItem($existingAppointmentObject, $existingAppointmentObject->getId()->getValue());
+            $appointments->addItem($existingAppointmentObject, $existingAppointmentObject->getId()->getValue(), true);
 
             $existingAppointment = $existingAppointmentObject->toArray();
         }

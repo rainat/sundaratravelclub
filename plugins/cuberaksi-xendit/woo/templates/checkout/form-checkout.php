@@ -29,8 +29,9 @@ if ( ! $checkout->is_registration_enabled() && $checkout->is_registration_requir
 
 // elementor only
 // aikhacomp
-echo"
-<style>	.e-checkout__column.e-checkout__column-start { display:none; }
+
+if (is_user_logged_in())
+echo "<style>	.e-checkout__column.e-checkout__column-start { display:none; }
 </style>";
 
 ?>

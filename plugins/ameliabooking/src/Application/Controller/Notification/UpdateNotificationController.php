@@ -34,7 +34,8 @@ class UpdateNotificationController extends Controller
         'entityIds',
         'status',
         'type',
-        'whatsAppTemplate'
+        'whatsAppTemplate',
+        'minimumTimeBeforeBooking'
     ];
 
     /**

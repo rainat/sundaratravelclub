@@ -29,4 +29,8 @@ class Hostinger_Onboarding_Add_Product_Step extends Hostinger_Onboarding_Step {
 	public function get_redirect_link(): string {
 		return admin_url( 'edit.php?post_type=product' );
 	}
+
+	public function button_text(): string {
+		return __( 'Take me there', 'hostinger' );
+	}
 }

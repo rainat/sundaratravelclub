@@ -140,7 +140,7 @@ class AppointmentFactory
             $couponId = isset($row['coupon_id']) ? $row['coupon_id'] : null;
             $customerId = isset($row['customer_id']) ? $row['customer_id'] : null;
             $providerId = isset($row['provider_id']) ? $row['provider_id'] : null;
-            $locationId = isset($row['appointment_locationId']) ? $row['appointment_locationId'] : null;
+            $locationId = isset($row['location_id']) ? $row['location_id'] : null;
             $serviceId = isset($row['service_id']) ? $row['service_id'] : null;
 
             if (!array_key_exists($appointmentId, $appointments)) {
@@ -280,6 +280,15 @@ class AppointmentFactory
                         'id' => $locationId,
                         'name' => !empty($row['location_name']) ? $row['location_name'] : '',
                         'address' => !empty($row['location_address']) ? $row['location_address'] : '',
+                        'description' => !empty($row['location_description']) ? $row['location_description'] : null,
+                        'status' => !empty($row['location_status']) ? $row['location_status'] : null,
+                        'phone' => !empty($row['location_phone']) ? $row['location_phone'] : null,
+                        'latitude' => !empty($row['location_latitude']) ? $row['location_latitude'] : null,
+                        'longitude' => !empty($row['location_longitude']) ? $row['location_longitude'] : null,
+                        'pictureFullPath' => !empty($row['location_pictureFullPath']) ? $row['location_pictureFullPath'] : null,
+                        'pictureThumbPath' => !empty($row['location_pictureThumbPath']) ? $row['location_pictureThumbPath'] : null,
+                        'pin' => !empty($row['location_pin']) ? $row['location_pin'] : null,
+                        'translations' => !empty($row['location_translations']) ? $row['location_translations'] : null,
                     ];
             }
 

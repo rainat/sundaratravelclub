@@ -28,16 +28,16 @@ msgstr "https://www.hostinger.lt"
 msgid "Hostinger WordPress plugin."
 msgstr "Hostinger WordPress įskiepis."
 
-#: includes/admin/class-hostinger-admin-ajax.php:35
+#: includes/admin/class-hostinger-admin-ajax.php:65
 #: includes/admin/onboarding/class-hostinger-onboarding.php:58
 msgid "Website is published"
 msgstr "Svetainė paskelbta"
 
-#: includes/admin/class-hostinger-admin-ajax.php:36
+#: includes/admin/class-hostinger-admin-ajax.php:66
 msgid "Congratulations! Your website is online."
 msgstr "Sveikiname! Jūsų svetainė jau matoma internete."
 
-#: includes/admin/class-hostinger-admin-ajax.php:60
+#: includes/admin/class-hostinger-admin-ajax.php:93
 msgid "invalid data"
 msgstr "neteisingi duomenys"
 
@@ -154,93 +154,91 @@ msgstr "Kairėje šoninėje juostoje eikite į skiltį „Išvaizda“ ir pasiri
 msgid "In the left sidebar, click Site Identity, then click on the Select Site Icon button. Here, you can upload your brand logo. "
 msgstr "Kairėje šoninėje juostoje spustelėkite „Tinklalapio identitetas“ ir spustelėkite mygtuką „Pasirinkite tinklalapio simbolį“. Čia galėsite įkelti savo logotipą. "
 
-#: includes/admin/views/hostinger-onboarding-view.php:17
-#: includes/admin/views/hostinger-onboarding-view.php:201
+#: includes/admin/views/hostinger-onboarding-view.php:18
+#: includes/admin/views/hostinger-onboarding-view.php:210
 msgid "How to Add Your WordPress Website to Google Search Console"
 msgstr "Kaip pridėti WordPress svetainę prie Google Search Console ?"
 
-#: includes/admin/views/hostinger-onboarding-view.php:22
+#: includes/admin/views/hostinger-onboarding-view.php:23
 msgid "How to Create a WordPress Contact Us Page"
 msgstr "Kaip sukurti WordPress kontaktų puslapį ?"
 
-#: includes/admin/views/hostinger-onboarding-view.php:27
+#: includes/admin/views/hostinger-onboarding-view.php:28
 msgid "How to Clear Cache in WordPress Website"
 msgstr "Kaip išvalyti kešą WordPress svetainėje ?"
 
-#: includes/admin/views/hostinger-onboarding-view.php:32
+#: includes/admin/views/hostinger-onboarding-view.php:33
 msgid "How to Edit the Footer in WordPress"
 msgstr "Kaip redaguoti WordPress svetainės poraštę ?"
 
-#: includes/admin/views/hostinger-onboarding-view.php:37
+#: includes/admin/views/hostinger-onboarding-view.php:38
 msgid "LiteSpeed Cache: How to Get 100% WordPress Optimization"
 msgstr "LiteSpeed Cache: kaip visiškai optimizuoti WordPress svetainę ?"
 
-#: includes/admin/views/hostinger-onboarding-view.php:42
+#: includes/admin/views/hostinger-onboarding-view.php:43
 msgid "How to Back Up a WordPress Site"
 msgstr "Kaip sukurti atsarginę WordPress svetainės kopiją ?"
 
-#: includes/admin/views/hostinger-onboarding-view.php:60
-msgid "Home"
-msgstr "Pagrindinis"
-
-#: includes/admin/views/hostinger-onboarding-view.php:61
+#: includes/admin/class-hostinger-admin-menu.php:36
+#: includes/admin/class-hostinger-admin-menu.php:37
+#: includes/admin/views/hostinger-onboarding-view.php:62
 msgid "Learn"
 msgstr "Sužinoti daugiau"
 
-#: includes/admin/views/hostinger-onboarding-view.php:104
+#: includes/admin/views/hostinger-onboarding-view.php:112
 msgid "Got it!"
 msgstr "Supratau!"
 
-#: includes/admin/views/hostinger-onboarding-view.php:108
+#: includes/admin/views/hostinger-onboarding-view.php:117
 msgid "Take me there"
 msgstr "Nukreipti ten"
 
-#: includes/admin/views/hostinger-onboarding-view.php:170
+#: includes/admin/views/hostinger-onboarding-view.php:179
 msgid "Publishing website"
 msgstr "Svetainė publikuojama"
 
-#: includes/admin/views/hostinger-onboarding-view.php:171
+#: includes/admin/views/hostinger-onboarding-view.php:180
 msgid "This can take some time"
 msgstr "Tai gali užtrukti"
 
-#: includes/admin/views/hostinger-onboarding-view.php:173
+#: includes/admin/views/hostinger-onboarding-view.php:182
 msgid "Close"
 msgstr "Uždaryti"
 
-#: includes/admin/views/hostinger-onboarding-view.php:183
+#: includes/admin/views/hostinger-onboarding-view.php:192
 msgid "WordPress tutorials"
 msgstr "WordPress pamokos"
 
-#: includes/admin/views/hostinger-onboarding-view.php:190
+#: includes/admin/views/hostinger-onboarding-view.php:199
 msgid "Hostinger Academy"
 msgstr "Hostinger Akademija"
 
-#: includes/admin/views/hostinger-onboarding-view.php:242
+#: includes/admin/views/hostinger-onboarding-view.php:251
 msgid "Knowledge Base"
 msgstr "Žinynas"
 
-#: includes/admin/views/hostinger-onboarding-view.php:243
+#: includes/admin/views/hostinger-onboarding-view.php:252
 msgid "Find the answers you need in our Knowledge Base"
 msgstr "Surasti atsakymus į jums rūpimus klausimus žinyne"
 
-#: includes/admin/views/hostinger-onboarding-view.php:253
+#: includes/admin/views/hostinger-onboarding-view.php:262
 msgid "Help Center"
 msgstr "Pagalbos Centras"
 
-#: includes/admin/views/hostinger-onboarding-view.php:254
+#: includes/admin/views/hostinger-onboarding-view.php:263
 msgid "Get in touch with our live specialists"
 msgstr "Susisiekite su mūsų tiesioginiais specialistais"
 
 #: includes/views/hostinger-coming-soon.php:6
-#: includes/views/hostinger-coming-soon.php:14
+#: includes/views/hostinger-coming-soon.php:25
 msgid "Coming Soon"
 msgstr "Netrukus"
 
-#: includes/views/hostinger-coming-soon.php:15
+#: includes/views/hostinger-coming-soon.php:26
 msgid "New WordPress website is being built and will be published soon"
-msgstr "Naujas WordPress tinklapis kurimas ir netrukus bus paskelbtas"
+msgstr "Naujas WordPress tinklapis kuriamas ir netrukus bus paskelbtas"
 
-#: includes/admin/views/hostinger-onboarding-view.php:47
+#: includes/admin/views/hostinger-onboarding-view.php:48
 msgid "How to Import Images Into WordPress Website"
 msgstr "Kaip importuoti paveiksliukus į WordPress svetainę ?"
 
@@ -276,7 +274,7 @@ msgstr "Spustelkite Tinklapio identitetas ir redaguokite antraštę"
 msgid "In the left sidebar, click Site Identity and edit your site title."
 msgstr "Kairėje šoninėje juostoje, spustelkite Tinklapio identitetas ir redaguokite svetainės antraštę."
 
-#: includes/admin/views/hostinger-onboarding-view.php:52
+#: includes/admin/views/hostinger-onboarding-view.php:53
 msgid "How to Set Up WordPress SMTP"
 msgstr "Kaip nustatyti WordPress SMTP ?"
 
@@ -395,3 +393,87 @@ msgstr "Paskelbkite puslapį"
 #: includes/admin/onboarding/steps/class-hostinger-onboarding-logo-step.php:12
 msgid "Adding a logo is a great way to personalize a website or add branding information. You can use your existing logo or create a new one using the <a href=\"https://logo.hostinger.com/?ref=wordpress-onboarding\" target=\"_blank\">Ai Logo Maker</a>."
 msgstr "Logotipas yra puikus būdas suasmeninti svetainę arba suteikti daugiau informacijos apie savo prekės ženklą. Galite naudoti esamą logotipą arba sukurti naują pasinaudoję <a href=\"https://logo.hostinger.com/?ref=wordpress-onboarding\" target=\"_blank\">Di logotipų kūrimo įrankiu.</a>"
+
+#. Plugin URI of the plugin
+msgid "https://hostinger.com"
+msgstr ""
+
+#: includes/admin/views/hostinger-onboarding-view.php:281
+msgid "of "
+msgstr "iš"
+
+#: includes/class-hostinger-errors.php:10
+msgid "Action Failed. Try again or contact support. Apologies."
+msgstr "Veiksmas nepavyko. Bandykite dar kartą arba susisiekite su pagalbos centru. Atsiprašome."
+
+#: includes/class-hostinger-errors.php:13
+msgid "An unexpected error occurred. Please try again or contact support."
+msgstr "Įvyko netikėta klaida. Bandykite dar kartą arba susisiekite su pagalbos centru."
+
+#: includes/class-hostinger-errors.php:16
+msgid "We apologize for the inconvenience. The AI content generation process encountered a server error. Please try again later, and if the issue persists, kindly contact our support team for assistance."
+msgstr "Atsiprašome už nepatogumus. DI generavimo procesas susidūrė su serverio klaida. Prašome pabandyti vėliau, o jei problema išlieka, susisiekite su mūsų klientų aptarnavimo komanda."
+
+#: includes/class-hostinger-errors.php:27
+msgid "Unknown error code."
+msgstr "Įvyko klaida."
+
+#: includes/surveys/class-hostinger-surveys-questions.php:18
+msgid "How would you rate your experience using our AI Assistant plugin for content generation? (Scale 1-10)"
+msgstr "Kaip įvertintumėte savo patirtį naudojantis DI Assistentu turiniui generuoti? (Skalė 1–10)"
+
+#: includes/surveys/class-hostinger-surveys-questions.php:22
+msgid "Do you have any comments/suggestions to improve our AI tools?"
+msgstr "Ar turite kokių nors pastabų / pasiūlymų, kaip patobulinti mūsų DI įrankius?"
+
+#: includes/admin/class-hostinger-admin-menu.php:26
+#: includes/admin/class-hostinger-admin-menu.php:27
+#: includes/admin/views/hostinger-onboarding-view.php:61
+msgid "Get started"
+msgstr "Pradėti"
+
+#: includes/admin/class-hostinger-admin-menu.php:46
+#: includes/admin/class-hostinger-admin-menu.php:47
+#: includes/admin/views/hostinger-onboarding-view.php:68
+msgid "AI assistant"
+msgstr "DI asistentas"
+
+#: includes/admin/views/hostinger-onboarding-view.php:281
+msgid "Question"
+msgstr "Klausimas"
+
+#: includes/surveys/class-hostinger-surveys.php:106
+msgid "Survey failed"
+msgstr "Apklausos klaida"
+
+#: includes/surveys/class-hostinger-surveys.php:115
+msgid "Survey completed"
+msgstr "Apklausa užbaigta"
+
+#: includes/surveys/class-hostinger-surveys.php:150
+msgid "Next"
+msgstr "Kitas"
+
+#: includes/surveys/class-hostinger-surveys.php:151
+msgid "Previous"
+msgstr "Atgal"
+
+#: includes/surveys/class-hostinger-surveys.php:152
+msgid "Submit"
+msgstr "Siųsti"
+
+#: includes/surveys/class-hostinger-surveys.php:153
+msgid "Thank you for completing the survey !"
+msgstr "Dėkojame, kad užpildėte apklausą !"
+
+#: includes/surveys/class-hostinger-surveys.php:164
+msgid "Response required."
+msgstr "Reikalingas atsakymas."
+
+#: includes/surveys/class-hostinger-surveys.php:177
+msgid "Poor"
+msgstr "Blogai"
+
+#: includes/surveys/class-hostinger-surveys.php:178
+msgid "Excellent"
+msgstr "Puikiai"

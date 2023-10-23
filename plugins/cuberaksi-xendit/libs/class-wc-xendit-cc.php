@@ -8,6 +8,14 @@ if (!defined('ABSPATH')) {
  *
  * @extends WC_Payment_Gateway_CC
  */
+
+
+
+function get_woocommerce_currency_new_()
+{
+    return get_woocommerce_currency();
+}
+
 class WC_Xendit_CC extends WC_Payment_Gateway_CC
 {
     const DEFAULT_CHECKOUT_FLOW = 'CHECKOUT_PAGE';
@@ -241,10 +249,13 @@ class WC_Xendit_CC extends WC_Payment_Gateway_CC
 
     public function is_valid_for_use()
     {
-        return in_array(get_woocommerce_currency(), apply_filters(
+
+        return in_array(get_woocommerce_currency_new_(), apply_filters(
             'woocommerce_' . $this->id . '_supported_currencies',
             $this->supported_currencies
         ));
+
+
     }
 
     /**
@@ -410,13 +421,15 @@ class WC_Xendit_CC extends WC_Payment_Gateway_CC
             }
         }
 
+      
+
         echo '<div
                 id="xendit-payment-cc-data"
                 data-description=""
                 data-email="' . esc_attr($user_email) . '"
                 data-amount="' . esc_attr($total) . '"
                 data-name="' . esc_attr($this->statement_descriptor) . '"
-                data-currency="' . esc_attr(strtolower(get_woocommerce_currency())) . '"
+                data-currency="' . esc_attr(strtolower(get_woocommerce_currency_new_())) . '"
                 data-locale="' . esc_attr('en') . '"
                 data-image="' . esc_attr($this->xendit_checkout_image) . '"
                 data-allow-remember-me="' . esc_attr($this->saved_cards ? 'true' : 'false') . '">';
@@ -498,7 +511,7 @@ class WC_Xendit_CC extends WC_Payment_Gateway_CC
             'key' => $this->publishable_key,
             'on_behalf_of' => $this->for_user_id,
             'amount' => WC()->cart->cart_contents_total + WC()->cart->tax_total + WC()->cart->shipping_total,
-            'currency' => get_woocommerce_currency()
+            'currency' => get_woocommerce_currency_new_()
         );
 
         // If we're on the pay page we need to pass xendit.js the address of the order.
@@ -618,6 +631,7 @@ class WC_Xendit_CC extends WC_Payment_Gateway_CC
 
         $amount = $order->get_total();
 
+
         //TODO: Find out how can we pass CVN on redirected flow
         $cvn = isset($_POST['xendit_card_cvn']) ? wc_clean($_POST['xendit_card_cvn']) : '';
 
@@ -629,6 +643,7 @@ class WC_Xendit_CC extends WC_Payment_Gateway_CC
         $post_data = array();
         $post_data['amount'] = $amount;
         $post_data['currency'] = $order->get_currency();
+        // $post_data['currency'] = 'IDR';
         $post_data['token_id'] = $xendit_token;
         $post_data['external_id'] = $external_id;
         $post_data['store_name'] = get_option('blogname');
@@ -895,8 +910,9 @@ class WC_Xendit_CC extends WC_Payment_Gateway_CC
      */
     private function process_payment_via_xendit_invoice(WC_Order $order)
     {
+        require_once CUBERAKSI_XENDIT_BASE_DIR . 'woo/helper.php';
         $order_id = $order->get_id();
-        $amount = $order->get_total();
+        $amount = $order->get_total()*CUBERAKSI_XENDIT_USD_IDR();
         $currency = $order->get_currency();
         $blog_name = html_entity_decode(get_option('blogname'), ENT_QUOTES | ENT_HTML5);
         $productinfo = "Payment for Order #{$order_id} at " . $blog_name;
@@ -919,7 +935,8 @@ class WC_Xendit_CC extends WC_Payment_Gateway_CC
         $invoice_data = array(
             'external_id' => $order_number,
             'amount' => $amount,
-            'currency' => $currency,
+            // 'currency' => $currency,
+            'currency' => 'IDR',
             'payer_email' => $payer_email,
             'description' => $productinfo,
             'client_type' => 'INTEGRATION',
@@ -1323,7 +1340,7 @@ class WC_Xendit_CC extends WC_Payment_Gateway_CC
             case 'INVALID_CVN':
                 return 'Card declined due to incorrect card details entered. Please try again. Code: 200015';
             case 'UNSUPPORTED_CURRENCY':
-                return str_replace('{{currency}}', get_woocommerce_currency(), $message);
+                return str_replace('{{currency}}', get_woocommerce_currency_new_(), $message);
             default:
                 return $message ? $message : $failure_reason;
         }

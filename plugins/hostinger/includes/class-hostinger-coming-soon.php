@@ -16,8 +16,7 @@ class Hostinger_Coming_Soon {
 	}
 
 	public function register_styles(): void {
-		wp_enqueue_style( 'hostinger_main_styles', HOSTINGER_ASSETS_URL . '/css/main.css', [], '1.0.0' );
-		wp_enqueue_style( 'hostinger_coming_soon', HOSTINGER_ASSETS_URL . '/css/coming-soon.css', [], '1.0.0' );
+		wp_enqueue_style( 'hostinger_main_styles', HOSTINGER_ASSETS_URL . '/css/main.css', [], HOSTINGER_VERSION );
 	}
 }
 

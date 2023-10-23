@@ -79,7 +79,7 @@ class UpdateAppointmentTimeCommandHandler extends CommandHandler
 
         try {
             /** @var AbstractUser $user */
-            $user = $userAS->authorization(
+            $user = $command->getUserApplicationService()->authorization(
                 $command->getPage() === 'cabinet' ? $command->getToken() : null,
                 $command->getCabinetType()
             );
@@ -191,6 +191,20 @@ class UpdateAppointmentTimeCommandHandler extends CommandHandler
         }
 
         $appointment->setRescheduled(new BooleanValueObject(true));
+
+        $bookingAS->bookingRescheduled(
+            $appointment->getId()->getValue(),
+            Entities::APPOINTMENT,
+            null,
+            Entities::CUSTOMER
+        );
+
+        $bookingAS->bookingRescheduled(
+            $appointment->getId()->getValue(),
+            Entities::APPOINTMENT,
+            $appointment->getProviderId()->getValue(),
+            Entities::PROVIDER
+        );
 
         $result->setResult(CommandResult::RESULT_SUCCESS);
         $result->setMessage('Successfully updated appointment time');

@@ -441,7 +441,7 @@ class CouponRepository extends AbstractRepository implements CouponRepositoryInt
             $where = [];
 
             if (!empty($criteria['code'])) {
-                $where[] = 'c.code = :code';
+                $where[] = $criteria['couponsCaseInsensitive'] ? 'LOWER(c.code) = LOWER(:code)' : 'c.code = :code';
 
                 $params[':code'] = $criteria['code'];
             }

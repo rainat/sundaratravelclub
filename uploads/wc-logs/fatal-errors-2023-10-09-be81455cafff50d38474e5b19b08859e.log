@@ -1,0 +1,42 @@
+2023-10-09T16:54:14+00:00 CRITICAL Uncaught Error: Class 'Cuberaksi\Shortcode\Booking\YITH_WCBK_Product_Form_Widget' not found in /home/u822946699/domains/sundaratravelclub.com/public_html/staging/wp-content/plugins/cuberaksi-xendit/shortcode/yithbooking.php:37
+Stack trace:
+#0 /home/u822946699/domains/sundaratravelclub.com/public_html/staging/wp-includes/shortcodes.php(395): Cuberaksi\Shortcode\Booking\Shortcode_YITH_Booking_Form->shortcode('', '', 'yith_booking_fo...')
+#1 [internal function]: do_shortcode_tag(Array)
+#2 /home/u822946699/domains/sundaratravelclub.com/public_html/staging/wp-includes/shortcodes.php(235): preg_replace_callback('/\\[(\\[?)(yith_b...', 'do_shortcode_ta...', '[yith_booking_f...')
+#3 /home/u822946699/domains/sundaratravelclub.com/public_html/staging/wp-content/plugins/elementor/includes/widgets/shortcode.php(130): do_shortcode('[yith_booking_f...')
+#4 /home/u822946699/domains/sundaratravelclub.com/public_html/staging/wp-content/plugins/elementor/includes/base/controls-stack.php(2265): Elementor\Widget_Shortcode->rende in /home/u822946699/domains/sundaratravelclub.com/public_html/staging/wp-content/plugins/cuberaksi-xendit/shortcode/yithbooking.php on line 37
+
+2023-10-09T17:01:31+00:00 CRITICAL Uncaught Error: Call to undefined method YITH_WCBK_Product_Form_Widget::print() in /home/u822946699/domains/sundaratravelclub.com/public_html/staging/wp-content/plugins/cuberaksi-xendit/shortcode/yithbooking.php:68
+Stack trace:
+#0 /home/u822946699/domains/sundaratravelclub.com/public_html/staging/wp-includes/shortcodes.php(395): Cuberaksi\Shortcode\Booking\Shortcode_YITH_Booking_Form->shortcode('', '', 'yith_booking_fo...')
+#1 [internal function]: do_shortcode_tag(Array)
+#2 /home/u822946699/domains/sundaratravelclub.com/public_html/staging/wp-includes/shortcodes.php(235): preg_replace_callback('/\\[(\\[?)(yith_b...', 'do_shortcode_ta...', '[yith_booking_f...')
+#3 /home/u822946699/domains/sundaratravelclub.com/public_html/staging/wp-content/plugins/elementor/includes/widgets/shortcode.php(130): do_shortcode('[yith_booking_f...')
+#4 /home/u822946699/domains/sundaratravelclub.com/public_html/staging/wp-content/plugins/elementor/includes/base/controls-stack.php(2265): Elementor\Widget_Shortcode->render()
+#5 /home in /home/u822946699/domains/sundaratravelclub.com/public_html/staging/wp-content/plugins/cuberaksi-xendit/shortcode/yithbooking.php on line 68
+
+2023-10-09T17:21:06+00:00 CRITICAL Uncaught Error: Call to undefined method YITH_WCBK_Product_Form_Widget::print() in /home/u822946699/domains/sundaratravelclub.com/public_html/staging/wp-content/plugins/cuberaksi-xendit/shortcode/yithbooking.php:68
+Stack trace:
+#0 /home/u822946699/domains/sundaratravelclub.com/public_html/staging/wp-includes/shortcodes.php(395): Cuberaksi\Shortcode\Booking\Shortcode_YITH_Booking_Form->shortcode('', '', 'yith_booking_fo...')
+#1 [internal function]: do_shortcode_tag(Array)
+#2 /home/u822946699/domains/sundaratravelclub.com/public_html/staging/wp-includes/shortcodes.php(235): preg_replace_callback('/\\[(\\[?)(yith_b...', 'do_shortcode_ta...', '[yith_booking_f...')
+#3 /home/u822946699/domains/sundaratravelclub.com/public_html/staging/wp-content/plugins/elementor/includes/widgets/shortcode.php(130): do_shortcode('[yith_booking_f...')
+#4 /home/u822946699/domains/sundaratravelclub.com/public_html/staging/wp-content/plugins/elementor/includes/base/controls-stack.php(2265): Elementor\Widget_Shortcode->render()
+#5 /home in /home/u822946699/domains/sundaratravelclub.com/public_html/staging/wp-content/plugins/cuberaksi-xendit/shortcode/yithbooking.php on line 68
+
+2023-10-09T17:21:33+00:00 CRITICAL Uncaught Error: Call to undefined method YITH_WCBK_Product_Form_Widget::print() in /home/u822946699/domains/sundaratravelclub.com/public_html/staging/wp-content/plugins/cuberaksi-xendit/shortcode/yithbooking.php:68
+Stack trace:
+#0 /home/u822946699/domains/sundaratravelclub.com/public_html/staging/wp-includes/shortcodes.php(395): Cuberaksi\Shortcode\Booking\Shortcode_YITH_Booking_Form->shortcode('', '', 'yith_booking_fo...')
+#1 [internal function]: do_shortcode_tag(Array)
+#2 /home/u822946699/domains/sundaratravelclub.com/public_html/staging/wp-includes/shortcodes.php(235): preg_replace_callback('/\\[(\\[?)(yith_b...', 'do_shortcode_ta...', '[yith_booking_f...')
+#3 /home/u822946699/domains/sundaratravelclub.com/public_html/staging/wp-content/plugins/elementor/includes/widgets/shortcode.php(130): do_shortcode('[yith_booking_f...')
+#4 /home/u822946699/domains/sundaratravelclub.com/public_html/staging/wp-content/plugins/elementor/includes/base/controls-stack.php(2265): Elementor\Widget_Shortcode->render()
+#5 /home in /home/u822946699/domains/sundaratravelclub.com/public_html/staging/wp-content/plugins/cuberaksi-xendit/shortcode/yithbooking.php on line 68
+
+2023-10-09T17:56:58+00:00 CRITICAL Uncaught ArgumentCountError: Too few arguments to function YITH_WCBK_Product_Form_Widget::widget(), 0 passed in /home/u822946699/domains/sundaratravelclub.com/public_html/staging/wp-content/plugins/cuberaksi-xendit/shortcode/yithbooking.php on line 79 and exactly 2 expected in /home/u822946699/domains/sundaratravelclub.com/public_html/staging/wp-content/plugins/yith-woocommerce-booking-premium/includes/widgets/class-yith-wcbk-product-form-widget.php:38
+Stack trace:
+#0 /home/u822946699/domains/sundaratravelclub.com/public_html/staging/wp-content/plugins/cuberaksi-xendit/shortcode/yithbooking.php(79): YITH_WCBK_Product_Form_Widget->widget()
+#1 /home/u822946699/domains/sundaratravelclub.com/public_html/staging/wp-includes/shortcodes.php(395): Cuberaksi\Shortcode\Booking\Shortcode_YITH_Booking_Form->shortcode('', '', 'yith_booking_fo...')
+#2 [internal function]: do_shortcode_tag(Array)
+#3 /home/u822946699/domains/sundaratravelclub.com/public_html/staging/wp-includes/shortcodes.php(235): preg_replace_callback('/\\ in /home/u822946699/domains/sundaratravelclub.com/public_html/staging/wp-content/plugins/yith-woocommerce-booking-premium/includes/widgets/class-yith-wcbk-product-form-widget.php on line 38
+

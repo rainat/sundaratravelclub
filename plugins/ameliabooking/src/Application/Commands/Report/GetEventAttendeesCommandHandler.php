@@ -48,7 +48,7 @@ class GetEventAttendeesCommandHandler extends CommandHandler
      */
     public function handle(GetEventAttendeesCommand $command)
     {
-        if (!$this->getContainer()->getPermissionsService()->currentUserCanRead(Entities::APPOINTMENTS)) {
+        if (!$command->getPermissionService()->currentUserCanRead(Entities::APPOINTMENTS)) {
             throw new AccessDeniedException('You are not allowed to read appointments.');
         }
 
@@ -269,10 +269,18 @@ class GetEventAttendeesCommandHandler extends CommandHandler
                 }
             }
 
+            if (in_array('couponCode', $fields, true)) {
+                $row[BackendStrings::getCommonStrings()['coupon_code']] .= ($booking->getCoupon() && $booking->getCoupon()->getCode() ? $booking->getCoupon()->getCode()->getValue() : '') . $delimiterSeparate;
+            }
+
+            $mergedRow = array_merge($row, $rowCF);
+
+            $mergedRow = apply_filters('amelia_before_csv_export_event', $mergedRow, $event->toArray(), $params['separate']);
+
             if ($params['separate'] === 'true') {
-                $rows[] = array_merge($row, $rowCF);
+                $rows[] = $mergedRow;
             } else if ($index === $lastIndex) {
-                $finalRow = array_merge($row, $rowCF);
+                $finalRow = $mergedRow;
                 $rows[]   = array_map(
                     function ($item) {
                         return substr($item, 0, -2);

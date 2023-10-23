@@ -18,6 +18,9 @@
     {
       'hasApiCall': (typeof hasEventApiCall !== 'undefined') && hasEventApiCall,
       'trigger': '<?php echo esc_js($params['trigger']); ?>',
+      'trigger_type': '<?php echo esc_js($params['trigger_type']); ?>',
+      'triggered_form': 'elf',
+      'in_dialog': '<?php echo esc_js($params['in_dialog']); ?>',
       'counter': '<?php echo esc_js($params['counter']); ?>',
       'employee': '<?php echo esc_js($params['employee']); ?>',
       'eventId': '<?php echo esc_js($params['event']); ?>',
@@ -27,7 +30,11 @@
   );
   var ameliaShortcodeDataTriggered = (typeof ameliaShortcodeDataTriggered === 'undefined') ? [] : ameliaShortcodeDataTriggered;
   if (ameliaShortcodeData[ameliaShortcodeData.length - 1].trigger !== '') {
-    ameliaShortcodeDataTriggered.push(ameliaShortcodeData.pop());
+    if (ameliaShortcodeDataTriggered.filter(a => a.counter === ameliaShortcodeData[ameliaShortcodeData.length - 1].counter).length === 0) {
+      ameliaShortcodeDataTriggered.push(ameliaShortcodeData.pop());
+    } else {
+      ameliaShortcodeData.pop()
+    }
   }
   if (typeof hasEventApiCall !== 'undefined' && hasEventApiCall) {
     hasEventApiCall = false;
@@ -38,5 +45,11 @@
   id="amelia-v2-booking-<?php echo esc_attr($params['counter']); ?>"
   class="amelia-v2-booking<?php echo $params['trigger'] !== '' ? ' amelia-skip-load amelia-skip-load-' . $params['counter'] : ''; ?>"
 >
-    <events-list-form-wrapper>
+    <?php
+    if(!$params['in_dialog']) {
+        echo '<events-list-form-wrapper>';
+    } else {
+        echo '<dialog-forms></dialog-forms>';
+    }
+    ?>
 </div>

@@ -134,7 +134,11 @@ class AppointmentReservationService extends AbstractReservationService
             $save
         );
 
-        $reservation->setApplyDeposit(new BooleanValueObject($appointmentData['bookings'][0]['deposit']));
+        $reservation->setApplyDeposit(
+            new BooleanValueObject(
+                isset($appointmentData['bookings'][0]['deposit']) ? $appointmentData['bookings'][0]['deposit'] : false
+            )
+        );
 
         /** @var Payment $payment */
         $payment = $save && $reservation->getBooking() && $reservation->getBooking()->getPayments()->length() ?
@@ -412,7 +416,7 @@ class AppointmentReservationService extends AbstractReservationService
                 $selectedExtras,
                 null,
                 $booking->getPersons()->getValue(),
-                true
+                empty($appointmentData['packageBookingFromBackend'])
             )) {
                 throw new BookingUnavailableException(
                     FrontendStrings::getCommonStrings()['time_slot_unavailable']
@@ -490,7 +494,9 @@ class AppointmentReservationService extends AbstractReservationService
             $appointment->setLocation($location);
         }
 
-        $reservation->setCustomer($booking->getCustomer());
+        if ($booking->getCustomer()) {
+            $reservation->setCustomer($booking->getCustomer());
+        }
         $reservation->setBookable($service);
         $reservation->setBooking($booking);
         $reservation->setReservation($appointment);

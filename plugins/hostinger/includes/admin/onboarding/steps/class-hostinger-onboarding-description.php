@@ -36,4 +36,8 @@ class Hostinger_Onboarding_Description extends Hostinger_Onboarding_Step {
 	public function get_redirect_link(): string {
 		return admin_url( 'edit.php' );
 	}
+
+	public function button_text(): string {
+		return __( 'Take me there', 'hostinger' );
+	}
 }

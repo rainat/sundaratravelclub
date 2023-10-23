@@ -10,15 +10,18 @@ use AmeliaBooking\Domain\Collection\Collection;
 use AmeliaBooking\Domain\Common\Exceptions\AuthorizationException;
 use AmeliaBooking\Domain\Common\Exceptions\InvalidArgumentException;
 use AmeliaBooking\Domain\Entity\Booking\Appointment\Appointment;
+use AmeliaBooking\Domain\Entity\Booking\Appointment\CustomerBooking;
 use AmeliaBooking\Domain\Entity\Entities;
 use AmeliaBooking\Domain\Entity\User\AbstractUser;
 use AmeliaBooking\Domain\Entity\User\Customer;
 use AmeliaBooking\Domain\Entity\User\Provider;
+use AmeliaBooking\Domain\Factory\User\UserFactory;
 use AmeliaBooking\Domain\Services\DateTime\DateTimeService;
 use AmeliaBooking\Domain\Services\Settings\SettingsService;
 use AmeliaBooking\Domain\ValueObjects\Json;
 use AmeliaBooking\Domain\ValueObjects\Number\Integer\Id;
 use AmeliaBooking\Domain\ValueObjects\Number\Integer\LoginType;
+use AmeliaBooking\Domain\ValueObjects\String\BookingStatus;
 use AmeliaBooking\Infrastructure\Common\Container;
 use AmeliaBooking\Infrastructure\Common\Exceptions\NotFoundException;
 use AmeliaBooking\Infrastructure\Common\Exceptions\QueryExecutionException;
@@ -113,7 +116,9 @@ class UserApplicationService
         /** @var Appointment $appointment */
         foreach ($appointments->getItems() as $appointment) {
             if ($appointment->getBookingStart()->getValue() >= $now) {
-                $futureAppointments++;
+                if ($appointment->getStatus()->getValue() === BookingStatus::APPROVED || $appointment->getStatus()->getValue() === BookingStatus::PENDING) {
+                    $futureAppointments++;
+                }
             } else {
                 $pastAppointments++;
             }
@@ -513,5 +518,36 @@ class UserApplicationService
         return $settingsDomainService->getSetting('roles', 'allowAdminBookAtAnyTime') &&
             ($loggedInUser = $this->container->get('logged.in.user')) &&
             $loggedInUser->getType() === AbstractUser::USER_ROLE_ADMIN;
+    }
+
+    /**
+     * @param CustomerBooking $booking
+     * @param AbstractUser    $user
+     * @param string          $bookingToken
+     *
+     * @return boolean
+     */
+    public function isCustomerBooking($booking, $user, $bookingToken)
+    {
+        $isValidToken = $bookingToken !== null && $bookingToken === $booking->getToken()->getValue();
+
+        $isValidUser = $user && $user->getId() && $user->getId()->getValue() === $booking->getCustomerId()->getValue();
+
+        if (!($isValidToken || $isValidUser)) {
+            return false;
+        }
+
+        return true;
+    }
+
+    /**
+     * @param AbstractUser $currentUser
+     * @param AbstractUser $token
+     *
+     * @return boolean
+     */
+    public function checkProviderPermissions($currentUser, $token)
+    {
+        return ($currentUser === null && $token) || $currentUser->getType() === AbstractUser::USER_ROLE_PROVIDER;
     }
 }

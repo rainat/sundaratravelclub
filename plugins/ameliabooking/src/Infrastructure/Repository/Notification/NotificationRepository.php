@@ -46,16 +46,17 @@ class NotificationRepository extends AbstractRepository implements NotificationR
             ':content'      => $data['content'],
             ':translations' => $data['translations'],
             ':sendOnlyMe'   => $data['sendOnlyMe'] ? 1 : 0,
-            ':whatsAppTemplate' => $data['whatsAppTemplate']
+            ':whatsAppTemplate' => $data['whatsAppTemplate'],
+            ':minimumTimeBeforeBooking' => $data['minimumTimeBeforeBooking']
         ];
 
         try {
             $statement = $this->connection->prepare(
                 "INSERT INTO {$this->table} 
                 (`name`, `customName`, `sendTo`, `status`, `type`, `entity`, `time`, `timeBefore`,
-                 `timeAfter`, `subject`, `content`, `translations`, `sendOnlyMe`, `whatsAppTemplate`)
+                 `timeAfter`, `subject`, `content`, `translations`, `sendOnlyMe`, `whatsAppTemplate`, `minimumTimeBeforeBooking`)
                 VALUES (:name, :customName, :sendTo, :status, :type, :entity, :time, :timeBefore,
-                        :timeAfter, :subject, :content, :translations, :sendOnlyMe, :whatsAppTemplate)"
+                        :timeAfter, :subject, :content, :translations, :sendOnlyMe, :whatsAppTemplate, :minimumTimeBeforeBooking)"
             );
 
             $res = $statement->execute($params);
@@ -92,6 +93,7 @@ class NotificationRepository extends AbstractRepository implements NotificationR
             ':translations' => $data['translations'],
             ':sendOnlyMe'   => $data['sendOnlyMe'] ? 1 : 0,
             ':whatsAppTemplate' => $data['whatsAppTemplate'],
+            ':minimumTimeBeforeBooking' => $data['minimumTimeBeforeBooking'],
             ':id'           => $id,
         ];
 
@@ -108,7 +110,8 @@ class NotificationRepository extends AbstractRepository implements NotificationR
                 `content` = :content,
                 `translations` = :translations,
                 `sendOnlyMe` = :sendOnlyMe,
-                `whatsAppTemplate` = :whatsAppTemplate
+                `whatsAppTemplate` = :whatsAppTemplate,
+                `minimumTimeBeforeBooking` = :minimumTimeBeforeBooking
                 WHERE id = :id"
             );
 

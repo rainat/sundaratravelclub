@@ -20,10 +20,16 @@ if (!defined('CUBERAKSI_XENDIT_BASE_NAME')) define('CUBERAKSI_XENDIT_BASE_NAME',
 if (!defined('CUBERAKSI_XENDIT_BASE_DIR')) define('CUBERAKSI_XENDIT_BASE_DIR', plugin_dir_path(__FILE__));
 if (!defined('CUBERAKSI_XENDIT_BASE_URL')) define('CUBERAKSI_XENDIT_BASE_URL', plugin_dir_url(__FILE__));
 
-require_once CUBERAKSI_XENDIT_BASE_DIR . "google/login-with-google.php";
-require_once CUBERAKSI_XENDIT_BASE_DIR . "woo/custom.php";
+
+    
 
 add_action('plugins_loaded', 'woocommerce_xendit_pg_init');
+
+require_once CUBERAKSI_XENDIT_BASE_DIR . "google/login-with-google.php";
+require_once CUBERAKSI_XENDIT_BASE_DIR . "woo/custom.php";
+require_once CUBERAKSI_XENDIT_BASE_DIR . "disable-cart/disable-cart-page-for-woocommerce.php";
+// require_once CUBERAKSI_XENDIT_BASE_DIR . "klaviyo/klaviyo.php";
+
 
 
 function woocommerce_xendit_pg_init()
@@ -32,6 +38,8 @@ function woocommerce_xendit_pg_init()
     if (!class_exists('WC_Payment_Gateway')) {
         return;
     }
+
+    
 
     load_plugin_textdomain('woocommerce-xendit', false, dirname(plugin_basename(__FILE__)).'/languages/');
 

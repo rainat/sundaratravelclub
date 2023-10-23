@@ -147,16 +147,22 @@
             if (view === 'stepbooking') {
               // Selector
               viewBody.push({
-                    type: 'listbox',
-                    label: wpAmeliaLabels.trigger_type,
-                    name: 'am_trigger_type',
-                    values: [
-                      {value: 'id', text: wpAmeliaLabels.trigger_type_id},
-                      {value: 'class', text: wpAmeliaLabels.trigger_type_class}
-                    ],
-                    classes: 'am-booking-events-view',
-                  }
-              )
+                type: 'listbox',
+                label: wpAmeliaLabels.trigger_type,
+                name: 'am_trigger_type',
+                values: [
+                  {value: 'id', text: wpAmeliaLabels.trigger_type_id},
+                  {value: 'class', text: wpAmeliaLabels.trigger_type_class}
+                ],
+                classes: 'am-booking-events-view',
+              })
+
+              viewBody.push({
+                type: 'checkbox',
+                label: wpAmeliaLabels.in_dialog,
+                name: 'am_in_dialog',
+                classes: 'am-booking-dialog',
+              })
             }
 
             break
@@ -235,12 +241,11 @@
 
             // Category
             viewBody.push({
-                type: 'listbox',
-                name: 'am_category',
-                values: categories,
-                classes: 'am-categories',
-              }
-            )
+              type: 'listbox',
+              name: 'am_category',
+              values: categories,
+              classes: 'am-categories',
+            })
 
             // Service
             viewBody.push({
@@ -299,6 +304,15 @@
               })
             }
 
+            if (view === 'catalogbooking') {
+              filterItems.push({
+                type: 'checkbox',
+                name: 'am_booking_skip_categories',
+                label: wpAmeliaLabels.skip_categories,
+                classes: 'am-booking-skip-categories',
+              })
+            }
+
             viewBody.push({
               type: 'checkbox',
               name: 'am_booking_filter',
@@ -322,16 +336,15 @@
             if (view === 'catalogbooking') {
               // Selector
               viewBody.push({
-                    type: 'listbox',
-                    label: wpAmeliaLabels.trigger_type,
-                    name: 'am_trigger_type',
-                    values: [
-                      {value: 'id', text: wpAmeliaLabels.trigger_type_id},
-                      {value: 'class', text: wpAmeliaLabels.trigger_type_class}
-                    ],
-                    classes: 'am-booking-events-view',
-                  }
-              )
+                type: 'listbox',
+                label: wpAmeliaLabels.trigger_type,
+                name: 'am_trigger_type',
+                values: [
+                  {value: 'id', text: wpAmeliaLabels.trigger_type_id},
+                  {value: 'class', text: wpAmeliaLabels.trigger_type_class}
+                ],
+                classes: 'am-booking-events-view',
+              })
             }
 
             break
@@ -386,6 +399,26 @@
               items: filterItems,
               visible: false,
             })
+
+            if (view === 'eventslistbooking') {
+              viewBody.push({
+                type: 'listbox',
+                label: wpAmeliaLabels.trigger_type,
+                name: 'am_trigger_type',
+                values: [
+                  {value: 'id', text: wpAmeliaLabels.trigger_type_id},
+                  {value: 'class', text: wpAmeliaLabels.trigger_type_class}
+                ],
+                classes: 'am-booking-events-view',
+              })
+
+              viewBody.push({
+                type: 'checkbox',
+                label: wpAmeliaLabels.in_dialog,
+                name: 'am_in_dialog',
+                classes: 'am-booking-dialog',
+              })
+            }
 
             if (view === 'events') {
               viewBody.push({
@@ -480,6 +513,10 @@
                   shortCodeString += ' trigger_type=' + e.data.am_trigger_type
                 }
 
+                if (e.data.am_trigger && view === 'stepbooking' && e.data.am_in_dialog) {
+                  shortCodeString += ' in_dialog=1'
+                }
+
                 editor.insertContent((view === 'stepbooking' ? '[ameliastepbooking' : '[ameliabooking') + shortCodeString + ']')
 
                 break
@@ -547,6 +584,14 @@
                   shortCodeString += ' trigger_type=' + e.data.am_trigger_type
                 }
 
+                if (e.data.am_trigger && e.data.am_in_dialog) {
+                  shortCodeString += ' in_dialog=1'
+                }
+
+                if (e.data.am_booking_skip_categories) {
+                  shortCodeString += ' categories_hidden=1'
+                }
+
                 if (catalogView === 'category') {
                   if (e.data.am_show) {
                     shortCodeString += ' show=' + e.data.am_show
@@ -588,6 +633,14 @@
 
                 if (e.data.am_trigger) {
                   shortCodeString += ' trigger=' + e.data.am_trigger
+                }
+
+                if (e.data.am_trigger && view === 'eventslistbooking' && e.data.am_trigger_type) {
+                  shortCodeString += ' trigger_type=' + e.data.am_trigger_type
+                }
+
+                if (e.data.am_trigger && view === 'eventslistbooking' && e.data.am_in_dialog) {
+                  shortCodeString += ' in_dialog=1'
                 }
 
                 if (view === 'eventslistbooking') {

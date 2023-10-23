@@ -44,7 +44,7 @@ class GetAppointmentsCommandHandler extends CommandHandler
     {
         $currentUser = $this->getContainer()->get('logged.in.user');
 
-        if (!$this->getContainer()->getPermissionsService()->currentUserCanRead(Entities::APPOINTMENTS)) {
+        if (!$command->getPermissionService()->currentUserCanRead(Entities::APPOINTMENTS)) {
             throw new AccessDeniedException('You are not allowed to read appointments.');
         }
 
@@ -180,7 +180,9 @@ class GetAppointmentsCommandHandler extends CommandHandler
 
                 $this->getRowData($params, $row, $appointment, $dateFormat, $timeFormat, $numberOfPersons);
 
-                $rows[] = array_merge($row, $rowCF);
+                $mergedRow = apply_filters('amelia_before_csv_export_appointments', array_merge($row, $rowCF), $appointment, $params['separate']);
+
+                $rows[] = $mergedRow;
             } else {
                 foreach ((array)$appointment['bookings'] as $booking) {
                     $row[BackendStrings::getAppointmentStrings()['appointment_id']] = $appointment['id'];
@@ -214,6 +216,9 @@ class GetAppointmentsCommandHandler extends CommandHandler
                             $row[$customFieldLabel] = $value;
                         }
                     }
+
+                    $row = apply_filters('amelia_before_csv_export_appointments', $row, $appointment, $params['separate']);
+
                     $rows[] = $row;
                 }
             }
@@ -390,6 +395,18 @@ class GetAppointmentsCommandHandler extends CommandHandler
         if (in_array('persons', $params['fields'], true)) {
             $row[BackendStrings::getNotificationsStrings()['ph_booking_number_of_persons']] =
                 implode(', ', $numberOfPersons);
+        }
+
+        if (in_array('couponCode', $params['fields'], true)) {
+            if ($booking) {
+                $row[BackendStrings::getCommonStrings()['coupon_code']] = ($booking['coupon'] ? $booking['coupon']['code'] : '');
+            } else {
+                $couponCodes = [];
+                foreach ($appointment['bookings'] as $booking2) {
+                    $couponCodes[] = ($booking2['coupon'] ? $booking2['coupon']['code'] : '');
+                }
+                $row[BackendStrings::getCommonStrings()['coupon_code']] = implode(', ', $couponCodes);
+            }
         }
     }
 

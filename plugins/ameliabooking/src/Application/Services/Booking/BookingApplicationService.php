@@ -3,6 +3,9 @@
 namespace AmeliaBooking\Application\Services\Booking;
 
 use AmeliaBooking\Application\Services\Bookable\BookableApplicationService;
+use AmeliaBooking\Application\Services\Notification\EmailNotificationService;
+use AmeliaBooking\Application\Services\Notification\SMSNotificationService;
+use AmeliaBooking\Application\Services\Notification\WhatsAppNotificationService;
 use AmeliaBooking\Application\Services\Payment\PaymentApplicationService;
 use AmeliaBooking\Domain\Collection\Collection;
 use AmeliaBooking\Domain\Common\Exceptions\InvalidArgumentException;
@@ -210,6 +213,10 @@ class BookingApplicationService
     {
         /** @var SettingsService $settingsService */
         $settingsService = $this->container->get('domain.settings.service');
+
+        if (!empty($data['packageBookingFromBackend'])) {
+            $data['packageBookingFromBackend'] = true;
+        }
 
         if (isset($data['utcOffset']) && $data['utcOffset'] === '') {
             $data['utcOffset'] = null;
@@ -797,6 +804,53 @@ class BookingApplicationService
             $location = $locationRepository->getById($locationId);
 
             $appointment->setLocation($location);
+        }
+    }
+
+    /**
+     * @param int      $entityId
+     * @param string   $entityType
+     * @param int|null $userId
+     * @param string   $userType
+     *
+     * @return void
+     * @throws InvalidArgumentException
+     * @throws QueryExecutionException
+     */
+    public function bookingRescheduled($entityId, $entityType, $userId, $userType)
+    {
+        /** @var EmailNotificationService $notificationService */
+        $notificationService = $this->container->get('application.emailNotification.service');
+        /** @var SMSNotificationService $smsNotificationService */
+        $smsNotificationService = $this->container->get('application.smsNotification.service');
+        /** @var WhatsAppNotificationService $whatsAppNotificationService */
+        $whatsAppNotificationService = $this->container->get('application.whatsAppNotification.service');
+        /** @var SettingsService $settingsService */
+        $settingsService = $this->container->get('domain.settings.service');
+
+        $notificationService->invalidateSentScheduledNotifications(
+            $entityId,
+            $entityType,
+            $userId,
+            $userType
+        );
+
+        if ($settingsService->getSetting('notifications', 'smsSignedIn') === true) {
+            $smsNotificationService->invalidateSentScheduledNotifications(
+                $entityId,
+                $entityType,
+                $userId,
+                $userType
+            );
+        }
+
+        if ($whatsAppNotificationService->checkRequiredFields()) {
+            $whatsAppNotificationService->invalidateSentScheduledNotifications(
+                $entityId,
+                $entityType,
+                $userId,
+                $userType
+            );
         }
     }
 }

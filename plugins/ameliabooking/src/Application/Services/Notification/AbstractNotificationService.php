@@ -15,6 +15,7 @@ use AmeliaBooking\Domain\Entity\Booking\Appointment\CustomerBooking;
 use AmeliaBooking\Domain\Entity\Booking\Event\Event;
 use AmeliaBooking\Domain\Entity\Entities;
 use AmeliaBooking\Domain\Entity\Notification\Notification;
+use AmeliaBooking\Domain\Factory\Booking\Appointment\CustomerBookingFactory;
 use AmeliaBooking\Domain\Services\DateTime\DateTimeService;
 use AmeliaBooking\Domain\Services\Settings\SettingsService;
 use AmeliaBooking\Domain\ValueObjects\String\BookingStatus;
@@ -701,6 +702,15 @@ abstract class AbstractNotificationService
                         continue;
                     }
 
+                    $bookingArray = $reservationArray['bookings'][count($reservationArray['bookings'])-1];
+                    /** @var CustomerBooking $bookingObject */
+                    $bookingObject    = $bookingArray ? CustomerBookingFactory::create($bookingArray) : null;
+                    $reservationStart = $entityType === Entities::APPOINTMENT ? $reservationArray['bookingStart'] : $reservationArray['periods'][0]['periodStart'];
+
+                    if ($this->pastMinimumTimeBeforeBooking($providerNotification, $bookingObject, $reservationStart)) {
+                        continue;
+                    }
+
                     $reservationArray['sendCF'] = true;
 
                     try {
@@ -714,6 +724,38 @@ abstract class AbstractNotificationService
                 }
             }
         }
+    }
+
+    /**
+     * @param int    $entityId
+     * @param string $entityType
+     * @param int    $userId
+     * @param string $userType
+     *
+     * @throws QueryExecutionException
+     * @throws InvalidArgumentException
+     */
+    public function invalidateSentScheduledNotifications($entityId, $entityType, $userId, $userType)
+    {
+        /** @var NotificationLogRepository $notificationLogRepo */
+        $notificationLogRepo = $this->container->get('domain.notificationLog.repository');
+
+        $templates = [
+            "{$userType}_{$entityType}_next_day_reminder",
+            "{$userType}_{$entityType}_scheduled",
+            "{$userType}_{$entityType}_scheduled_%",
+        ];
+
+        $notificationsIds = [];
+
+        foreach ($templates as $template) {
+            /** @var Collection $notifications */
+            $notifications = $this->getByNameAndType($template, $this->type);
+
+            $notificationsIds = array_merge($notificationsIds, $notifications->keys());
+        }
+
+        $notificationLogRepo->invalidateSentEmails($entityId, $entityType, $userId, array_unique($notificationsIds));
     }
 
     /**
@@ -803,6 +845,46 @@ abstract class AbstractNotificationService
         }
     }
 
+
+    /**
+     *
+     * @param Notification $notification
+     * @param CustomerBooking $booking
+     * @param string $appointmentStart
+     *
+     */
+    private function pastMinimumTimeBeforeBooking($notification, $booking, $appointmentStart)
+    {
+        if ($booking && $booking->getCreated() && $notification->getMinimumTimeBeforeBooking() && $notification->getMinimumTimeBeforeBooking()->getValue() &&
+            json_decode($notification->getMinimumTimeBeforeBooking()->getValue())) {
+            $minimumTime = json_decode($notification->getMinimumTimeBeforeBooking()->getValue(), true);
+            $seconds     = 1;
+            switch ($minimumTime['period']) {
+                case 'minutes':
+                    $seconds = 60;
+                    break;
+                case 'hours':
+                    $seconds = 60*60;
+                    break;
+                case 'days':
+                    $seconds = 24*60*60;
+                    break;
+                case 'weeks':
+                    $seconds = 7*24*60*60;
+                    break;
+                case 'months':
+                    $seconds = 30*7*24*60*60;
+                    break;
+            }
+            $time = $minimumTime['amount']*$seconds;
+            if (DateTimeService::getCustomDateTimeObject($appointmentStart)->modify('-' . $time . ' second')
+                <= DateTimeService::getCustomDateTimeObject($booking->getCreated()->getValue()->format('Y-m-d H:i:s'))) {
+                return true;
+            }
+        }
+        return false;
+    }
+
     /**
      * Send passed notification for all passed bookings and save log in the database
      *
@@ -814,8 +896,6 @@ abstract class AbstractNotificationService
      */
     private function sendBookingsNotifications($notification, $appointments, $before)
     {
-        /** @var SettingsService $settingsDS */
-        $settingsDS = $this->container->get('domain.settings.service');
         /** @var PaymentApplicationService $paymentAS */
         $paymentAS = $this->container->get('application.payment.service');
 
@@ -830,17 +910,27 @@ abstract class AbstractNotificationService
 
             $appointmentArray['sendCF'] = true;
 
+            /** @var BookingApplicationService $bookingApplicationService */
+            $bookingApplicationService = $this->container->get('application.booking.booking.service');
+            $data = $appointmentArray;
+            $reservationObject = $bookingApplicationService->getReservationEntity($appointmentArray);
+
+            $reservationStart = $appointmentArray['type'] === Entities::APPOINTMENT ? $appointmentArray['bookingStart'] : $appointmentArray['periods'][0]['periodStart'];
+
             if ($notification->getSendTo()->getValue() === NotificationSendTo::PROVIDER) {
+                /** @var CustomerBooking $bookingObject */
+                $bookingObject = $reservationObject->getBookings()->getItem($reservationObject->getBookings()->keys()[$reservationObject->getBookings()->length()-1]);
+
+                if ($this->pastMinimumTimeBeforeBooking($notification, $bookingObject, $reservationStart)) {
+                    continue;
+                }
+
                 $this->sendNotification(
                     $appointmentArray,
                     $notification,
                     true
                 );
             } else {
-                /** @var BookingApplicationService $bookingApplicationService */
-                $bookingApplicationService = $this->container->get('application.booking.booking.service');
-                $data = $appointmentArray;
-                $reservationObject = $bookingApplicationService->getReservationEntity($appointmentArray);
                 if ($appointmentArray['type'] === Entities::APPOINTMENT) {
                     $data['bookable'] = $reservationObject->getService()->toArray();
                 } else {
@@ -849,14 +939,19 @@ abstract class AbstractNotificationService
 
                 // Notify each customer from customer bookings
                 foreach (array_keys($appointmentArray['bookings']) as $bookingKey) {
+                    /** @var CustomerBooking $bookingObject */
+                    $bookingObject = $reservationObject->getBookings()->getItem($reservationObject->getBookings()->keys()[$bookingKey]);
+
                     if ($notification->getContent() && $notification->getContent()->getValue() && strpos($notification->getContent()->getValue(), '%payment_link_') !== false) {
-                        /** @var CustomerBooking $bookingObject */
-                        $bookingObject    = $reservationObject->getBookings()->getItem($reservationObject->getBookings()->keys()[$bookingKey]);
                         $data['booking']  = $bookingObject ? $bookingObject->toArray() : $appointmentArray['bookings'][$bookingKey];
                         $data['customer'] =  $data['booking']['customer'];
                         $data[$appointmentArray['type']] = $appointmentArray;
                         $data['paymentId'] = $appointmentArray['bookings'][$bookingKey]['payments'][0]['id'];
                         $appointmentArray['bookings'][$bookingKey]['payments'][0]['paymentLinks'] = $paymentAS->createPaymentLink($data, $bookingKey);
+                    }
+
+                    if ($this->pastMinimumTimeBeforeBooking($notification, $bookingObject, $reservationStart)) {
+                        continue;
                     }
 
                     $this->sendNotification(

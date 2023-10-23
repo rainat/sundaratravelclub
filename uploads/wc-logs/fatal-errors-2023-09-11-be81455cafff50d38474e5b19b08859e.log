@@ -1,0 +1,14 @@
+2023-09-11T15:02:42+00:00 CRITICAL Uncaught Exception: Midtrans Error (500): Sorry. Our system is recovering from unexpected issues. Please retry. in /home/u822946699/domains/sundaratravelclub.com/public_html/staging/wp-content/plugins/cuberaksi-midtrans/lib/midtrans/Midtrans/ApiRequestor.php:111
+Stack trace:
+#0 /home/u822946699/domains/sundaratravelclub.com/public_html/staging/wp-content/plugins/cuberaksi-midtrans/lib/midtrans/Midtrans/ApiRequestor.php(22): Midtrans\ApiRequestor::remoteCall('https://api.san...', 'SB-Mid-server-m...', false, false)
+#1 /home/u822946699/domains/sundaratravelclub.com/public_html/staging/wp-content/plugins/cuberaksi-midtrans/lib/midtrans/Midtrans/Transaction.php(23): Midtrans\ApiRequestor::get('https://api.san...', 'SB-Mid-server-m...', false)
+#2 /home/u822946699/domains/sundaratravelclub.com/public_html/staging/wp-content/plugins/cuberaksi-midtrans/lib/midtrans/Midtrans/Notification.php(26): Midtrans\Transaction::status('0af53d6b-dec6-4...')
+#3 /home/u822946699/domains/sundaratravelclub.com/public_html/staging/wp in /home/u822946699/domains/sundaratravelclub.com/public_html/staging/wp-content/plugins/cuberaksi-midtrans/lib/midtrans/Midtrans/ApiRequestor.php on line 111
+
+2023-09-11T15:04:52+00:00 CRITICAL Uncaught Exception: Midtrans Error (500): Sorry. Our system is recovering from unexpected issues. Please retry. in /home/u822946699/domains/sundaratravelclub.com/public_html/staging/wp-content/plugins/cuberaksi-midtrans/lib/midtrans/Midtrans/ApiRequestor.php:111
+Stack trace:
+#0 /home/u822946699/domains/sundaratravelclub.com/public_html/staging/wp-content/plugins/cuberaksi-midtrans/lib/midtrans/Midtrans/ApiRequestor.php(22): Midtrans\ApiRequestor::remoteCall('https://api.san...', 'SB-Mid-server-m...', false, false)
+#1 /home/u822946699/domains/sundaratravelclub.com/public_html/staging/wp-content/plugins/cuberaksi-midtrans/lib/midtrans/Midtrans/Transaction.php(23): Midtrans\ApiRequestor::get('https://api.san...', 'SB-Mid-server-m...', false)
+#2 /home/u822946699/domains/sundaratravelclub.com/public_html/staging/wp-content/plugins/cuberaksi-midtrans/lib/midtrans/Midtrans/Notification.php(26): Midtrans\Transaction::status('0af53d6b-dec6-4...')
+#3 /home/u822946699/domains/sundaratravelclub.com/public_html/staging/wp in /home/u822946699/domains/sundaratravelclub.com/public_html/staging/wp-content/plugins/cuberaksi-midtrans/lib/midtrans/Midtrans/ApiRequestor.php on line 111
+

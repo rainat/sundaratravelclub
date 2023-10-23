@@ -1,0 +1,912 @@
+2023-10-20T01:52:08+00:00 INFO Array
+(
+    [Webhook Delivery] => Array
+        (
+            [Delivery ID] => cb158a4938163e5502ec60f108903065
+            [Date] => Oct 20, 2023 @ 1:52
+            [URL] => https://a.klaviyo.com/api/webhook/integration/woocommerce?c=W86qQh
+            [Duration] => 0.52221
+            [Request] => Array
+                (
+                    [Method] => POST
+                    [Headers] => Array
+                        (
+                            [User-Agent] => WooCommerce/8.2.1 Hookshot (WordPress/6.3.2)
+                            [Content-Type] => application/json
+                            [X-WC-Webhook-Source] => https://staging.sundaratravelclub.com/
+                            [X-WC-Webhook-Topic] => order.created
+                            [X-WC-Webhook-Resource] => order
+                            [X-WC-Webhook-Event] => created
+                            [X-WC-Webhook-Signature] => pRql8a0yP7QQo9l3pU9Xn+2KAsoj07x/byqcKSiK15c=
+                            [X-WC-Webhook-ID] => 7
+                            [X-WC-Webhook-Delivery-ID] => cb158a4938163e5502ec60f108903065
+                        )
+
+                )
+
+            [Body] => {\"id\":5541,\"parent_id\":0,\"status\":\"on-hold\",\"currency\":\"USD\",\"version\":\"8.2.1\",\"prices_include_tax\":false,\"date_created\":\"2023-10-20T09:51:43\",\"date_modified\":\"2023-10-20T09:51:44\",\"discount_total\":\"0\",\"discount_tax\":\"0\",\"shipping_total\":\"0\",\"shipping_tax\":\"0\",\"cart_tax\":\"0\",\"total\":\"4300\",\"total_tax\":\"0\",\"customer_id\":0,\"order_key\":\"wc_order_v2JkgQFDfPAxo\",\"billing\":{\"first_name\":\"Syarief\",\"last_name\":\"Hidayat\",\"company\":\"\",\"address_1\":\"\",\"address_2\":\"\",\"city\":\"\",\"state\":\"\",\"postcode\":\"\",\"country\":\"ID\",\"email\":\"syarief.office@gmail.com\",\"phone\":\"\"},\"shipping\":{\"first_name\":\"\",\"last_name\":\"\",\"company\":\"\",\"address_1\":\"\",\"address_2\":\"\",\"city\":\"\",\"state\":\"\",\"postcode\":\"\",\"country\":\"\",\"phone\":\"\"},\"payment_method\":\"bacs\",\"payment_method_title\":\"Direct bank transfer\",\"transaction_id\":\"\",\"customer_ip_address\":\"110.137.36.29\",\"customer_user_agent\":\"Mozilla\\/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit\\/537.36 (KHTML, like Gecko) Chrome\\/118.0.0.0 Safari\\/537.36\",\"created_via\":\"checkout\",\"customer_note\":\"\",\"date_completed\":null,\"date_paid\":null,\"cart_hash\":\"4ad2dafd66e872b10170e2b7311837b5\",\"number\":\"5541\",\"meta_data\":[{\"id\":47462,\"key\":\"is_vat_exempt\",\"value\":\"no\"},{\"id\":47481,\"key\":\"yith_bookings\",\"value\":[5542]}],\"line_items\":[{\"id\":279,\"name\":\"Lamborghini Huracan Evo\",\"product_id\":4243,\"variation_id\":0,\"quantity\":1,\"tax_class\":\"\",\"subtotal\":\"4300\",\"subtotal_tax\":\"0\",\"total\":\"4300\",\"total_tax\":\"0\",\"taxes\":[],\"meta_data\":[{\"id\":2873,\"key\":\"yith_booking_data\",\"value\":{\"from\":1698195600,\"to\":1698282000,\"duration\":24,\"persons\":1,\"person_types\":[],\"booking_services\":[],\"booking_service_quantities\":[],\"resource_ids\":[],\"_added-to-cart-timestamp\":1697766690},\"display_key\":\"yith_booking_data\",\"display_value\":{\"from\":1698195600,\"to\":1698282000,\"duration\":24,\"persons\":1,\"person_types\":[],\"booking_services\":[],\"booking_service_quantities\":[],\"resource_ids\":[],\"_added-to-cart-timestamp\":1697766690}},{\"id\":2874,\"key\":\"_booking_id\",\"value\":\"5542\",\"display_key\":\"Booking\",\"display_value\":\"#5542\"}],\"sku\":\"\",\"price\":4300,\"image\":{\"id\":\"4255\",\"src\":\"https:\\/\\/staging.sundaratravelclub.com\\/wp-content\\/uploads\\/2023\\/10\\/LH-1-DP.jpg\"},\"parent_name\":null}],\"tax_lines\":[],\"shipping_lines\":[],\"fee_lines\":[],\"coupon_lines\":[],\"refunds\":[],\"payment_url\":\"https:\\/\\/staging.sundaratravelclub.com\\/checkout\\/order-pay\\/5541\\/?pay_for_order=true&key=wc_order_v2JkgQFDfPAxo\",\"is_editable\":true,\"needs_payment\":false,\"needs_processing\":true,\"date_created_gmt\":\"2023-10-20T01:51:43\",\"date_modified_gmt\":\"2023-10-20T01:51:44\",\"date_completed_gmt\":null,\"date_paid_gmt\":null,\"currency_symbol\":\"$\",\"_links\":{\"self\":[{\"href\":\"https:\\/\\/staging.sundaratravelclub.com\\/wp-json\\/wc\\/v3\\/orders\\/5541\"}],\"collection\":[{\"href\":\"https:\\/\\/staging.sundaratravelclub.com\\/wp-json\\/wc\\/v3\\/orders\"}]}}
+            [Response] => Array
+                (
+                    [Code] => 200
+                    [Message] => OK
+                    [Headers] => WpOrg\Requests\Utility\CaseInsensitiveDictionary Object
+                        (
+                            [data:protected] => Array
+                                (
+                                    [date] => Fri, 20 Oct 2023 01:52:08 GMT
+                                    [content-type] => text/html; charset=utf-8
+                                    [cf-ray] => 818d9ea549918980-SIN
+                                    [cf-cache-status] => DYNAMIC
+                                    [strict-transport-security] => max-age=31536000; includeSubDomains; preload
+                                    [vary] => Cookie, Accept-Encoding
+                                    [content-security-policy-report-only] => script-src 'report-sample' 'strict-dynamic' 'unsafe-eval'; frame-ancestors 'self' login.bigcommerce.com *.mybigcommerce.com admin.shopify.com klaviyo.file.force.com klaviyo.lightning.force.com klaviyo.my.salesforce.com; object-src 'none'; base-uri 'none'; report-uri /csp/
+                                    [x-content-type-options] => nosniff
+                                    [x-robots-tag] => noindex, nofollow
+                                    [server] => cloudflare
+                                    [content-encoding] => gzip
+                                )
+
+                        )
+
+                    [Body] => 1
+                )
+
+        )
+
+)
+
+2023-10-20T01:52:09+00:00 INFO Array
+(
+    [Webhook Delivery] => Array
+        (
+            [Delivery ID] => 79f8e5442465e33e8aa956d71cca43e5
+            [Date] => Oct 20, 2023 @ 1:52
+            [URL] => https://a.klaviyo.com/api/webhook/integration/woocommerce?c=W86qQh
+            [Duration] => 0.35646
+            [Request] => Array
+                (
+                    [Method] => POST
+                    [Headers] => Array
+                        (
+                            [User-Agent] => WooCommerce/8.2.1 Hookshot (WordPress/6.3.2)
+                            [Content-Type] => application/json
+                            [X-WC-Webhook-Source] => https://staging.sundaratravelclub.com/
+                            [X-WC-Webhook-Topic] => order.updated
+                            [X-WC-Webhook-Resource] => order
+                            [X-WC-Webhook-Event] => updated
+                            [X-WC-Webhook-Signature] => pRql8a0yP7QQo9l3pU9Xn+2KAsoj07x/byqcKSiK15c=
+                            [X-WC-Webhook-ID] => 6
+                            [X-WC-Webhook-Delivery-ID] => 79f8e5442465e33e8aa956d71cca43e5
+                        )
+
+                )
+
+            [Body] => {\"id\":5541,\"parent_id\":0,\"status\":\"on-hold\",\"currency\":\"USD\",\"version\":\"8.2.1\",\"prices_include_tax\":false,\"date_created\":\"2023-10-20T09:51:43\",\"date_modified\":\"2023-10-20T09:51:44\",\"discount_total\":\"0\",\"discount_tax\":\"0\",\"shipping_total\":\"0\",\"shipping_tax\":\"0\",\"cart_tax\":\"0\",\"total\":\"4300\",\"total_tax\":\"0\",\"customer_id\":0,\"order_key\":\"wc_order_v2JkgQFDfPAxo\",\"billing\":{\"first_name\":\"Syarief\",\"last_name\":\"Hidayat\",\"company\":\"\",\"address_1\":\"\",\"address_2\":\"\",\"city\":\"\",\"state\":\"\",\"postcode\":\"\",\"country\":\"ID\",\"email\":\"syarief.office@gmail.com\",\"phone\":\"\"},\"shipping\":{\"first_name\":\"\",\"last_name\":\"\",\"company\":\"\",\"address_1\":\"\",\"address_2\":\"\",\"city\":\"\",\"state\":\"\",\"postcode\":\"\",\"country\":\"\",\"phone\":\"\"},\"payment_method\":\"bacs\",\"payment_method_title\":\"Direct bank transfer\",\"transaction_id\":\"\",\"customer_ip_address\":\"110.137.36.29\",\"customer_user_agent\":\"Mozilla\\/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit\\/537.36 (KHTML, like Gecko) Chrome\\/118.0.0.0 Safari\\/537.36\",\"created_via\":\"checkout\",\"customer_note\":\"\",\"date_completed\":null,\"date_paid\":null,\"cart_hash\":\"4ad2dafd66e872b10170e2b7311837b5\",\"number\":\"5541\",\"meta_data\":[{\"id\":47462,\"key\":\"is_vat_exempt\",\"value\":\"no\"},{\"id\":47481,\"key\":\"yith_bookings\",\"value\":[5542]}],\"line_items\":[{\"id\":279,\"name\":\"Lamborghini Huracan Evo\",\"product_id\":4243,\"variation_id\":0,\"quantity\":1,\"tax_class\":\"\",\"subtotal\":\"4300\",\"subtotal_tax\":\"0\",\"total\":\"4300\",\"total_tax\":\"0\",\"taxes\":[],\"meta_data\":[{\"id\":2873,\"key\":\"yith_booking_data\",\"value\":{\"from\":1698195600,\"to\":1698282000,\"duration\":24,\"persons\":1,\"person_types\":[],\"booking_services\":[],\"booking_service_quantities\":[],\"resource_ids\":[],\"_added-to-cart-timestamp\":1697766690},\"display_key\":\"yith_booking_data\",\"display_value\":{\"from\":1698195600,\"to\":1698282000,\"duration\":24,\"persons\":1,\"person_types\":[],\"booking_services\":[],\"booking_service_quantities\":[],\"resource_ids\":[],\"_added-to-cart-timestamp\":1697766690}},{\"id\":2874,\"key\":\"_booking_id\",\"value\":\"5542\",\"display_key\":\"Booking\",\"display_value\":\"#5542\"}],\"sku\":\"\",\"price\":4300,\"image\":{\"id\":\"4255\",\"src\":\"https:\\/\\/staging.sundaratravelclub.com\\/wp-content\\/uploads\\/2023\\/10\\/LH-1-DP.jpg\"},\"parent_name\":null}],\"tax_lines\":[],\"shipping_lines\":[],\"fee_lines\":[],\"coupon_lines\":[],\"refunds\":[],\"payment_url\":\"https:\\/\\/staging.sundaratravelclub.com\\/checkout\\/order-pay\\/5541\\/?pay_for_order=true&key=wc_order_v2JkgQFDfPAxo\",\"is_editable\":true,\"needs_payment\":false,\"needs_processing\":true,\"date_created_gmt\":\"2023-10-20T01:51:43\",\"date_modified_gmt\":\"2023-10-20T01:51:44\",\"date_completed_gmt\":null,\"date_paid_gmt\":null,\"currency_symbol\":\"$\",\"_links\":{\"self\":[{\"href\":\"https:\\/\\/staging.sundaratravelclub.com\\/wp-json\\/wc\\/v3\\/orders\\/5541\"}],\"collection\":[{\"href\":\"https:\\/\\/staging.sundaratravelclub.com\\/wp-json\\/wc\\/v3\\/orders\"}]}}
+            [Response] => Array
+                (
+                    [Code] => 200
+                    [Message] => OK
+                    [Headers] => WpOrg\Requests\Utility\CaseInsensitiveDictionary Object
+                        (
+                            [data:protected] => Array
+                                (
+                                    [date] => Fri, 20 Oct 2023 01:52:09 GMT
+                                    [content-type] => text/html; charset=utf-8
+                                    [cf-ray] => 818d9ea79dc35f53-SIN
+                                    [cf-cache-status] => DYNAMIC
+                                    [strict-transport-security] => max-age=31536000; includeSubDomains; preload
+                                    [vary] => Cookie, Accept-Encoding
+                                    [content-security-policy-report-only] => base-uri 'none'; frame-ancestors 'self' login.bigcommerce.com *.mybigcommerce.com admin.shopify.com klaviyo.file.force.com klaviyo.lightning.force.com klaviyo.my.salesforce.com; script-src 'report-sample' 'strict-dynamic' 'unsafe-eval'; object-src 'none'; report-uri /csp/
+                                    [x-content-type-options] => nosniff
+                                    [x-robots-tag] => noindex, nofollow
+                                    [server] => cloudflare
+                                    [content-encoding] => gzip
+                                )
+
+                        )
+
+                    [Body] => 1
+                )
+
+        )
+
+)
+
+2023-10-20T02:20:10+00:00 INFO Array
+(
+    [Webhook Delivery] => Array
+        (
+            [Delivery ID] => 776f302fe281736da7686243cd1899b6
+            [Date] => Oct 20, 2023 @ 2:20
+            [URL] => https://a.klaviyo.com/api/webhook/integration/woocommerce?c=W86qQh
+            [Duration] => 0.57189
+            [Request] => Array
+                (
+                    [Method] => POST
+                    [Headers] => Array
+                        (
+                            [User-Agent] => WooCommerce/8.2.1 Hookshot (WordPress/6.3.2)
+                            [Content-Type] => application/json
+                            [X-WC-Webhook-Source] => https://staging.sundaratravelclub.com/
+                            [X-WC-Webhook-Topic] => product.updated
+                            [X-WC-Webhook-Resource] => product
+                            [X-WC-Webhook-Event] => updated
+                            [X-WC-Webhook-Signature] => chsTaNxypL5b7GOjo1eGfaNZDa2EI7khPjsoOV6dKOM=
+                            [X-WC-Webhook-ID] => 8
+                            [X-WC-Webhook-Delivery-ID] => 776f302fe281736da7686243cd1899b6
+                        )
+
+                )
+
+            [Body] => {\"id\":1650,\"name\":\"Forever\",\"slug\":\"forever\",\"permalink\":\"https:\\/\\/staging.sundaratravelclub.com\\/product\\/forever\\/\",\"date_created\":\"2023-07-11T16:03:18\",\"date_created_gmt\":\"2023-07-11T08:03:18\",\"date_modified\":\"2023-10-20T10:19:36\",\"date_modified_gmt\":\"2023-10-20T02:19:36\",\"type\":\"booking\",\"status\":\"publish\",\"featured\":false,\"catalog_visibility\":\"visible\",\"description\":\"\",\"short_description\":\"<div class=\\\"page\\\" title=\\\"Page 3\\\">\\n<div class=\\\"layoutArea\\\">\\n<div class=\\\"column\\\">\\n<p><strong>AMAZING CRUISE<\\/strong><\\/p>\\n<div class=\\\"page\\\" title=\\\"Page 3\\\">\\n<div class=\\\"layoutArea\\\">\\n<div class=\\\"column\\\">\\n<p>The Forever Rizzardi Top Line 50 Yacht is an imported Italian Luxury Yacht. The Forever Yacht is perfect for day charters for groups of up to 13 guests desiring a leisurely cruise of Bali\\u2019s waters.<\\/p>\\n<div class=\\\"page\\\" title=\\\"Page 3\\\">\\n<div class=\\\"layoutArea\\\">\\n<div class=\\\"column\\\">\\n<p>The yacht can accommodate a couple in a double cabin, plus two more guests in a twin cabin for longer charters. Each excursion is tailored to your expectations: whether relaxing in the turquoise waters of a secluded anchorage or an ac- tionpacked, onboard adventure. Chartering a yacht allows you privacy and the opportunity to decide on where you wish to explore to make the most of your holiday.<\\/p>\\n<\\/div>\\n<\\/div>\\n<\\/div>\\n<\\/div>\\n<\\/div>\\n<\\/div>\\n<\\/div>\\n<\\/div>\\n<\\/div>\\n\",\"sku\":\"\",\"price\":\"5000\",\"regular_price\":\"\",\"sale_price\":\"\",\"date_on_sale_from\":null,\"date_on_sale_from_gmt\":null,\"date_on_sale_to\":null,\"date_on_sale_to_gmt\":null,\"on_sale\":false,\"purchasable\":true,\"total_sales\":45,\"virtual\":true,\"downloadable\":false,\"downloads\":[],\"download_limit\":-1,\"download_expiry\":-1,\"external_url\":\"\",\"button_text\":\"\",\"tax_status\":\"taxable\",\"tax_class\":\"\",\"manage_stock\":false,\"stock_quantity\":null,\"backorders\":\"no\",\"backorders_allowed\":false,\"backordered\":false,\"low_stock_amount\":null,\"sold_individually\":true,\"weight\":\"\",\"dimensions\":{\"length\":\"\",\"width\":\"\",\"height\":\"\"},\"shipping_required\":false,\"shipping_taxable\":false,\"shipping_class\":\"\",\"shipping_class_id\":0,\"reviews_allowed\":false,\"average_rating\":\"0.00\",\"rating_count\":0,\"upsell_ids\":[],\"cross_sell_ids\":[],\"parent_id\":0,\"purchase_note\":\"\",\"categories\":[{\"id\":18,\"name\":\"Bali Yacht Charter\",\"slug\":\"bali-yacht-charter\"}],\"tags\":[],\"images\":[{\"id\":3808,\"date_created\":\"2023-10-03T04:40:35\",\"date_created_gmt\":\"2023-10-02T13:40:35\",\"date_modified\":\"2023-10-03T04:40:35\",\"date_modified_gmt\":\"2023-10-02T13:40:35\",\"src\":\"https:\\/\\/staging.sundaratravelclub.com\\/wp-content\\/uploads\\/2023\\/07\\/1-2.jpg\",\"name\":\"1\",\"alt\":\"\"},{\"id\":3561,\"date_created\":\"2023-09-27T20:49:06\",\"date_created_gmt\":\"2023-09-27T11:49:06\",\"date_modified\":\"2023-09-27T20:49:06\",\"date_modified_gmt\":\"2023-09-27T11:49:06\",\"src\":\"https:\\/\\/staging.sundaratravelclub.com\\/wp-content\\/uploads\\/2023\\/07\\/1.jpg\",\"name\":\"1\",\"alt\":\"\"},{\"id\":3556,\"date_created\":\"2023-09-27T20:48:34\",\"date_created_gmt\":\"2023-09-27T11:48:34\",\"date_modified\":\"2023-09-27T20:48:34\",\"date_modified_gmt\":\"2023-09-27T11:48:34\",\"src\":\"https:\\/\\/staging.sundaratravelclub.com\\/wp-content\\/uploads\\/2023\\/07\\/2-DP-1.jpg\",\"name\":\"2 (DP)\",\"alt\":\"\"},{\"id\":3562,\"date_created\":\"2023-09-27T20:49:08\",\"date_created_gmt\":\"2023-09-27T11:49:08\",\"date_modified\":\"2023-09-27T20:49:08\",\"date_modified_gmt\":\"2023-09-27T11:49:08\",\"src\":\"https:\\/\\/staging.sundaratravelclub.com\\/wp-content\\/uploads\\/2023\\/07\\/3-1.jpg\",\"name\":\"3\",\"alt\":\"\"},{\"id\":3563,\"date_created\":\"2023-09-27T20:49:10\",\"date_created_gmt\":\"2023-09-27T11:49:10\",\"date_modified\":\"2023-09-27T20:49:10\",\"date_modified_gmt\":\"2023-09-27T11:49:10\",\"src\":\"https:\\/\\/staging.sundaratravelclub.com\\/wp-content\\/uploads\\/2023\\/07\\/4.jpg\",\"name\":\"4\",\"alt\":\"\"},{\"id\":3564,\"date_created\":\"2023-09-27T20:49:12\",\"date_created_gmt\":\"2023-09-27T11:49:12\",\"date_modified\":\"2023-09-27T20:49:12\",\"date_modified_gmt\":\"2023-09-27T11:49:12\",\"src\":\"https:\\/\\/staging.sundaratravelclub.com\\/wp-content\\/uploads\\/2023\\/07\\/5-1.jpg\",\"name\":\"5\",\"alt\":\"\"},{\"id\":3565,\"date_created\":\"2023-09-27T20:49:14\",\"date_created_gmt\":\"2023-09-27T11:49:14\",\"date_modified\":\"2023-09-27T20:49:14\",\"date_modified_gmt\":\"2023-09-27T11:49:14\",\"src\":\"https:\\/\\/staging.sundaratravelclub.com\\/wp-content\\/uploads\\/2023\\/07\\/6-1.jpg\",\"name\":\"6\",\"alt\":\"\"},{\"id\":3557,\"date_created\":\"2023-09-27T20:48:56\",\"date_created_gmt\":\"2023-09-27T11:48:56\",\"date_modified\":\"2023-09-27T20:48:56\",\"date_modified_gmt\":\"2023-09-27T11:48:56\",\"src\":\"https:\\/\\/staging.sundaratravelclub.com\\/wp-content\\/uploads\\/2023\\/07\\/7-1.jpg\",\"name\":\"7\",\"alt\":\"\"},{\"id\":3558,\"date_created\":\"2023-09-27T20:49:00\",\"date_created_gmt\":\"2023-09-27T11:49:00\",\"date_modified\":\"2023-09-27T20:49:00\",\"date_modified_gmt\":\"2023-09-27T11:49:00\",\"src\":\"https:\\/\\/staging.sundaratravelclub.com\\/wp-content\\/uploads\\/2023\\/07\\/8-1.jpg\",\"name\":\"8\",\"alt\":\"\"},{\"id\":3560,\"date_created\":\"2023-09-27T20:49:04\",\"date_created_gmt\":\"2023-09-27T11:49:04\",\"date_modified\":\"2023-09-27T20:49:04\",\"date_modified_gmt\":\"2023-09-27T11:49:04\",\"src\":\"https:\\/\\/staging.sundaratravelclub.com\\/wp-content\\/uploads\\/2023\\/07\\/0.jpg\",\"name\":\"0\",\"alt\":\"\"}],\"attributes\":[],\"default_attributes\":[],\"variations\":[],\"grouped_products\":[],\"menu_order\":0,\"price_html\":\"<span class=\\\"woocommerce-Price-amount amount\\\"><bdi><span class=\\\"woocommerce-Price-currencySymbol\\\">&#36;<\\/span>5,000<\\/bdi><\\/span>\",\"related_ids\":[1649,1648],\"meta_data\":[{\"id\":3307,\"key\":\"_wp_page_template\",\"value\":\"default\"},{\"id\":3308,\"key\":\"site-sidebar-layout\",\"value\":\"default\"},{\"id\":3309,\"key\":\"site-content-layout\",\"value\":\"default\"},{\"id\":3310,\"key\":\"theme-transparent-header-meta\",\"value\":\"default\"},{\"id\":7985,\"key\":\"mwb_mbfw_booking_criteria\",\"value\":\"fixed_unit\"},{\"id\":7986,\"key\":\"wps_mbfw_booking_type\",\"value\":\"single_cal\"},{\"id\":7987,\"key\":\"mwb_mbfw_booking_count\",\"value\":\"1\"},{\"id\":7988,\"key\":\"mwb_mbfw_booking_unit\",\"value\":\"hour\"},{\"id\":7989,\"key\":\"mwb_mbfw_enable_calendar\",\"value\":\"\"},{\"id\":7990,\"key\":\"mwb_mbfw_enable_time_picker\",\"value\":\"\"},{\"id\":7991,\"key\":\"mwb_mbfw_max_bookings\",\"value\":\"\"},{\"id\":7992,\"key\":\"mwb_mbfw_show_date_with_time\",\"value\":\"yes\"},{\"id\":7993,\"key\":\"mwb_mbfw_admin_confirmation\",\"value\":\"\"},{\"id\":7994,\"key\":\"mwb_mbfw_cancellation_allowed\",\"value\":\"\"},{\"id\":7995,\"key\":\"mwb_mbfw_booking_unit_cost\",\"value\":\"250000\"},{\"id\":7996,\"key\":\"mwb_mbfw_is_booking_unit_cost_per_people\",\"value\":\"yes\"},{\"id\":7997,\"key\":\"mwb_mbfw_booking_base_cost\",\"value\":\"\"},{\"id\":7998,\"key\":\"mwb_mbfw_is_booking_base_cost_per_people\",\"value\":\"\"},{\"id\":7999,\"key\":\"mwb_mbfw_is_people_option\",\"value\":\"\"},{\"id\":8000,\"key\":\"mwb_mbfw_minimum_people_per_booking\",\"value\":\"\"},{\"id\":8001,\"key\":\"mwb_mbfw_maximum_people_per_booking\",\"value\":\"\"},{\"id\":8002,\"key\":\"mwb_mbfw_is_add_extra_services\",\"value\":\"\"},{\"id\":8003,\"key\":\"mwb_mbfw_maximum_booking_per_unit\",\"value\":\"\"},{\"id\":8004,\"key\":\"mwb_bfwp_order_statuses_to_cancel\",\"value\":[]},{\"id\":8005,\"key\":\"mwb_mbfw_daily_calendar_start_time\",\"value\":\"\"},{\"id\":8006,\"key\":\"mwb_mbfw_daily_calendar_end_time\",\"value\":\"\"},{\"id\":8007,\"key\":\"mwb_mbfw_choose_holiday\",\"value\":\"\"},{\"id\":8008,\"key\":\"wps_mbfw_set_availability\",\"value\":\"\"},{\"id\":8009,\"key\":\"wps_mbfw_time_slots\",\"value\":[{\"_from\":\"\",\"_to\":\"\"}]},{\"id\":8095,\"key\":\"_elementor_template_type\",\"value\":\"product-post\"},{\"id\":8096,\"key\":\"_elementor_version\",\"value\":\"3.14.1\"},{\"id\":8097,\"key\":\"_elementor_pro_version\",\"value\":\"3.14.1\"},{\"id\":21277,\"key\":\"inline_featured_image\",\"value\":\"0\"},{\"id\":22910,\"key\":\"duration_text_field\",\"value\":\"1 Day\"},{\"id\":22911,\"key\":\"max_people_number_field\",\"value\":\"6\"},{\"id\":28171,\"key\":\"_amelia_cuberaksi\",\"value\":\"{\\\"product_id\\\":1650,\\\"service_id\\\":5,\\\"price\\\":\\\"5000\\\"}\"},{\"id\":29571,\"key\":\"_yith_booking_duration_type\",\"value\":\"customer\"},{\"id\":29572,\"key\":\"_yith_booking_duration\",\"value\":\"1\"},{\"id\":29573,\"key\":\"_yith_booking_duration_unit\",\"value\":\"day\"},{\"id\":29574,\"key\":\"_yith_booking_enable_calendar_range_picker\",\"value\":\"no\"},{\"id\":29575,\"key\":\"_yith_booking_default_start_date\",\"value\":\"first-available\"},{\"id\":29576,\"key\":\"_yith_booking_default_start_date_custom\",\"value\":\"\"},{\"id\":29577,\"key\":\"_yith_booking_default_start_time\",\"value\":\"\"},{\"id\":29578,\"key\":\"_yith_booking_all_day\",\"value\":\"yes\"},{\"id\":29579,\"key\":\"_yith_booking_max_per_block\",\"value\":\"0\"},{\"id\":29580,\"key\":\"_yith_booking_minimum_duration\",\"value\":\"1\"},{\"id\":29581,\"key\":\"_yith_booking_maximum_duration\",\"value\":\"0\"},{\"id\":29582,\"key\":\"_yith_booking_request_confirmation\",\"value\":\"no\"},{\"id\":29583,\"key\":\"_yith_booking_can_be_cancelled\",\"value\":\"yes\"},{\"id\":29584,\"key\":\"_yith_booking_cancelled_duration\",\"value\":\"1\"},{\"id\":29585,\"key\":\"_yith_booking_cancelled_unit\",\"value\":\"day\"},{\"id\":29586,\"key\":\"_yith_booking_checkin\",\"value\":\"\"},{\"id\":29587,\"key\":\"_yith_booking_checkout\",\"value\":\"\"},{\"id\":29588,\"key\":\"_yith_booking_allowed_start_days\",\"value\":[]},{\"id\":29589,\"key\":\"_yith_booking_daily_start_time\",\"value\":\"00:00\"},{\"id\":29590,\"key\":\"_yith_booking_buffer\",\"value\":\"0\"},{\"id\":29591,\"key\":\"_yith_booking_time_increment_based_on_duration\",\"value\":\"no\"},{\"id\":29592,\"key\":\"_yith_booking_time_increment_including_buffer\",\"value\":\"no\"},{\"id\":29593,\"key\":\"_yith_booking_allow_after\",\"value\":\"1\"},{\"id\":29594,\"key\":\"_yith_booking_allow_after_unit\",\"value\":\"day\"},{\"id\":29595,\"key\":\"_yith_booking_allow_until\",\"value\":\"1\"},{\"id\":29596,\"key\":\"_yith_booking_allow_until_unit\",\"value\":\"year\"},{\"id\":29597,\"key\":\"_yith_booking_availability_range\",\"value\":[]},{\"id\":29598,\"key\":\"_yith_booking_default_availabilities\",\"value\":[{\"day\":\"all\",\"bookable\":\"yes\",\"time_slots\":[]}]},{\"id\":29599,\"key\":\"_yith_booking_block_cost\",\"value\":\"5000\"},{\"id\":29600,\"key\":\"_yith_booking_base_cost\",\"value\":\"\"},{\"id\":29601,\"key\":\"_yith_booking_costs_range\",\"value\":[]},{\"id\":29602,\"key\":\"_yith_booking_location\",\"value\":\"\"},{\"id\":29603,\"key\":\"_yith_booking_location_lat\",\"value\":\"\"},{\"id\":29604,\"key\":\"_yith_booking_location_lng\",\"value\":\"\"},{\"id\":29607,\"key\":\"map\",\"value\":\"<iframe src=\\\"https:\\/\\/www.google.com\\/maps\\/embed?pb=!1m18!1m12!1m3!1d63098.14882151671!2d115.09771105819169!3d-8.726231972536143!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2dd246bc2ab70d43%3A0x82feaae12f4ab48e!2sPantai%20Kuta!5e0!3m2!1sid!2sid!4v1696521812298!5m2!1sid!2sid\\\" width=\\\"600\\\" height=\\\"450\\\" style=\\\"border:0;\\\" allowfullscreen=\\\"\\\" loading=\\\"lazy\\\" referrerpolicy=\\\"no-referrer-when-downgrade\\\"><\\/iframe>\"},{\"id\":29608,\"key\":\"_map\",\"value\":\"field_651ed9418cf05\"},{\"id\":29609,\"key\":\"day_1\",\"value\":\"<h1>Arrive ...<\\/h1>\"},{\"id\":29610,\"key\":\"_day_1\",\"value\":\"field_651ed6a875e53\"},{\"id\":29611,\"key\":\"day_2\",\"value\":\"<h1>Fun<\\/h1>\"},{\"id\":29612,\"key\":\"_day_2\",\"value\":\"field_651ed6db75e54\"},{\"id\":29613,\"key\":\"day_3\",\"value\":\"<h1>checkout<\\/h1>\"},{\"id\":29614,\"key\":\"_day_3\",\"value\":\"field_651ed6f275e55\"},{\"id\":29615,\"key\":\"builder\",\"value\":\"\"},{\"id\":29616,\"key\":\"_builder\",\"value\":\"field_651eab9ec93f1\"},{\"id\":29617,\"key\":\"lenght\",\"value\":\"\"},{\"id\":29618,\"key\":\"_lenght\",\"value\":\"field_651eac6f5c14f\"},{\"id\":29619,\"key\":\"beam\",\"value\":\"\"},{\"id\":29620,\"key\":\"_beam\",\"value\":\"field_651eac825c150\"},{\"id\":29621,\"key\":\"cabins\",\"value\":\"\"},{\"id\":29622,\"key\":\"_cabins\",\"value\":\"field_651eac9f5c152\"},{\"id\":29623,\"key\":\"guest\",\"value\":\"\"},{\"id\":29624,\"key\":\"_guest\",\"value\":\"field_651eac905c151\"},{\"id\":29625,\"key\":\"cruising_speed\",\"value\":\"\"},{\"id\":29626,\"key\":\"_cruising_speed\",\"value\":\"field_651eacb55c153\"},{\"id\":29627,\"key\":\"max_speed\",\"value\":\"\"},{\"id\":29628,\"key\":\"_max_speed\",\"value\":\"field_651ead165c154\"},{\"id\":29629,\"key\":\"year\",\"value\":\"2017\"},{\"id\":29630,\"key\":\"_year\",\"value\":\"field_651ed605c407b\"},{\"id\":29631,\"key\":\"bathroom\",\"value\":\"1\"},{\"id\":29632,\"key\":\"_bathroom\",\"value\":\"field_651ed62cc407c\"},{\"id\":31290,\"key\":\"duration_trip\",\"value\":\"Day Trip\"},{\"id\":31291,\"key\":\"_duration_trip\",\"value\":\"field_65275fceccbcd\"},{\"id\":31292,\"key\":\"max_people\",\"value\":\"6\"},{\"id\":31293,\"key\":\"_max_people\",\"value\":\"field_652760bfccbd0\"},{\"id\":31294,\"key\":\"day_4\",\"value\":\"\"},{\"id\":31295,\"key\":\"_day_4\",\"value\":\"field_65258ae54ca9d\"},{\"id\":31411,\"key\":\"timeline_off\",\"value\":\"0\"},{\"id\":31412,\"key\":\"_timeline_off\",\"value\":\"field_652765620dde5\"}],\"stock_status\":\"instock\",\"has_options\":true,\"post_password\":\"\",\"_links\":{\"self\":[{\"href\":\"https:\\/\\/staging.sundaratravelclub.com\\/wp-json\\/wc\\/v3\\/products\\/1650\"}],\"collection\":[{\"href\":\"https:\\/\\/staging.sundaratravelclub.com\\/wp-json\\/wc\\/v3\\/products\"}]}}
+            [Response] => Array
+                (
+                    [Code] => 200
+                    [Message] => OK
+                    [Headers] => WpOrg\Requests\Utility\CaseInsensitiveDictionary Object
+                        (
+                            [data:protected] => Array
+                                (
+                                    [date] => Fri, 20 Oct 2023 02:20:10 GMT
+                                    [content-type] => text/html; charset=utf-8
+                                    [cf-ray] => 818dc7b3ba6649c0-SIN
+                                    [cf-cache-status] => DYNAMIC
+                                    [strict-transport-security] => max-age=31536000; includeSubDomains; preload
+                                    [vary] => Cookie, Accept-Encoding
+                                    [content-security-policy-report-only] => base-uri 'none'; script-src 'report-sample' 'strict-dynamic' 'unsafe-eval'; object-src 'none'; frame-ancestors 'self' login.bigcommerce.com *.mybigcommerce.com admin.shopify.com klaviyo.file.force.com klaviyo.lightning.force.com klaviyo.my.salesforce.com; report-uri /csp/
+                                    [x-content-type-options] => nosniff
+                                    [x-robots-tag] => noindex, nofollow
+                                    [server] => cloudflare
+                                    [content-encoding] => gzip
+                                )
+
+                        )
+
+                    [Body] => 1
+                )
+
+        )
+
+)
+
+2023-10-20T07:17:17+00:00 INFO Array
+(
+    [Webhook Delivery] => Array
+        (
+            [Delivery ID] => 31b027b6afe89aa639ccfa5ec53f51b7
+            [Date] => Oct 20, 2023 @ 7:17
+            [URL] => https://a.klaviyo.com/api/webhook/integration/woocommerce?c=W86qQh
+            [Duration] => 0.54445
+            [Request] => Array
+                (
+                    [Method] => POST
+                    [Headers] => Array
+                        (
+                            [User-Agent] => WooCommerce/8.2.1 Hookshot (WordPress/6.3.2)
+                            [Content-Type] => application/json
+                            [X-WC-Webhook-Source] => https://staging.sundaratravelclub.com/
+                            [X-WC-Webhook-Topic] => order.created
+                            [X-WC-Webhook-Resource] => order
+                            [X-WC-Webhook-Event] => created
+                            [X-WC-Webhook-Signature] => msVIT8NIaIWAd3ORK6vDq5C7iVXMjjx+EZaNWNiM9dM=
+                            [X-WC-Webhook-ID] => 7
+                            [X-WC-Webhook-Delivery-ID] => 31b027b6afe89aa639ccfa5ec53f51b7
+                        )
+
+                )
+
+            [Body] => {\"id\":5543,\"parent_id\":0,\"status\":\"on-hold\",\"currency\":\"USD\",\"version\":\"8.2.1\",\"prices_include_tax\":false,\"date_created\":\"2023-10-20T15:16:27\",\"date_modified\":\"2023-10-20T15:16:28\",\"discount_total\":\"0\",\"discount_tax\":\"0\",\"shipping_total\":\"0\",\"shipping_tax\":\"0\",\"cart_tax\":\"0\",\"total\":\"5000\",\"total_tax\":\"0\",\"customer_id\":52,\"order_key\":\"wc_order_q0iOveQY3PEF6\",\"billing\":{\"first_name\":\"-\",\"last_name\":\"-\",\"company\":\"\",\"address_1\":\"\",\"address_2\":\"\",\"city\":\"\",\"state\":\"\",\"postcode\":\"\",\"country\":\"SG\",\"email\":\"cuberaksi@gmail.com\",\"phone\":\"\"},\"shipping\":{\"first_name\":\"\",\"last_name\":\"\",\"company\":\"\",\"address_1\":\"\",\"address_2\":\"\",\"city\":\"\",\"state\":\"\",\"postcode\":\"\",\"country\":\"\",\"phone\":\"\"},\"payment_method\":\"bacs\",\"payment_method_title\":\"Direct bank transfer\",\"transaction_id\":\"\",\"customer_ip_address\":\"114.10.87.0\",\"customer_user_agent\":\"Mozilla\\/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit\\/537.36 (KHTML, like Gecko) Chrome\\/118.0.0.0 Safari\\/537.36\",\"created_via\":\"checkout\",\"customer_note\":\"\",\"date_completed\":null,\"date_paid\":null,\"cart_hash\":\"5d13af33a0adcc5d684ed1b7be82881d\",\"number\":\"5543\",\"meta_data\":[{\"id\":47512,\"key\":\"is_vat_exempt\",\"value\":\"no\"},{\"id\":47531,\"key\":\"yith_bookings\",\"value\":[5544]}],\"line_items\":[{\"id\":280,\"name\":\"Forever\",\"product_id\":1650,\"variation_id\":0,\"quantity\":1,\"tax_class\":\"\",\"subtotal\":\"5000\",\"subtotal_tax\":\"0\",\"total\":\"5000\",\"total_tax\":\"0\",\"taxes\":[],\"meta_data\":[{\"id\":2884,\"key\":\"yith_booking_data\",\"value\":{\"from\":1697846400,\"to\":1697932799,\"duration\":1,\"persons\":1,\"person_types\":[],\"booking_services\":[],\"booking_service_quantities\":[],\"resource_ids\":[],\"_added-to-cart-timestamp\":1697786169},\"display_key\":\"yith_booking_data\",\"display_value\":{\"from\":1697846400,\"to\":1697932799,\"duration\":1,\"persons\":1,\"person_types\":[],\"booking_services\":[],\"booking_service_quantities\":[],\"resource_ids\":[],\"_added-to-cart-timestamp\":1697786169}},{\"id\":2885,\"key\":\"_booking_id\",\"value\":\"5544\",\"display_key\":\"Booking\",\"display_value\":\"#5544\"}],\"sku\":\"\",\"price\":5000,\"image\":{\"id\":\"3808\",\"src\":\"https:\\/\\/staging.sundaratravelclub.com\\/wp-content\\/uploads\\/2023\\/07\\/1-2.jpg\"},\"parent_name\":null}],\"tax_lines\":[],\"shipping_lines\":[],\"fee_lines\":[],\"coupon_lines\":[],\"refunds\":[],\"payment_url\":\"https:\\/\\/staging.sundaratravelclub.com\\/checkout\\/order-pay\\/5543\\/?pay_for_order=true&key=wc_order_q0iOveQY3PEF6\",\"is_editable\":true,\"needs_payment\":false,\"needs_processing\":true,\"date_created_gmt\":\"2023-10-20T07:16:27\",\"date_modified_gmt\":\"2023-10-20T07:16:28\",\"date_completed_gmt\":null,\"date_paid_gmt\":null,\"currency_symbol\":\"$\",\"_links\":{\"self\":[{\"href\":\"https:\\/\\/staging.sundaratravelclub.com\\/wp-json\\/wc\\/v3\\/orders\\/5543\"}],\"collection\":[{\"href\":\"https:\\/\\/staging.sundaratravelclub.com\\/wp-json\\/wc\\/v3\\/orders\"}],\"customer\":[{\"href\":\"https:\\/\\/staging.sundaratravelclub.com\\/wp-json\\/wc\\/v3\\/customers\\/52\"}]}}
+            [Response] => Array
+                (
+                    [Code] => 200
+                    [Message] => OK
+                    [Headers] => WpOrg\Requests\Utility\CaseInsensitiveDictionary Object
+                        (
+                            [data:protected] => Array
+                                (
+                                    [date] => Fri, 20 Oct 2023 07:17:17 GMT
+                                    [content-type] => text/html; charset=utf-8
+                                    [cf-ray] => 818f7aebbade3e36-SIN
+                                    [cf-cache-status] => DYNAMIC
+                                    [strict-transport-security] => max-age=31536000; includeSubDomains; preload
+                                    [vary] => Cookie, Accept-Encoding
+                                    [content-security-policy-report-only] => base-uri 'none'; object-src 'none'; frame-ancestors 'self' login.bigcommerce.com *.mybigcommerce.com admin.shopify.com klaviyo.file.force.com klaviyo.lightning.force.com klaviyo.my.salesforce.com; script-src 'report-sample' 'strict-dynamic' 'unsafe-eval'; report-uri /csp/
+                                    [x-content-type-options] => nosniff
+                                    [x-robots-tag] => noindex, nofollow
+                                    [server] => cloudflare
+                                    [content-encoding] => gzip
+                                )
+
+                        )
+
+                    [Body] => 1
+                )
+
+        )
+
+)
+
+2023-10-20T07:17:17+00:00 INFO Array
+(
+    [Webhook Delivery] => Array
+        (
+            [Delivery ID] => 1df0e91bd1815c022dd9afed7c168a66
+            [Date] => Oct 20, 2023 @ 7:17
+            [URL] => https://a.klaviyo.com/api/webhook/integration/woocommerce?c=W86qQh
+            [Duration] => 0.36703
+            [Request] => Array
+                (
+                    [Method] => POST
+                    [Headers] => Array
+                        (
+                            [User-Agent] => WooCommerce/8.2.1 Hookshot (WordPress/6.3.2)
+                            [Content-Type] => application/json
+                            [X-WC-Webhook-Source] => https://staging.sundaratravelclub.com/
+                            [X-WC-Webhook-Topic] => order.updated
+                            [X-WC-Webhook-Resource] => order
+                            [X-WC-Webhook-Event] => updated
+                            [X-WC-Webhook-Signature] => msVIT8NIaIWAd3ORK6vDq5C7iVXMjjx+EZaNWNiM9dM=
+                            [X-WC-Webhook-ID] => 6
+                            [X-WC-Webhook-Delivery-ID] => 1df0e91bd1815c022dd9afed7c168a66
+                        )
+
+                )
+
+            [Body] => {\"id\":5543,\"parent_id\":0,\"status\":\"on-hold\",\"currency\":\"USD\",\"version\":\"8.2.1\",\"prices_include_tax\":false,\"date_created\":\"2023-10-20T15:16:27\",\"date_modified\":\"2023-10-20T15:16:28\",\"discount_total\":\"0\",\"discount_tax\":\"0\",\"shipping_total\":\"0\",\"shipping_tax\":\"0\",\"cart_tax\":\"0\",\"total\":\"5000\",\"total_tax\":\"0\",\"customer_id\":52,\"order_key\":\"wc_order_q0iOveQY3PEF6\",\"billing\":{\"first_name\":\"-\",\"last_name\":\"-\",\"company\":\"\",\"address_1\":\"\",\"address_2\":\"\",\"city\":\"\",\"state\":\"\",\"postcode\":\"\",\"country\":\"SG\",\"email\":\"cuberaksi@gmail.com\",\"phone\":\"\"},\"shipping\":{\"first_name\":\"\",\"last_name\":\"\",\"company\":\"\",\"address_1\":\"\",\"address_2\":\"\",\"city\":\"\",\"state\":\"\",\"postcode\":\"\",\"country\":\"\",\"phone\":\"\"},\"payment_method\":\"bacs\",\"payment_method_title\":\"Direct bank transfer\",\"transaction_id\":\"\",\"customer_ip_address\":\"114.10.87.0\",\"customer_user_agent\":\"Mozilla\\/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit\\/537.36 (KHTML, like Gecko) Chrome\\/118.0.0.0 Safari\\/537.36\",\"created_via\":\"checkout\",\"customer_note\":\"\",\"date_completed\":null,\"date_paid\":null,\"cart_hash\":\"5d13af33a0adcc5d684ed1b7be82881d\",\"number\":\"5543\",\"meta_data\":[{\"id\":47512,\"key\":\"is_vat_exempt\",\"value\":\"no\"},{\"id\":47531,\"key\":\"yith_bookings\",\"value\":[5544]}],\"line_items\":[{\"id\":280,\"name\":\"Forever\",\"product_id\":1650,\"variation_id\":0,\"quantity\":1,\"tax_class\":\"\",\"subtotal\":\"5000\",\"subtotal_tax\":\"0\",\"total\":\"5000\",\"total_tax\":\"0\",\"taxes\":[],\"meta_data\":[{\"id\":2884,\"key\":\"yith_booking_data\",\"value\":{\"from\":1697846400,\"to\":1697932799,\"duration\":1,\"persons\":1,\"person_types\":[],\"booking_services\":[],\"booking_service_quantities\":[],\"resource_ids\":[],\"_added-to-cart-timestamp\":1697786169},\"display_key\":\"yith_booking_data\",\"display_value\":{\"from\":1697846400,\"to\":1697932799,\"duration\":1,\"persons\":1,\"person_types\":[],\"booking_services\":[],\"booking_service_quantities\":[],\"resource_ids\":[],\"_added-to-cart-timestamp\":1697786169}},{\"id\":2885,\"key\":\"_booking_id\",\"value\":\"5544\",\"display_key\":\"Booking\",\"display_value\":\"#5544\"}],\"sku\":\"\",\"price\":5000,\"image\":{\"id\":\"3808\",\"src\":\"https:\\/\\/staging.sundaratravelclub.com\\/wp-content\\/uploads\\/2023\\/07\\/1-2.jpg\"},\"parent_name\":null}],\"tax_lines\":[],\"shipping_lines\":[],\"fee_lines\":[],\"coupon_lines\":[],\"refunds\":[],\"payment_url\":\"https:\\/\\/staging.sundaratravelclub.com\\/checkout\\/order-pay\\/5543\\/?pay_for_order=true&key=wc_order_q0iOveQY3PEF6\",\"is_editable\":true,\"needs_payment\":false,\"needs_processing\":true,\"date_created_gmt\":\"2023-10-20T07:16:27\",\"date_modified_gmt\":\"2023-10-20T07:16:28\",\"date_completed_gmt\":null,\"date_paid_gmt\":null,\"currency_symbol\":\"$\",\"_links\":{\"self\":[{\"href\":\"https:\\/\\/staging.sundaratravelclub.com\\/wp-json\\/wc\\/v3\\/orders\\/5543\"}],\"collection\":[{\"href\":\"https:\\/\\/staging.sundaratravelclub.com\\/wp-json\\/wc\\/v3\\/orders\"}],\"customer\":[{\"href\":\"https:\\/\\/staging.sundaratravelclub.com\\/wp-json\\/wc\\/v3\\/customers\\/52\"}]}}
+            [Response] => Array
+                (
+                    [Code] => 200
+                    [Message] => OK
+                    [Headers] => WpOrg\Requests\Utility\CaseInsensitiveDictionary Object
+                        (
+                            [data:protected] => Array
+                                (
+                                    [date] => Fri, 20 Oct 2023 07:17:17 GMT
+                                    [content-type] => text/html; charset=utf-8
+                                    [cf-ray] => 818f7aee1d4d498f-SIN
+                                    [cf-cache-status] => DYNAMIC
+                                    [strict-transport-security] => max-age=31536000; includeSubDomains; preload
+                                    [vary] => Cookie, Accept-Encoding
+                                    [content-security-policy-report-only] => frame-ancestors 'self' login.bigcommerce.com *.mybigcommerce.com admin.shopify.com klaviyo.file.force.com klaviyo.lightning.force.com klaviyo.my.salesforce.com; object-src 'none'; script-src 'report-sample' 'strict-dynamic' 'unsafe-eval'; base-uri 'none'; report-uri /csp/
+                                    [x-content-type-options] => nosniff
+                                    [x-robots-tag] => noindex, nofollow
+                                    [server] => cloudflare
+                                    [content-encoding] => gzip
+                                )
+
+                        )
+
+                    [Body] => 1
+                )
+
+        )
+
+)
+
+2023-10-20T07:47:37+00:00 INFO Array
+(
+    [Webhook Delivery] => Array
+        (
+            [Delivery ID] => 81649183d521ed5ac2440d5ad14fcec2
+            [Date] => Oct 20, 2023 @ 7:47
+            [URL] => https://a.klaviyo.com/api/webhook/integration/woocommerce?c=W86qQh
+            [Duration] => 0.5395
+            [Request] => Array
+                (
+                    [Method] => POST
+                    [Headers] => Array
+                        (
+                            [User-Agent] => WooCommerce/8.2.1 Hookshot (WordPress/6.3.2)
+                            [Content-Type] => application/json
+                            [X-WC-Webhook-Source] => https://staging.sundaratravelclub.com/
+                            [X-WC-Webhook-Topic] => order.created
+                            [X-WC-Webhook-Resource] => order
+                            [X-WC-Webhook-Event] => created
+                            [X-WC-Webhook-Signature] => LXmUQrRDUhQWyzkiXfhH1Kn9urYHNT65ZPf32nYFRQU=
+                            [X-WC-Webhook-ID] => 7
+                            [X-WC-Webhook-Delivery-ID] => 81649183d521ed5ac2440d5ad14fcec2
+                        )
+
+                )
+
+            [Body] => {\"id\":5555,\"parent_id\":0,\"status\":\"on-hold\",\"currency\":\"USD\",\"version\":\"8.2.1\",\"prices_include_tax\":false,\"date_created\":\"2023-10-20T15:41:51\",\"date_modified\":\"2023-10-20T15:41:52\",\"discount_total\":\"0\",\"discount_tax\":\"0\",\"shipping_total\":\"0\",\"shipping_tax\":\"0\",\"cart_tax\":\"0\",\"total\":\"30000\",\"total_tax\":\"0\",\"customer_id\":61,\"order_key\":\"wc_order_5M57ZYlsyEB96\",\"billing\":{\"first_name\":\"Syarief\",\"last_name\":\"Hidayat\",\"company\":\"\",\"address_1\":\"\",\"address_2\":\"\",\"city\":\"\",\"state\":\"\",\"postcode\":\"\",\"country\":\"SG\",\"email\":\"syarief.office@gmail.com\",\"phone\":\"\"},\"shipping\":{\"first_name\":\"\",\"last_name\":\"\",\"company\":\"\",\"address_1\":\"\",\"address_2\":\"\",\"city\":\"\",\"state\":\"\",\"postcode\":\"\",\"country\":\"\",\"phone\":\"\"},\"payment_method\":\"bacs\",\"payment_method_title\":\"Direct bank transfer\",\"transaction_id\":\"\",\"customer_ip_address\":\"114.125.247.90\",\"customer_user_agent\":\"Mozilla\\/5.0 (Linux; Android 10; K) AppleWebKit\\/537.36 (KHTML, like Gecko) Chrome\\/117.0.0.0 Mobile Safari\\/537.36\",\"created_via\":\"checkout\",\"customer_note\":\"\",\"date_completed\":null,\"date_paid\":null,\"cart_hash\":\"fe7cffedf164226c0cc1aa37d25d29dc\",\"number\":\"5555\",\"meta_data\":[{\"id\":47654,\"key\":\"is_vat_exempt\",\"value\":\"no\"},{\"id\":47673,\"key\":\"yith_bookings\",\"value\":[5556]}],\"line_items\":[{\"id\":281,\"name\":\"Jemme\",\"product_id\":1648,\"variation_id\":0,\"quantity\":1,\"tax_class\":\"\",\"subtotal\":\"30000\",\"subtotal_tax\":\"0\",\"total\":\"30000\",\"total_tax\":\"0\",\"taxes\":[],\"meta_data\":[{\"id\":2895,\"key\":\"yith_booking_data\",\"value\":{\"from\":1697846400,\"to\":1698019200,\"duration\":2,\"persons\":1,\"person_types\":[],\"booking_services\":[],\"booking_service_quantities\":[],\"resource_ids\":[],\"_added-to-cart-timestamp\":1697787705},\"display_key\":\"yith_booking_data\",\"display_value\":{\"from\":1697846400,\"to\":1698019200,\"duration\":2,\"persons\":1,\"person_types\":[],\"booking_services\":[],\"booking_service_quantities\":[],\"resource_ids\":[],\"_added-to-cart-timestamp\":1697787705}},{\"id\":2896,\"key\":\"_booking_id\",\"value\":\"5556\",\"display_key\":\"Booking\",\"display_value\":\"#5556\"}],\"sku\":\"\",\"price\":30000,\"image\":{\"id\":\"3215\",\"src\":\"https:\\/\\/staging.sundaratravelclub.com\\/wp-content\\/uploads\\/2023\\/07\\/02-DP-2.jpg\"},\"parent_name\":null}],\"tax_lines\":[],\"shipping_lines\":[],\"fee_lines\":[],\"coupon_lines\":[],\"refunds\":[],\"payment_url\":\"https:\\/\\/staging.sundaratravelclub.com\\/checkout\\/order-pay\\/5555\\/?pay_for_order=true&key=wc_order_5M57ZYlsyEB96\",\"is_editable\":true,\"needs_payment\":false,\"needs_processing\":true,\"date_created_gmt\":\"2023-10-20T07:41:51\",\"date_modified_gmt\":\"2023-10-20T07:41:52\",\"date_completed_gmt\":null,\"date_paid_gmt\":null,\"currency_symbol\":\"$\",\"_links\":{\"self\":[{\"href\":\"https:\\/\\/staging.sundaratravelclub.com\\/wp-json\\/wc\\/v3\\/orders\\/5555\"}],\"collection\":[{\"href\":\"https:\\/\\/staging.sundaratravelclub.com\\/wp-json\\/wc\\/v3\\/orders\"}],\"customer\":[{\"href\":\"https:\\/\\/staging.sundaratravelclub.com\\/wp-json\\/wc\\/v3\\/customers\\/61\"}]}}
+            [Response] => Array
+                (
+                    [Code] => 200
+                    [Message] => OK
+                    [Headers] => WpOrg\Requests\Utility\CaseInsensitiveDictionary Object
+                        (
+                            [data:protected] => Array
+                                (
+                                    [date] => Fri, 20 Oct 2023 07:47:37 GMT
+                                    [content-type] => text/html; charset=utf-8
+                                    [cf-ray] => 818fa75fde2b894a-SIN
+                                    [cf-cache-status] => DYNAMIC
+                                    [strict-transport-security] => max-age=31536000; includeSubDomains; preload
+                                    [vary] => Cookie, Accept-Encoding
+                                    [content-security-policy-report-only] => object-src 'none'; frame-ancestors 'self' login.bigcommerce.com *.mybigcommerce.com admin.shopify.com klaviyo.file.force.com klaviyo.lightning.force.com klaviyo.my.salesforce.com; script-src 'report-sample' 'strict-dynamic' 'unsafe-eval'; base-uri 'none'; report-uri /csp/
+                                    [x-content-type-options] => nosniff
+                                    [x-robots-tag] => noindex, nofollow
+                                    [server] => cloudflare
+                                    [content-encoding] => gzip
+                                )
+
+                        )
+
+                    [Body] => 1
+                )
+
+        )
+
+)
+
+2023-10-20T07:47:38+00:00 INFO Array
+(
+    [Webhook Delivery] => Array
+        (
+            [Delivery ID] => 64fe1ba8f9ca3be71212d0de336576af
+            [Date] => Oct 20, 2023 @ 7:47
+            [URL] => https://a.klaviyo.com/api/webhook/integration/woocommerce?c=W86qQh
+            [Duration] => 0.35804
+            [Request] => Array
+                (
+                    [Method] => POST
+                    [Headers] => Array
+                        (
+                            [User-Agent] => WooCommerce/8.2.1 Hookshot (WordPress/6.3.2)
+                            [Content-Type] => application/json
+                            [X-WC-Webhook-Source] => https://staging.sundaratravelclub.com/
+                            [X-WC-Webhook-Topic] => order.updated
+                            [X-WC-Webhook-Resource] => order
+                            [X-WC-Webhook-Event] => updated
+                            [X-WC-Webhook-Signature] => LXmUQrRDUhQWyzkiXfhH1Kn9urYHNT65ZPf32nYFRQU=
+                            [X-WC-Webhook-ID] => 6
+                            [X-WC-Webhook-Delivery-ID] => 64fe1ba8f9ca3be71212d0de336576af
+                        )
+
+                )
+
+            [Body] => {\"id\":5555,\"parent_id\":0,\"status\":\"on-hold\",\"currency\":\"USD\",\"version\":\"8.2.1\",\"prices_include_tax\":false,\"date_created\":\"2023-10-20T15:41:51\",\"date_modified\":\"2023-10-20T15:41:52\",\"discount_total\":\"0\",\"discount_tax\":\"0\",\"shipping_total\":\"0\",\"shipping_tax\":\"0\",\"cart_tax\":\"0\",\"total\":\"30000\",\"total_tax\":\"0\",\"customer_id\":61,\"order_key\":\"wc_order_5M57ZYlsyEB96\",\"billing\":{\"first_name\":\"Syarief\",\"last_name\":\"Hidayat\",\"company\":\"\",\"address_1\":\"\",\"address_2\":\"\",\"city\":\"\",\"state\":\"\",\"postcode\":\"\",\"country\":\"SG\",\"email\":\"syarief.office@gmail.com\",\"phone\":\"\"},\"shipping\":{\"first_name\":\"\",\"last_name\":\"\",\"company\":\"\",\"address_1\":\"\",\"address_2\":\"\",\"city\":\"\",\"state\":\"\",\"postcode\":\"\",\"country\":\"\",\"phone\":\"\"},\"payment_method\":\"bacs\",\"payment_method_title\":\"Direct bank transfer\",\"transaction_id\":\"\",\"customer_ip_address\":\"114.125.247.90\",\"customer_user_agent\":\"Mozilla\\/5.0 (Linux; Android 10; K) AppleWebKit\\/537.36 (KHTML, like Gecko) Chrome\\/117.0.0.0 Mobile Safari\\/537.36\",\"created_via\":\"checkout\",\"customer_note\":\"\",\"date_completed\":null,\"date_paid\":null,\"cart_hash\":\"fe7cffedf164226c0cc1aa37d25d29dc\",\"number\":\"5555\",\"meta_data\":[{\"id\":47654,\"key\":\"is_vat_exempt\",\"value\":\"no\"},{\"id\":47673,\"key\":\"yith_bookings\",\"value\":[5556]}],\"line_items\":[{\"id\":281,\"name\":\"Jemme\",\"product_id\":1648,\"variation_id\":0,\"quantity\":1,\"tax_class\":\"\",\"subtotal\":\"30000\",\"subtotal_tax\":\"0\",\"total\":\"30000\",\"total_tax\":\"0\",\"taxes\":[],\"meta_data\":[{\"id\":2895,\"key\":\"yith_booking_data\",\"value\":{\"from\":1697846400,\"to\":1698019200,\"duration\":2,\"persons\":1,\"person_types\":[],\"booking_services\":[],\"booking_service_quantities\":[],\"resource_ids\":[],\"_added-to-cart-timestamp\":1697787705},\"display_key\":\"yith_booking_data\",\"display_value\":{\"from\":1697846400,\"to\":1698019200,\"duration\":2,\"persons\":1,\"person_types\":[],\"booking_services\":[],\"booking_service_quantities\":[],\"resource_ids\":[],\"_added-to-cart-timestamp\":1697787705}},{\"id\":2896,\"key\":\"_booking_id\",\"value\":\"5556\",\"display_key\":\"Booking\",\"display_value\":\"#5556\"}],\"sku\":\"\",\"price\":30000,\"image\":{\"id\":\"3215\",\"src\":\"https:\\/\\/staging.sundaratravelclub.com\\/wp-content\\/uploads\\/2023\\/07\\/02-DP-2.jpg\"},\"parent_name\":null}],\"tax_lines\":[],\"shipping_lines\":[],\"fee_lines\":[],\"coupon_lines\":[],\"refunds\":[],\"payment_url\":\"https:\\/\\/staging.sundaratravelclub.com\\/checkout\\/order-pay\\/5555\\/?pay_for_order=true&key=wc_order_5M57ZYlsyEB96\",\"is_editable\":true,\"needs_payment\":false,\"needs_processing\":true,\"date_created_gmt\":\"2023-10-20T07:41:51\",\"date_modified_gmt\":\"2023-10-20T07:41:52\",\"date_completed_gmt\":null,\"date_paid_gmt\":null,\"currency_symbol\":\"$\",\"_links\":{\"self\":[{\"href\":\"https:\\/\\/staging.sundaratravelclub.com\\/wp-json\\/wc\\/v3\\/orders\\/5555\"}],\"collection\":[{\"href\":\"https:\\/\\/staging.sundaratravelclub.com\\/wp-json\\/wc\\/v3\\/orders\"}],\"customer\":[{\"href\":\"https:\\/\\/staging.sundaratravelclub.com\\/wp-json\\/wc\\/v3\\/customers\\/61\"}]}}
+            [Response] => Array
+                (
+                    [Code] => 200
+                    [Message] => OK
+                    [Headers] => WpOrg\Requests\Utility\CaseInsensitiveDictionary Object
+                        (
+                            [data:protected] => Array
+                                (
+                                    [date] => Fri, 20 Oct 2023 07:47:38 GMT
+                                    [content-type] => text/html; charset=utf-8
+                                    [cf-ray] => 818fa7622eaa5ffe-SIN
+                                    [cf-cache-status] => DYNAMIC
+                                    [strict-transport-security] => max-age=31536000; includeSubDomains; preload
+                                    [vary] => Cookie, Accept-Encoding
+                                    [content-security-policy-report-only] => object-src 'none'; frame-ancestors 'self' login.bigcommerce.com *.mybigcommerce.com admin.shopify.com klaviyo.file.force.com klaviyo.lightning.force.com klaviyo.my.salesforce.com; base-uri 'none'; script-src 'report-sample' 'strict-dynamic' 'unsafe-eval'; report-uri /csp/
+                                    [x-content-type-options] => nosniff
+                                    [x-robots-tag] => noindex, nofollow
+                                    [server] => cloudflare
+                                    [content-encoding] => gzip
+                                )
+
+                        )
+
+                    [Body] => 1
+                )
+
+        )
+
+)
+
+2023-10-20T10:06:10+00:00 INFO Array
+(
+    [Webhook Delivery] => Array
+        (
+            [Delivery ID] => c1a215947a9e59f80c0f9578868f80da
+            [Date] => Oct 20, 2023 @ 10:06
+            [URL] => https://a.klaviyo.com/api/webhook/integration/woocommerce?c=W86qQh
+            [Duration] => 0.58473
+            [Request] => Array
+                (
+                    [Method] => POST
+                    [Headers] => Array
+                        (
+                            [User-Agent] => WooCommerce/8.2.1 Hookshot (WordPress/6.3.2)
+                            [Content-Type] => application/json
+                            [X-WC-Webhook-Source] => https://staging.sundaratravelclub.com/
+                            [X-WC-Webhook-Topic] => order.created
+                            [X-WC-Webhook-Resource] => order
+                            [X-WC-Webhook-Event] => created
+                            [X-WC-Webhook-Signature] => bfXpABJoD2QdZEz3/11KrZ+8ZAW1juirTB5LE95cRt0=
+                            [X-WC-Webhook-ID] => 7
+                            [X-WC-Webhook-Delivery-ID] => c1a215947a9e59f80c0f9578868f80da
+                        )
+
+                )
+
+            [Body] => {\"id\":5594,\"parent_id\":0,\"status\":\"on-hold\",\"currency\":\"USD\",\"version\":\"8.2.1\",\"prices_include_tax\":false,\"date_created\":\"2023-10-20T18:05:17\",\"date_modified\":\"2023-10-20T18:05:18\",\"discount_total\":\"0\",\"discount_tax\":\"0\",\"shipping_total\":\"0\",\"shipping_tax\":\"0\",\"cart_tax\":\"0\",\"total\":\"5000\",\"total_tax\":\"0\",\"customer_id\":52,\"order_key\":\"wc_order_NdM2Aexs6zMfh\",\"billing\":{\"first_name\":\"-\",\"last_name\":\"-\",\"company\":\"\",\"address_1\":\"\",\"address_2\":\"\",\"city\":\"\",\"state\":\"\",\"postcode\":\"\",\"country\":\"SL\",\"email\":\"cuberaksi@gmail.com\",\"phone\":\"\"},\"shipping\":{\"first_name\":\"\",\"last_name\":\"\",\"company\":\"\",\"address_1\":\"\",\"address_2\":\"\",\"city\":\"\",\"state\":\"\",\"postcode\":\"\",\"country\":\"\",\"phone\":\"\"},\"payment_method\":\"bacs\",\"payment_method_title\":\"Direct bank transfer\",\"transaction_id\":\"\",\"customer_ip_address\":\"114.10.87.0\",\"customer_user_agent\":\"Mozilla\\/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit\\/537.36 (KHTML, like Gecko) Chrome\\/118.0.0.0 Safari\\/537.36\",\"created_via\":\"checkout\",\"customer_note\":\"\",\"date_completed\":null,\"date_paid\":null,\"cart_hash\":\"911736545cd34508ea7fce86c0b375b8\",\"number\":\"5594\",\"meta_data\":[{\"id\":48053,\"key\":\"is_vat_exempt\",\"value\":\"no\"},{\"id\":48072,\"key\":\"yith_bookings\",\"value\":[5595]}],\"line_items\":[{\"id\":282,\"name\":\"Forever\",\"product_id\":1650,\"variation_id\":0,\"quantity\":1,\"tax_class\":\"\",\"subtotal\":\"5000\",\"subtotal_tax\":\"0\",\"total\":\"5000\",\"total_tax\":\"0\",\"taxes\":[],\"meta_data\":[{\"id\":2906,\"key\":\"yith_booking_data\",\"value\":{\"from\":1697846400,\"to\":1697932799,\"duration\":1,\"persons\":1,\"person_types\":[],\"booking_services\":[],\"booking_service_quantities\":[],\"resource_ids\":[],\"_added-to-cart-timestamp\":1697796300},\"display_key\":\"yith_booking_data\",\"display_value\":{\"from\":1697846400,\"to\":1697932799,\"duration\":1,\"persons\":1,\"person_types\":[],\"booking_services\":[],\"booking_service_quantities\":[],\"resource_ids\":[],\"_added-to-cart-timestamp\":1697796300}},{\"id\":2907,\"key\":\"_booking_id\",\"value\":\"5595\",\"display_key\":\"Booking\",\"display_value\":\"#5595\"}],\"sku\":\"\",\"price\":5000,\"image\":{\"id\":\"3808\",\"src\":\"https:\\/\\/staging.sundaratravelclub.com\\/wp-content\\/uploads\\/2023\\/07\\/1-2.jpg\"},\"parent_name\":null}],\"tax_lines\":[],\"shipping_lines\":[],\"fee_lines\":[],\"coupon_lines\":[],\"refunds\":[],\"payment_url\":\"https:\\/\\/staging.sundaratravelclub.com\\/checkout\\/order-pay\\/5594\\/?pay_for_order=true&key=wc_order_NdM2Aexs6zMfh\",\"is_editable\":true,\"needs_payment\":false,\"needs_processing\":true,\"date_created_gmt\":\"2023-10-20T10:05:17\",\"date_modified_gmt\":\"2023-10-20T10:05:18\",\"date_completed_gmt\":null,\"date_paid_gmt\":null,\"currency_symbol\":\"$\",\"_links\":{\"self\":[{\"href\":\"https:\\/\\/staging.sundaratravelclub.com\\/wp-json\\/wc\\/v3\\/orders\\/5594\"}],\"collection\":[{\"href\":\"https:\\/\\/staging.sundaratravelclub.com\\/wp-json\\/wc\\/v3\\/orders\"}],\"customer\":[{\"href\":\"https:\\/\\/staging.sundaratravelclub.com\\/wp-json\\/wc\\/v3\\/customers\\/52\"}]}}
+            [Response] => Array
+                (
+                    [Code] => 200
+                    [Message] => OK
+                    [Headers] => WpOrg\Requests\Utility\CaseInsensitiveDictionary Object
+                        (
+                            [data:protected] => Array
+                                (
+                                    [date] => Fri, 20 Oct 2023 10:06:10 GMT
+                                    [content-type] => text/html; charset=utf-8
+                                    [cf-ray] => 8190725369fc600a-SIN
+                                    [cf-cache-status] => DYNAMIC
+                                    [strict-transport-security] => max-age=31536000; includeSubDomains; preload
+                                    [vary] => Cookie, Accept-Encoding
+                                    [content-security-policy-report-only] => base-uri 'none'; frame-ancestors 'self' login.bigcommerce.com *.mybigcommerce.com admin.shopify.com klaviyo.file.force.com klaviyo.lightning.force.com klaviyo.my.salesforce.com; script-src 'report-sample' 'strict-dynamic' 'unsafe-eval'; object-src 'none'; report-uri /csp/
+                                    [x-content-type-options] => nosniff
+                                    [x-robots-tag] => noindex, nofollow
+                                    [server] => cloudflare
+                                    [content-encoding] => gzip
+                                )
+
+                        )
+
+                    [Body] => 1
+                )
+
+        )
+
+)
+
+2023-10-20T10:06:11+00:00 INFO Array
+(
+    [Webhook Delivery] => Array
+        (
+            [Delivery ID] => 0982e3293b48873dcb236fea50621e21
+            [Date] => Oct 20, 2023 @ 10:06
+            [URL] => https://a.klaviyo.com/api/webhook/integration/woocommerce?c=W86qQh
+            [Duration] => 0.34775
+            [Request] => Array
+                (
+                    [Method] => POST
+                    [Headers] => Array
+                        (
+                            [User-Agent] => WooCommerce/8.2.1 Hookshot (WordPress/6.3.2)
+                            [Content-Type] => application/json
+                            [X-WC-Webhook-Source] => https://staging.sundaratravelclub.com/
+                            [X-WC-Webhook-Topic] => order.updated
+                            [X-WC-Webhook-Resource] => order
+                            [X-WC-Webhook-Event] => updated
+                            [X-WC-Webhook-Signature] => bfXpABJoD2QdZEz3/11KrZ+8ZAW1juirTB5LE95cRt0=
+                            [X-WC-Webhook-ID] => 6
+                            [X-WC-Webhook-Delivery-ID] => 0982e3293b48873dcb236fea50621e21
+                        )
+
+                )
+
+            [Body] => {\"id\":5594,\"parent_id\":0,\"status\":\"on-hold\",\"currency\":\"USD\",\"version\":\"8.2.1\",\"prices_include_tax\":false,\"date_created\":\"2023-10-20T18:05:17\",\"date_modified\":\"2023-10-20T18:05:18\",\"discount_total\":\"0\",\"discount_tax\":\"0\",\"shipping_total\":\"0\",\"shipping_tax\":\"0\",\"cart_tax\":\"0\",\"total\":\"5000\",\"total_tax\":\"0\",\"customer_id\":52,\"order_key\":\"wc_order_NdM2Aexs6zMfh\",\"billing\":{\"first_name\":\"-\",\"last_name\":\"-\",\"company\":\"\",\"address_1\":\"\",\"address_2\":\"\",\"city\":\"\",\"state\":\"\",\"postcode\":\"\",\"country\":\"SL\",\"email\":\"cuberaksi@gmail.com\",\"phone\":\"\"},\"shipping\":{\"first_name\":\"\",\"last_name\":\"\",\"company\":\"\",\"address_1\":\"\",\"address_2\":\"\",\"city\":\"\",\"state\":\"\",\"postcode\":\"\",\"country\":\"\",\"phone\":\"\"},\"payment_method\":\"bacs\",\"payment_method_title\":\"Direct bank transfer\",\"transaction_id\":\"\",\"customer_ip_address\":\"114.10.87.0\",\"customer_user_agent\":\"Mozilla\\/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit\\/537.36 (KHTML, like Gecko) Chrome\\/118.0.0.0 Safari\\/537.36\",\"created_via\":\"checkout\",\"customer_note\":\"\",\"date_completed\":null,\"date_paid\":null,\"cart_hash\":\"911736545cd34508ea7fce86c0b375b8\",\"number\":\"5594\",\"meta_data\":[{\"id\":48053,\"key\":\"is_vat_exempt\",\"value\":\"no\"},{\"id\":48072,\"key\":\"yith_bookings\",\"value\":[5595]}],\"line_items\":[{\"id\":282,\"name\":\"Forever\",\"product_id\":1650,\"variation_id\":0,\"quantity\":1,\"tax_class\":\"\",\"subtotal\":\"5000\",\"subtotal_tax\":\"0\",\"total\":\"5000\",\"total_tax\":\"0\",\"taxes\":[],\"meta_data\":[{\"id\":2906,\"key\":\"yith_booking_data\",\"value\":{\"from\":1697846400,\"to\":1697932799,\"duration\":1,\"persons\":1,\"person_types\":[],\"booking_services\":[],\"booking_service_quantities\":[],\"resource_ids\":[],\"_added-to-cart-timestamp\":1697796300},\"display_key\":\"yith_booking_data\",\"display_value\":{\"from\":1697846400,\"to\":1697932799,\"duration\":1,\"persons\":1,\"person_types\":[],\"booking_services\":[],\"booking_service_quantities\":[],\"resource_ids\":[],\"_added-to-cart-timestamp\":1697796300}},{\"id\":2907,\"key\":\"_booking_id\",\"value\":\"5595\",\"display_key\":\"Booking\",\"display_value\":\"#5595\"}],\"sku\":\"\",\"price\":5000,\"image\":{\"id\":\"3808\",\"src\":\"https:\\/\\/staging.sundaratravelclub.com\\/wp-content\\/uploads\\/2023\\/07\\/1-2.jpg\"},\"parent_name\":null}],\"tax_lines\":[],\"shipping_lines\":[],\"fee_lines\":[],\"coupon_lines\":[],\"refunds\":[],\"payment_url\":\"https:\\/\\/staging.sundaratravelclub.com\\/checkout\\/order-pay\\/5594\\/?pay_for_order=true&key=wc_order_NdM2Aexs6zMfh\",\"is_editable\":true,\"needs_payment\":false,\"needs_processing\":true,\"date_created_gmt\":\"2023-10-20T10:05:17\",\"date_modified_gmt\":\"2023-10-20T10:05:18\",\"date_completed_gmt\":null,\"date_paid_gmt\":null,\"currency_symbol\":\"$\",\"_links\":{\"self\":[{\"href\":\"https:\\/\\/staging.sundaratravelclub.com\\/wp-json\\/wc\\/v3\\/orders\\/5594\"}],\"collection\":[{\"href\":\"https:\\/\\/staging.sundaratravelclub.com\\/wp-json\\/wc\\/v3\\/orders\"}],\"customer\":[{\"href\":\"https:\\/\\/staging.sundaratravelclub.com\\/wp-json\\/wc\\/v3\\/customers\\/52\"}]}}
+            [Response] => Array
+                (
+                    [Code] => 200
+                    [Message] => OK
+                    [Headers] => WpOrg\Requests\Utility\CaseInsensitiveDictionary Object
+                        (
+                            [data:protected] => Array
+                                (
+                                    [date] => Fri, 20 Oct 2023 10:06:11 GMT
+                                    [content-type] => text/html; charset=utf-8
+                                    [cf-ray] => 81907255a84087f3-SIN
+                                    [cf-cache-status] => DYNAMIC
+                                    [strict-transport-security] => max-age=31536000; includeSubDomains; preload
+                                    [vary] => Cookie, Accept-Encoding
+                                    [content-security-policy-report-only] => base-uri 'none'; script-src 'report-sample' 'strict-dynamic' 'unsafe-eval'; frame-ancestors 'self' login.bigcommerce.com *.mybigcommerce.com admin.shopify.com klaviyo.file.force.com klaviyo.lightning.force.com klaviyo.my.salesforce.com; object-src 'none'; report-uri /csp/
+                                    [x-content-type-options] => nosniff
+                                    [x-robots-tag] => noindex, nofollow
+                                    [server] => cloudflare
+                                    [content-encoding] => gzip
+                                )
+
+                        )
+
+                    [Body] => 1
+                )
+
+        )
+
+)
+
+2023-10-20T10:08:42+00:00 INFO Array
+(
+    [Webhook Delivery] => Array
+        (
+            [Delivery ID] => b1045086ba2865fb4959a6734c1de4d1
+            [Date] => Oct 20, 2023 @ 10:08
+            [URL] => https://a.klaviyo.com/api/webhook/integration/woocommerce?c=W86qQh
+            [Duration] => 0.56587
+            [Request] => Array
+                (
+                    [Method] => POST
+                    [Headers] => Array
+                        (
+                            [User-Agent] => WooCommerce/8.2.1 Hookshot (WordPress/6.3.2)
+                            [Content-Type] => application/json
+                            [X-WC-Webhook-Source] => https://staging.sundaratravelclub.com/
+                            [X-WC-Webhook-Topic] => order.created
+                            [X-WC-Webhook-Resource] => order
+                            [X-WC-Webhook-Event] => created
+                            [X-WC-Webhook-Signature] => c1pFOONvNI+tP+oDrjnYtvrK0SWhTuwWN1QHY8R5eBk=
+                            [X-WC-Webhook-ID] => 7
+                            [X-WC-Webhook-Delivery-ID] => b1045086ba2865fb4959a6734c1de4d1
+                        )
+
+                )
+
+            [Body] => {\"id\":5597,\"parent_id\":0,\"status\":\"on-hold\",\"currency\":\"USD\",\"version\":\"8.2.1\",\"prices_include_tax\":false,\"date_created\":\"2023-10-20T18:07:46\",\"date_modified\":\"2023-10-20T18:07:47\",\"discount_total\":\"0\",\"discount_tax\":\"0\",\"shipping_total\":\"0\",\"shipping_tax\":\"0\",\"cart_tax\":\"0\",\"total\":\"5000\",\"total_tax\":\"0\",\"customer_id\":52,\"order_key\":\"wc_order_FoexJtqhgglKC\",\"billing\":{\"first_name\":\"-\",\"last_name\":\"-\",\"company\":\"\",\"address_1\":\"\",\"address_2\":\"\",\"city\":\"\",\"state\":\"\",\"postcode\":\"\",\"country\":\"SL\",\"email\":\"cuberaksi@gmail.com\",\"phone\":\"\"},\"shipping\":{\"first_name\":\"\",\"last_name\":\"\",\"company\":\"\",\"address_1\":\"\",\"address_2\":\"\",\"city\":\"\",\"state\":\"\",\"postcode\":\"\",\"country\":\"\",\"phone\":\"\"},\"payment_method\":\"bacs\",\"payment_method_title\":\"Direct bank transfer\",\"transaction_id\":\"\",\"customer_ip_address\":\"114.10.87.0\",\"customer_user_agent\":\"Mozilla\\/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit\\/537.36 (KHTML, like Gecko) Chrome\\/118.0.0.0 Safari\\/537.36\",\"created_via\":\"checkout\",\"customer_note\":\"\",\"date_completed\":null,\"date_paid\":null,\"cart_hash\":\"2e211d25d6ce69bd1f5cc13af3deab69\",\"number\":\"5597\",\"meta_data\":[{\"id\":48111,\"key\":\"is_vat_exempt\",\"value\":\"no\"},{\"id\":48130,\"key\":\"yith_bookings\",\"value\":[5598]}],\"line_items\":[{\"id\":283,\"name\":\"Forever\",\"product_id\":1650,\"variation_id\":0,\"quantity\":1,\"tax_class\":\"\",\"subtotal\":\"5000\",\"subtotal_tax\":\"0\",\"total\":\"5000\",\"total_tax\":\"0\",\"taxes\":[],\"meta_data\":[{\"id\":2917,\"key\":\"yith_booking_data\",\"value\":{\"from\":1697846400,\"to\":1697932799,\"duration\":1,\"persons\":1,\"person_types\":[],\"booking_services\":[],\"booking_service_quantities\":[],\"resource_ids\":[],\"_added-to-cart-timestamp\":1697796449},\"display_key\":\"yith_booking_data\",\"display_value\":{\"from\":1697846400,\"to\":1697932799,\"duration\":1,\"persons\":1,\"person_types\":[],\"booking_services\":[],\"booking_service_quantities\":[],\"resource_ids\":[],\"_added-to-cart-timestamp\":1697796449}},{\"id\":2918,\"key\":\"_booking_id\",\"value\":\"5598\",\"display_key\":\"Booking\",\"display_value\":\"#5598\"}],\"sku\":\"\",\"price\":5000,\"image\":{\"id\":\"3808\",\"src\":\"https:\\/\\/staging.sundaratravelclub.com\\/wp-content\\/uploads\\/2023\\/07\\/1-2.jpg\"},\"parent_name\":null}],\"tax_lines\":[],\"shipping_lines\":[],\"fee_lines\":[],\"coupon_lines\":[],\"refunds\":[],\"payment_url\":\"https:\\/\\/staging.sundaratravelclub.com\\/checkout\\/order-pay\\/5597\\/?pay_for_order=true&key=wc_order_FoexJtqhgglKC\",\"is_editable\":true,\"needs_payment\":false,\"needs_processing\":true,\"date_created_gmt\":\"2023-10-20T10:07:46\",\"date_modified_gmt\":\"2023-10-20T10:07:47\",\"date_completed_gmt\":null,\"date_paid_gmt\":null,\"currency_symbol\":\"$\",\"_links\":{\"self\":[{\"href\":\"https:\\/\\/staging.sundaratravelclub.com\\/wp-json\\/wc\\/v3\\/orders\\/5597\"}],\"collection\":[{\"href\":\"https:\\/\\/staging.sundaratravelclub.com\\/wp-json\\/wc\\/v3\\/orders\"}],\"customer\":[{\"href\":\"https:\\/\\/staging.sundaratravelclub.com\\/wp-json\\/wc\\/v3\\/customers\\/52\"}]}}
+            [Response] => Array
+                (
+                    [Code] => 200
+                    [Message] => OK
+                    [Headers] => WpOrg\Requests\Utility\CaseInsensitiveDictionary Object
+                        (
+                            [data:protected] => Array
+                                (
+                                    [date] => Fri, 20 Oct 2023 10:08:42 GMT
+                                    [content-type] => text/html; charset=utf-8
+                                    [cf-ray] => 8190760a9a3ba3ca-SIN
+                                    [cf-cache-status] => DYNAMIC
+                                    [strict-transport-security] => max-age=31536000; includeSubDomains; preload
+                                    [vary] => Cookie, Accept-Encoding
+                                    [content-security-policy-report-only] => object-src 'none'; base-uri 'none'; script-src 'report-sample' 'strict-dynamic' 'unsafe-eval'; frame-ancestors 'self' login.bigcommerce.com *.mybigcommerce.com admin.shopify.com klaviyo.file.force.com klaviyo.lightning.force.com klaviyo.my.salesforce.com; report-uri /csp/
+                                    [x-content-type-options] => nosniff
+                                    [x-robots-tag] => noindex, nofollow
+                                    [server] => cloudflare
+                                    [content-encoding] => gzip
+                                )
+
+                        )
+
+                    [Body] => 1
+                )
+
+        )
+
+)
+
+2023-10-20T10:08:43+00:00 INFO Array
+(
+    [Webhook Delivery] => Array
+        (
+            [Delivery ID] => 9deb9403e97bd0f5a02ba0bd19f18eb9
+            [Date] => Oct 20, 2023 @ 10:08
+            [URL] => https://a.klaviyo.com/api/webhook/integration/woocommerce?c=W86qQh
+            [Duration] => 0.36653
+            [Request] => Array
+                (
+                    [Method] => POST
+                    [Headers] => Array
+                        (
+                            [User-Agent] => WooCommerce/8.2.1 Hookshot (WordPress/6.3.2)
+                            [Content-Type] => application/json
+                            [X-WC-Webhook-Source] => https://staging.sundaratravelclub.com/
+                            [X-WC-Webhook-Topic] => order.updated
+                            [X-WC-Webhook-Resource] => order
+                            [X-WC-Webhook-Event] => updated
+                            [X-WC-Webhook-Signature] => c1pFOONvNI+tP+oDrjnYtvrK0SWhTuwWN1QHY8R5eBk=
+                            [X-WC-Webhook-ID] => 6
+                            [X-WC-Webhook-Delivery-ID] => 9deb9403e97bd0f5a02ba0bd19f18eb9
+                        )
+
+                )
+
+            [Body] => {\"id\":5597,\"parent_id\":0,\"status\":\"on-hold\",\"currency\":\"USD\",\"version\":\"8.2.1\",\"prices_include_tax\":false,\"date_created\":\"2023-10-20T18:07:46\",\"date_modified\":\"2023-10-20T18:07:47\",\"discount_total\":\"0\",\"discount_tax\":\"0\",\"shipping_total\":\"0\",\"shipping_tax\":\"0\",\"cart_tax\":\"0\",\"total\":\"5000\",\"total_tax\":\"0\",\"customer_id\":52,\"order_key\":\"wc_order_FoexJtqhgglKC\",\"billing\":{\"first_name\":\"-\",\"last_name\":\"-\",\"company\":\"\",\"address_1\":\"\",\"address_2\":\"\",\"city\":\"\",\"state\":\"\",\"postcode\":\"\",\"country\":\"SL\",\"email\":\"cuberaksi@gmail.com\",\"phone\":\"\"},\"shipping\":{\"first_name\":\"\",\"last_name\":\"\",\"company\":\"\",\"address_1\":\"\",\"address_2\":\"\",\"city\":\"\",\"state\":\"\",\"postcode\":\"\",\"country\":\"\",\"phone\":\"\"},\"payment_method\":\"bacs\",\"payment_method_title\":\"Direct bank transfer\",\"transaction_id\":\"\",\"customer_ip_address\":\"114.10.87.0\",\"customer_user_agent\":\"Mozilla\\/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit\\/537.36 (KHTML, like Gecko) Chrome\\/118.0.0.0 Safari\\/537.36\",\"created_via\":\"checkout\",\"customer_note\":\"\",\"date_completed\":null,\"date_paid\":null,\"cart_hash\":\"2e211d25d6ce69bd1f5cc13af3deab69\",\"number\":\"5597\",\"meta_data\":[{\"id\":48111,\"key\":\"is_vat_exempt\",\"value\":\"no\"},{\"id\":48130,\"key\":\"yith_bookings\",\"value\":[5598]}],\"line_items\":[{\"id\":283,\"name\":\"Forever\",\"product_id\":1650,\"variation_id\":0,\"quantity\":1,\"tax_class\":\"\",\"subtotal\":\"5000\",\"subtotal_tax\":\"0\",\"total\":\"5000\",\"total_tax\":\"0\",\"taxes\":[],\"meta_data\":[{\"id\":2917,\"key\":\"yith_booking_data\",\"value\":{\"from\":1697846400,\"to\":1697932799,\"duration\":1,\"persons\":1,\"person_types\":[],\"booking_services\":[],\"booking_service_quantities\":[],\"resource_ids\":[],\"_added-to-cart-timestamp\":1697796449},\"display_key\":\"yith_booking_data\",\"display_value\":{\"from\":1697846400,\"to\":1697932799,\"duration\":1,\"persons\":1,\"person_types\":[],\"booking_services\":[],\"booking_service_quantities\":[],\"resource_ids\":[],\"_added-to-cart-timestamp\":1697796449}},{\"id\":2918,\"key\":\"_booking_id\",\"value\":\"5598\",\"display_key\":\"Booking\",\"display_value\":\"#5598\"}],\"sku\":\"\",\"price\":5000,\"image\":{\"id\":\"3808\",\"src\":\"https:\\/\\/staging.sundaratravelclub.com\\/wp-content\\/uploads\\/2023\\/07\\/1-2.jpg\"},\"parent_name\":null}],\"tax_lines\":[],\"shipping_lines\":[],\"fee_lines\":[],\"coupon_lines\":[],\"refunds\":[],\"payment_url\":\"https:\\/\\/staging.sundaratravelclub.com\\/checkout\\/order-pay\\/5597\\/?pay_for_order=true&key=wc_order_FoexJtqhgglKC\",\"is_editable\":true,\"needs_payment\":false,\"needs_processing\":true,\"date_created_gmt\":\"2023-10-20T10:07:46\",\"date_modified_gmt\":\"2023-10-20T10:07:47\",\"date_completed_gmt\":null,\"date_paid_gmt\":null,\"currency_symbol\":\"$\",\"_links\":{\"self\":[{\"href\":\"https:\\/\\/staging.sundaratravelclub.com\\/wp-json\\/wc\\/v3\\/orders\\/5597\"}],\"collection\":[{\"href\":\"https:\\/\\/staging.sundaratravelclub.com\\/wp-json\\/wc\\/v3\\/orders\"}],\"customer\":[{\"href\":\"https:\\/\\/staging.sundaratravelclub.com\\/wp-json\\/wc\\/v3\\/customers\\/52\"}]}}
+            [Response] => Array
+                (
+                    [Code] => 200
+                    [Message] => OK
+                    [Headers] => WpOrg\Requests\Utility\CaseInsensitiveDictionary Object
+                        (
+                            [data:protected] => Array
+                                (
+                                    [date] => Fri, 20 Oct 2023 10:08:43 GMT
+                                    [content-type] => text/html; charset=utf-8
+                                    [cf-ray] => 8190760cfe78a041-SIN
+                                    [cf-cache-status] => DYNAMIC
+                                    [strict-transport-security] => max-age=31536000; includeSubDomains; preload
+                                    [vary] => Cookie, Accept-Encoding
+                                    [content-security-policy-report-only] => base-uri 'none'; frame-ancestors 'self' login.bigcommerce.com *.mybigcommerce.com admin.shopify.com klaviyo.file.force.com klaviyo.lightning.force.com klaviyo.my.salesforce.com; script-src 'report-sample' 'strict-dynamic' 'unsafe-eval'; object-src 'none'; report-uri /csp/
+                                    [x-content-type-options] => nosniff
+                                    [x-robots-tag] => noindex, nofollow
+                                    [server] => cloudflare
+                                    [content-encoding] => gzip
+                                )
+
+                        )
+
+                    [Body] => 1
+                )
+
+        )
+
+)
+
+2023-10-20T12:58:28+00:00 INFO Array
+(
+    [Webhook Delivery] => Array
+        (
+            [Delivery ID] => 7112ee056099f6355c4ff590a0a26fb5
+            [Date] => Oct 20, 2023 @ 12:58
+            [URL] => https://a.klaviyo.com/api/webhook/integration/woocommerce?c=W86qQh
+            [Duration] => 0.76151
+            [Request] => Array
+                (
+                    [Method] => POST
+                    [Headers] => Array
+                        (
+                            [User-Agent] => WooCommerce/8.2.1 Hookshot (WordPress/6.3.2)
+                            [Content-Type] => application/json
+                            [X-WC-Webhook-Source] => https://staging.sundaratravelclub.com/
+                            [X-WC-Webhook-Topic] => product.updated
+                            [X-WC-Webhook-Resource] => product
+                            [X-WC-Webhook-Event] => updated
+                            [X-WC-Webhook-Signature] => nq8Jss9qxjU76NUdiIDiJd+ASadDe2IqAfDmGTTrTtI=
+                            [X-WC-Webhook-ID] => 8
+                            [X-WC-Webhook-Delivery-ID] => 7112ee056099f6355c4ff590a0a26fb5
+                        )
+
+                )
+
+            [Body] => {\"id\":4264,\"name\":\"Ferrari 488 Spider\",\"slug\":\"ferrari-488-spider\",\"permalink\":\"https:\\/\\/staging.sundaratravelclub.com\\/product\\/ferrari-488-spider\\/\",\"date_created\":\"2023-10-11T21:53:49\",\"date_created_gmt\":\"2023-10-11T13:53:49\",\"date_modified\":\"2023-10-20T20:57:47\",\"date_modified_gmt\":\"2023-10-20T12:57:47\",\"type\":\"booking\",\"status\":\"publish\",\"featured\":false,\"catalog_visibility\":\"visible\",\"description\":\"<p><span style=\\\"font-weight: 400;\\\">Prepare to immerse yourself in the exhilarating sensation of the Ferrari 488 Spider, characterized by its timeless mid-rear-engined sports car proportions. Exceptional drop-top driving experience with the Ferrari 488 Spider, the newest gem in Maranello\'s heritage of open-top sports cars.<\\/span><\\/p>\\n<p>&nbsp;<\\/p>\\n<h2><span style=\\\"font-weight: 400;\\\">What\\u2019s included<\\/span><\\/h2>\\n<ul>\\n<li style=\\\"font-weight: 400;\\\" aria-level=\\\"1\\\"><span style=\\\"font-weight: 400;\\\">Free delivery in Bangkok<\\/span><\\/li>\\n<li style=\\\"font-weight: 400;\\\" aria-level=\\\"1\\\"><span style=\\\"font-weight: 400;\\\">First class insurance<\\/span><\\/li>\\n<li style=\\\"font-weight: 400;\\\" aria-level=\\\"1\\\"><span style=\\\"font-weight: 400;\\\">Ozone Sanitization<\\/span><\\/li>\\n<\\/ul>\\n<h2><span style=\\\"font-weight: 400;\\\">Key Performance<\\/span><\\/h2>\\n<ul>\\n<li style=\\\"font-weight: 400;\\\" aria-level=\\\"1\\\"><span style=\\\"font-weight: 400;\\\">661 HP 3.9L Twin Turbo V8 Engine<\\/span><\\/li>\\n<li style=\\\"font-weight: 400;\\\" aria-level=\\\"1\\\"><span style=\\\"font-weight: 400;\\\">0-100 km\\/h in 3.1 seconds<\\/span><\\/li>\\n<li style=\\\"font-weight: 400;\\\" aria-level=\\\"1\\\"><span style=\\\"font-weight: 400;\\\">Fine-tuned Italian exhaust sound<\\/span><\\/li>\\n<li style=\\\"font-weight: 400;\\\" aria-level=\\\"1\\\"><span style=\\\"font-weight: 400;\\\">Hard Top Convertible Roof<\\/span><\\/li>\\n<li style=\\\"font-weight: 400;\\\" aria-level=\\\"1\\\"><span style=\\\"font-weight: 400;\\\">Specially ordered color<\\/span><span style=\\\"font-weight: 400;\\\"><br \\/>\\n<\\/span><span style=\\\"font-weight: 400;\\\">Glass Engine Cover<\\/span><\\/li>\\n<li style=\\\"font-weight: 400;\\\" aria-level=\\\"1\\\"><span style=\\\"font-weight: 400;\\\">Full Electric Seats<\\/span><\\/li>\\n<li style=\\\"font-weight: 400;\\\" aria-level=\\\"1\\\"><span style=\\\"font-weight: 400;\\\">Driving Modes (WET, STRADA, SPORT, RACE, CT OFF)<\\/span><\\/li>\\n<\\/ul>\\n<h2><span style=\\\"font-weight: 400;\\\">Location<\\/span><\\/h2>\\n<p><span style=\\\"font-weight: 400;\\\">Suvarnabhumi International Airport<\\/span><\\/p>\\n\",\"short_description\":\"\",\"sku\":\"\",\"price\":\"4300\",\"regular_price\":\"\",\"sale_price\":\"\",\"date_on_sale_from\":null,\"date_on_sale_from_gmt\":null,\"date_on_sale_to\":null,\"date_on_sale_to_gmt\":null,\"on_sale\":false,\"purchasable\":true,\"total_sales\":1,\"virtual\":true,\"downloadable\":false,\"downloads\":[],\"download_limit\":-1,\"download_expiry\":-1,\"external_url\":\"\",\"button_text\":\"\",\"tax_status\":\"taxable\",\"tax_class\":\"\",\"manage_stock\":false,\"stock_quantity\":null,\"backorders\":\"no\",\"backorders_allowed\":false,\"backordered\":false,\"low_stock_amount\":null,\"sold_individually\":true,\"weight\":\"\",\"dimensions\":{\"length\":\"\",\"width\":\"\",\"height\":\"\"},\"shipping_required\":false,\"shipping_taxable\":false,\"shipping_class\":\"\",\"shipping_class_id\":0,\"reviews_allowed\":false,\"average_rating\":\"0.00\",\"rating_count\":0,\"upsell_ids\":[],\"cross_sell_ids\":[],\"parent_id\":0,\"purchase_note\":\"\",\"categories\":[{\"id\":45,\"name\":\"Car Rent\",\"slug\":\"car-rent\"}],\"tags\":[],\"images\":[{\"id\":5618,\"date_created\":\"2023-10-21T04:57:39\",\"date_created_gmt\":\"2023-10-20T12:57:39\",\"date_modified\":\"2023-10-21T04:57:39\",\"date_modified_gmt\":\"2023-10-20T12:57:39\",\"src\":\"https:\\/\\/staging.sundaratravelclub.com\\/wp-content\\/uploads\\/2023\\/10\\/F488-00-DPjpg-1.jpg\",\"name\":\"F488 00 (DP)jpg (1)\",\"alt\":\"\"},{\"id\":5617,\"date_created\":\"2023-10-21T04:57:23\",\"date_created_gmt\":\"2023-10-20T12:57:23\",\"date_modified\":\"2023-10-21T04:57:23\",\"date_modified_gmt\":\"2023-10-20T12:57:23\",\"src\":\"https:\\/\\/staging.sundaratravelclub.com\\/wp-content\\/uploads\\/2023\\/10\\/F488-00-DPjpg.jpg\",\"name\":\"F488 00 (DP)jpg\",\"alt\":\"\"},{\"id\":4735,\"date_created\":\"2023-10-14T04:53:38\",\"date_created_gmt\":\"2023-10-13T12:53:38\",\"date_modified\":\"2023-10-14T04:53:38\",\"date_modified_gmt\":\"2023-10-13T12:53:38\",\"src\":\"https:\\/\\/staging.sundaratravelclub.com\\/wp-content\\/uploads\\/2023\\/10\\/F488-1-DP-1.jpg\",\"name\":\"F488 1 (DP)\",\"alt\":\"\"},{\"id\":4736,\"date_created\":\"2023-10-14T04:53:42\",\"date_created_gmt\":\"2023-10-13T12:53:42\",\"date_modified\":\"2023-10-14T04:53:42\",\"date_modified_gmt\":\"2023-10-13T12:53:42\",\"src\":\"https:\\/\\/staging.sundaratravelclub.com\\/wp-content\\/uploads\\/2023\\/10\\/F488-2.jpg\",\"name\":\"F488 2\",\"alt\":\"\"},{\"id\":4737,\"date_created\":\"2023-10-14T04:53:45\",\"date_created_gmt\":\"2023-10-13T12:53:45\",\"date_modified\":\"2023-10-14T04:53:45\",\"date_modified_gmt\":\"2023-10-13T12:53:45\",\"src\":\"https:\\/\\/staging.sundaratravelclub.com\\/wp-content\\/uploads\\/2023\\/10\\/F488-3.jpg\",\"name\":\"F488 3\",\"alt\":\"\"},{\"id\":4738,\"date_created\":\"2023-10-14T04:53:48\",\"date_created_gmt\":\"2023-10-13T12:53:48\",\"date_modified\":\"2023-10-14T04:53:48\",\"date_modified_gmt\":\"2023-10-13T12:53:48\",\"src\":\"https:\\/\\/staging.sundaratravelclub.com\\/wp-content\\/uploads\\/2023\\/10\\/F488-4.jpg\",\"name\":\"F488 4\",\"alt\":\"\"},{\"id\":4739,\"date_created\":\"2023-10-14T04:53:51\",\"date_created_gmt\":\"2023-10-13T12:53:51\",\"date_modified\":\"2023-10-14T04:53:51\",\"date_modified_gmt\":\"2023-10-13T12:53:51\",\"src\":\"https:\\/\\/staging.sundaratravelclub.com\\/wp-content\\/uploads\\/2023\\/10\\/F488-05.jpg\",\"name\":\"F488 05\",\"alt\":\"\"},{\"id\":4740,\"date_created\":\"2023-10-14T04:53:53\",\"date_created_gmt\":\"2023-10-13T12:53:53\",\"date_modified\":\"2023-10-14T04:53:53\",\"date_modified_gmt\":\"2023-10-13T12:53:53\",\"src\":\"https:\\/\\/staging.sundaratravelclub.com\\/wp-content\\/uploads\\/2023\\/10\\/F488-06.jpg\",\"name\":\"F488 06\",\"alt\":\"\"},{\"id\":4741,\"date_created\":\"2023-10-14T04:53:55\",\"date_created_gmt\":\"2023-10-13T12:53:55\",\"date_modified\":\"2023-10-14T04:53:55\",\"date_modified_gmt\":\"2023-10-13T12:53:55\",\"src\":\"https:\\/\\/staging.sundaratravelclub.com\\/wp-content\\/uploads\\/2023\\/10\\/F488-07.jpg\",\"name\":\"F488 07\",\"alt\":\"\"},{\"id\":4742,\"date_created\":\"2023-10-14T04:53:57\",\"date_created_gmt\":\"2023-10-13T12:53:57\",\"date_modified\":\"2023-10-14T04:53:57\",\"date_modified_gmt\":\"2023-10-13T12:53:57\",\"src\":\"https:\\/\\/staging.sundaratravelclub.com\\/wp-content\\/uploads\\/2023\\/10\\/F488-08.jpg\",\"name\":\"F488 08\",\"alt\":\"\"}],\"attributes\":[],\"default_attributes\":[],\"variations\":[],\"grouped_products\":[],\"menu_order\":0,\"price_html\":\"<span class=\\\"woocommerce-Price-amount amount\\\"><bdi><span class=\\\"woocommerce-Price-currencySymbol\\\">&#36;<\\/span>4,300<\\/bdi><\\/span>\",\"related_ids\":[4243,4261,4358,4354,4360],\"meta_data\":[{\"id\":30686,\"key\":\"_wp_page_template\",\"value\":\"default\"},{\"id\":30702,\"key\":\"map\",\"value\":\"<iframe src=\\\"https:\\/\\/www.google.com\\/maps\\/embed?pb=!1m18!1m12!1m3!1d63098.14882151671!2d115.09771105819169!3d-8.726231972536143!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2dd246bc2ab70d43%3A0x82feaae12f4ab48e!2sPantai%20Kuta!5e0!3m2!1sid!2sid!4v1696521812298!5m2!1sid!2sid\\\" width=\\\"600\\\" height=\\\"450\\\" style=\\\"border:0;\\\" allowfullscreen=\\\"\\\" loading=\\\"lazy\\\" referrerpolicy=\\\"no-referrer-when-downgrade\\\"><\\/iframe>\"},{\"id\":30703,\"key\":\"_map\",\"value\":\"field_651ed9418cf05\"},{\"id\":30704,\"key\":\"day_1\",\"value\":\"<h1>Arrive ...<\\/h1>\"},{\"id\":30705,\"key\":\"_day_1\",\"value\":\"field_651ed6a875e53\"},{\"id\":30706,\"key\":\"day_2\",\"value\":\"<h1>Fun<\\/h1>\"},{\"id\":30707,\"key\":\"_day_2\",\"value\":\"field_651ed6db75e54\"},{\"id\":30708,\"key\":\"day_3\",\"value\":\"<h1>checkout<\\/h1>\"},{\"id\":30709,\"key\":\"_day_3\",\"value\":\"field_651ed6f275e55\"},{\"id\":30710,\"key\":\"day_4\",\"value\":\"\"},{\"id\":30711,\"key\":\"_day_4\",\"value\":\"field_65258ae54ca9d\"},{\"id\":30712,\"key\":\"builder\",\"value\":\"\"},{\"id\":30713,\"key\":\"_builder\",\"value\":\"field_651eab9ec93f1\"},{\"id\":30714,\"key\":\"lenght\",\"value\":\"\"},{\"id\":30715,\"key\":\"_lenght\",\"value\":\"field_651eac6f5c14f\"},{\"id\":30716,\"key\":\"beam\",\"value\":\"\"},{\"id\":30717,\"key\":\"_beam\",\"value\":\"field_651eac825c150\"},{\"id\":30718,\"key\":\"cabins\",\"value\":\"\"},{\"id\":30719,\"key\":\"_cabins\",\"value\":\"field_651eac9f5c152\"},{\"id\":30720,\"key\":\"guest\",\"value\":\"\"},{\"id\":30721,\"key\":\"_guest\",\"value\":\"field_651eac905c151\"},{\"id\":30722,\"key\":\"cruising_speed\",\"value\":\"\"},{\"id\":30723,\"key\":\"_cruising_speed\",\"value\":\"field_651eacb55c153\"},{\"id\":30724,\"key\":\"max_speed\",\"value\":\"\"},{\"id\":30725,\"key\":\"_max_speed\",\"value\":\"field_651ead165c154\"},{\"id\":30726,\"key\":\"year\",\"value\":\"2017\"},{\"id\":30727,\"key\":\"_year\",\"value\":\"field_651ed605c407b\"},{\"id\":30728,\"key\":\"bathroom\",\"value\":\"1\"},{\"id\":30729,\"key\":\"_bathroom\",\"value\":\"field_651ed62cc407c\"},{\"id\":30758,\"key\":\"inline_featured_image\",\"value\":\"0\"},{\"id\":30759,\"key\":\"site-sidebar-layout\",\"value\":\"default\"},{\"id\":30760,\"key\":\"site-content-layout\",\"value\":\"default\"},{\"id\":30761,\"key\":\"theme-transparent-header-meta\",\"value\":\"default\"},{\"id\":31155,\"key\":\"duration_trip\",\"value\":\"24 hours\"},{\"id\":31156,\"key\":\"_duration_trip\",\"value\":\"field_65275fceccbcd\"},{\"id\":31157,\"key\":\"max_people\",\"value\":\"2\"},{\"id\":31158,\"key\":\"_max_people\",\"value\":\"field_652760bfccbd0\"},{\"id\":31163,\"key\":\"_yith_booking_duration_type\",\"value\":\"customer\"},{\"id\":31164,\"key\":\"_yith_booking_duration\",\"value\":\"24\"},{\"id\":31165,\"key\":\"_yith_booking_duration_unit\",\"value\":\"hour\"},{\"id\":31166,\"key\":\"_yith_booking_enable_calendar_range_picker\",\"value\":\"yes\"},{\"id\":31167,\"key\":\"_yith_booking_default_start_date\",\"value\":\"first-available\"},{\"id\":31168,\"key\":\"_yith_booking_default_start_date_custom\",\"value\":\"\"},{\"id\":31169,\"key\":\"_yith_booking_default_start_time\",\"value\":\"first-available\"},{\"id\":31170,\"key\":\"_yith_booking_all_day\",\"value\":\"no\"},{\"id\":31171,\"key\":\"_yith_booking_max_per_block\",\"value\":\"0\"},{\"id\":31172,\"key\":\"_yith_booking_minimum_duration\",\"value\":\"1\"},{\"id\":31173,\"key\":\"_yith_booking_maximum_duration\",\"value\":\"0\"},{\"id\":31174,\"key\":\"_yith_booking_request_confirmation\",\"value\":\"no\"},{\"id\":31175,\"key\":\"_yith_booking_can_be_cancelled\",\"value\":\"yes\"},{\"id\":31176,\"key\":\"_yith_booking_cancelled_duration\",\"value\":\"1\"},{\"id\":31177,\"key\":\"_yith_booking_cancelled_unit\",\"value\":\"day\"},{\"id\":31178,\"key\":\"_yith_booking_checkin\",\"value\":\"\"},{\"id\":31179,\"key\":\"_yith_booking_checkout\",\"value\":\"\"},{\"id\":31180,\"key\":\"_yith_booking_allowed_start_days\",\"value\":[]},{\"id\":31181,\"key\":\"_yith_booking_daily_start_time\",\"value\":\"00:00\"},{\"id\":31182,\"key\":\"_yith_booking_buffer\",\"value\":\"0\"},{\"id\":31183,\"key\":\"_yith_booking_time_increment_based_on_duration\",\"value\":\"no\"},{\"id\":31184,\"key\":\"_yith_booking_time_increment_including_buffer\",\"value\":\"no\"},{\"id\":31185,\"key\":\"_yith_booking_allow_after\",\"value\":\"1\"},{\"id\":31186,\"key\":\"_yith_booking_allow_after_unit\",\"value\":\"day\"},{\"id\":31187,\"key\":\"_yith_booking_allow_until\",\"value\":\"1\"},{\"id\":31188,\"key\":\"_yith_booking_allow_until_unit\",\"value\":\"year\"},{\"id\":31189,\"key\":\"_yith_booking_availability_range\",\"value\":[]},{\"id\":31190,\"key\":\"_yith_booking_default_availabilities\",\"value\":[{\"day\":\"all\",\"bookable\":\"yes\",\"time_slots\":[]}]},{\"id\":31191,\"key\":\"_yith_booking_block_cost\",\"value\":\"4300\"},{\"id\":31192,\"key\":\"_yith_booking_base_cost\",\"value\":\"\"},{\"id\":31193,\"key\":\"_yith_booking_costs_range\",\"value\":[]}],\"stock_status\":\"instock\",\"has_options\":true,\"post_password\":\"\",\"_links\":{\"self\":[{\"href\":\"https:\\/\\/staging.sundaratravelclub.com\\/wp-json\\/wc\\/v3\\/products\\/4264\"}],\"collection\":[{\"href\":\"https:\\/\\/staging.sundaratravelclub.com\\/wp-json\\/wc\\/v3\\/products\"}]}}
+            [Response] => Array
+                (
+                    [Code] => 200
+                    [Message] => OK
+                    [Headers] => WpOrg\Requests\Utility\CaseInsensitiveDictionary Object
+                        (
+                            [data:protected] => Array
+                                (
+                                    [date] => Fri, 20 Oct 2023 12:58:28 GMT
+                                    [content-type] => text/html; charset=utf-8
+                                    [cf-ray] => 81916eb2fc1689b3-SIN
+                                    [cf-cache-status] => DYNAMIC
+                                    [strict-transport-security] => max-age=31536000; includeSubDomains; preload
+                                    [vary] => Cookie, Accept-Encoding
+                                    [content-security-policy-report-only] => object-src 'none'; script-src 'report-sample' 'strict-dynamic' 'unsafe-eval'; frame-ancestors 'self' login.bigcommerce.com *.mybigcommerce.com admin.shopify.com klaviyo.file.force.com klaviyo.lightning.force.com klaviyo.my.salesforce.com; base-uri 'none'; report-uri /csp/
+                                    [x-content-type-options] => nosniff
+                                    [x-robots-tag] => noindex, nofollow
+                                    [server] => cloudflare
+                                    [content-encoding] => gzip
+                                )
+
+                        )
+
+                    [Body] => 1
+                )
+
+        )
+
+)
+
+2023-10-20T12:59:57+00:00 INFO Array
+(
+    [Webhook Delivery] => Array
+        (
+            [Delivery ID] => ebc67cfd44981782ef23945b676d2f7e
+            [Date] => Oct 20, 2023 @ 12:59
+            [URL] => https://a.klaviyo.com/api/webhook/integration/woocommerce?c=W86qQh
+            [Duration] => 0.72087
+            [Request] => Array
+                (
+                    [Method] => POST
+                    [Headers] => Array
+                        (
+                            [User-Agent] => WooCommerce/8.2.1 Hookshot (WordPress/6.3.2)
+                            [Content-Type] => application/json
+                            [X-WC-Webhook-Source] => https://staging.sundaratravelclub.com/
+                            [X-WC-Webhook-Topic] => product.updated
+                            [X-WC-Webhook-Resource] => product
+                            [X-WC-Webhook-Event] => updated
+                            [X-WC-Webhook-Signature] => Wj6TbIkh3FIESJMiX8jwKQXQ4Z2YxkXmogS/yyV04oo=
+                            [X-WC-Webhook-ID] => 8
+                            [X-WC-Webhook-Delivery-ID] => ebc67cfd44981782ef23945b676d2f7e
+                        )
+
+                )
+
+            [Body] => {\"id\":4243,\"name\":\"Lamborghini Huracan Evo\",\"slug\":\"lamborghini-huracan-evo\",\"permalink\":\"https:\\/\\/staging.sundaratravelclub.com\\/product\\/lamborghini-huracan-evo\\/\",\"date_created\":\"2023-10-11T20:44:13\",\"date_created_gmt\":\"2023-10-11T12:44:13\",\"date_modified\":\"2023-10-20T20:59:08\",\"date_modified_gmt\":\"2023-10-20T12:59:08\",\"type\":\"booking\",\"status\":\"publish\",\"featured\":false,\"catalog_visibility\":\"visible\",\"description\":\"<p><span style=\\\"font-weight: 400;\\\">The Hurac\\u00e1n EVO is the evolution of the most successful V10-powered Lamborghini ever. The result of fine-tuning and refining existing features, combined with new design solutions that increase performance, the car stands out for its ability to anticipate and cater to the driver\\u2019s behavior, expectations and desires.<\\/span><\\/p>\\n<h2><\\/h2>\\n<h2><span style=\\\"font-weight: 400;\\\">What\\u2019s included<\\/span><\\/h2>\\n<ul>\\n<li style=\\\"font-weight: 400;\\\" aria-level=\\\"1\\\"><span style=\\\"font-weight: 400;\\\">Free delivery in Bangkok<\\/span><\\/li>\\n<li style=\\\"font-weight: 400;\\\" aria-level=\\\"1\\\"><span style=\\\"font-weight: 400;\\\">First class insurance<\\/span><\\/li>\\n<li style=\\\"font-weight: 400;\\\" aria-level=\\\"1\\\"><span style=\\\"font-weight: 400;\\\">Ozone Sanitization<\\/span><\\/li>\\n<\\/ul>\\n<h2><span style=\\\"font-weight: 400;\\\">Key Performance<\\/span><\\/h2>\\n<ul>\\n<li style=\\\"font-weight: 400;\\\" aria-level=\\\"1\\\"><span style=\\\"font-weight: 400;\\\">620hp 5.2L Naturally Aspirated V10<\\/span><\\/li>\\n<li style=\\\"font-weight: 400;\\\" aria-level=\\\"1\\\"><span style=\\\"font-weight: 400;\\\">0-100km\\/h in 2.9s<\\/span><\\/li>\\n<li style=\\\"font-weight: 400;\\\" aria-level=\\\"1\\\"><span style=\\\"font-weight: 400;\\\">Lamborghini Dinamica Veicolo Integrata System<\\/span><\\/li>\\n<li style=\\\"font-weight: 400;\\\" aria-level=\\\"1\\\"><span style=\\\"font-weight: 400;\\\">New aerodynamic parts with diamond cut wheels <\\/span><span style=\\\"font-weight: 400;\\\"><br \\/>\\n<\\/span><span style=\\\"font-weight: 400;\\\">(Performance increased 10-30%)<\\/span><\\/li>\\n<li style=\\\"font-weight: 400;\\\" aria-level=\\\"1\\\"><span style=\\\"font-weight: 400;\\\">New Titanium sport exhaust<\\/span><\\/li>\\n<li style=\\\"font-weight: 400;\\\" aria-level=\\\"1\\\"><span style=\\\"font-weight: 400;\\\">New center screen with Apple Carplay<\\/span><\\/li>\\n<li style=\\\"font-weight: 400;\\\" aria-level=\\\"1\\\"><span style=\\\"font-weight: 400;\\\">New instrument cluster<\\/span><\\/li>\\n<li style=\\\"font-weight: 400;\\\" aria-level=\\\"1\\\"><span style=\\\"font-weight: 400;\\\">Front lifting system<\\/span><\\/li>\\n<li style=\\\"font-weight: 400;\\\" aria-level=\\\"1\\\"><span style=\\\"font-weight: 400;\\\">Glass engine cover<\\/span><\\/li>\\n<\\/ul>\\n<h2><span style=\\\"font-weight: 400;\\\">Location<\\/span><\\/h2>\\n<p><span style=\\\"font-weight: 400;\\\">Suvarnabhumi International Airport<\\/span><\\/p>\\n\",\"short_description\":\"\",\"sku\":\"\",\"price\":\"4300\",\"regular_price\":\"\",\"sale_price\":\"\",\"date_on_sale_from\":null,\"date_on_sale_from_gmt\":null,\"date_on_sale_to\":null,\"date_on_sale_to_gmt\":null,\"on_sale\":false,\"purchasable\":true,\"total_sales\":2,\"virtual\":true,\"downloadable\":false,\"downloads\":[],\"download_limit\":-1,\"download_expiry\":-1,\"external_url\":\"\",\"button_text\":\"\",\"tax_status\":\"taxable\",\"tax_class\":\"\",\"manage_stock\":false,\"stock_quantity\":null,\"backorders\":\"no\",\"backorders_allowed\":false,\"backordered\":false,\"low_stock_amount\":null,\"sold_individually\":true,\"weight\":\"\",\"dimensions\":{\"length\":\"\",\"width\":\"\",\"height\":\"\"},\"shipping_required\":false,\"shipping_taxable\":false,\"shipping_class\":\"\",\"shipping_class_id\":0,\"reviews_allowed\":false,\"average_rating\":\"0.00\",\"rating_count\":0,\"upsell_ids\":[],\"cross_sell_ids\":[],\"parent_id\":0,\"purchase_note\":\"\",\"categories\":[{\"id\":45,\"name\":\"Car Rent\",\"slug\":\"car-rent\"}],\"tags\":[],\"images\":[{\"id\":5619,\"date_created\":\"2023-10-21T04:58:59\",\"date_created_gmt\":\"2023-10-20T12:58:59\",\"date_modified\":\"2023-10-21T04:58:59\",\"date_modified_gmt\":\"2023-10-20T12:58:59\",\"src\":\"https:\\/\\/staging.sundaratravelclub.com\\/wp-content\\/uploads\\/2023\\/10\\/LH-2-DP.jpg\",\"name\":\"LH 2 (DP)\",\"alt\":\"\"},{\"id\":4258,\"date_created\":\"2023-10-12T05:04:00\",\"date_created_gmt\":\"2023-10-11T13:04:00\",\"date_modified\":\"2023-10-12T05:04:00\",\"date_modified_gmt\":\"2023-10-11T13:04:00\",\"src\":\"https:\\/\\/staging.sundaratravelclub.com\\/wp-content\\/uploads\\/2023\\/10\\/LH-2.jpg\",\"name\":\"LH 2\",\"alt\":\"\"},{\"id\":4256,\"date_created\":\"2023-10-12T05:03:48\",\"date_created_gmt\":\"2023-10-11T13:03:48\",\"date_modified\":\"2023-10-12T05:03:48\",\"date_modified_gmt\":\"2023-10-11T13:03:48\",\"src\":\"https:\\/\\/staging.sundaratravelclub.com\\/wp-content\\/uploads\\/2023\\/10\\/LH-1-DP-1.jpg\",\"name\":\"LH 1 (DP)\",\"alt\":\"\"},{\"id\":4259,\"date_created\":\"2023-10-12T05:04:03\",\"date_created_gmt\":\"2023-10-11T13:04:03\",\"date_modified\":\"2023-10-12T05:04:03\",\"date_modified_gmt\":\"2023-10-11T13:04:03\",\"src\":\"https:\\/\\/staging.sundaratravelclub.com\\/wp-content\\/uploads\\/2023\\/10\\/LH-3.jpg\",\"name\":\"LH 3\",\"alt\":\"\"},{\"id\":4260,\"date_created\":\"2023-10-12T05:04:05\",\"date_created_gmt\":\"2023-10-11T13:04:05\",\"date_modified\":\"2023-10-12T05:04:05\",\"date_modified_gmt\":\"2023-10-11T13:04:05\",\"src\":\"https:\\/\\/staging.sundaratravelclub.com\\/wp-content\\/uploads\\/2023\\/10\\/LH-4.jpg\",\"name\":\"LH 4\",\"alt\":\"\"},{\"id\":4257,\"date_created\":\"2023-10-12T05:03:58\",\"date_created_gmt\":\"2023-10-11T13:03:58\",\"date_modified\":\"2023-10-12T05:03:58\",\"date_modified_gmt\":\"2023-10-11T13:03:58\",\"src\":\"https:\\/\\/staging.sundaratravelclub.com\\/wp-content\\/uploads\\/2023\\/10\\/LH-5.jpg\",\"name\":\"LH 5\",\"alt\":\"\"}],\"attributes\":[],\"default_attributes\":[],\"variations\":[],\"grouped_products\":[],\"menu_order\":0,\"price_html\":\"<span class=\\\"woocommerce-Price-amount amount\\\"><bdi><span class=\\\"woocommerce-Price-currencySymbol\\\">&#36;<\\/span>4,300<\\/bdi><\\/span>\",\"related_ids\":[4350,4261,4363,4356,4352],\"meta_data\":[{\"id\":30294,\"key\":\"_wp_page_template\",\"value\":\"default\"},{\"id\":30309,\"key\":\"_yith_booking_duration_type\",\"value\":\"customer\"},{\"id\":30310,\"key\":\"_yith_booking_duration\",\"value\":\"24\"},{\"id\":30311,\"key\":\"_yith_booking_duration_unit\",\"value\":\"hour\"},{\"id\":30312,\"key\":\"_yith_booking_enable_calendar_range_picker\",\"value\":\"yes\"},{\"id\":30313,\"key\":\"_yith_booking_default_start_date\",\"value\":\"first-available\"},{\"id\":30314,\"key\":\"_yith_booking_default_start_date_custom\",\"value\":\"\"},{\"id\":30315,\"key\":\"_yith_booking_default_start_time\",\"value\":\"first-available\"},{\"id\":30316,\"key\":\"_yith_booking_all_day\",\"value\":\"no\"},{\"id\":30317,\"key\":\"_yith_booking_max_per_block\",\"value\":\"1\"},{\"id\":30318,\"key\":\"_yith_booking_minimum_duration\",\"value\":\"1\"},{\"id\":30319,\"key\":\"_yith_booking_maximum_duration\",\"value\":\"0\"},{\"id\":30320,\"key\":\"_yith_booking_request_confirmation\",\"value\":\"no\"},{\"id\":30321,\"key\":\"_yith_booking_can_be_cancelled\",\"value\":\"yes\"},{\"id\":30322,\"key\":\"_yith_booking_cancelled_duration\",\"value\":\"1\"},{\"id\":30323,\"key\":\"_yith_booking_cancelled_unit\",\"value\":\"day\"},{\"id\":30324,\"key\":\"_yith_booking_checkin\",\"value\":\"\"},{\"id\":30325,\"key\":\"_yith_booking_checkout\",\"value\":\"\"},{\"id\":30326,\"key\":\"_yith_booking_allowed_start_days\",\"value\":[]},{\"id\":30327,\"key\":\"_yith_booking_daily_start_time\",\"value\":\"00:00\"},{\"id\":30328,\"key\":\"_yith_booking_buffer\",\"value\":\"0\"},{\"id\":30329,\"key\":\"_yith_booking_time_increment_based_on_duration\",\"value\":\"no\"},{\"id\":30330,\"key\":\"_yith_booking_time_increment_including_buffer\",\"value\":\"no\"},{\"id\":30331,\"key\":\"_yith_booking_allow_after\",\"value\":\"1\"},{\"id\":30332,\"key\":\"_yith_booking_allow_after_unit\",\"value\":\"day\"},{\"id\":30333,\"key\":\"_yith_booking_allow_until\",\"value\":\"1\"},{\"id\":30334,\"key\":\"_yith_booking_allow_until_unit\",\"value\":\"year\"},{\"id\":30335,\"key\":\"_yith_booking_availability_range\",\"value\":[]},{\"id\":30336,\"key\":\"_yith_booking_default_availabilities\",\"value\":[{\"day\":\"all\",\"bookable\":\"yes\",\"time_slots\":[]}]},{\"id\":30337,\"key\":\"_yith_booking_block_cost\",\"value\":\"4300\"},{\"id\":30338,\"key\":\"_yith_booking_base_cost\",\"value\":\"\"},{\"id\":30339,\"key\":\"_yith_booking_costs_range\",\"value\":[]},{\"id\":30340,\"key\":\"_yith_booking_location\",\"value\":\"\"},{\"id\":30341,\"key\":\"_yith_booking_location_lat\",\"value\":\"\"},{\"id\":30342,\"key\":\"_yith_booking_location_lng\",\"value\":\"\"},{\"id\":30345,\"key\":\"map\",\"value\":\"<iframe src=\\\"https:\\/\\/www.google.com\\/maps\\/embed?pb=!1m18!1m12!1m3!1d3876.603002020116!2d100.74428447433151!3d13.681887486702724!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x311d67771542274f%3A0x120d19554f157a07!2sBandar%20Udara%20Internasional%20Suvarnabhumi!5e0!3m2!1sid!2sid!4v1697076548069!5m2!1sid!2sid\\\" width=\\\"600\\\" height=\\\"450\\\" style=\\\"border:0;\\\" allowfullscreen=\\\"\\\" loading=\\\"lazy\\\" referrerpolicy=\\\"no-referrer-when-downgrade\\\"><\\/iframe>\"},{\"id\":30346,\"key\":\"_map\",\"value\":\"field_651ed9418cf05\"},{\"id\":30347,\"key\":\"day_1\",\"value\":\"<h1>Arrive ...<\\/h1>\"},{\"id\":30348,\"key\":\"_day_1\",\"value\":\"field_651ed6a875e53\"},{\"id\":30349,\"key\":\"day_2\",\"value\":\"<h1>Fun<\\/h1>\"},{\"id\":30350,\"key\":\"_day_2\",\"value\":\"field_651ed6db75e54\"},{\"id\":30351,\"key\":\"day_3\",\"value\":\"<h1>checkout<\\/h1>\"},{\"id\":30352,\"key\":\"_day_3\",\"value\":\"field_651ed6f275e55\"},{\"id\":30353,\"key\":\"day_4\",\"value\":\"\"},{\"id\":30354,\"key\":\"_day_4\",\"value\":\"field_65258ae54ca9d\"},{\"id\":30355,\"key\":\"builder\",\"value\":\"\"},{\"id\":30356,\"key\":\"_builder\",\"value\":\"field_651eab9ec93f1\"},{\"id\":30357,\"key\":\"lenght\",\"value\":\"\"},{\"id\":30358,\"key\":\"_lenght\",\"value\":\"field_651eac6f5c14f\"},{\"id\":30359,\"key\":\"beam\",\"value\":\"\"},{\"id\":30360,\"key\":\"_beam\",\"value\":\"field_651eac825c150\"},{\"id\":30361,\"key\":\"cabins\",\"value\":\"\"},{\"id\":30362,\"key\":\"_cabins\",\"value\":\"field_651eac9f5c152\"},{\"id\":30363,\"key\":\"guest\",\"value\":\"\"},{\"id\":30364,\"key\":\"_guest\",\"value\":\"field_651eac905c151\"},{\"id\":30365,\"key\":\"cruising_speed\",\"value\":\"\"},{\"id\":30366,\"key\":\"_cruising_speed\",\"value\":\"field_651eacb55c153\"},{\"id\":30367,\"key\":\"max_speed\",\"value\":\"\"},{\"id\":30368,\"key\":\"_max_speed\",\"value\":\"field_651ead165c154\"},{\"id\":30369,\"key\":\"year\",\"value\":\"2017\"},{\"id\":30370,\"key\":\"_year\",\"value\":\"field_651ed605c407b\"},{\"id\":30371,\"key\":\"bathroom\",\"value\":\"1\"},{\"id\":30372,\"key\":\"_bathroom\",\"value\":\"field_651ed62cc407c\"},{\"id\":30401,\"key\":\"inline_featured_image\",\"value\":\"0\"},{\"id\":30402,\"key\":\"site-sidebar-layout\",\"value\":\"default\"},{\"id\":30403,\"key\":\"site-content-layout\",\"value\":\"default\"},{\"id\":30404,\"key\":\"theme-transparent-header-meta\",\"value\":\"default\"},{\"id\":45518,\"key\":\"duration_trip\",\"value\":\"24 hours\"},{\"id\":45519,\"key\":\"_duration_trip\",\"value\":\"field_65275fceccbcd\"},{\"id\":45520,\"key\":\"max_people\",\"value\":\"2\"},{\"id\":45521,\"key\":\"_max_people\",\"value\":\"field_652760bfccbd0\"}],\"stock_status\":\"instock\",\"has_options\":true,\"post_password\":\"\",\"_links\":{\"self\":[{\"href\":\"https:\\/\\/staging.sundaratravelclub.com\\/wp-json\\/wc\\/v3\\/products\\/4243\"}],\"collection\":[{\"href\":\"https:\\/\\/staging.sundaratravelclub.com\\/wp-json\\/wc\\/v3\\/products\"}]}}
+            [Response] => Array
+                (
+                    [Code] => 200
+                    [Message] => OK
+                    [Headers] => WpOrg\Requests\Utility\CaseInsensitiveDictionary Object
+                        (
+                            [data:protected] => Array
+                                (
+                                    [date] => Fri, 20 Oct 2023 12:59:57 GMT
+                                    [content-type] => text/html; charset=utf-8
+                                    [cf-ray] => 819170e3189e5ffd-SIN
+                                    [cf-cache-status] => DYNAMIC
+                                    [strict-transport-security] => max-age=31536000; includeSubDomains; preload
+                                    [vary] => Cookie, Accept-Encoding
+                                    [content-security-policy-report-only] => base-uri 'none'; script-src 'report-sample' 'strict-dynamic' 'unsafe-eval'; frame-ancestors 'self' login.bigcommerce.com *.mybigcommerce.com admin.shopify.com klaviyo.file.force.com klaviyo.lightning.force.com klaviyo.my.salesforce.com; object-src 'none'; report-uri /csp/
+                                    [x-content-type-options] => nosniff
+                                    [x-robots-tag] => noindex, nofollow
+                                    [server] => cloudflare
+                                    [content-encoding] => gzip
+                                )
+
+                        )
+
+                    [Body] => 1
+                )
+
+        )
+
+)
+
+2023-10-20T13:02:14+00:00 INFO Array
+(
+    [Webhook Delivery] => Array
+        (
+            [Delivery ID] => 2b47e3ca765f572cd00aa9debfff290e
+            [Date] => Oct 20, 2023 @ 13:02
+            [URL] => https://a.klaviyo.com/api/webhook/integration/woocommerce?c=W86qQh
+            [Duration] => 0.80851
+            [Request] => Array
+                (
+                    [Method] => POST
+                    [Headers] => Array
+                        (
+                            [User-Agent] => WooCommerce/8.2.1 Hookshot (WordPress/6.3.2)
+                            [Content-Type] => application/json
+                            [X-WC-Webhook-Source] => https://staging.sundaratravelclub.com/
+                            [X-WC-Webhook-Topic] => product.updated
+                            [X-WC-Webhook-Resource] => product
+                            [X-WC-Webhook-Event] => updated
+                            [X-WC-Webhook-Signature] => 9ckkm1kVk3OGA6dszUZstb2S5cp8YizwwyfHh3bNxqs=
+                            [X-WC-Webhook-ID] => 8
+                            [X-WC-Webhook-Delivery-ID] => 2b47e3ca765f572cd00aa9debfff290e
+                        )
+
+                )
+
+            [Body] => {\"id\":4358,\"name\":\"Mercedes Benz S580e AMG W223\",\"slug\":\"mercedes-benz-s580e-amg-w223\",\"permalink\":\"https:\\/\\/staging.sundaratravelclub.com\\/product\\/mercedes-benz-s580e-amg-w223\\/\",\"date_created\":\"2023-10-12T22:03:40\",\"date_created_gmt\":\"2023-10-12T14:03:40\",\"date_modified\":\"2023-10-20T21:01:33\",\"date_modified_gmt\":\"2023-10-20T13:01:33\",\"type\":\"booking\",\"status\":\"publish\",\"featured\":false,\"catalog_visibility\":\"visible\",\"description\":\"<p><span style=\\\"font-weight: 400;\\\">The Mercedes-Benz S580e AMG W223 is a pinnacle of luxury and performance in the automotive world. This flagship sedan seamlessly combines a powerful hybrid drivetrain with AMG\'s performance enhancements, resulting in an exquisite driving experience with a sumptuous interior adorned with the finest materials and cutting-edge technology. It offers remarkable power, refinement, and a level of comfort and sophistication that sets new standards in the luxury sedan segment.<\\/span><\\/p>\\n<p>&nbsp;<\\/p>\\n<h2><span style=\\\"font-weight: 400;\\\">What\\u2019s included<\\/span><\\/h2>\\n<ul>\\n<li style=\\\"font-weight: 400;\\\" aria-level=\\\"1\\\"><span style=\\\"font-weight: 400;\\\">Free delivery in Bangkok<\\/span><\\/li>\\n<li style=\\\"font-weight: 400;\\\" aria-level=\\\"1\\\"><span style=\\\"font-weight: 400;\\\">First class insurance<\\/span><\\/li>\\n<li style=\\\"font-weight: 400;\\\" aria-level=\\\"1\\\"><span style=\\\"font-weight: 400;\\\">Ozone Sanitization<\\/span><\\/li>\\n<\\/ul>\\n<h2><span style=\\\"font-weight: 400;\\\">Key Performance<\\/span><\\/h2>\\n<ul>\\n<li style=\\\"font-weight: 400;\\\" aria-level=\\\"1\\\"><span style=\\\"font-weight: 400;\\\">510hp 3.0L V6 twin turbo engine + plug in hybrid<\\/span><\\/li>\\n<li style=\\\"font-weight: 400;\\\" aria-level=\\\"1\\\"><span style=\\\"font-weight: 400;\\\">0-100km\\/h in 5.2 seconds<\\/span><\\/li>\\n<li style=\\\"font-weight: 400;\\\" aria-level=\\\"1\\\"><span style=\\\"font-weight: 400;\\\">4th generation EQ power with 100km pure electric range<\\/span><\\/li>\\n<li style=\\\"font-weight: 400;\\\" aria-level=\\\"1\\\"><span style=\\\"font-weight: 400;\\\">The best airmatic suspension and quietness<\\/span><\\/li>\\n<li style=\\\"font-weight: 400;\\\" aria-level=\\\"1\\\"><span style=\\\"font-weight: 400;\\\">First class comfortable rear seats<\\/span><\\/li>\\n<li style=\\\"font-weight: 400;\\\" aria-level=\\\"1\\\"><span style=\\\"font-weight: 400;\\\">The New MBUX with gesture control 2.0 (for side mirror &amp; sunroof)<\\/span><\\/li>\\n<li style=\\\"font-weight: 400;\\\" aria-level=\\\"1\\\"><span style=\\\"font-weight: 400;\\\">Burmester<\\/span><span style=\\\"font-weight: 400;\\\"> High-End 3D audio system<\\/span><\\/li>\\n<li style=\\\"font-weight: 400;\\\" aria-level=\\\"1\\\"><span style=\\\"font-weight: 400;\\\">12.8\\u201d OLED center screen with 320GB SSD hard disk<\\/span><\\/li>\\n<\\/ul>\\n<p>&nbsp;<\\/p>\\n<h2><span style=\\\"font-weight: 400;\\\">Location<\\/span><\\/h2>\\n<p><span style=\\\"font-weight: 400;\\\">Suvarnabhumi International Airport<\\/span><\\/p>\\n\",\"short_description\":\"\",\"sku\":\"\",\"price\":\"900\",\"regular_price\":\"\",\"sale_price\":\"\",\"date_on_sale_from\":null,\"date_on_sale_from_gmt\":null,\"date_on_sale_to\":null,\"date_on_sale_to_gmt\":null,\"on_sale\":false,\"purchasable\":true,\"total_sales\":0,\"virtual\":true,\"downloadable\":false,\"downloads\":[],\"download_limit\":-1,\"download_expiry\":-1,\"external_url\":\"\",\"button_text\":\"\",\"tax_status\":\"taxable\",\"tax_class\":\"\",\"manage_stock\":false,\"stock_quantity\":null,\"backorders\":\"no\",\"backorders_allowed\":false,\"backordered\":false,\"low_stock_amount\":null,\"sold_individually\":true,\"weight\":\"\",\"dimensions\":{\"length\":\"\",\"width\":\"\",\"height\":\"\"},\"shipping_required\":false,\"shipping_taxable\":false,\"shipping_class\":\"\",\"shipping_class_id\":0,\"reviews_allowed\":false,\"average_rating\":\"0.00\",\"rating_count\":0,\"upsell_ids\":[],\"cross_sell_ids\":[],\"parent_id\":0,\"purchase_note\":\"\",\"categories\":[{\"id\":45,\"name\":\"Car Rent\",\"slug\":\"car-rent\"}],\"tags\":[],\"images\":[{\"id\":5620,\"date_created\":\"2023-10-21T05:01:23\",\"date_created_gmt\":\"2023-10-20T13:01:23\",\"date_modified\":\"2023-10-21T05:01:23\",\"date_modified_gmt\":\"2023-10-20T13:01:23\",\"src\":\"https:\\/\\/staging.sundaratravelclub.com\\/wp-content\\/uploads\\/2023\\/10\\/S2-DP.jpg\",\"name\":\"S2 (DP)\",\"alt\":\"\"},{\"id\":4768,\"date_created\":\"2023-10-14T05:08:47\",\"date_created_gmt\":\"2023-10-13T13:08:47\",\"date_modified\":\"2023-10-14T05:08:47\",\"date_modified_gmt\":\"2023-10-13T13:08:47\",\"src\":\"https:\\/\\/staging.sundaratravelclub.com\\/wp-content\\/uploads\\/2023\\/10\\/S2.jpg\",\"name\":\"S2\",\"alt\":\"\"},{\"id\":4767,\"date_created\":\"2023-10-14T05:08:44\",\"date_created_gmt\":\"2023-10-13T13:08:44\",\"date_modified\":\"2023-10-14T05:08:44\",\"date_modified_gmt\":\"2023-10-13T13:08:44\",\"src\":\"https:\\/\\/staging.sundaratravelclub.com\\/wp-content\\/uploads\\/2023\\/10\\/S1-DP-1.jpg\",\"name\":\"S1 (DP)\",\"alt\":\"\"},{\"id\":4769,\"date_created\":\"2023-10-14T05:08:50\",\"date_created_gmt\":\"2023-10-13T13:08:50\",\"date_modified\":\"2023-10-14T05:08:50\",\"date_modified_gmt\":\"2023-10-13T13:08:50\",\"src\":\"https:\\/\\/staging.sundaratravelclub.com\\/wp-content\\/uploads\\/2023\\/10\\/S3.jpg\",\"name\":\"S3\",\"alt\":\"\"},{\"id\":4770,\"date_created\":\"2023-10-14T05:08:53\",\"date_created_gmt\":\"2023-10-13T13:08:53\",\"date_modified\":\"2023-10-14T05:08:53\",\"date_modified_gmt\":\"2023-10-13T13:08:53\",\"src\":\"https:\\/\\/staging.sundaratravelclub.com\\/wp-content\\/uploads\\/2023\\/10\\/S4.jpg\",\"name\":\"S4\",\"alt\":\"\"},{\"id\":4771,\"date_created\":\"2023-10-14T05:08:56\",\"date_created_gmt\":\"2023-10-13T13:08:56\",\"date_modified\":\"2023-10-14T05:08:56\",\"date_modified_gmt\":\"2023-10-13T13:08:56\",\"src\":\"https:\\/\\/staging.sundaratravelclub.com\\/wp-content\\/uploads\\/2023\\/10\\/S5.jpg\",\"name\":\"S5\",\"alt\":\"\"},{\"id\":4772,\"date_created\":\"2023-10-14T05:08:58\",\"date_created_gmt\":\"2023-10-13T13:08:58\",\"date_modified\":\"2023-10-14T05:08:58\",\"date_modified_gmt\":\"2023-10-13T13:08:58\",\"src\":\"https:\\/\\/staging.sundaratravelclub.com\\/wp-content\\/uploads\\/2023\\/10\\/S6.jpg\",\"name\":\"S6\",\"alt\":\"\"},{\"id\":4773,\"date_created\":\"2023-10-14T05:09:00\",\"date_created_gmt\":\"2023-10-13T13:09:00\",\"date_modified\":\"2023-10-14T05:09:00\",\"date_modified_gmt\":\"2023-10-13T13:09:00\",\"src\":\"https:\\/\\/staging.sundaratravelclub.com\\/wp-content\\/uploads\\/2023\\/10\\/S7.jpg\",\"name\":\"S7\",\"alt\":\"\"}],\"attributes\":[],\"default_attributes\":[],\"variations\":[],\"grouped_products\":[],\"menu_order\":0,\"price_html\":\"<span class=\\\"woocommerce-Price-amount amount\\\"><bdi><span class=\\\"woocommerce-Price-currencySymbol\\\">&#36;<\\/span>900<\\/bdi><\\/span>\",\"related_ids\":[4264,4243,4356,5433,4352],\"meta_data\":[{\"id\":33022,\"key\":\"_wp_page_template\",\"value\":\"default\"},{\"id\":33038,\"key\":\"map\",\"value\":\"<iframe src=\\\"https:\\/\\/www.google.com\\/maps\\/embed?pb=!1m18!1m12!1m3!1d63098.14882151671!2d115.09771105819169!3d-8.726231972536143!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2dd246bc2ab70d43%3A0x82feaae12f4ab48e!2sPantai%20Kuta!5e0!3m2!1sid!2sid!4v1696521812298!5m2!1sid!2sid\\\" width=\\\"600\\\" height=\\\"450\\\" style=\\\"border:0;\\\" allowfullscreen=\\\"\\\" loading=\\\"lazy\\\" referrerpolicy=\\\"no-referrer-when-downgrade\\\"><\\/iframe>\"},{\"id\":33039,\"key\":\"_map\",\"value\":\"field_651ed9418cf05\"},{\"id\":33040,\"key\":\"duration_trip\",\"value\":\"24 hours\"},{\"id\":33041,\"key\":\"_duration_trip\",\"value\":\"field_65275fceccbcd\"},{\"id\":33042,\"key\":\"max_people\",\"value\":\"5\"},{\"id\":33043,\"key\":\"_max_people\",\"value\":\"field_652760bfccbd0\"},{\"id\":33044,\"key\":\"timeline_off\",\"value\":\"1\"},{\"id\":33045,\"key\":\"_timeline_off\",\"value\":\"field_652765620dde5\"},{\"id\":33046,\"key\":\"day_1\",\"value\":\"<h1>Arrive ...<\\/h1>\"},{\"id\":33047,\"key\":\"_day_1\",\"value\":\"field_651ed6a875e53\"},{\"id\":33048,\"key\":\"day_2\",\"value\":\"<h1>Fun<\\/h1>\"},{\"id\":33049,\"key\":\"_day_2\",\"value\":\"field_651ed6db75e54\"},{\"id\":33050,\"key\":\"day_3\",\"value\":\"<h1>checkout<\\/h1>\"},{\"id\":33051,\"key\":\"_day_3\",\"value\":\"field_651ed6f275e55\"},{\"id\":33052,\"key\":\"day_4\",\"value\":\"\"},{\"id\":33053,\"key\":\"_day_4\",\"value\":\"field_65258ae54ca9d\"},{\"id\":33054,\"key\":\"builder\",\"value\":\"\"},{\"id\":33055,\"key\":\"_builder\",\"value\":\"field_651eab9ec93f1\"},{\"id\":33056,\"key\":\"lenght\",\"value\":\"\"},{\"id\":33057,\"key\":\"_lenght\",\"value\":\"field_651eac6f5c14f\"},{\"id\":33058,\"key\":\"beam\",\"value\":\"\"},{\"id\":33059,\"key\":\"_beam\",\"value\":\"field_651eac825c150\"},{\"id\":33060,\"key\":\"cabins\",\"value\":\"\"},{\"id\":33061,\"key\":\"_cabins\",\"value\":\"field_651eac9f5c152\"},{\"id\":33062,\"key\":\"guest\",\"value\":\"\"},{\"id\":33063,\"key\":\"_guest\",\"value\":\"field_651eac905c151\"},{\"id\":33064,\"key\":\"cruising_speed\",\"value\":\"\"},{\"id\":33065,\"key\":\"_cruising_speed\",\"value\":\"field_651eacb55c153\"},{\"id\":33066,\"key\":\"max_speed\",\"value\":\"\"},{\"id\":33067,\"key\":\"_max_speed\",\"value\":\"field_651ead165c154\"},{\"id\":33068,\"key\":\"year\",\"value\":\"2017\"},{\"id\":33069,\"key\":\"_year\",\"value\":\"field_651ed605c407b\"},{\"id\":33070,\"key\":\"bathroom\",\"value\":\"1\"},{\"id\":33071,\"key\":\"_bathroom\",\"value\":\"field_651ed62cc407c\"},{\"id\":33106,\"key\":\"inline_featured_image\",\"value\":\"0\"},{\"id\":33107,\"key\":\"site-sidebar-layout\",\"value\":\"default\"},{\"id\":33108,\"key\":\"site-content-layout\",\"value\":\"default\"},{\"id\":33109,\"key\":\"theme-transparent-header-meta\",\"value\":\"default\"},{\"id\":37075,\"key\":\"_yith_booking_duration_type\",\"value\":\"customer\"},{\"id\":37076,\"key\":\"_yith_booking_duration\",\"value\":\"24\"},{\"id\":37077,\"key\":\"_yith_booking_duration_unit\",\"value\":\"hour\"},{\"id\":37078,\"key\":\"_yith_booking_enable_calendar_range_picker\",\"value\":\"yes\"},{\"id\":37079,\"key\":\"_yith_booking_default_start_date\",\"value\":\"first-available\"},{\"id\":37080,\"key\":\"_yith_booking_default_start_date_custom\",\"value\":\"\"},{\"id\":37081,\"key\":\"_yith_booking_default_start_time\",\"value\":\"first-available\"},{\"id\":37082,\"key\":\"_yith_booking_all_day\",\"value\":\"no\"},{\"id\":37083,\"key\":\"_yith_booking_max_per_block\",\"value\":\"0\"},{\"id\":37084,\"key\":\"_yith_booking_minimum_duration\",\"value\":\"1\"},{\"id\":37085,\"key\":\"_yith_booking_maximum_duration\",\"value\":\"0\"},{\"id\":37086,\"key\":\"_yith_booking_request_confirmation\",\"value\":\"no\"},{\"id\":37087,\"key\":\"_yith_booking_can_be_cancelled\",\"value\":\"yes\"},{\"id\":37088,\"key\":\"_yith_booking_cancelled_duration\",\"value\":\"1\"},{\"id\":37089,\"key\":\"_yith_booking_cancelled_unit\",\"value\":\"day\"},{\"id\":37090,\"key\":\"_yith_booking_checkin\",\"value\":\"\"},{\"id\":37091,\"key\":\"_yith_booking_checkout\",\"value\":\"\"},{\"id\":37092,\"key\":\"_yith_booking_allowed_start_days\",\"value\":[]},{\"id\":37093,\"key\":\"_yith_booking_daily_start_time\",\"value\":\"00:00\"},{\"id\":37094,\"key\":\"_yith_booking_buffer\",\"value\":\"0\"},{\"id\":37095,\"key\":\"_yith_booking_time_increment_based_on_duration\",\"value\":\"no\"},{\"id\":37096,\"key\":\"_yith_booking_time_increment_including_buffer\",\"value\":\"no\"},{\"id\":37097,\"key\":\"_yith_booking_allow_after\",\"value\":\"1\"},{\"id\":37098,\"key\":\"_yith_booking_allow_after_unit\",\"value\":\"day\"},{\"id\":37099,\"key\":\"_yith_booking_allow_until\",\"value\":\"1\"},{\"id\":37100,\"key\":\"_yith_booking_allow_until_unit\",\"value\":\"year\"},{\"id\":37101,\"key\":\"_yith_booking_availability_range\",\"value\":[]},{\"id\":37102,\"key\":\"_yith_booking_default_availabilities\",\"value\":[{\"day\":\"all\",\"bookable\":\"yes\",\"time_slots\":[]}]},{\"id\":37103,\"key\":\"_yith_booking_block_cost\",\"value\":\"900\"},{\"id\":37104,\"key\":\"_yith_booking_base_cost\",\"value\":\"\"},{\"id\":37105,\"key\":\"_yith_booking_costs_range\",\"value\":[]}],\"stock_status\":\"instock\",\"has_options\":true,\"post_password\":\"\",\"_links\":{\"self\":[{\"href\":\"https:\\/\\/staging.sundaratravelclub.com\\/wp-json\\/wc\\/v3\\/products\\/4358\"}],\"collection\":[{\"href\":\"https:\\/\\/staging.sundaratravelclub.com\\/wp-json\\/wc\\/v3\\/products\"}]}}
+            [Response] => Array
+                (
+                    [Code] => 200
+                    [Message] => OK
+                    [Headers] => WpOrg\Requests\Utility\CaseInsensitiveDictionary Object
+                        (
+                            [data:protected] => Array
+                                (
+                                    [date] => Fri, 20 Oct 2023 13:02:14 GMT
+                                    [content-type] => text/html; charset=utf-8
+                                    [cf-ray] => 8191743c6fc889b2-SIN
+                                    [cf-cache-status] => DYNAMIC
+                                    [strict-transport-security] => max-age=31536000; includeSubDomains; preload
+                                    [vary] => Cookie, Accept-Encoding
+                                    [content-security-policy-report-only] => frame-ancestors 'self' login.bigcommerce.com *.mybigcommerce.com admin.shopify.com klaviyo.file.force.com klaviyo.lightning.force.com klaviyo.my.salesforce.com; object-src 'none'; script-src 'report-sample' 'strict-dynamic' 'unsafe-eval'; base-uri 'none'; report-uri /csp/
+                                    [x-content-type-options] => nosniff
+                                    [x-robots-tag] => noindex, nofollow
+                                    [server] => cloudflare
+                                    [content-encoding] => gzip
+                                )
+
+                        )
+
+                    [Body] => 1
+                )
+
+        )
+
+)
+
+2023-10-20T13:03:22+00:00 INFO Array
+(
+    [Webhook Delivery] => Array
+        (
+            [Delivery ID] => d194d8eb66fc8b5bea1e9600e853d7bd
+            [Date] => Oct 20, 2023 @ 13:03
+            [URL] => https://a.klaviyo.com/api/webhook/integration/woocommerce?c=W86qQh
+            [Duration] => 0.69197
+            [Request] => Array
+                (
+                    [Method] => POST
+                    [Headers] => Array
+                        (
+                            [User-Agent] => WooCommerce/8.2.1 Hookshot (WordPress/6.3.2)
+                            [Content-Type] => application/json
+                            [X-WC-Webhook-Source] => https://staging.sundaratravelclub.com/
+                            [X-WC-Webhook-Topic] => product.updated
+                            [X-WC-Webhook-Resource] => product
+                            [X-WC-Webhook-Event] => updated
+                            [X-WC-Webhook-Signature] => nL5vQSLMoAqz8f5mVg+ShWqM27tARsAzKlBNsn1N5Tg=
+                            [X-WC-Webhook-ID] => 8
+                            [X-WC-Webhook-Delivery-ID] => d194d8eb66fc8b5bea1e9600e853d7bd
+                        )
+
+                )
+
+            [Body] => {\"id\":4352,\"name\":\"Porsche 911 Carrera 992\",\"slug\":\"porsche-911-carrera-992\",\"permalink\":\"https:\\/\\/staging.sundaratravelclub.com\\/product\\/porsche-911-carrera-992\\/\",\"date_created\":\"2023-10-12T21:58:39\",\"date_created_gmt\":\"2023-10-12T13:58:39\",\"date_modified\":\"2023-10-20T21:02:47\",\"date_modified_gmt\":\"2023-10-20T13:02:47\",\"type\":\"booking\",\"status\":\"publish\",\"featured\":false,\"catalog_visibility\":\"visible\",\"description\":\"<p><span style=\\\"font-weight: 400;\\\">The Porsche 911 Carrera is a legendary sports car, renowned for its timeless design and exceptional performance. Its potent flat-six engine, luxurious interior, and precision handling make it an enthusiast\'s dream, setting new standards for sports car excellence.<\\/span><\\/p>\\n<p>&nbsp;<\\/p>\\n<h2><span style=\\\"font-weight: 400;\\\">What\\u2019s included<\\/span><\\/h2>\\n<ul>\\n<li style=\\\"font-weight: 400;\\\" aria-level=\\\"1\\\"><span style=\\\"font-weight: 400;\\\">Free delivery in Bangkok<\\/span><\\/li>\\n<li style=\\\"font-weight: 400;\\\" aria-level=\\\"1\\\"><span style=\\\"font-weight: 400;\\\">First class insurance<\\/span><\\/li>\\n<li style=\\\"font-weight: 400;\\\" aria-level=\\\"1\\\"><span style=\\\"font-weight: 400;\\\">Ozone Sanitization<\\/span><\\/li>\\n<\\/ul>\\n<h2><span style=\\\"font-weight: 400;\\\">Key Performance<\\/span><\\/h2>\\n<ul>\\n<li style=\\\"font-weight: 400;\\\" aria-level=\\\"1\\\"><span style=\\\"font-weight: 400;\\\">The Iconic flat 6 engine\\u00a0<\\/span><\\/li>\\n<li style=\\\"font-weight: 400;\\\" aria-level=\\\"1\\\"><span style=\\\"font-weight: 400;\\\">3.0L flat six bi-turbo engine upgraded to 450hp\\u00a0<\\/span><\\/li>\\n<li style=\\\"font-weight: 400;\\\" aria-level=\\\"1\\\"><span style=\\\"font-weight: 400;\\\">0-100km\\/h in 3.3 seconds<\\/span><\\/li>\\n<li style=\\\"font-weight: 400;\\\" aria-level=\\\"1\\\"><span style=\\\"font-weight: 400;\\\">Rare colour Gulf Blue<\\/span><\\/li>\\n<li style=\\\"font-weight: 400;\\\" aria-level=\\\"1\\\"><span style=\\\"font-weight: 400;\\\">Techart aeropart<\\/span><\\/li>\\n<li style=\\\"font-weight: 400;\\\" aria-level=\\\"1\\\"><span style=\\\"font-weight: 400;\\\">Techart wheels 20\\/21\\u201d<\\/span><\\/li>\\n<li style=\\\"font-weight: 400;\\\" aria-level=\\\"1\\\"><span style=\\\"font-weight: 400;\\\">Sport chrono &amp; mode adjusting button<\\/span><\\/li>\\n<\\/ul>\\n<p>&nbsp;<\\/p>\\n<h2><span style=\\\"font-weight: 400;\\\">Location<\\/span><\\/h2>\\n<p><span style=\\\"font-weight: 400;\\\">Suvarnabhumi International Airport<\\/span><\\/p>\\n\",\"short_description\":\"\",\"sku\":\"\",\"price\":\"2000\",\"regular_price\":\"\",\"sale_price\":\"\",\"date_on_sale_from\":null,\"date_on_sale_from_gmt\":null,\"date_on_sale_to\":null,\"date_on_sale_to_gmt\":null,\"on_sale\":false,\"purchasable\":true,\"total_sales\":0,\"virtual\":true,\"downloadable\":false,\"downloads\":[],\"download_limit\":-1,\"download_expiry\":-1,\"external_url\":\"\",\"button_text\":\"\",\"tax_status\":\"taxable\",\"tax_class\":\"\",\"manage_stock\":false,\"stock_quantity\":null,\"backorders\":\"no\",\"backorders_allowed\":false,\"backordered\":false,\"low_stock_amount\":null,\"sold_individually\":true,\"weight\":\"\",\"dimensions\":{\"length\":\"\",\"width\":\"\",\"height\":\"\"},\"shipping_required\":false,\"shipping_taxable\":false,\"shipping_class\":\"\",\"shipping_class_id\":0,\"reviews_allowed\":false,\"average_rating\":\"0.00\",\"rating_count\":0,\"upsell_ids\":[],\"cross_sell_ids\":[],\"parent_id\":0,\"purchase_note\":\"\",\"categories\":[{\"id\":45,\"name\":\"Car Rent\",\"slug\":\"car-rent\"}],\"tags\":[],\"images\":[{\"id\":5621,\"date_created\":\"2023-10-21T05:02:38\",\"date_created_gmt\":\"2023-10-20T13:02:38\",\"date_modified\":\"2023-10-21T05:02:38\",\"date_modified_gmt\":\"2023-10-20T13:02:38\",\"src\":\"https:\\/\\/staging.sundaratravelclub.com\\/wp-content\\/uploads\\/2023\\/10\\/PC-2-DP.jpg\",\"name\":\"PC 2 (DP)\",\"alt\":\"\"},{\"id\":4752,\"date_created\":\"2023-10-14T05:00:20\",\"date_created_gmt\":\"2023-10-13T13:00:20\",\"date_modified\":\"2023-10-14T05:00:20\",\"date_modified_gmt\":\"2023-10-13T13:00:20\",\"src\":\"https:\\/\\/staging.sundaratravelclub.com\\/wp-content\\/uploads\\/2023\\/10\\/PC-2.jpg\",\"name\":\"PC 2\",\"alt\":\"\"},{\"id\":4751,\"date_created\":\"2023-10-14T05:00:17\",\"date_created_gmt\":\"2023-10-13T13:00:17\",\"date_modified\":\"2023-10-14T05:00:17\",\"date_modified_gmt\":\"2023-10-13T13:00:17\",\"src\":\"https:\\/\\/staging.sundaratravelclub.com\\/wp-content\\/uploads\\/2023\\/10\\/PC-1-DP-1.jpg\",\"name\":\"PC 1 (DP)\",\"alt\":\"\"},{\"id\":4753,\"date_created\":\"2023-10-14T05:00:24\",\"date_created_gmt\":\"2023-10-13T13:00:24\",\"date_modified\":\"2023-10-14T05:00:24\",\"date_modified_gmt\":\"2023-10-13T13:00:24\",\"src\":\"https:\\/\\/staging.sundaratravelclub.com\\/wp-content\\/uploads\\/2023\\/10\\/PC-3.jpg\",\"name\":\"PC 3\",\"alt\":\"\"},{\"id\":4754,\"date_created\":\"2023-10-14T05:00:27\",\"date_created_gmt\":\"2023-10-13T13:00:27\",\"date_modified\":\"2023-10-14T05:00:27\",\"date_modified_gmt\":\"2023-10-13T13:00:27\",\"src\":\"https:\\/\\/staging.sundaratravelclub.com\\/wp-content\\/uploads\\/2023\\/10\\/PC-4.jpg\",\"name\":\"PC 4\",\"alt\":\"\"}],\"attributes\":[],\"default_attributes\":[],\"variations\":[],\"grouped_products\":[],\"menu_order\":0,\"price_html\":\"<span class=\\\"woocommerce-Price-amount amount\\\"><bdi><span class=\\\"woocommerce-Price-currencySymbol\\\">&#36;<\\/span>2,000<\\/bdi><\\/span>\",\"related_ids\":[4363,4356,4243,4261,4354],\"meta_data\":[{\"id\":32719,\"key\":\"_wp_page_template\",\"value\":\"default\"},{\"id\":32735,\"key\":\"map\",\"value\":\"<iframe src=\\\"https:\\/\\/www.google.com\\/maps\\/embed?pb=!1m18!1m12!1m3!1d63098.14882151671!2d115.09771105819169!3d-8.726231972536143!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2dd246bc2ab70d43%3A0x82feaae12f4ab48e!2sPantai%20Kuta!5e0!3m2!1sid!2sid!4v1696521812298!5m2!1sid!2sid\\\" width=\\\"600\\\" height=\\\"450\\\" style=\\\"border:0;\\\" allowfullscreen=\\\"\\\" loading=\\\"lazy\\\" referrerpolicy=\\\"no-referrer-when-downgrade\\\"><\\/iframe>\"},{\"id\":32736,\"key\":\"_map\",\"value\":\"field_651ed9418cf05\"},{\"id\":32737,\"key\":\"duration_trip\",\"value\":\"24 hours\"},{\"id\":32738,\"key\":\"_duration_trip\",\"value\":\"field_65275fceccbcd\"},{\"id\":32739,\"key\":\"max_people\",\"value\":\"2\"},{\"id\":32740,\"key\":\"_max_people\",\"value\":\"field_652760bfccbd0\"},{\"id\":32741,\"key\":\"timeline_off\",\"value\":\"1\"},{\"id\":32742,\"key\":\"_timeline_off\",\"value\":\"field_652765620dde5\"},{\"id\":32743,\"key\":\"day_1\",\"value\":\"<h1>Arrive ...<\\/h1>\"},{\"id\":32744,\"key\":\"_day_1\",\"value\":\"field_651ed6a875e53\"},{\"id\":32745,\"key\":\"day_2\",\"value\":\"<h1>Fun<\\/h1>\"},{\"id\":32746,\"key\":\"_day_2\",\"value\":\"field_651ed6db75e54\"},{\"id\":32747,\"key\":\"day_3\",\"value\":\"<h1>checkout<\\/h1>\"},{\"id\":32748,\"key\":\"_day_3\",\"value\":\"field_651ed6f275e55\"},{\"id\":32749,\"key\":\"day_4\",\"value\":\"\"},{\"id\":32750,\"key\":\"_day_4\",\"value\":\"field_65258ae54ca9d\"},{\"id\":32751,\"key\":\"builder\",\"value\":\"\"},{\"id\":32752,\"key\":\"_builder\",\"value\":\"field_651eab9ec93f1\"},{\"id\":32753,\"key\":\"lenght\",\"value\":\"\"},{\"id\":32754,\"key\":\"_lenght\",\"value\":\"field_651eac6f5c14f\"},{\"id\":32755,\"key\":\"beam\",\"value\":\"\"},{\"id\":32756,\"key\":\"_beam\",\"value\":\"field_651eac825c150\"},{\"id\":32757,\"key\":\"cabins\",\"value\":\"\"},{\"id\":32758,\"key\":\"_cabins\",\"value\":\"field_651eac9f5c152\"},{\"id\":32759,\"key\":\"guest\",\"value\":\"\"},{\"id\":32760,\"key\":\"_guest\",\"value\":\"field_651eac905c151\"},{\"id\":32761,\"key\":\"cruising_speed\",\"value\":\"\"},{\"id\":32762,\"key\":\"_cruising_speed\",\"value\":\"field_651eacb55c153\"},{\"id\":32763,\"key\":\"max_speed\",\"value\":\"\"},{\"id\":32764,\"key\":\"_max_speed\",\"value\":\"field_651ead165c154\"},{\"id\":32765,\"key\":\"year\",\"value\":\"2017\"},{\"id\":32766,\"key\":\"_year\",\"value\":\"field_651ed605c407b\"},{\"id\":32767,\"key\":\"bathroom\",\"value\":\"1\"},{\"id\":32768,\"key\":\"_bathroom\",\"value\":\"field_651ed62cc407c\"},{\"id\":32803,\"key\":\"inline_featured_image\",\"value\":\"0\"},{\"id\":32804,\"key\":\"site-sidebar-layout\",\"value\":\"default\"},{\"id\":32805,\"key\":\"site-content-layout\",\"value\":\"default\"},{\"id\":32806,\"key\":\"theme-transparent-header-meta\",\"value\":\"default\"},{\"id\":32807,\"key\":\"_yith_booking_duration_type\",\"value\":\"customer\"},{\"id\":32808,\"key\":\"_yith_booking_duration\",\"value\":\"1\"},{\"id\":32809,\"key\":\"_yith_booking_duration_unit\",\"value\":\"month\"},{\"id\":32810,\"key\":\"_yith_booking_enable_calendar_range_picker\",\"value\":\"yes\"},{\"id\":32811,\"key\":\"_yith_booking_default_start_date\",\"value\":\"\"},{\"id\":32812,\"key\":\"_yith_booking_default_start_date_custom\",\"value\":\"\"},{\"id\":32813,\"key\":\"_yith_booking_default_start_time\",\"value\":\"\"},{\"id\":32814,\"key\":\"_yith_booking_all_day\",\"value\":\"no\"},{\"id\":32815,\"key\":\"_yith_booking_max_per_block\",\"value\":\"1\"},{\"id\":32816,\"key\":\"_yith_booking_minimum_duration\",\"value\":\"1\"},{\"id\":32817,\"key\":\"_yith_booking_maximum_duration\",\"value\":\"0\"},{\"id\":32818,\"key\":\"_yith_booking_request_confirmation\",\"value\":\"no\"},{\"id\":32819,\"key\":\"_yith_booking_can_be_cancelled\",\"value\":\"no\"},{\"id\":32820,\"key\":\"_yith_booking_cancelled_duration\",\"value\":\"0\"},{\"id\":32821,\"key\":\"_yith_booking_cancelled_unit\",\"value\":\"day\"},{\"id\":32822,\"key\":\"_yith_booking_checkin\",\"value\":\"\"},{\"id\":32823,\"key\":\"_yith_booking_checkout\",\"value\":\"\"},{\"id\":32824,\"key\":\"_yith_booking_allowed_start_days\",\"value\":[]},{\"id\":32825,\"key\":\"_yith_booking_daily_start_time\",\"value\":\"00:00\"},{\"id\":32826,\"key\":\"_yith_booking_buffer\",\"value\":\"0\"},{\"id\":32827,\"key\":\"_yith_booking_time_increment_based_on_duration\",\"value\":\"no\"},{\"id\":32828,\"key\":\"_yith_booking_time_increment_including_buffer\",\"value\":\"no\"},{\"id\":32829,\"key\":\"_yith_booking_allow_after\",\"value\":\"0\"},{\"id\":32830,\"key\":\"_yith_booking_allow_after_unit\",\"value\":\"day\"},{\"id\":32831,\"key\":\"_yith_booking_allow_until\",\"value\":\"1\"},{\"id\":32832,\"key\":\"_yith_booking_allow_until_unit\",\"value\":\"year\"},{\"id\":32833,\"key\":\"_yith_booking_availability_range\",\"value\":[]},{\"id\":32834,\"key\":\"_yith_booking_default_availabilities\",\"value\":[{\"day\":\"all\",\"bookable\":\"yes\",\"time_slots\":[]}]},{\"id\":32835,\"key\":\"_yith_booking_block_cost\",\"value\":\"2000\"},{\"id\":32836,\"key\":\"_yith_booking_base_cost\",\"value\":\"\"},{\"id\":32837,\"key\":\"_yith_booking_costs_range\",\"value\":[]}],\"stock_status\":\"instock\",\"has_options\":true,\"post_password\":\"\",\"_links\":{\"self\":[{\"href\":\"https:\\/\\/staging.sundaratravelclub.com\\/wp-json\\/wc\\/v3\\/products\\/4352\"}],\"collection\":[{\"href\":\"https:\\/\\/staging.sundaratravelclub.com\\/wp-json\\/wc\\/v3\\/products\"}]}}
+            [Response] => Array
+                (
+                    [Code] => 200
+                    [Message] => OK
+                    [Headers] => WpOrg\Requests\Utility\CaseInsensitiveDictionary Object
+                        (
+                            [data:protected] => Array
+                                (
+                                    [date] => Fri, 20 Oct 2023 13:03:22 GMT
+                                    [content-type] => text/html; charset=utf-8
+                                    [cf-ray] => 819175e0f8aca3ee-SIN
+                                    [cf-cache-status] => DYNAMIC
+                                    [strict-transport-security] => max-age=31536000; includeSubDomains; preload
+                                    [vary] => Cookie, Accept-Encoding
+                                    [content-security-policy-report-only] => script-src 'report-sample' 'strict-dynamic' 'unsafe-eval'; frame-ancestors 'self' login.bigcommerce.com *.mybigcommerce.com admin.shopify.com klaviyo.file.force.com klaviyo.lightning.force.com klaviyo.my.salesforce.com; base-uri 'none'; object-src 'none'; report-uri /csp/
+                                    [x-content-type-options] => nosniff
+                                    [x-robots-tag] => noindex, nofollow
+                                    [server] => cloudflare
+                                    [content-encoding] => gzip
+                                )
+
+                        )
+
+                    [Body] => 1
+                )
+
+        )
+
+)
+
+2023-10-20T13:04:23+00:00 INFO Array
+(
+    [Webhook Delivery] => Array
+        (
+            [Delivery ID] => a74e6ff755fcbfe2a9df278df9e0623d
+            [Date] => Oct 20, 2023 @ 13:04
+            [URL] => https://a.klaviyo.com/api/webhook/integration/woocommerce?c=W86qQh
+            [Duration] => 0.74832
+            [Request] => Array
+                (
+                    [Method] => POST
+                    [Headers] => Array
+                        (
+                            [User-Agent] => WooCommerce/8.2.1 Hookshot (WordPress/6.3.2)
+                            [Content-Type] => application/json
+                            [X-WC-Webhook-Source] => https://staging.sundaratravelclub.com/
+                            [X-WC-Webhook-Topic] => product.updated
+                            [X-WC-Webhook-Resource] => product
+                            [X-WC-Webhook-Event] => updated
+                            [X-WC-Webhook-Signature] => vEZxH/fd6Rwh7GXjbmZ5btY4yyznfdaTTDy3O5I+eZ4=
+                            [X-WC-Webhook-ID] => 8
+                            [X-WC-Webhook-Delivery-ID] => a74e6ff755fcbfe2a9df278df9e0623d
+                        )
+
+                )
+
+            [Body] => {\"id\":4356,\"name\":\"Porsche 718 Boxster\",\"slug\":\"porsche-718-boxster\",\"permalink\":\"https:\\/\\/staging.sundaratravelclub.com\\/product\\/porsche-718-boxster\\/\",\"date_created\":\"2023-10-12T22:02:23\",\"date_created_gmt\":\"2023-10-12T14:02:23\",\"date_modified\":\"2023-10-20T21:04:15\",\"date_modified_gmt\":\"2023-10-20T13:04:15\",\"type\":\"booking\",\"status\":\"publish\",\"featured\":false,\"catalog_visibility\":\"visible\",\"description\":\"<p><span style=\\\"font-weight: 400;\\\">The 2023 Porsche 718 Boxster is a stylish and agile sports car, featuring a turbocharged flat-four engine for powerful performance. Its iconic mid-engine layout, combined with a comfortable and tech-rich interior. Exhilarating driving dynamics with the open-air thrilling driving experience.<\\/span><\\/p>\\n<p>&nbsp;<\\/p>\\n<h2><span style=\\\"font-weight: 400;\\\">What\\u2019s included<\\/span><\\/h2>\\n<ul>\\n<li style=\\\"font-weight: 400;\\\" aria-level=\\\"1\\\"><span style=\\\"font-weight: 400;\\\">Free delivery in Bangkok<\\/span><\\/li>\\n<li style=\\\"font-weight: 400;\\\" aria-level=\\\"1\\\"><span style=\\\"font-weight: 400;\\\">First class insurance<\\/span><\\/li>\\n<li style=\\\"font-weight: 400;\\\" aria-level=\\\"1\\\"><span style=\\\"font-weight: 400;\\\">Ozone Sanitization<\\/span><\\/li>\\n<\\/ul>\\n<h2><span style=\\\"font-weight: 400;\\\">Key Performance<\\/span><\\/h2>\\n<ul>\\n<li style=\\\"font-weight: 400;\\\" aria-level=\\\"1\\\"><span style=\\\"font-weight: 400;\\\">300hp 2.0L turbo boxer flat four engine<\\/span><\\/li>\\n<li style=\\\"font-weight: 400;\\\" aria-level=\\\"1\\\"><span style=\\\"font-weight: 400;\\\">0-100km\\/h in 4.8 seconds<\\/span><\\/li>\\n<li style=\\\"font-weight: 400;\\\" aria-level=\\\"1\\\"><span style=\\\"font-weight: 400;\\\">Sport exhaust system<\\/span><\\/li>\\n<li style=\\\"font-weight: 400;\\\" aria-level=\\\"1\\\"><span style=\\\"font-weight: 400;\\\">Sport Chrono Package<\\/span><\\/li>\\n<li style=\\\"font-weight: 400;\\\" aria-level=\\\"1\\\"><span style=\\\"font-weight: 400;\\\">PASM suspension with adjustable damper<\\/span><\\/li>\\n<li style=\\\"font-weight: 400;\\\" aria-level=\\\"1\\\"><span style=\\\"font-weight: 400;\\\">Bose 3D surround audio system<\\/span><\\/li>\\n<li style=\\\"font-weight: 400;\\\" aria-level=\\\"1\\\"><span style=\\\"font-weight: 400;\\\">14 way full electric seats<\\/span><\\/li>\\n<li style=\\\"font-weight: 400;\\\" aria-level=\\\"1\\\"><span style=\\\"font-weight: 400;\\\">Double spacious trunks<\\/span><\\/li>\\n<\\/ul>\\n<p>&nbsp;<\\/p>\\n<h2><span style=\\\"font-weight: 400;\\\">Location<\\/span><\\/h2>\\n<p><span style=\\\"font-weight: 400;\\\">Suvarnabhumi International Airport<\\/span><\\/p>\\n\",\"short_description\":\"\",\"sku\":\"\",\"price\":\"900\",\"regular_price\":\"\",\"sale_price\":\"\",\"date_on_sale_from\":null,\"date_on_sale_from_gmt\":null,\"date_on_sale_to\":null,\"date_on_sale_to_gmt\":null,\"on_sale\":false,\"purchasable\":true,\"total_sales\":0,\"virtual\":true,\"downloadable\":false,\"downloads\":[],\"download_limit\":-1,\"download_expiry\":-1,\"external_url\":\"\",\"button_text\":\"\",\"tax_status\":\"taxable\",\"tax_class\":\"\",\"manage_stock\":false,\"stock_quantity\":null,\"backorders\":\"no\",\"backorders_allowed\":false,\"backordered\":false,\"low_stock_amount\":null,\"sold_individually\":true,\"weight\":\"\",\"dimensions\":{\"length\":\"\",\"width\":\"\",\"height\":\"\"},\"shipping_required\":false,\"shipping_taxable\":false,\"shipping_class\":\"\",\"shipping_class_id\":0,\"reviews_allowed\":false,\"average_rating\":\"0.00\",\"rating_count\":0,\"upsell_ids\":[],\"cross_sell_ids\":[],\"parent_id\":0,\"purchase_note\":\"\",\"categories\":[{\"id\":45,\"name\":\"Car Rent\",\"slug\":\"car-rent\"}],\"tags\":[],\"images\":[{\"id\":5623,\"date_created\":\"2023-10-21T05:03:35\",\"date_created_gmt\":\"2023-10-20T13:03:35\",\"date_modified\":\"2023-10-21T05:03:35\",\"date_modified_gmt\":\"2023-10-20T13:03:35\",\"src\":\"https:\\/\\/staging.sundaratravelclub.com\\/wp-content\\/uploads\\/2023\\/10\\/PB-00-DP-1.jpg\",\"name\":\"PB 00 (DP)\",\"alt\":\"\"},{\"id\":5624,\"date_created\":\"2023-10-21T05:04:06\",\"date_created_gmt\":\"2023-10-20T13:04:06\",\"date_modified\":\"2023-10-21T05:04:06\",\"date_modified_gmt\":\"2023-10-20T13:04:06\",\"src\":\"https:\\/\\/staging.sundaratravelclub.com\\/wp-content\\/uploads\\/2023\\/10\\/PB-00-DP-1-1.jpg\",\"name\":\"PB 00 (DP) (1)\",\"alt\":\"\"},{\"id\":4761,\"date_created\":\"2023-10-14T05:06:05\",\"date_created_gmt\":\"2023-10-13T13:06:05\",\"date_modified\":\"2023-10-14T05:06:05\",\"date_modified_gmt\":\"2023-10-13T13:06:05\",\"src\":\"https:\\/\\/staging.sundaratravelclub.com\\/wp-content\\/uploads\\/2023\\/10\\/PB-1-DP-1.jpg\",\"name\":\"PB 1 (DP)\",\"alt\":\"\"},{\"id\":4762,\"date_created\":\"2023-10-14T05:06:08\",\"date_created_gmt\":\"2023-10-13T13:06:08\",\"date_modified\":\"2023-10-14T05:06:08\",\"date_modified_gmt\":\"2023-10-13T13:06:08\",\"src\":\"https:\\/\\/staging.sundaratravelclub.com\\/wp-content\\/uploads\\/2023\\/10\\/PB-2.jpg\",\"name\":\"PB 2\",\"alt\":\"\"},{\"id\":4763,\"date_created\":\"2023-10-14T05:06:12\",\"date_created_gmt\":\"2023-10-13T13:06:12\",\"date_modified\":\"2023-10-14T05:06:12\",\"date_modified_gmt\":\"2023-10-13T13:06:12\",\"src\":\"https:\\/\\/staging.sundaratravelclub.com\\/wp-content\\/uploads\\/2023\\/10\\/PB-3.jpg\",\"name\":\"PB 3\",\"alt\":\"\"},{\"id\":4764,\"date_created\":\"2023-10-14T05:06:15\",\"date_created_gmt\":\"2023-10-13T13:06:15\",\"date_modified\":\"2023-10-14T05:06:15\",\"date_modified_gmt\":\"2023-10-13T13:06:15\",\"src\":\"https:\\/\\/staging.sundaratravelclub.com\\/wp-content\\/uploads\\/2023\\/10\\/PB-4.jpg\",\"name\":\"PB 4\",\"alt\":\"\"},{\"id\":4765,\"date_created\":\"2023-10-14T05:06:19\",\"date_created_gmt\":\"2023-10-13T13:06:19\",\"date_modified\":\"2023-10-14T05:06:19\",\"date_modified_gmt\":\"2023-10-13T13:06:19\",\"src\":\"https:\\/\\/staging.sundaratravelclub.com\\/wp-content\\/uploads\\/2023\\/10\\/PB-5.jpg\",\"name\":\"PB 5\",\"alt\":\"\"}],\"attributes\":[],\"default_attributes\":[],\"variations\":[],\"grouped_products\":[],\"menu_order\":0,\"price_html\":\"<span class=\\\"woocommerce-Price-amount amount\\\"><bdi><span class=\\\"woocommerce-Price-currencySymbol\\\">&#36;<\\/span>900<\\/bdi><\\/span>\",\"related_ids\":[5433,4360,4243,4350,4363],\"meta_data\":[{\"id\":32932,\"key\":\"_wp_page_template\",\"value\":\"default\"},{\"id\":32948,\"key\":\"map\",\"value\":\"<iframe src=\\\"https:\\/\\/www.google.com\\/maps\\/embed?pb=!1m18!1m12!1m3!1d63098.14882151671!2d115.09771105819169!3d-8.726231972536143!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2dd246bc2ab70d43%3A0x82feaae12f4ab48e!2sPantai%20Kuta!5e0!3m2!1sid!2sid!4v1696521812298!5m2!1sid!2sid\\\" width=\\\"600\\\" height=\\\"450\\\" style=\\\"border:0;\\\" allowfullscreen=\\\"\\\" loading=\\\"lazy\\\" referrerpolicy=\\\"no-referrer-when-downgrade\\\"><\\/iframe>\"},{\"id\":32949,\"key\":\"_map\",\"value\":\"field_651ed9418cf05\"},{\"id\":32950,\"key\":\"duration_trip\",\"value\":\"24 hours\"},{\"id\":32951,\"key\":\"_duration_trip\",\"value\":\"field_65275fceccbcd\"},{\"id\":32952,\"key\":\"max_people\",\"value\":\"2\"},{\"id\":32953,\"key\":\"_max_people\",\"value\":\"field_652760bfccbd0\"},{\"id\":32954,\"key\":\"timeline_off\",\"value\":\"1\"},{\"id\":32955,\"key\":\"_timeline_off\",\"value\":\"field_652765620dde5\"},{\"id\":32956,\"key\":\"day_1\",\"value\":\"<h1>Arrive ...<\\/h1>\"},{\"id\":32957,\"key\":\"_day_1\",\"value\":\"field_651ed6a875e53\"},{\"id\":32958,\"key\":\"day_2\",\"value\":\"<h1>Fun<\\/h1>\"},{\"id\":32959,\"key\":\"_day_2\",\"value\":\"field_651ed6db75e54\"},{\"id\":32960,\"key\":\"day_3\",\"value\":\"<h1>checkout<\\/h1>\"},{\"id\":32961,\"key\":\"_day_3\",\"value\":\"field_651ed6f275e55\"},{\"id\":32962,\"key\":\"day_4\",\"value\":\"\"},{\"id\":32963,\"key\":\"_day_4\",\"value\":\"field_65258ae54ca9d\"},{\"id\":32964,\"key\":\"builder\",\"value\":\"\"},{\"id\":32965,\"key\":\"_builder\",\"value\":\"field_651eab9ec93f1\"},{\"id\":32966,\"key\":\"lenght\",\"value\":\"\"},{\"id\":32967,\"key\":\"_lenght\",\"value\":\"field_651eac6f5c14f\"},{\"id\":32968,\"key\":\"beam\",\"value\":\"\"},{\"id\":32969,\"key\":\"_beam\",\"value\":\"field_651eac825c150\"},{\"id\":32970,\"key\":\"cabins\",\"value\":\"\"},{\"id\":32971,\"key\":\"_cabins\",\"value\":\"field_651eac9f5c152\"},{\"id\":32972,\"key\":\"guest\",\"value\":\"\"},{\"id\":32973,\"key\":\"_guest\",\"value\":\"field_651eac905c151\"},{\"id\":32974,\"key\":\"cruising_speed\",\"value\":\"\"},{\"id\":32975,\"key\":\"_cruising_speed\",\"value\":\"field_651eacb55c153\"},{\"id\":32976,\"key\":\"max_speed\",\"value\":\"\"},{\"id\":32977,\"key\":\"_max_speed\",\"value\":\"field_651ead165c154\"},{\"id\":32978,\"key\":\"year\",\"value\":\"2017\"},{\"id\":32979,\"key\":\"_year\",\"value\":\"field_651ed605c407b\"},{\"id\":32980,\"key\":\"bathroom\",\"value\":\"1\"},{\"id\":32981,\"key\":\"_bathroom\",\"value\":\"field_651ed62cc407c\"},{\"id\":33016,\"key\":\"inline_featured_image\",\"value\":\"0\"},{\"id\":33017,\"key\":\"site-sidebar-layout\",\"value\":\"default\"},{\"id\":33018,\"key\":\"site-content-layout\",\"value\":\"default\"},{\"id\":33019,\"key\":\"theme-transparent-header-meta\",\"value\":\"default\"},{\"id\":37041,\"key\":\"_yith_booking_duration_type\",\"value\":\"customer\"},{\"id\":37042,\"key\":\"_yith_booking_duration\",\"value\":\"24\"},{\"id\":37043,\"key\":\"_yith_booking_duration_unit\",\"value\":\"hour\"},{\"id\":37044,\"key\":\"_yith_booking_enable_calendar_range_picker\",\"value\":\"yes\"},{\"id\":37045,\"key\":\"_yith_booking_default_start_date\",\"value\":\"first-available\"},{\"id\":37046,\"key\":\"_yith_booking_default_start_date_custom\",\"value\":\"\"},{\"id\":37047,\"key\":\"_yith_booking_default_start_time\",\"value\":\"first-available\"},{\"id\":37048,\"key\":\"_yith_booking_all_day\",\"value\":\"no\"},{\"id\":37049,\"key\":\"_yith_booking_max_per_block\",\"value\":\"0\"},{\"id\":37050,\"key\":\"_yith_booking_minimum_duration\",\"value\":\"1\"},{\"id\":37051,\"key\":\"_yith_booking_maximum_duration\",\"value\":\"0\"},{\"id\":37052,\"key\":\"_yith_booking_request_confirmation\",\"value\":\"no\"},{\"id\":37053,\"key\":\"_yith_booking_can_be_cancelled\",\"value\":\"yes\"},{\"id\":37054,\"key\":\"_yith_booking_cancelled_duration\",\"value\":\"1\"},{\"id\":37055,\"key\":\"_yith_booking_cancelled_unit\",\"value\":\"day\"},{\"id\":37056,\"key\":\"_yith_booking_checkin\",\"value\":\"\"},{\"id\":37057,\"key\":\"_yith_booking_checkout\",\"value\":\"\"},{\"id\":37058,\"key\":\"_yith_booking_allowed_start_days\",\"value\":[]},{\"id\":37059,\"key\":\"_yith_booking_daily_start_time\",\"value\":\"00:00\"},{\"id\":37060,\"key\":\"_yith_booking_buffer\",\"value\":\"0\"},{\"id\":37061,\"key\":\"_yith_booking_time_increment_based_on_duration\",\"value\":\"no\"},{\"id\":37062,\"key\":\"_yith_booking_time_increment_including_buffer\",\"value\":\"no\"},{\"id\":37063,\"key\":\"_yith_booking_allow_after\",\"value\":\"1\"},{\"id\":37064,\"key\":\"_yith_booking_allow_after_unit\",\"value\":\"day\"},{\"id\":37065,\"key\":\"_yith_booking_allow_until\",\"value\":\"1\"},{\"id\":37066,\"key\":\"_yith_booking_allow_until_unit\",\"value\":\"year\"},{\"id\":37067,\"key\":\"_yith_booking_availability_range\",\"value\":[]},{\"id\":37068,\"key\":\"_yith_booking_default_availabilities\",\"value\":[{\"day\":\"all\",\"bookable\":\"yes\",\"time_slots\":[]}]},{\"id\":37069,\"key\":\"_yith_booking_block_cost\",\"value\":\"900\"},{\"id\":37070,\"key\":\"_yith_booking_base_cost\",\"value\":\"\"},{\"id\":37071,\"key\":\"_yith_booking_costs_range\",\"value\":[]}],\"stock_status\":\"instock\",\"has_options\":true,\"post_password\":\"\",\"_links\":{\"self\":[{\"href\":\"https:\\/\\/staging.sundaratravelclub.com\\/wp-json\\/wc\\/v3\\/products\\/4356\"}],\"collection\":[{\"href\":\"https:\\/\\/staging.sundaratravelclub.com\\/wp-json\\/wc\\/v3\\/products\"}]}}
+            [Response] => Array
+                (
+                    [Code] => 200
+                    [Message] => OK
+                    [Headers] => WpOrg\Requests\Utility\CaseInsensitiveDictionary Object
+                        (
+                            [data:protected] => Array
+                                (
+                                    [date] => Fri, 20 Oct 2023 13:04:23 GMT
+                                    [content-type] => text/html; charset=utf-8
+                                    [cf-ray] => 8191775f8e134090-SIN
+                                    [cf-cache-status] => DYNAMIC
+                                    [strict-transport-security] => max-age=31536000; includeSubDomains; preload
+                                    [vary] => Cookie, Accept-Encoding
+                                    [content-security-policy-report-only] => object-src 'none'; base-uri 'none'; frame-ancestors 'self' login.bigcommerce.com *.mybigcommerce.com admin.shopify.com klaviyo.file.force.com klaviyo.lightning.force.com klaviyo.my.salesforce.com; script-src 'report-sample' 'strict-dynamic' 'unsafe-eval'; report-uri /csp/
+                                    [x-content-type-options] => nosniff
+                                    [x-robots-tag] => noindex, nofollow
+                                    [server] => cloudflare
+                                    [content-encoding] => gzip
+                                )
+
+                        )
+
+                    [Body] => 1
+                )
+
+        )
+
+)
+

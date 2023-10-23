@@ -3,7 +3,6 @@
 namespace Yoast\WP\SEO\Integrations;
 
 use Closure;
-use Yoast\WP\Lib\Model;
 use Yoast\WP\SEO\Repositories\Indexable_Cleanup_Repository;
 
 /**
@@ -36,7 +35,7 @@ class Cleanup_Integration implements Integration_Interface {
 	/**
 	 * The constructor.
 	 *
-	 * @param Indexable_Cleanup_Repository $cleanup_repository   The cleanup repository.
+	 * @param Indexable_Cleanup_Repository $cleanup_repository The cleanup repository.
 	 */
 	public function __construct( Indexable_Cleanup_Repository $cleanup_repository ) {
 		$this->cleanup_repository = $cleanup_repository;
@@ -126,7 +125,7 @@ class Cleanup_Integration implements Integration_Interface {
 					return $this->cleanup_repository->update_indexables_author_to_reassigned( $limit );
 				},
 				'clean_orphaned_user_indexables_without_wp_user' => function ( $limit ) {
-					return $this->cleanup_repository->clean_indexables_for_object_type_and_source_table( 'users', 'ID', 'user', $limit );
+					return $this->cleanup_repository->clean_indexables_for_orphaned_users( $limit );
 				},
 				'clean_orphaned_user_indexables_without_wp_post' => function ( $limit ) {
 					return $this->cleanup_repository->clean_indexables_for_object_type_and_source_table( 'posts', 'ID', 'post', $limit );
@@ -286,4 +285,3 @@ class Cleanup_Integration implements Integration_Interface {
 		}
 	}
 }
-

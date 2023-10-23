@@ -57,6 +57,7 @@ class NotificationsTable extends AbstractDatabaseTable
                    `translations` TEXT NULL DEFAULT NULL,
                    `sendOnlyMe` TINYINT(1) DEFAULT 0,
                    `whatsAppTemplate` VARCHAR(255) NULL DEFAULT NULL,
+                   `minimumTimeBeforeBooking` TEXT NULL DEFAULT NULL,
                     PRIMARY KEY (`id`)
                 ) DEFAULT CHARSET=utf8 COLLATE utf8_general_ci";
     }

@@ -187,16 +187,9 @@ abstract class AbstractReservationService implements ReservationServiceInterface
             }
         }
 
-        /** @var CustomerBookingRepository $customerBookingRepository */
-        $customerBookingRepository = $this->container->get('domain.booking.customerBooking.repository');
-
-        $customerBookingRepository->beginTransaction();
-
         $this->processBooking($result, $data, $reservation, $save);
 
         if ($result->getResult() === CommandResult::RESULT_ERROR) {
-            $customerBookingRepository->rollback();
-
             return $result;
         }
 
@@ -208,7 +201,6 @@ abstract class AbstractReservationService implements ReservationServiceInterface
             $paymentAS->processPayment($result, $data['payment'], $reservation, new BookingType($type), $paymentTransactionId) : true;
 
         if (!$paymentCompleted || $result->getResult() === CommandResult::RESULT_ERROR) {
-            $customerBookingRepository->rollback();
 
             if ($save) {
                 $this->deleteReservation($reservation);
@@ -247,8 +239,6 @@ abstract class AbstractReservationService implements ReservationServiceInterface
             $paymentTransactionId
         );
 
-        $customerBookingRepository->commit();
-
         return $result;
     }
 
@@ -276,8 +266,8 @@ abstract class AbstractReservationService implements ReservationServiceInterface
                 'firstName' => $appointmentData['bookings'][0]['customer']['firstName'],
                 'lastName'  => $appointmentData['bookings'][0]['customer']['lastName'],
                 'phone'     => $appointmentData['bookings'][0]['customer']['phone'],
-                'locale'    => $appointmentData['locale'],
-                'timeZone'  => $appointmentData['timeZone'],
+                'locale'    => isset($appointmentData['locale']) ? $appointmentData['locale'] : null,
+                'timeZone'  => isset($appointmentData['timeZone']) ? $appointmentData['timeZone'] : null,
                 'urlParams' => !empty($appointmentData['urlParams']) ? $appointmentData['urlParams'] : null,
             ]
         );
@@ -286,7 +276,7 @@ abstract class AbstractReservationService implements ReservationServiceInterface
         $appointmentData['bookings'][0]['customer'] = array_merge(
             $appointmentData['bookings'][0]['customer'],
             empty($appointmentData['bookings'][0]['customer']['translations']) ?
-                ['translations' => json_encode(array('defaultLanguage' => $appointmentData['locale']))] : []
+                ['translations' => json_encode(array('defaultLanguage' => isset($appointmentData['locale']) ? $appointmentData['locale'] : ''))] : []
         );
 
         $newUserId = null;
@@ -383,7 +373,7 @@ abstract class AbstractReservationService implements ReservationServiceInterface
 
         $reservation->setIsNewUser(new BooleanValueObject($newUserId !== null));
 
-        $reservation->setLocale(new Label($appointmentData['locale']));
+        $reservation->setLocale(new Label(isset($appointmentData['locale']) ? $appointmentData['locale'] : ''));
 
         $reservation->setTimezone(new Label($appointmentData['timeZone']));
 
@@ -661,7 +651,7 @@ abstract class AbstractReservationService implements ReservationServiceInterface
                 ($booking->getCoupon()->getDiscount()->getValue() ?: 0) +
                 ($booking->getCoupon()->getDeduction()->getValue() ?: 0);
 
-            return round($price - $subtraction, 2);
+            return max(round($price - $subtraction, 2), 0);
         }
 
         return apply_filters('amelia_modify_payment_amount', $price, $booking);

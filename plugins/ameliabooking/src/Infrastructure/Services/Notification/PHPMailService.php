@@ -30,7 +30,7 @@ class PHPMailService extends AbstractMailService implements MailServiceInterface
      */
     public function send($to, $subject, $body, $bccEmails = [], $attachments = [])
     {
-        $mail = new PHPMailer;
+        $mail = new PHPMailer(true);
 
         try {
             //Recipients

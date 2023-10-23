@@ -1,0 +1,18 @@
+2023-10-21T13:40:25+00:00 CRITICAL Uncaught Error: Call to undefined function get_user_id() in /home/u822946699/domains/sundaratravelclub.com/public_html/staging/wp-content/plugins/cuberaksi-xendit/woo/templates/order/order-details.php:150
+Stack trace:
+#0 /home/u822946699/domains/sundaratravelclub.com/public_html/staging/wp-content/plugins/cuberaksi-xendit/woo/templates/order/order-details.php(172): Helper_New_User::login_by_email('masobix77@gmail...')
+#1 /home/u822946699/domains/sundaratravelclub.com/public_html/staging/wp-content/plugins/woocommerce/includes/wc-core-functions.php(345): include('/home/u82294669...')
+#2 /home/u822946699/domains/sundaratravelclub.com/public_html/staging/wp-content/plugins/woocommerce/includes/wc-template-functions.php(2724): wc_get_template('order/order-det...', Array)
+#3 /home/u822946699/domains/sundaratravelclub.com/public_html/staging/wp-includes/class-wp-hook.php(310): woocommerce_order_details_table(5733)
+#4 /home/u822946699/domains/sundaratravelclub.com/public_html/staging/wp-includes/class-wp-hook.php(33 in /home/u822946699/domains/sundaratravelclub.com/public_html/staging/wp-content/plugins/cuberaksi-xendit/woo/templates/order/order-details.php on line 150
+
+2023-10-21T13:41:27+00:00 CRITICAL Uncaught Error: Call to undefined function get_user_id() in /home/u822946699/domains/sundaratravelclub.com/public_html/staging/wp-content/plugins/cuberaksi-xendit/woo/templates/order/order-details.php:150
+Stack trace:
+#0 /home/u822946699/domains/sundaratravelclub.com/public_html/staging/wp-content/plugins/cuberaksi-xendit/woo/templates/order/order-details.php(172): Helper_New_User::login_by_email('masobix77@gmail...')
+#1 /home/u822946699/domains/sundaratravelclub.com/public_html/staging/wp-content/plugins/woocommerce/includes/wc-core-functions.php(345): include('/home/u82294669...')
+#2 /home/u822946699/domains/sundaratravelclub.com/public_html/staging/wp-content/plugins/woocommerce/includes/wc-template-functions.php(2724): wc_get_template('order/order-det...', Array)
+#3 /home/u822946699/domains/sundaratravelclub.com/public_html/staging/wp-includes/class-wp-hook.php(310): woocommerce_order_details_table(5733)
+#4 /home/u822946699/domains/sundaratravelclub.com/public_html/staging/wp-includes/class-wp-hook.php(33 in /home/u822946699/domains/sundaratravelclub.com/public_html/staging/wp-content/plugins/cuberaksi-xendit/woo/templates/order/order-details.php on line 150
+
+2023-10-21T13:45:26+00:00 CRITICAL Cannot declare class Helper_New_User, because the name is already in use in /home/u822946699/domains/sundaratravelclub.com/public_html/staging/wp-content/plugins/cuberaksi-xendit/woo/templates/order/order-details.php on line 129
+

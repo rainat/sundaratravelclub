@@ -10,6 +10,7 @@ class Hostinger_Admin_Actions {
 	public const ADD_POST = 'add_post';
 	public const ADD_PAGE = 'add_page';
 	public const ADD_PRODUCT = 'add_product';
+	public const DOMAIN_IS_CONNECTED = 'connect_domain';
 	public const ACTIONS_LIST = [
 		self::LOGO_UPLOAD,
 		self::IMAGE_UPLOAD,
@@ -18,8 +19,16 @@ class Hostinger_Admin_Actions {
 		self::ADD_POST,
 		self::ADD_PAGE,
 		self::ADD_PRODUCT,
+		self::DOMAIN_IS_CONNECTED,
 	];
 
+	public function __construct() {
+		add_action( 'admin_footer', array( $this, 'add_amplitude_action_nonce' ) );
+	}
+
+	public function add_amplitude_action_nonce(): void {
+		wp_nonce_field( 'menu_actions', 'menu_actions_nonce' );
+	}
 }
 
 new Hostinger_Admin_Actions();

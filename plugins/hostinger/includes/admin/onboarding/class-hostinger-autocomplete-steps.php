@@ -15,6 +15,7 @@ class Hostinger_AutoComplete_Steps {
 		add_action( 'publish_product', [ $this, 'new_product_creation' ], 10, 3 );
 		add_action( 'publish_post', [ $this, 'new_post_creation' ], 10, 3 );
 		add_action( 'updated_option', [ $this, 'check_option_change' ], 10, 3 );
+		add_action( 'wp_loaded', [ $this, 'domain_is_connected' ] );
 	}
 
 	private function add_completed_step( string $action): void {
@@ -22,6 +23,20 @@ class Hostinger_AutoComplete_Steps {
 			'action' => $action,
 			'date'   => date( 'Y-m-d H:i:s' ),
 		];
+	}
+
+	public function domain_is_connected(): void {
+		$action = Hostinger_Admin_Actions::DOMAIN_IS_CONNECTED;
+		$helper = new Hostinger_Helper();
+
+		if ( in_array( $action, $this->completed_steps, true ) ) {
+			return;
+		}
+
+		if ( ! $helper->is_free_subdomain() && ! $helper->is_preview_domain() ) {
+			$this->add_completed_step($action);
+			Hostinger_Settings::update_setting( 'onboarding_steps', $this->completed_steps );
+		}
 	}
 
 	public function logo_upload( WP_Customize_Manager $data ): void {

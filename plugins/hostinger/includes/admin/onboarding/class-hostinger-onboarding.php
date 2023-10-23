@@ -9,6 +9,7 @@ class Hostinger_Onboarding {
 		$steps        = [];
 		$path         = HOSTINGER_ABSPATH . 'includes/admin/onboarding/steps/';
 		$website_type = Hostinger_Settings::get_setting( 'survey.website.type' );
+		$helper       = new Hostinger_Helper();
 
 		require_once $path . 'abstract-hostinger-onboarding-step.php';
 
@@ -21,6 +22,8 @@ class Hostinger_Onboarding {
 		require_once $path . 'class-hostinger-onboarding-image-step.php';
 		require_once $path . 'class-hostinger-onboarding-heading.php';
 		require_once $path . 'class-hostinger-onboarding-add-page.php';
+		require_once $path . 'class-hostinger-onboarding-connect-domain.php';
+
 
 		if ( $website_type === Hostinger_Settings::WEBSITE_TYPE_BLOG ) {
 			require_once $path . 'class-hostinger-onboarding-add-post.php';
@@ -38,6 +41,7 @@ class Hostinger_Onboarding {
 		$steps[] = new Hostinger_Onboarding_Image_Step();
 		$steps[] = new Hostinger_Onboarding_Heading();
 		$steps[] = new Hostinger_Onboarding_Add_Page();
+		$steps[] = new Hostinger_Onboarding_Connect_Domain_Step();
 
 		return $steps;
 	}

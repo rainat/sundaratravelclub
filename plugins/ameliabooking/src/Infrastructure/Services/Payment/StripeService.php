@@ -37,11 +37,12 @@ class StripeService extends AbstractPaymentService implements PaymentServiceInte
 
         if ($data['paymentMethodId']) {
             $stripeData = [
-                'payment_method'      => $data['paymentMethodId'],
-                'amount'              => $data['amount'],
-                'currency'            => $this->settingsService->getCategorySettings('payments')['currency'],
-                'confirmation_method' => 'manual',
-                'confirm'             => true,
+                'payment_method'       => $data['paymentMethodId'],
+                'amount'               => $data['amount'],
+                'currency'             => $this->settingsService->getCategorySettings('payments')['currency'],
+                'confirmation_method'  => 'manual',
+                'confirm'              => true,
+                'payment_method_types' => ['card'],
             ];
 
             if ($stripeSettings['manualCapture']) {

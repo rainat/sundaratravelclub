@@ -20,7 +20,7 @@ if (!defined('ABSPATH')) {
 	exit;
 }
 ?>
-
+<h1>-------------</h1>
 <ul style="display: none;" class="order_details">
 	<li class="order">
 		<?php esc_html_e('Order number:', 'woocommerce'); ?>

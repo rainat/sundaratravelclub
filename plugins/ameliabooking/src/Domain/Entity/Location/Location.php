@@ -218,7 +218,7 @@ class Location
         return [
             'id'               => null !== $this->getId() ? $this->getId()->getValue() : null,
             'status'           => null !== $this->getStatus() ? $this->getStatus()->getValue() : null,
-            'name'             => $this->getName()->getValue(),
+            'name'             => $this->getName() ? $this->getName()->getValue() : '',
             'description'      => null !== $this->getDescription() ? $this->getDescription()->getValue() : null,
             'address'          => $this->getAddress() ? $this->getAddress()->getValue() : null,
             'phone'            => $this->getPhone() ? $this->getPhone()->getValue() : null,

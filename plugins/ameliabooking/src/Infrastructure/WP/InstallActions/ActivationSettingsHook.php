@@ -57,6 +57,8 @@ class ActivationSettingsHook
 
         self::initZoomSettings();
 
+        self::initApiKeySettings();
+
         self::initLessonSpaceSettings();
 
         self::initIcsSettings();
@@ -189,7 +191,6 @@ class ActivationSettingsHook
         ];
 
         self::initSettings('company', $settings);
-
     }
 
     /**
@@ -401,6 +402,19 @@ This message does not have an option for responding. If you need additional info
         self::initSettings('zoom', $settings);
     }
 
+
+    /**
+     * Init Api Key Settings
+     */
+    private static function initApiKeySettings()
+    {
+        $settings = [
+            'apiKeys' => []
+        ];
+
+        self::initSettings('apiKeys', $settings);
+    }
+
     /**
      * Init Lesson Space Settings
      */
@@ -513,6 +527,7 @@ This message does not have an option for responding. If you need additional info
             'defaultPaymentMethod'       => 'onSite',
             'onSite'                     => true,
             'coupons'                    => true,
+            'couponsCaseInsensitive'     => false,
             'paymentLinks'               => [
                 'enabled'              => false,
                 'changeBookingStatus'  => false,

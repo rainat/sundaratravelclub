@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Order details
  *
@@ -15,21 +16,23 @@
  * @version 7.8.0
  */
 
-defined( 'ABSPATH' ) || exit;
+defined('ABSPATH') || exit;
 
-$order = wc_get_order( $order_id ); // phpcs:ignore WordPress.WP.GlobalVariablesOverride.Prohibited
+$order = wc_get_order($order_id); // phpcs:ignore WordPress.WP.GlobalVariablesOverride.Prohibited
 
-if ( ! $order ) {
+if (!$order) {
 	return;
 }
 
-$order_items           = $order->get_items( apply_filters( 'woocommerce_purchase_order_item_types', 'line_item' ) );
-$show_purchase_note    = $order->has_status( apply_filters( 'woocommerce_purchase_note_order_statuses', array( 'completed', 'processing' ) ) );
+
+
+$order_items           = $order->get_items(apply_filters('woocommerce_purchase_order_item_types', 'line_item'));
+$show_purchase_note    = $order->has_status(apply_filters('woocommerce_purchase_note_order_statuses', array('completed', 'processing')));
 $show_customer_details = is_user_logged_in() && $order->get_user_id() === get_current_user_id();
 $downloads             = $order->get_downloadable_items();
 $show_downloads        = $order->has_downloadable_item() && $order->is_download_permitted();
 
-if ( $show_downloads ) {
+if ($show_downloads) {
 	wc_get_template(
 		'order/order-downloads.php',
 		array(
@@ -40,24 +43,24 @@ if ( $show_downloads ) {
 }
 ?>
 <section class="woocommerce-order-details">
-	<?php do_action( 'woocommerce_order_details_before_order_table', $order ); ?>
+	<?php do_action('woocommerce_order_details_before_order_table', $order); ?>
 
-	<h2 class="woocommerce-order-details__title"><?php esc_html_e( 'Order details', 'woocommerce' ); ?></h2>
+	<h2 class="woocommerce-order-details__title"><?php esc_html_e('Order details', 'woocommerce'); ?></h2>
 
 	<table class="woocommerce-table woocommerce-table--order-details shop_table order_details">
 
 		<thead>
 			<tr>
-				<th class="woocommerce-table__product-name product-name"><?php esc_html_e( 'Product', 'woocommerce' ); ?></th>
-				<th class="woocommerce-table__product-table product-total"><?php esc_html_e( 'Total', 'woocommerce' ); ?></th>
+				<th class="woocommerce-table__product-name product-name"><?php esc_html_e('Product', 'woocommerce'); ?></th>
+				<th class="woocommerce-table__product-table product-total"><?php esc_html_e('Total', 'woocommerce'); ?></th>
 			</tr>
 		</thead>
 
 		<tbody>
 			<?php
-			do_action( 'woocommerce_order_details_before_order_table_items', $order );
+			do_action('woocommerce_order_details_before_order_table_items', $order);
 
-			foreach ( $order_items as $item_id => $item ) {
+			foreach ($order_items as $item_id => $item) {
 				$product = $item->get_product();
 
 				wc_get_template(
@@ -73,31 +76,31 @@ if ( $show_downloads ) {
 				);
 			}
 
-			do_action( 'woocommerce_order_details_after_order_table_items', $order );
+			do_action('woocommerce_order_details_after_order_table_items', $order);
 			?>
 		</tbody>
 
 		<tfoot>
 			<?php
-			foreach ( $order->get_order_item_totals() as $key => $total ) {
-				?>
-					<tr>
-						<th scope="row"><?php echo esc_html( $total['label'] ); ?></th>
-						<td><?php echo wp_kses_post( $total['value'] ); ?></td>
-					</tr>
-					<?php
+			foreach ($order->get_order_item_totals() as $key => $total) {
+			?>
+				<tr>
+					<th scope="row"><?php echo esc_html($total['label']); ?></th>
+					<td><?php echo wp_kses_post($total['value']); ?></td>
+				</tr>
+			<?php
 			}
 			?>
-			<?php if ( $order->get_customer_note() ) : ?>
+			<?php if ($order->get_customer_note()) : ?>
 				<tr>
-					<th><?php esc_html_e( 'Note:', 'woocommerce' ); ?></th>
-					<td><?php echo wp_kses_post( nl2br( wptexturize( $order->get_customer_note() ) ) ); ?></td>
+					<th><?php esc_html_e('Note:', 'woocommerce'); ?></th>
+					<td><?php echo wp_kses_post(nl2br(wptexturize($order->get_customer_note()))); ?></td>
 				</tr>
 			<?php endif; ?>
 		</tfoot>
 	</table>
 
-	<?php do_action( 'woocommerce_order_details_after_order_table', $order ); ?>
+	<?php do_action('woocommerce_order_details_after_order_table', $order); ?>
 </section>
 
 <?php
@@ -107,8 +110,77 @@ if ( $show_downloads ) {
  * @since 4.4.0
  * @param WC_Order $order Order data.
  */
-do_action( 'woocommerce_after_order_details', $order );
+do_action('woocommerce_after_order_details', $order);
 
-if ( $show_customer_details ) {
-	wc_get_template( 'order/order-details-customer.php', array( 'order' => $order ) );
+//echo post elementor
+if (class_exists("\\Elementor\\Plugin")) {
+	$post_ID = 5102;
+	$pluginElementor = \Elementor\Plugin::instance();
+	$contentElementor = $pluginElementor->frontend->get_builder_content($post_ID);
+}
+
+echo $contentElementor;
+
+
+if ($show_customer_details) {
+	wc_get_template('order/order-details-customer.php', array('order' => $order));
+}
+
+class Helper_New_User
+{
+	static function insert_user_guest($login)
+	{
+		$uid = wp_insert_user($login);
+		return $uid;
+	}
+
+	static function get_user_login_unique($userlogin)
+	{
+		$last_pos = strpos($userlogin, '@');
+		return substr($userlogin, 0, $last_pos);
+	}
+
+	static function get_existed_user($email)
+	{
+		return get_user_by('email',$email);
+	}
+
+	static function login_by_email($email)
+	{
+		$user = get_user_by( 'email', $email );
+		$login_username = $user->user_login;
+		wp_set_current_user( $user->ID, $login_username );
+        wp_set_auth_cookie( $user->ID );
+        // wp_redirect(get_permalink());
+	}
+}
+
+// if not login if no accoun register account with password md5
+if (!is_user_logged_in()) {
+	$new_user = [
+		'user_login' => Helper_New_User::get_user_login_unique($order->get_billing_email()),
+		'user_pass'  => wp_generate_password(18),
+		'user_email' => $order->get_billing_email(),
+		'first_name' => $order->get_billing_first_name(),
+		'last_name'  => $order->get_billing_last_name(),
+	];
+
+	$exist = Helper_New_User::get_existed_user($order->get_billing_email());
+	if ($exist) 
+	{
+		Helper_New_User::login_by_email($order->get_billing_email());
+		
+	} else 
+	{
+		//create user
+		$uid = Helper_New_User::insert_user_guest($new_user);
+		if ($uid) {
+		   Helper_New_User::login_by_email($order->get_billing_email());	
+		}
+	}
+	// $uid = Helper_New_User::insert_user_guest($new_user);
+	// echo $uid;
+
+	// $json = json_encode($new_user);
+	// echo "<script>console.log($json)</script>";
 }

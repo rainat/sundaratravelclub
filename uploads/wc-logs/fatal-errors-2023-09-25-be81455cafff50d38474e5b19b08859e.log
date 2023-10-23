@@ -1,0 +1,171 @@
+2023-09-25T13:19:45+00:00 CRITICAL Uncaught Error: Call to a member function get_meta() on bool in /home/u822946699/domains/sundaratravelclub.com/public_html/staging/wp-content/plugins/cuberaksi-xendit/shortcode/trip_fields.php:42
+Stack trace:
+#0 /home/u822946699/domains/sundaratravelclub.com/public_html/staging/wp-includes/shortcodes.php(395): Cuberaksi\Shortcode\Calendar\Shortcode_Trip->shortcode('', '', 'trip_fields')
+#1 [internal function]: do_shortcode_tag(Array)
+#2 /home/u822946699/domains/sundaratravelclub.com/public_html/staging/wp-includes/shortcodes.php(235): preg_replace_callback('/\\[(\\[?)(trip_f...', 'do_shortcode_ta...', '<p>[trip_fields...')
+#3 /home/u822946699/domains/sundaratravelclub.com/public_html/staging/wp-includes/class-wp-hook.php(310): do_shortcode('<p>[trip_fields...')
+#4 /home/u822946699/domains/sundaratravelclub.com/public_html/staging/wp-includes/plugin.php(205): WP_Hook->apply_filters('<p>[trip_fields...', Array)
+#5 /home/u822946699/domains/sundaratravelclub.com/public_html/staging/wp-includes/post-template.php(2 in /home/u822946699/domains/sundaratravelclub.com/public_html/staging/wp-content/plugins/cuberaksi-xendit/shortcode/trip_fields.php on line 42
+
+2023-09-25T13:19:47+00:00 CRITICAL Uncaught Error: Call to a member function get_meta() on bool in /home/u822946699/domains/sundaratravelclub.com/public_html/staging/wp-content/plugins/cuberaksi-xendit/shortcode/trip_fields.php:42
+Stack trace:
+#0 /home/u822946699/domains/sundaratravelclub.com/public_html/staging/wp-includes/shortcodes.php(395): Cuberaksi\Shortcode\Calendar\Shortcode_Trip->shortcode('', '', 'trip_fields')
+#1 [internal function]: do_shortcode_tag(Array)
+#2 /home/u822946699/domains/sundaratravelclub.com/public_html/staging/wp-includes/shortcodes.php(235): preg_replace_callback('/\\[(\\[?)(trip_f...', 'do_shortcode_ta...', '<p>[trip_fields...')
+#3 /home/u822946699/domains/sundaratravelclub.com/public_html/staging/wp-includes/class-wp-hook.php(310): do_shortcode('<p>[trip_fields...')
+#4 /home/u822946699/domains/sundaratravelclub.com/public_html/staging/wp-includes/plugin.php(205): WP_Hook->apply_filters('<p>[trip_fields...', Array)
+#5 /home/u822946699/domains/sundaratravelclub.com/public_html/staging/wp-includes/post-template.php(2 in /home/u822946699/domains/sundaratravelclub.com/public_html/staging/wp-content/plugins/cuberaksi-xendit/shortcode/trip_fields.php on line 42
+
+2023-09-25T13:20:00+00:00 CRITICAL Uncaught Error: Call to a member function get_meta() on bool in /home/u822946699/domains/sundaratravelclub.com/public_html/staging/wp-content/plugins/cuberaksi-xendit/shortcode/trip_fields.php:42
+Stack trace:
+#0 /home/u822946699/domains/sundaratravelclub.com/public_html/staging/wp-includes/shortcodes.php(395): Cuberaksi\Shortcode\Calendar\Shortcode_Trip->shortcode('', '', 'trip_fields')
+#1 [internal function]: do_shortcode_tag(Array)
+#2 /home/u822946699/domains/sundaratravelclub.com/public_html/staging/wp-includes/shortcodes.php(235): preg_replace_callback('/\\[(\\[?)(trip_f...', 'do_shortcode_ta...', '<p>[trip_fields...')
+#3 /home/u822946699/domains/sundaratravelclub.com/public_html/staging/wp-includes/class-wp-hook.php(310): do_shortcode('<p>[trip_fields...')
+#4 /home/u822946699/domains/sundaratravelclub.com/public_html/staging/wp-includes/plugin.php(205): WP_Hook->apply_filters('<p>[trip_fields...', Array)
+#5 /home/u822946699/domains/sundaratravelclub.com/public_html/staging/wp-includes/post-template.php(2 in /home/u822946699/domains/sundaratravelclub.com/public_html/staging/wp-content/plugins/cuberaksi-xendit/shortcode/trip_fields.php on line 42
+
+2023-09-25T13:20:02+00:00 CRITICAL Uncaught Error: Call to a member function get_meta() on bool in /home/u822946699/domains/sundaratravelclub.com/public_html/staging/wp-content/plugins/cuberaksi-xendit/shortcode/trip_fields.php:42
+Stack trace:
+#0 /home/u822946699/domains/sundaratravelclub.com/public_html/staging/wp-includes/shortcodes.php(395): Cuberaksi\Shortcode\Calendar\Shortcode_Trip->shortcode('', '', 'trip_fields')
+#1 [internal function]: do_shortcode_tag(Array)
+#2 /home/u822946699/domains/sundaratravelclub.com/public_html/staging/wp-includes/shortcodes.php(235): preg_replace_callback('/\\[(\\[?)(trip_f...', 'do_shortcode_ta...', '<p>[trip_fields...')
+#3 /home/u822946699/domains/sundaratravelclub.com/public_html/staging/wp-includes/class-wp-hook.php(310): do_shortcode('<p>[trip_fields...')
+#4 /home/u822946699/domains/sundaratravelclub.com/public_html/staging/wp-includes/plugin.php(205): WP_Hook->apply_filters('<p>[trip_fields...', Array)
+#5 /home/u822946699/domains/sundaratravelclub.com/public_html/staging/wp-includes/post-template.php(2 in /home/u822946699/domains/sundaratravelclub.com/public_html/staging/wp-content/plugins/cuberaksi-xendit/shortcode/trip_fields.php on line 42
+
+2023-09-25T13:21:07+00:00 CRITICAL Uncaught Error: Call to a member function get_meta() on bool in /home/u822946699/domains/sundaratravelclub.com/public_html/staging/wp-content/plugins/cuberaksi-xendit/shortcode/trip_fields.php:42
+Stack trace:
+#0 /home/u822946699/domains/sundaratravelclub.com/public_html/staging/wp-includes/shortcodes.php(395): Cuberaksi\Shortcode\Calendar\Shortcode_Trip->shortcode('', '', 'trip_fields')
+#1 [internal function]: do_shortcode_tag(Array)
+#2 /home/u822946699/domains/sundaratravelclub.com/public_html/staging/wp-includes/shortcodes.php(235): preg_replace_callback('/\\[(\\[?)(trip_f...', 'do_shortcode_ta...', '<p>[trip_fields...')
+#3 /home/u822946699/domains/sundaratravelclub.com/public_html/staging/wp-includes/class-wp-hook.php(310): do_shortcode('<p>[trip_fields...')
+#4 /home/u822946699/domains/sundaratravelclub.com/public_html/staging/wp-includes/plugin.php(205): WP_Hook->apply_filters('<p>[trip_fields...', Array)
+#5 /home/u822946699/domains/sundaratravelclub.com/public_html/staging/wp-includes/post-template.php(2 in /home/u822946699/domains/sundaratravelclub.com/public_html/staging/wp-content/plugins/cuberaksi-xendit/shortcode/trip_fields.php on line 42
+
+2023-09-25T13:21:09+00:00 CRITICAL Uncaught Error: Call to a member function get_meta() on bool in /home/u822946699/domains/sundaratravelclub.com/public_html/staging/wp-content/plugins/cuberaksi-xendit/shortcode/trip_fields.php:42
+Stack trace:
+#0 /home/u822946699/domains/sundaratravelclub.com/public_html/staging/wp-includes/shortcodes.php(395): Cuberaksi\Shortcode\Calendar\Shortcode_Trip->shortcode('', '', 'trip_fields')
+#1 [internal function]: do_shortcode_tag(Array)
+#2 /home/u822946699/domains/sundaratravelclub.com/public_html/staging/wp-includes/shortcodes.php(235): preg_replace_callback('/\\[(\\[?)(trip_f...', 'do_shortcode_ta...', '<p>[trip_fields...')
+#3 /home/u822946699/domains/sundaratravelclub.com/public_html/staging/wp-includes/class-wp-hook.php(310): do_shortcode('<p>[trip_fields...')
+#4 /home/u822946699/domains/sundaratravelclub.com/public_html/staging/wp-includes/plugin.php(205): WP_Hook->apply_filters('<p>[trip_fields...', Array)
+#5 /home/u822946699/domains/sundaratravelclub.com/public_html/staging/wp-includes/post-template.php(2 in /home/u822946699/domains/sundaratravelclub.com/public_html/staging/wp-content/plugins/cuberaksi-xendit/shortcode/trip_fields.php on line 42
+
+2023-09-25T13:22:45+00:00 CRITICAL Uncaught Error: Call to a member function get_meta() on bool in /home/u822946699/domains/sundaratravelclub.com/public_html/staging/wp-content/plugins/cuberaksi-xendit/shortcode/trip_fields.php:42
+Stack trace:
+#0 /home/u822946699/domains/sundaratravelclub.com/public_html/staging/wp-includes/shortcodes.php(395): Cuberaksi\Shortcode\Calendar\Shortcode_Trip->shortcode('', '', 'trip_fields')
+#1 [internal function]: do_shortcode_tag(Array)
+#2 /home/u822946699/domains/sundaratravelclub.com/public_html/staging/wp-includes/shortcodes.php(235): preg_replace_callback('/\\[(\\[?)(trip_f...', 'do_shortcode_ta...', '<p>[trip_fields...')
+#3 /home/u822946699/domains/sundaratravelclub.com/public_html/staging/wp-includes/class-wp-hook.php(310): do_shortcode('<p>[trip_fields...')
+#4 /home/u822946699/domains/sundaratravelclub.com/public_html/staging/wp-includes/plugin.php(205): WP_Hook->apply_filters('<p>[trip_fields...', Array)
+#5 /home/u822946699/domains/sundaratravelclub.com/public_html/staging/wp-includes/post-template.php(2 in /home/u822946699/domains/sundaratravelclub.com/public_html/staging/wp-content/plugins/cuberaksi-xendit/shortcode/trip_fields.php on line 42
+
+2023-09-25T13:22:46+00:00 CRITICAL Uncaught Error: Call to a member function get_meta() on bool in /home/u822946699/domains/sundaratravelclub.com/public_html/staging/wp-content/plugins/cuberaksi-xendit/shortcode/trip_fields.php:42
+Stack trace:
+#0 /home/u822946699/domains/sundaratravelclub.com/public_html/staging/wp-includes/shortcodes.php(395): Cuberaksi\Shortcode\Calendar\Shortcode_Trip->shortcode('', '', 'trip_fields')
+#1 [internal function]: do_shortcode_tag(Array)
+#2 /home/u822946699/domains/sundaratravelclub.com/public_html/staging/wp-includes/shortcodes.php(235): preg_replace_callback('/\\[(\\[?)(trip_f...', 'do_shortcode_ta...', '<p>[trip_fields...')
+#3 /home/u822946699/domains/sundaratravelclub.com/public_html/staging/wp-includes/class-wp-hook.php(310): do_shortcode('<p>[trip_fields...')
+#4 /home/u822946699/domains/sundaratravelclub.com/public_html/staging/wp-includes/plugin.php(205): WP_Hook->apply_filters('<p>[trip_fields...', Array)
+#5 /home/u822946699/domains/sundaratravelclub.com/public_html/staging/wp-includes/post-template.php(2 in /home/u822946699/domains/sundaratravelclub.com/public_html/staging/wp-content/plugins/cuberaksi-xendit/shortcode/trip_fields.php on line 42
+
+2023-09-25T13:24:40+00:00 CRITICAL Uncaught Error: Call to a member function get_meta() on bool in /home/u822946699/domains/sundaratravelclub.com/public_html/staging/wp-content/plugins/cuberaksi-xendit/shortcode/trip_fields.php:42
+Stack trace:
+#0 /home/u822946699/domains/sundaratravelclub.com/public_html/staging/wp-includes/shortcodes.php(395): Cuberaksi\Shortcode\Calendar\Shortcode_Trip->shortcode('', '', 'trip_fields')
+#1 [internal function]: do_shortcode_tag(Array)
+#2 /home/u822946699/domains/sundaratravelclub.com/public_html/staging/wp-includes/shortcodes.php(235): preg_replace_callback('/\\[(\\[?)(trip_f...', 'do_shortcode_ta...', '<p>[trip_fields...')
+#3 /home/u822946699/domains/sundaratravelclub.com/public_html/staging/wp-includes/class-wp-hook.php(310): do_shortcode('<p>[trip_fields...')
+#4 /home/u822946699/domains/sundaratravelclub.com/public_html/staging/wp-includes/plugin.php(205): WP_Hook->apply_filters('<p>[trip_fields...', Array)
+#5 /home/u822946699/domains/sundaratravelclub.com/public_html/staging/wp-includes/post-template.php(2 in /home/u822946699/domains/sundaratravelclub.com/public_html/staging/wp-content/plugins/cuberaksi-xendit/shortcode/trip_fields.php on line 42
+
+2023-09-25T13:24:41+00:00 CRITICAL Uncaught Error: Call to a member function get_meta() on bool in /home/u822946699/domains/sundaratravelclub.com/public_html/staging/wp-content/plugins/cuberaksi-xendit/shortcode/trip_fields.php:42
+Stack trace:
+#0 /home/u822946699/domains/sundaratravelclub.com/public_html/staging/wp-includes/shortcodes.php(395): Cuberaksi\Shortcode\Calendar\Shortcode_Trip->shortcode('', '', 'trip_fields')
+#1 [internal function]: do_shortcode_tag(Array)
+#2 /home/u822946699/domains/sundaratravelclub.com/public_html/staging/wp-includes/shortcodes.php(235): preg_replace_callback('/\\[(\\[?)(trip_f...', 'do_shortcode_ta...', '<p>[trip_fields...')
+#3 /home/u822946699/domains/sundaratravelclub.com/public_html/staging/wp-includes/class-wp-hook.php(310): do_shortcode('<p>[trip_fields...')
+#4 /home/u822946699/domains/sundaratravelclub.com/public_html/staging/wp-includes/plugin.php(205): WP_Hook->apply_filters('<p>[trip_fields...', Array)
+#5 /home/u822946699/domains/sundaratravelclub.com/public_html/staging/wp-includes/post-template.php(2 in /home/u822946699/domains/sundaratravelclub.com/public_html/staging/wp-content/plugins/cuberaksi-xendit/shortcode/trip_fields.php on line 42
+
+2023-09-25T13:25:54+00:00 CRITICAL Uncaught Error: Call to a member function get_meta() on bool in /home/u822946699/domains/sundaratravelclub.com/public_html/staging/wp-content/plugins/cuberaksi-xendit/shortcode/trip_fields.php:42
+Stack trace:
+#0 /home/u822946699/domains/sundaratravelclub.com/public_html/staging/wp-includes/shortcodes.php(395): Cuberaksi\Shortcode\Calendar\Shortcode_Trip->shortcode('', '', 'trip_fields')
+#1 [internal function]: do_shortcode_tag(Array)
+#2 /home/u822946699/domains/sundaratravelclub.com/public_html/staging/wp-includes/shortcodes.php(235): preg_replace_callback('/\\[(\\[?)(trip_f...', 'do_shortcode_ta...', '<p>[trip_fields...')
+#3 /home/u822946699/domains/sundaratravelclub.com/public_html/staging/wp-includes/class-wp-hook.php(310): do_shortcode('<p>[trip_fields...')
+#4 /home/u822946699/domains/sundaratravelclub.com/public_html/staging/wp-includes/plugin.php(205): WP_Hook->apply_filters('<p>[trip_fields...', Array)
+#5 /home/u822946699/domains/sundaratravelclub.com/public_html/staging/wp-includes/post-template.php(2 in /home/u822946699/domains/sundaratravelclub.com/public_html/staging/wp-content/plugins/cuberaksi-xendit/shortcode/trip_fields.php on line 42
+
+2023-09-25T13:25:56+00:00 CRITICAL Uncaught Error: Call to a member function get_meta() on bool in /home/u822946699/domains/sundaratravelclub.com/public_html/staging/wp-content/plugins/cuberaksi-xendit/shortcode/trip_fields.php:42
+Stack trace:
+#0 /home/u822946699/domains/sundaratravelclub.com/public_html/staging/wp-includes/shortcodes.php(395): Cuberaksi\Shortcode\Calendar\Shortcode_Trip->shortcode('', '', 'trip_fields')
+#1 [internal function]: do_shortcode_tag(Array)
+#2 /home/u822946699/domains/sundaratravelclub.com/public_html/staging/wp-includes/shortcodes.php(235): preg_replace_callback('/\\[(\\[?)(trip_f...', 'do_shortcode_ta...', '<p>[trip_fields...')
+#3 /home/u822946699/domains/sundaratravelclub.com/public_html/staging/wp-includes/class-wp-hook.php(310): do_shortcode('<p>[trip_fields...')
+#4 /home/u822946699/domains/sundaratravelclub.com/public_html/staging/wp-includes/plugin.php(205): WP_Hook->apply_filters('<p>[trip_fields...', Array)
+#5 /home/u822946699/domains/sundaratravelclub.com/public_html/staging/wp-includes/post-template.php(2 in /home/u822946699/domains/sundaratravelclub.com/public_html/staging/wp-content/plugins/cuberaksi-xendit/shortcode/trip_fields.php on line 42
+
+2023-09-25T13:28:57+00:00 CRITICAL Uncaught Error: Call to a member function get_meta() on bool in /home/u822946699/domains/sundaratravelclub.com/public_html/staging/wp-content/plugins/cuberaksi-xendit/shortcode/trip_fields.php:42
+Stack trace:
+#0 /home/u822946699/domains/sundaratravelclub.com/public_html/staging/wp-includes/shortcodes.php(395): Cuberaksi\Shortcode\Calendar\Shortcode_Trip->shortcode('', '', 'trip_fields')
+#1 [internal function]: do_shortcode_tag(Array)
+#2 /home/u822946699/domains/sundaratravelclub.com/public_html/staging/wp-includes/shortcodes.php(235): preg_replace_callback('/\\[(\\[?)(trip_f...', 'do_shortcode_ta...', '<p>[trip_fields...')
+#3 /home/u822946699/domains/sundaratravelclub.com/public_html/staging/wp-includes/class-wp-hook.php(310): do_shortcode('<p>[trip_fields...')
+#4 /home/u822946699/domains/sundaratravelclub.com/public_html/staging/wp-includes/plugin.php(205): WP_Hook->apply_filters('<p>[trip_fields...', Array)
+#5 /home/u822946699/domains/sundaratravelclub.com/public_html/staging/wp-includes/post-template.php(2 in /home/u822946699/domains/sundaratravelclub.com/public_html/staging/wp-content/plugins/cuberaksi-xendit/shortcode/trip_fields.php on line 42
+
+2023-09-25T13:28:58+00:00 CRITICAL Uncaught Error: Call to a member function get_meta() on bool in /home/u822946699/domains/sundaratravelclub.com/public_html/staging/wp-content/plugins/cuberaksi-xendit/shortcode/trip_fields.php:42
+Stack trace:
+#0 /home/u822946699/domains/sundaratravelclub.com/public_html/staging/wp-includes/shortcodes.php(395): Cuberaksi\Shortcode\Calendar\Shortcode_Trip->shortcode('', '', 'trip_fields')
+#1 [internal function]: do_shortcode_tag(Array)
+#2 /home/u822946699/domains/sundaratravelclub.com/public_html/staging/wp-includes/shortcodes.php(235): preg_replace_callback('/\\[(\\[?)(trip_f...', 'do_shortcode_ta...', '<p>[trip_fields...')
+#3 /home/u822946699/domains/sundaratravelclub.com/public_html/staging/wp-includes/class-wp-hook.php(310): do_shortcode('<p>[trip_fields...')
+#4 /home/u822946699/domains/sundaratravelclub.com/public_html/staging/wp-includes/plugin.php(205): WP_Hook->apply_filters('<p>[trip_fields...', Array)
+#5 /home/u822946699/domains/sundaratravelclub.com/public_html/staging/wp-includes/post-template.php(2 in /home/u822946699/domains/sundaratravelclub.com/public_html/staging/wp-content/plugins/cuberaksi-xendit/shortcode/trip_fields.php on line 42
+
+2023-09-25T13:35:02+00:00 CRITICAL Uncaught Error: Call to a member function get_meta() on bool in /home/u822946699/domains/sundaratravelclub.com/public_html/staging/wp-content/plugins/cuberaksi-xendit/shortcode/trip_fields.php:42
+Stack trace:
+#0 /home/u822946699/domains/sundaratravelclub.com/public_html/staging/wp-includes/shortcodes.php(395): Cuberaksi\Shortcode\Calendar\Shortcode_Trip->shortcode('', '', 'trip_fields')
+#1 [internal function]: do_shortcode_tag(Array)
+#2 /home/u822946699/domains/sundaratravelclub.com/public_html/staging/wp-includes/shortcodes.php(235): preg_replace_callback('/\\[(\\[?)(trip_f...', 'do_shortcode_ta...', '<p>[trip_fields...')
+#3 /home/u822946699/domains/sundaratravelclub.com/public_html/staging/wp-includes/class-wp-hook.php(310): do_shortcode('<p>[trip_fields...')
+#4 /home/u822946699/domains/sundaratravelclub.com/public_html/staging/wp-includes/plugin.php(205): WP_Hook->apply_filters('<p>[trip_fields...', Array)
+#5 /home/u822946699/domains/sundaratravelclub.com/public_html/staging/wp-includes/post-template.php(2 in /home/u822946699/domains/sundaratravelclub.com/public_html/staging/wp-content/plugins/cuberaksi-xendit/shortcode/trip_fields.php on line 42
+
+2023-09-25T13:35:04+00:00 CRITICAL Uncaught Error: Call to a member function get_meta() on bool in /home/u822946699/domains/sundaratravelclub.com/public_html/staging/wp-content/plugins/cuberaksi-xendit/shortcode/trip_fields.php:42
+Stack trace:
+#0 /home/u822946699/domains/sundaratravelclub.com/public_html/staging/wp-includes/shortcodes.php(395): Cuberaksi\Shortcode\Calendar\Shortcode_Trip->shortcode('', '', 'trip_fields')
+#1 [internal function]: do_shortcode_tag(Array)
+#2 /home/u822946699/domains/sundaratravelclub.com/public_html/staging/wp-includes/shortcodes.php(235): preg_replace_callback('/\\[(\\[?)(trip_f...', 'do_shortcode_ta...', '<p>[trip_fields...')
+#3 /home/u822946699/domains/sundaratravelclub.com/public_html/staging/wp-includes/class-wp-hook.php(310): do_shortcode('<p>[trip_fields...')
+#4 /home/u822946699/domains/sundaratravelclub.com/public_html/staging/wp-includes/plugin.php(205): WP_Hook->apply_filters('<p>[trip_fields...', Array)
+#5 /home/u822946699/domains/sundaratravelclub.com/public_html/staging/wp-includes/post-template.php(2 in /home/u822946699/domains/sundaratravelclub.com/public_html/staging/wp-content/plugins/cuberaksi-xendit/shortcode/trip_fields.php on line 42
+
+2023-09-25T14:40:15+00:00 CRITICAL Uncaught Error: Call to a member function get_price_html() on bool in /home/u822946699/domains/sundaratravelclub.com/public_html/staging/wp-content/plugins/cuberaksi-xendit/shortcode/price.php:40
+Stack trace:
+#0 /home/u822946699/domains/sundaratravelclub.com/public_html/staging/wp-includes/shortcodes.php(395): Cuberaksi\Shortcode\Calendar\Shortcode_Price->shortcode('', '', 'product_price')
+#1 [internal function]: do_shortcode_tag(Array)
+#2 /home/u822946699/domains/sundaratravelclub.com/public_html/staging/wp-includes/shortcodes.php(235): preg_replace_callback('/\\[(\\[?)(produc...', 'do_shortcode_ta...', '[product_price]')
+#3 /home/u822946699/domains/sundaratravelclub.com/public_html/staging/wp-content/plugins/elementor/includes/widgets/shortcode.php(130): do_shortcode('[product_price]')
+#4 /home/u822946699/domains/sundaratravelclub.com/public_html/staging/wp-content/plugins/elementor/includes/base/controls-stack.php(2265): Elementor\Widget_Shortcode->render()
+#5 /home/u822946699/domains/sundaratravelclub.com in /home/u822946699/domains/sundaratravelclub.com/public_html/staging/wp-content/plugins/cuberaksi-xendit/shortcode/price.php on line 40
+
+2023-09-25T14:40:40+00:00 CRITICAL Uncaught Error: Call to a member function get_price_html() on bool in /home/u822946699/domains/sundaratravelclub.com/public_html/staging/wp-content/plugins/cuberaksi-xendit/shortcode/price.php:40
+Stack trace:
+#0 /home/u822946699/domains/sundaratravelclub.com/public_html/staging/wp-includes/shortcodes.php(395): Cuberaksi\Shortcode\Calendar\Shortcode_Price->shortcode('', '', 'product_price')
+#1 [internal function]: do_shortcode_tag(Array)
+#2 /home/u822946699/domains/sundaratravelclub.com/public_html/staging/wp-includes/shortcodes.php(235): preg_replace_callback('/\\[(\\[?)(produc...', 'do_shortcode_ta...', '[product_price]')
+#3 /home/u822946699/domains/sundaratravelclub.com/public_html/staging/wp-content/plugins/elementor/includes/widgets/shortcode.php(130): do_shortcode('[product_price]')
+#4 /home/u822946699/domains/sundaratravelclub.com/public_html/staging/wp-content/plugins/elementor/includes/base/controls-stack.php(2265): Elementor\Widget_Shortcode->render()
+#5 /home/u822946699/domains/sundaratravelclub.com in /home/u822946699/domains/sundaratravelclub.com/public_html/staging/wp-content/plugins/cuberaksi-xendit/shortcode/price.php on line 40
+
+2023-09-25T14:41:50+00:00 CRITICAL Uncaught Error: Call to a member function get_price_html() on bool in /home/u822946699/domains/sundaratravelclub.com/public_html/staging/wp-content/plugins/cuberaksi-xendit/shortcode/price.php:40
+Stack trace:
+#0 /home/u822946699/domains/sundaratravelclub.com/public_html/staging/wp-includes/shortcodes.php(395): Cuberaksi\Shortcode\Calendar\Shortcode_Price->shortcode('', '', 'product_price')
+#1 [internal function]: do_shortcode_tag(Array)
+#2 /home/u822946699/domains/sundaratravelclub.com/public_html/staging/wp-includes/shortcodes.php(235): preg_replace_callback('/\\[(\\[?)(produc...', 'do_shortcode_ta...', '[product_price]')
+#3 /home/u822946699/domains/sundaratravelclub.com/public_html/staging/wp-content/plugins/elementor/includes/widgets/shortcode.php(130): do_shortcode('[product_price]')
+#4 /home/u822946699/domains/sundaratravelclub.com/public_html/staging/wp-content/plugins/elementor/includes/base/controls-stack.php(2265): Elementor\Widget_Shortcode->render()
+#5 /home/u822946699/domains/sundaratravelclub.com in /home/u822946699/domains/sundaratravelclub.com/public_html/staging/wp-content/plugins/cuberaksi-xendit/shortcode/price.php on line 40
+

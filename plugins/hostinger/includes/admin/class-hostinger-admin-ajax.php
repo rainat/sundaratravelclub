@@ -12,13 +12,56 @@ class Hostinger_Admin_Ajax {
 			'complete_onboarding_step',
 			'publish_website',
 			'track_click',
-			'identify_action'
+			'identify_action',
+			'get_survey',
+			'submit_survey',
+			'menu_action',
+			'regenerate_website',
 		];
 
 		foreach ( $events as $event ) {
 			add_action( 'wp_ajax_hostinger_' . $event, [ __CLASS__, $event ] );
 			add_action( 'wp_ajax_nopriv_hostinger_' . $event, [ __CLASS__, $event ] );
 		}
+	}
+
+	public static function regenerate_website(): void {
+		$location     = sanitize_text_field( $_POST['location'] ) ?? '';
+		$event_action = sanitize_text_field( $_POST['event_action'] ) ?? '';
+		$nonce        = sanitize_text_field( $_POST['nonce'] );
+
+		if ( ! wp_verify_nonce( $nonce, 'hts-ajax-nonce' ) ) {
+			wp_send_json_error( 'Invalid nonce.' );
+		}
+
+		$amplitude = new Hostinger_Amplitude();
+		$amplitude->regenerate_website( $event_action, $location );
+	}
+
+	public static function get_survey(): void {
+		$nonce = sanitize_text_field( $_POST['nonce'] );
+		if ( ! wp_verify_nonce( $nonce, 'get_questions' ) ) {
+			wp_send_json_error( 'Invalid nonce.' );
+		}
+		$surveys          = new Hostinger_Surveys();
+		$survey_questions = $surveys->get_wp_survey_questions();
+		$questions_json   = $surveys->generate_json( $survey_questions );
+
+		wp_send_json( $questions_json );
+	}
+
+	public static function submit_survey(): void {
+		$nonce = sanitize_text_field( $_POST['nonce'] );
+		$survey_results = sanitize_text_field( $_POST['survey_results'] );
+		$surveys = new Hostinger_Surveys();
+
+		if ( ! wp_verify_nonce( $nonce, 'submit_questions' ) ) {
+			wp_send_json_error( 'Invalid nonce.' );
+		}
+
+		$decoded_json = json_decode(stripslashes($survey_results), true);
+		$surveys->submit_survey_answers( $decoded_json );
+
 	}
 
 	public static function publish_website(): void {
@@ -28,7 +71,9 @@ class Hostinger_Admin_Ajax {
 		require_once HOSTINGER_ABSPATH . 'includes/admin/onboarding/class-hostinger-onboarding.php';
 		$content = new Hostinger_Onboarding();
 
-		do_action( 'litespeed_purge_all' );
+		if ( has_action( 'litespeed_purge_all' ) ) {
+			do_action( 'litespeed_purge_all' );
+		}
 
 		wp_send_json_success( [
 			'published'   => $publish,
@@ -78,6 +123,20 @@ class Hostinger_Admin_Ajax {
 		} else {
 			wp_send_json_error( 'Invalid action' );
 		}
+	}
+
+	public static function menu_action(): void {
+
+		$nonce         = sanitize_text_field( $_POST['nonce'] );
+		$location      = sanitize_text_field( $_POST['location'] ) ?? '';
+		$event_action  = sanitize_text_field( $_POST['event_action'] ) ?? '';
+
+		if ( ! wp_verify_nonce( $nonce, 'menu_actions' ) ) {
+			wp_send_json_error( 'Invalid nonce.' );
+		}
+
+		$amplitude = new Hostinger_Amplitude();
+		$amplitude->track_menu_action( $event_action, $location );
 	}
 
 }

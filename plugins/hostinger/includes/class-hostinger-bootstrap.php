@@ -17,8 +17,18 @@ class Hostinger_Bootstrap {
 	}
 
 	private function load_dependencies(): void {
+		require_once HOSTINGER_ABSPATH . 'includes/class-hostinger-config.php';
+		require_once HOSTINGER_ABSPATH . 'includes/class-hostinger-helper.php';
+		require_once HOSTINGER_ABSPATH . 'includes/class-hostinger-errors.php';
 		require_once HOSTINGER_ABSPATH . 'includes/class-hostinger-settings.php';
+		require_once HOSTINGER_ABSPATH . 'includes/requests/class-hostinger-requests-client.php';
+		require_once HOSTINGER_ABSPATH . 'includes/amplitude/class-hostinger-amplitude-actions.php';
+		require_once HOSTINGER_ABSPATH . 'includes/amplitude/class-hostinger-amplitude.php';
+		require_once HOSTINGER_ABSPATH . 'includes/class-hostinger-updates.php';
+		require_once HOSTINGER_ABSPATH . 'includes/surveys/class-hostinger-surveys-questions.php';
+		require_once HOSTINGER_ABSPATH . 'includes/surveys/class-hostinger-surveys.php';
 		$this->load_onboarding_dependencies();
+		$this->load_public_dependencies();
 
 		if ( is_admin() ) {
 			$this->load_admin_dependencies();
@@ -49,6 +59,10 @@ class Hostinger_Bootstrap {
 		require_once HOSTINGER_ABSPATH . 'includes/admin/class-hostinger-affiliates.php';
 		require_once HOSTINGER_ABSPATH . 'includes/admin/class-hostinger-admin-ajax.php';
 		require_once HOSTINGER_ABSPATH . 'includes/admin/class-hostinger-admin-redirect.php';
+	}
+
+	private function load_public_dependencies(): void {
+		require_once HOSTINGER_ABSPATH . 'includes/public/class-hostinger-public-assets.php';
 	}
 
 	private function define_admin_hooks(): void {

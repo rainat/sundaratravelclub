@@ -39,7 +39,7 @@ class GetCouponsCommandHandler extends CommandHandler
      */
     public function handle(GetCouponsCommand $command)
     {
-        if (!$this->getContainer()->getPermissionsService()->currentUserCanRead(Entities::COUPONS)) {
+        if (!$command->getPermissionService()->currentUserCanRead(Entities::COUPONS)) {
             throw new AccessDeniedException('You are not allowed to read coupons.');
         }
 
@@ -165,6 +165,8 @@ class GetCouponsCommandHandler extends CommandHandler
             if (in_array('used', $fields, true)) {
                 $row[BackendStrings::getFinanceStrings()['used']] = $coupon['used'];
             }
+
+            $row = apply_filters('amelia_before_csv_export_coupons', $row, $coupon);
 
             $rows[] = $row;
         }

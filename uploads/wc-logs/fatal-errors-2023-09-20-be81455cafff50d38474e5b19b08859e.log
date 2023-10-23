@@ -1,0 +1,18 @@
+2023-09-20T03:44:49+00:00 CRITICAL Uncaught Error: Object of class DateTime could not be converted to string in /home/u822946699/domains/sundaratravelclub.com/public_html/staging/wp-content/plugins/cuberaksi-xendit/shortcode/calendar.php:48
+Stack trace:
+#0 /home/u822946699/domains/sundaratravelclub.com/public_html/staging/wp-includes/shortcodes.php(395): Cuberaksi\Shortcode\Calendar\Shortcode_GCalendar->shortcode('', '', 'google-calendar')
+#1 [internal function]: do_shortcode_tag(Array)
+#2 /home/u822946699/domains/sundaratravelclub.com/public_html/staging/wp-includes/shortcodes.php(235): preg_replace_callback('/\\[(\\[?)(google...', 'do_shortcode_ta...', '[google-calenda...')
+#3 /home/u822946699/domains/sundaratravelclub.com/public_html/staging/wp-includes/class-wp-hook.php(310): do_shortcode('[google-calenda...')
+#4 /home/u822946699/domains/sundaratravelclub.com/public_html/staging/wp-includes/plugin.php(205): WP_Hook->apply_filters('[google-calenda...', Array)
+#5 /home/u822946699/domains/sundaratravelclub.com/public_html/staging/wp-includes/ in /home/u822946699/domains/sundaratravelclub.com/public_html/staging/wp-content/plugins/cuberaksi-xendit/shortcode/calendar.php on line 48
+
+2023-09-20T03:47:12+00:00 CRITICAL Uncaught Error: Object of class DateTime could not be converted to string in /home/u822946699/domains/sundaratravelclub.com/public_html/staging/wp-content/plugins/cuberaksi-xendit/shortcode/calendar.php:48
+Stack trace:
+#0 /home/u822946699/domains/sundaratravelclub.com/public_html/staging/wp-includes/shortcodes.php(395): Cuberaksi\Shortcode\Calendar\Shortcode_GCalendar->shortcode('', '', 'google-calendar')
+#1 [internal function]: do_shortcode_tag(Array)
+#2 /home/u822946699/domains/sundaratravelclub.com/public_html/staging/wp-includes/shortcodes.php(235): preg_replace_callback('/\\[(\\[?)(google...', 'do_shortcode_ta...', '[google-calenda...')
+#3 /home/u822946699/domains/sundaratravelclub.com/public_html/staging/wp-includes/class-wp-hook.php(310): do_shortcode('[google-calenda...')
+#4 /home/u822946699/domains/sundaratravelclub.com/public_html/staging/wp-includes/plugin.php(205): WP_Hook->apply_filters('[google-calenda...', Array)
+#5 /home/u822946699/domains/sundaratravelclub.com/public_html/staging/wp-includes/ in /home/u822946699/domains/sundaratravelclub.com/public_html/staging/wp-content/plugins/cuberaksi-xendit/shortcode/calendar.php on line 48
+
