@@ -32,4 +32,8 @@ Text Domain:	 sundara-theme
       padding: 0;  
       margin-bottom: 0;
     } 
+    
+    .yith-wcbk-booking-form {
+		margin-bottom: 0;
+	}
 }
