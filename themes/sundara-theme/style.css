@@ -13,3 +13,23 @@ Text Domain:	 sundara-theme
 /*
     Add your custom styles here
 */
+
+/*Custom YITH Bookign Form*/
+.yith-wcbk-booking-form input:not([type='checkbox']), .yith-wcbk-booking-form input.yith-wcbk-date-picker--formatted, .yith-wcbk-booking-form select, .yith-wcbk-booking-form textarea {
+    border-radius: 100px;
+    color: #8C8C8C;
+    font-size: 14px;
+    font-weight: 400;
+    padding-left: 20px;
+    padding-right: 20px;
+
+}
+
+@media screen and (min-width: 56.875em) {
+    .yith_wcbk_booking_product_form_widget {
+      border: none;
+      background-color: transparent;
+      padding: 0;  
+      margin-bottom: 0;
+    } 
+}
