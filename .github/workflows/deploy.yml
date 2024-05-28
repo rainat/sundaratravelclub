@@ -1,0 +1,28 @@
+on: push
+  branches:
+    - style
+name: 🚀 Deploy website on push
+jobs:
+  web-deploy:
+    name: 🎉 Deploy
+    runs-on: ubuntu-latest
+    steps:
+    - name: 🚚 Get latest code
+      uses: actions/checkout@v4
+
+    - name: 📂 Sync files theme
+      uses: SamKirkland/FTP-Deploy-Action@v4.3.5
+      with:
+        server: 151.106.117.144
+        username: ${{ secrets.FTPUSERNAME }}
+        password: ${{ secrets.FTPPASSWORD }}
+        local-dir: ./themes/sundara-theme/
+        server-dir: ./wp-content/themes/sundara-theme/
+        exclude: |
+          **/.git*
+          **/.git*/**
+          **/node_modules/**
+          
+
+
+   
