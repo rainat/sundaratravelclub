@@ -1,0 +1,17 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.onest-font {
+  font-family: "Onest", sans-serif;
+  font-optical-sizing: auto;
+  font-style: normal;
+}
+
+.animate-bounced {
+  animation: bounce 1s;
+}
+
+.myaccountpage__custom button {
+  color: none !important;
+}

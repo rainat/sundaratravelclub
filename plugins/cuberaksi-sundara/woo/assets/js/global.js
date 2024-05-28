@@ -1,17 +1,17 @@
 (function ($) {
 
 	$(document).ready(() => {
-		$('.yith_wcbk_booking_product_form_widget').css('position','fixed')
+		// $('.yith_wcbk_booking_product_form_widget').css('position', 'fixed')
 		//triger click on desktop
 		$('#yith-form-fake').click(() => {
 			// $('#hidingme').css('display','block')
-$('.yith_wcbk_booking_product_form_widget').css({'top':'15%', 'left':'40%'})
+			$('.yith_wcbk_booking_product_form_widget').css({ 'top': '15%', 'left': '40%' })
 			
 			
 		})
 		$('#btn-yith-form-fake').click(() => {
 			// $('#hidingme').css('display','block')
-			$('.yith_wcbk_booking_product_form_widget').css({'top':'15%', 'left':'40%'})
+			$('.yith_wcbk_booking_product_form_widget').css({ 'top': '15%', 'left': '40%' })
 			
 		}) 
 
@@ -350,8 +350,14 @@ $('.yith_wcbk_booking_product_form_widget').css({'top':'15%', 'left':'40%'})
 				}
 				
 
-				let length = document.querySelectorAll('.woocommerce-Price-amount.amount').length
-				let price = document.querySelectorAll('.product .woocommerce-Price-amount.amount')[0].textContent
+				let length = document.querySelectorAll('.product .woocommerce-Price-amount.amount').length
+				let price = document.querySelectorAll('.product .woocommerce-Price-amount.amount')[length - 1].textContent
+				
+				// console.log(Array.from(document.querySelectorAll('.product .woocommerce-Price-amount.amount')).map((itm) => {
+				// 	return {
+				// 		value: itm.textContent
+				// 	}
+				// }))
 
 				$('[name="persons"]').attr('style', 'padding-left:30px!important')
 				let person = $('[name="persons"]').val()
@@ -374,11 +380,11 @@ $('.yith_wcbk_booking_product_form_widget').css({'top':'15%', 'left':'40%'})
 					}).format(val_price - cost).replace('.00', ''))		
 				}
 
-				if (person === 2) {
-					$('#detail-price').html(new Intl.NumberFormat('en-US', {
-						style: 'currency', currency: 'USD'
-					}).format(val_price).replace('.00', ''))		
-				}
+				// if (person === 2) {
+				$('#detail-price').html(new Intl.NumberFormat('en-US', {
+					style: 'currency', currency: 'USD'
+				}).format(val_price).replace('.00', ''))		
+				// }
 			
 
 				$('#detail-total').html(price)
@@ -424,8 +430,67 @@ $('.yith_wcbk_booking_product_form_widget').css({'top':'15%', 'left':'40%'})
 			// renderDetailPrices()
 		})
 
+		//click swiper to product
+		// let hrefswipers = $('[data-elementor-type="loop-item"] h2.product_title a')
+		// let indexArr = 0
+		// let loopitems = $('[data-elementor-type="loop-item"]')
+		$('[data-elementor-type="loop-item"]').hover(() => {
+			$(this).css('cursor', 'pointer')
+		})
+		$('[data-elementor-type="loop-item"]').click((e) => {
+			
+			location.href = $(e.target).find(' h2.product_title a').attr('href')
+		})
 
+		//if inclusions empty
+		if (!inclusions[0]) $('#inc').toggle() 
 
+		if (!inclusions[1]) $('#non-inc').toggle() 
+		
+		// .click(()=>{
+
+		// }) 
+		// 'h2.product_title a')
+		function refreshprice() {
+			var formData = new FormData()
+			// 			product_id: 8566
+			// duration: 1
+			// from: 2024-04-06
+			// from_date: 2024-04-06
+			// persons: 8
+			// request: get_booking_data
+			// action: yith_wcbk_frontend_ajax_action
+			// context: frontend
+			// 			formData.append('action','yith_wcbk_frontend_ajax_action')
+			// 			formData.append('product_id','')
+			// 			formData.append('duration','')
+			// 			formData.append('from','')
+			// 			formData.append('from_date','')
+			// 			formData.append('persons','')
+			// 			formData.append('request','get_booking_data')
+			// 			formData.append('context','')
+
+			// 			$.ajax({
+			// 				type: 'POST',
+			// 				url: ajaxurl,
+			// 				data: formData,
+			// 				enctype: 'multipart/form-data',
+			// 				success: function (data) {
+			// 					console.log(data)
+			// 				}
+			// 			});
+		}
+		// $('form.cart input[name="persons"]').after(`<button id='plus-person'>+</button><button id='minus-person'>-</button>`)
+		// $('#plus-person').click(function (e) {
+		// 	e.preventDefault();
+		// 	document.querySelector('form.cart input[name="persons"]').stepUp()
+		// 	refreshprice()
+		// });	
+		// $('#minus-person').click(function (e) {
+		// 	e.preventDefault();
+		// 	document.querySelector('form.cart input[name="persons"]').stepDown()
+		// 	refreshprice()
+		// });	
 		
 	});
 

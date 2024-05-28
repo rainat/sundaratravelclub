@@ -51,7 +51,7 @@ defined('ABSPATH') || exit;
 				$current_user = wp_get_current_user();
 				if ($key === 'billing_first_name') {
 
-					$value = $current_user->user_firstname ;
+					$value = $current_user->user_firstname;
 					$value = !$value ? '-' : $value;
 				}
 

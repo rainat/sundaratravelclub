@@ -24,7 +24,7 @@ $title = $post->post_title;
     font-size: small;
 }
 </style>
-<div class="flex flex-col w-full px-0 gap-2 items-start my-3">
+<div class="cuber-detail-end flex flex-col w-full px-0 gap-2 items-start my-3">
 	<div class="mt-2 font-bold text-left">Details</div>
 	<div class="flex justify-between w-full  md:text-xs">
 		<div class="ml-3"><?= $title; ?></div>

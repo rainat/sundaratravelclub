@@ -1,0 +1,181 @@
+@media (max-width:910px) {
+  .yith-wcbk-mobile-fixed-form:not(.is-open) .product>#mobile-book-now {
+    display: block;
+  }
+}
+
+
+#mobile-book-now {
+  background-color: var(--e-global-color-primary);
+  color: #FFFFFF;
+  display: none;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.splide__slide img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+#place_order {
+  background-color: #bfb198 !important;
+}
+
+#place_order:hover {
+  background-color: #a97c50 !important;
+}
+
+
+* {
+  box-sizing: border-box;
+}
+
+
+
+.onest-font-400 {
+  font-family: "Onest", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.day-title {
+  font-size: 14px;
+  /*  gap: 4px;*/
+  border-radius: 20px;
+  padding: 4px 10px 4px 10px;
+  border: 1px solid #9D9D9D;
+  width: max-content;
+  position: absolute;
+  left: -90px;
+  top: 15px;
+  color: #8C8C8C;
+}
+
+/* The actual timeline (the vertical ruler) */
+.timeline {
+  position: relative;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* The actual timeline (the vertical ruler) */
+.timeline::after {
+  content: '';
+  position: absolute;
+  width: 1px;
+  background-color: #8C8C8C;
+  top: 35px;
+  bottom: 0;
+  left: 112px;
+  margin-left: -3px;
+}
+
+/* Container around content */
+.timeline .container {
+  padding: 10px 40px;
+  position: relative;
+  background-color: inherit;
+  width: 80%;
+}
+
+
+
+/* The circles on the timeline */
+.timeline .container::after {
+  content: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABoAAAAaCAYAAACpSkzOAAAAAXNSR0IArs4c6QAAAidJREFUSA21lr9uwjAQxnmEPkIfoY/QV+jcPkqrZkBCSmwFiQ3RnYWZiTDBCAPdkKjE1qliY3P7s3zIMXZAFE6KnIvt7/Od709arRNSFMWj1vpdKTXVWn8ppQyP1vrHfSvzPH84AZOehgAgAT5jnLInjRjMZFl2p7UuBbjX65mqqsx6vTa73c6I8L7dbs14PDb9ft9a6Swty7K8C2DraqfTuVdKLdkAwWw2M/v9XrAbR9bK4cAAq47uNCwREk7on76RwZtkj2fdMmqZuOtSEuHzycCsWeUu3pp+iSVCIiMYuB5X1gJEoms+n8vaf4/enU2tVeQAzLisSb43K1N9vJpR+8UMX5/s+2ZRJbcQRDWrlFJdiAjTlHxWQwsOQfgwlxLSwrkva4nbyImYcOoQPNS/N5+xrTb3IIIDIkpJMpxxVwgc6qyJCUEBNqULIqvEFvItBI3p3FtKBP8k0aj9fBbZSSKpyKn8Ocd1k0Gz67ieQzBQNGNCWMfc5X/bLCaxrbboOtdNW0VRZCiEYkpWk3R4M5cSUsYRdSGi79jkaqrUnBoXYQmXPxm8GaxtEimwh8YouXTTEkQd8q1KBUXTycM5yR88VSuqkEkpumabALPWJlBoUtdufDTTIyI++K0cs8+9M4KItVKtG1u5MDvLbEWHDFcSphRd//54J/dIC4+AcO4mLRESf3QBcrvfLZ+Md3Igz3Ms5AfSVnosdaWLf7nsKLJCkD/9F397PTr4Wqc0AAAAAElFTkSuQmCC");
+  position: absolute;
+  width: 13px;
+  height: 13px;
+  right: -17px;
+  zoom: 50%;
+  /* background-color: #8C8C8C;
+  border: 1px solid #A87C51;*/
+  top: 45px;
+  border-radius: 50%;
+  z-index: 1;
+}
+
+/* Place the container to the left */
+.timeline .left {
+  left: 0;
+}
+
+/* Place the container to the right */
+.timeline .right {
+  left: 110px;
+}
+
+
+/* Add arrows to the left container (pointing right) */
+.timeline .left::before {
+  content: " ";
+  height: 0;
+  position: absolute;
+  top: 22px;
+  width: 0;
+  z-index: 1;
+  right: 30px;
+  border: medium solid white;
+  border-width: 10px 0 10px 10px;
+  border-color: transparent transparent transparent white;
+}
+
+/* Add arrows to the right container (pointing left) */
+.timeline .right::before {
+  content: " ";
+  height: 0;
+  position: absolute;
+  top: 22px;
+  width: 0;
+  z-index: 1;
+  left: 30px;
+  border: medium solid white;
+  border-width: 10px 10px 10px 0;
+  border-color: transparent white transparent transparent;
+}
+
+/* Fix the circle for containers on the right side */
+.timeline .right::after {
+  left: -16px;
+}
+
+/* The actual content */
+.timeline .content {
+  /*  padding: 20px 30px;*/
+  /*  background-color: white;*/
+  position: relative;
+  /*  border-radius: 6px;*/
+  padding-bottom: 10px;
+  border-bottom: solid 1px #C7C7C7;
+  font-size: 14px;
+  color: #656565;
+}
+
+.timeline ul {
+  margin-left: 20px;
+}
+
+.w-48rem {
+  width: 48rem;
+}
+
+.onest-font {
+  font-family: "Onest", sans-serif;
+  font-optical-sizing: auto;
+  font-style: normal;
+}
+
+/*input[name="persons"]::-webkit-outer-spin-button,
+input[name="persons"]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}*/
+
+.woocommerce-order-details input {
+  border: 1px solid #9D9D9D !important;
+  border-radius: 20px !important;
+  background: white !important;
+}

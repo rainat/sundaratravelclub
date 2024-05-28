@@ -111,3 +111,26 @@ function console_log($obj)
 }
 
 // delete_transient('currency_rate_');
+
+function is_commingsoon($date1, $date2)
+		{
+			$diff = date_diff($date1, $date2);
+			$invert = $diff->invert;
+			$between = $invert ? -$diff->days : $diff->days;
+
+			if ($between >= 0) return false;
+			if ($between < 0) return true;
+		}
+
+function is_this_comingsoon()
+{
+	$temp = get_field('comingsoon');
+	if ($temp) {
+				$exp = explode('.', $temp);
+				$date1 = date_create("{$exp[2]}-{$exp[1]}-{$exp[0]}");
+				$date2 = date_create();
+
+				return is_commingsoon($date1, $date2);
+			}
+	// return false;
+}

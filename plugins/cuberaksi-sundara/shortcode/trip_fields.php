@@ -26,8 +26,8 @@ class Shortcode_Trip
 	{
 		add_shortcode('trip_fields', [$this, 'shortcode']);
 		add_shortcode('product_tooltip', [$this, 'shortcode_product_tooltip']);
-		add_shortcode('cuber_timelines',[$this,'shortcode_cuber_timeline']);
-
+		add_shortcode('cuber_timelines', [$this, 'shortcode_cuber_timeline']);
+		add_shortcode('cuber_summary_timelines', [$this, 'shortcode_cuber_summary_timeline']);
 	}
 
 	function shortcode_product_tooltip($atts = [], $content = null, $shortcode = '')
@@ -43,9 +43,10 @@ class Shortcode_Trip
 
 	function shortcode_cuber_timeline($atts = [], $content = null, $shortcode = '')
 	{
-        
-		function render_day_content($content,$index)
+
+		function render_day_content($content, $index)
 		{
+			
 			echo "<div class='container right'>
 		        <div class='day-title'>Day $index</div>
 		        <div class='content'>
@@ -57,21 +58,84 @@ class Shortcode_Trip
 		global $post;
 		$product_id = $post->ID;
 		$days = [];
-		for ($i=1;$i<=12;$i++) {
-			$days[] = get_field("day_$i", $product_id); 	
+		for ($i = 1; $i <= 12; $i++) {
+			$days[] = get_field("day_$i", $product_id);
 		}
-		
+
 		ob_start();
-		echo "<div class='timeline onest-font-400'>";
+		echo "<div class='timeline onest-font-400' data-gol='itenary'>";
 		$count = 1;
-		foreach($days as $day)
-		{
-			if ($day) render_day_content($day,$count);
+		foreach ($days as $day) {
+			if ($day) render_day_content($day, $count);
 			$count++;
 		}
-		
- 
-        echo '</div>';
+
+
+		echo '</div>';
+
+		return ob_get_clean();
+	}
+
+	function shortcode_cuber_summary_timeline($atts = [], $content = null, $shortcode = '')
+	{
+
+		function render_container_info($data)
+		{
+			return
+				"<div class='ht-addinfo'>
+    <div class='ht-addinfo__col ht-addinfo__img'><img src='{$data['icon']}' width='20'></div> <div class='ht-addinfo__col ht-addinfo__desc'>
+        <p class='ht-addinfo__title'>{$data['description']}</p><p class='ht-addinfo__text'></p>
+</div></div>";
+		}
+
+		function render_day_content_summary($content, $index)
+		{
+			// print_r($content);
+			$lists = '';
+			foreach ($content['content'] as $list) {
+				$lists = $lists . render_container_info($list);
+			}
+
+			echo "<div class='container right'>
+		        <div class='day-title'>Day $index</div>
+		        <div class='content'>
+		          $lists
+		        </div>
+		      </div>";
+		}
+
+		global $post;
+
+		$posts = get_posts(array(
+			'posts_per_page'    => -1,
+			'post_type'     => 'product_summary',
+			'meta_key'      => 'product',
+			'meta_value'    => $post->ID
+		));
+
+		$days = [];
+		$summary_id = '';
+		if (function_exists('is_product')) {
+			if (is_product()) {
+				if ($posts) {
+					$summary_id = $posts[0]->ID;
+					$days = get_field("day", $summary_id);
+				}
+			}
+		}
+
+
+
+		ob_start();
+		echo "<div class='timeline onest-font-400' data-gol='summary'>";
+		$count = 1;
+		foreach ($days as $day) {
+			if ($day) render_day_content_summary($day, $count);
+			$count++;
+		}
+
+
+		echo '</div>';
 
 		return ob_get_clean();
 	}
@@ -130,7 +194,7 @@ class Shortcode_Trip
 			$view_logo['product_quoted'] = false;
 		}
 
-		if ((!$meeting_point) ) {
+		if ((!$meeting_point)) {
 			$view_logo['meeting_point'] = false;
 		}
 

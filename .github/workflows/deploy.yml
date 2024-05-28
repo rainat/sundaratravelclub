@@ -23,6 +23,19 @@ jobs:
           **/.git*
           **/.git*/**
           **/node_modules/**
+
+    - name: 📂 Sync files plugin suberaksi-sundara
+      uses: SamKirkland/FTP-Deploy-Action@v4.3.5
+      with:
+        server: 151.106.117.144
+        username: u822946699.sundara
+        password: Secret123!
+        local-dir: ./plugins/cuberaksi-sundara/
+        server-dir: ./wp-content/plugins/cuberaksi-sundara/
+        exclude: |
+          **/.git*
+          **/.git*/**
+          **/node_modules/**
           
 
 

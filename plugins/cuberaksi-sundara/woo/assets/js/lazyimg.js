@@ -1,5 +1,29 @@
 (function ($) {
     $(document).ready(() => {
+        //peroduct carousel
+        $('[data-elementor-type="loop-item"]').hover(() => {
+            $(this).css('cursor', 'pointer')
+        })
+        $('[data-elementor-type="loop-item"]').click((e) => {
+            let href = $(e.target).find('.product_title a')
+            
+            if (href.length) location.href = href.attr('href')
+            
+           
+
+
+        })
+
+        $('[data-elementor-type="loop-item"] .featured-article-bottom').click((e) => {
+            let href = $(e.target).find('a') 
+            if (href.length) location.href = href.attr('href')
+        })
+        // console.log(href)
+        
+
+        
+       
+
         $("img.lazy").each((idx, el) => {
             // console.log(idx,el)
             $(el).attr("src", $(el).attr("data-src"));
@@ -25,7 +49,7 @@
            
         }) 
 
-       // $('.elementor-9683').css('display','none')
+        // $('.elementor-9683').css('display','none')
         
     })
 

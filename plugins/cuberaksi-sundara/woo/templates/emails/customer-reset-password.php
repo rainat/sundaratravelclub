@@ -32,7 +32,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 <p><?php esc_html_e( 'If you didn\'t make this request, just ignore this email. If you\'d like to proceed:', 'woocommerce' ); ?></p>
 <p>
 	<a class="link" href="<?php echo esc_url( add_query_arg( array( 'key' => $reset_key, 'id' => $user_id ), wc_get_endpoint_url( 'lost-password', '', wc_get_page_permalink( 'myaccount' ) ) ) ); ?>"><?php // phpcs:ignore ?>
-		<?php esc_html_e( 'Click here to reset your password', 'woocommerce' ); ?>
+		<?php esc_html_e( 'Click here to reset your passwordss', 'woocommerce' ); ?>
 	</a>
 </p>
 
