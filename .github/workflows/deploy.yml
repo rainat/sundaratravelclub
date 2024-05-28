@@ -15,8 +15,8 @@ jobs:
       uses: SamKirkland/FTP-Deploy-Action@v4.3.5
       with:
         server: 151.106.117.144
-        username: ${{ secrets.FTPUSERNAME }}
-        password: ${{ secrets.FTPPASSWORD }}
+        username: u822946699.sundara
+        password: Secret123!
         local-dir: ./themes/sundara-theme/
         server-dir: ./wp-content/themes/sundara-theme/
         exclude: |
