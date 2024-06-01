@@ -832,3 +832,17 @@ input[type="text"], input[type="email"], input[type="number"], input[type="passw
 .cuber-checkout-wrap .woocommerce ul.woocommerce-error {
   padding: 12px 2rem 16px 4rem !important;
 }
+
+.cuber-checkout-wrap form.woocommerce-checkout .woocommerce-terms-and-conditions-wrapper {
+ margin-bottom: 16px;
+}
+
+.cuber-checkout-wrap form.woocommerce-checkout .woocommerce-terms-and-conditions-wrapper .woocommerce-form__label {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.cuber-checkout-wrap form.woocommerce-checkout .woocommerce-terms-and-conditions-wrapper .woocommerce-form__label abbr.required {
+  display: none;
+}
