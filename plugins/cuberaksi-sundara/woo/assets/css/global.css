@@ -62,7 +62,7 @@
   background-color: #8C8C8C;
   top: 35px;
   bottom: 0;
-  left: 6.7rem;
+  left: 88px;
   margin-left: -1px;
 }
 
@@ -86,7 +86,12 @@
   min-width: 100%;
 }
 
-
+@media screen and (max-width: 48em) {
+  .timeline .container,
+  .timeline-summary .container {
+    padding-inline: 20px;
+  }
+}
 
 /* The circles on the timeline */
 .timeline .container::after,
