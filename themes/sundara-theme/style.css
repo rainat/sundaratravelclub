@@ -618,19 +618,6 @@ ul, ol {
 }
 /*Highlight on Mobile*/
 
-@media screen and (max-width: 48em) {
-  .timeline:after {
-      left: 16px;
-  }
-  .timeline .day-title {
-      position: static;
-      margin-bottom: 8px;
-  }
-  .timeline .right {
-      left: 15px;
-      width: 100%;
-  }
-}
 [data-elementor-type='loop-item'] h2.product_title a, [data-elementor-type='loop-item'] a[rel='tag'] {
   color: white!important;
   font-weight: 700;
