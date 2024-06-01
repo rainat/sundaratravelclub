@@ -50,6 +50,7 @@
   position: relative;
   max-width: 1200px;
   margin: 0 auto;
+  padding-left: 7rem;
 }
 
 /* The actual timeline (the vertical ruler) */
@@ -61,8 +62,8 @@
   background-color: #8C8C8C;
   top: 35px;
   bottom: 0;
-  left: 0;
-  margin-left: 2px;
+  left: 6.7rem;
+  margin-left: -1px;
 }
 
 /* Container around content */
