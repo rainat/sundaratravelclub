@@ -62,21 +62,9 @@
   background-color: #8C8C8C;
   top: 35px;
   bottom: 0;
-  left: 88px;
+  left: 6.9rem;
   margin-left: -1px;
 }
-
-/* Container around content */
-.timeline-summary {
-  width: 600px;
-}
-
-@media screen and (max-width: 600px) {
-  .timeline-summary {
-    width: 280px;
-  }
-}
-
 
 .timeline .container,
 .timeline-summary .container {
