@@ -103,17 +103,11 @@
   left: 0;
 }
 
-/* Place the container to the right */
-/* .timeline .right,
-.timeline-summary .right {
-  left: 110px;
-} */
-
 
 /* Add arrows to the left container (pointing right) */
 .timeline .left::before,
 .timeline-summary .left::before {
-  content: " ";
+  /* content: " "; */
   height: 0;
   position: absolute;
   top: 22px;
