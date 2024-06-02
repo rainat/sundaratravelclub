@@ -17,10 +17,18 @@
 #gallery-content #thumbnails li {
     width: 100% !important;
     height: 130px !important;
-    margin-left: 10px !important;
-    margin-right: 10px !important;
-    border-radius: 20px !important;
+    margin-left: 8px !important;
+    margin-right: 8px !important;
+    border-radius: 8px !important;
 }
+
+#gallery-content #thumbnails li img {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover !important;
+    border-radius: 8px !important;
+}
+
 #gallery-content .splide__arrows .splide__arrow--prev, .splide__arrow--next {
     width: 30px !important;
 }
@@ -211,9 +219,6 @@ body.home .main-header-menu li:hover a, body.single-product .main-header-menu li
     }
     .wrap-map-sc iframe {
         height: 250px !important;
-    }
-    #gallery-content #thumbnails li {
-        height: 100% !important;
     }
 }
 #breadcumb-item {
@@ -510,7 +515,7 @@ ul, ol {
         margin-left: 20px;
     }
     #gallery-content #thumbnails li {
-        height: 90px;
+        height: 60px !important;
     }
 }
 .tabs-carousel-product.elementor-widget-tabs .elementor-tabs-content-wrapper .elementor-tab-mobile-title {
