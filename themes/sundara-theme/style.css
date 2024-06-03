@@ -832,3 +832,12 @@ input[type="text"], input[type="email"], input[type="number"], input[type="passw
 .cuber-checkout-wrap form.woocommerce-checkout .woocommerce-terms-and-conditions-wrapper .woocommerce-form__label abbr.required {
     display: none;
 }
+/*Woocommerce Error Notification*/
+.woocommerce-error {
+  border-top-color: #c0b198;
+  background-color: #f4efe8;
+}
+
+.woocommerce-error::before {
+  color:#c0b198;
+}
