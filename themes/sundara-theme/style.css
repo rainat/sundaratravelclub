@@ -841,3 +841,7 @@ input[type="text"], input[type="email"], input[type="number"], input[type="passw
 .woocommerce-error::before {
   color:#c0b198;
 }
+
+.cky-btn-revisit-wrappe {
+    display: none;
+}
