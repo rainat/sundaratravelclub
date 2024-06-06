@@ -843,5 +843,5 @@ input[type="text"], input[type="email"], input[type="number"], input[type="passw
 }
 
 .cky-btn-revisit-wrapper {
-    display: none;
+    display: none !important;
 }
