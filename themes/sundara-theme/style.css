@@ -317,7 +317,7 @@ body.home #mysticky-nav .site-header::after {
     transition: all .2s linear;
 }
 #mysticky-nav.wrapfixed .myfixed::after {
-    top: 0;
+    top: 0 !important;
 }
 body.home #mysticky-nav.wrapfixed .ast-primary-header-bar span.site-logo-img a img, body.single-product #mysticky-nav.wrapfixed .ast-primary-header-bar span.site-logo-img a img, body.page-no-banner #mysticky-nav.wrapfixed .ast-primary-header-bar span.site-logo-img a img {
     filter: brightness(0);
