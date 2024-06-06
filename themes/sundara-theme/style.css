@@ -842,6 +842,6 @@ input[type="text"], input[type="email"], input[type="number"], input[type="passw
   color:#c0b198;
 }
 
-.cky-btn-revisit-wrappe {
+..cky-btn-revisit-wrapper {
     display: none;
 }
