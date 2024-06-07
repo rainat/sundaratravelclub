@@ -17,17 +17,17 @@
         });
     
         /*Mobile stick footer Product detail*/
-        // const $section = $('.product-hero-banner'),
-        //     $secTarget = $('.yith-wcbk-mobile-fixed-form'),
-        //     sectionOffset = $section.offset().top;
-        // $(window).on('scroll', ()=> {
-        //     const scrollPosition = $(this).scrollTop();
-        //     if (scrollPosition <= 100) {
-        //         $secTarget.removeClass('active');
-        //     } else {
-        //         $secTarget.addClass('active');
-        //     }
-        // });
+        const $section = $('.product-hero-banner'),
+            $secTarget = $('.yith-wcbk-mobile-fixed-form'),
+            sectionOffset = $section.offset().top;
+        $(window).on('scroll', ()=> {
+            const scrollPosition = $(this).scrollTop();
+            if (scrollPosition <= 30) {
+                $secTarget.removeClass('active');
+            } else {
+                $secTarget.addClass('active');
+            }
+        });
     });
 })(jQuery)
 //test
