@@ -22,7 +22,7 @@
             sectionOffset = $section.offset().top;
         $(window).on('scroll', ()=> {
             const scrollPosition = $(this).scrollTop();
-            if (scrollPosition <= 10) {
+            if (scrollPosition <= 8) {
                 $secTarget.removeClass('active');
             } else {
                 $secTarget.addClass('active');
