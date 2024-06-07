@@ -845,3 +845,8 @@ input[type="text"], input[type="email"], input[type="number"], input[type="passw
 .cky-btn-revisit-wrapper {
     display: none !important;
 }
+
+.timeline .content, 
+.timeline-summary .content {
+    overflow-x: scroll;
+}
