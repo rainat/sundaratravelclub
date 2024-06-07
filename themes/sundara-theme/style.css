@@ -803,6 +803,10 @@ input[type="text"], input[type="email"], input[type="number"], input[type="passw
 /*Yith sticky footer*/
 
 @media screen and (max-width: 56.875em) {
+    .yith-wcbk-mobile-fixed-form {
+        transition: all .2s linear !important;
+        transition-duration: 0.3s !important;
+    }
     .yith-wcbk-mobile-fixed-form:not(.active) {
         bottom: -100%;
     }
