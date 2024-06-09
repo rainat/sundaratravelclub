@@ -382,11 +382,11 @@ body.home .main-header-bar-wrap, body.single-product .main-header-bar-wrap {
 /*menu*/
 
 /* body.home #mysticky-nav.wrapfixed, 
-body.home #mysticky-nav.wrapfixed .myfixed,
+body.home #mysticky-nav.wrapfixed .myfixed,*/
 body.single-product #mysticky-nav.wrapfixed,
 body.single-product #mysticky-nav.wrapfixed .myfixed {
   background: #fff !important;
-} */
+} 
 
 .ast-mobile-header-wrap .ast-mobile-header-content {
     display: block;
@@ -484,7 +484,8 @@ ul, ol {
 }
 /*Header homepage Sticky*/
 
-.home.ast-theme-transparent-header .main-header-bar, body.single-product #mysticky-nav .ast-main-header-wrap .main-header-bar {
+/*body.single-product #mysticky-nav .ast-main-header-wrap .main-header-bar,*/
+.home.ast-theme-transparent-header .main-header-bar {
     background-color: transparent !important;
 }
 @media screen and (min-width: 767px) {
