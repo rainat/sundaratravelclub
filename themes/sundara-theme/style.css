@@ -330,7 +330,10 @@ body.home #mysticky-nav.wrapfixed ul.main-header-menu li a, body.single-product 
 body.home #mysticky-nav ul.main-header-menu .sub-menu li a, body.single-product #mysticky-nav ul.main-header-menu .sub-menu li a, body.page-no-banner #mysticky-nav ul.main-header-menu .sub-menu li a {
     color: #111 !important;
 }
-body.home #mysticky-nav:not(.wrapfixed) .ast-button-wrap .ast-mobile-menu-trigger-outline .ast-mobile-svg, body.single-product #mysticky-nav:not(.wrapfixed) .ast-button-wrap .ast-mobile-menu-trigger-outline .ast-mobile-svg, body.page-no-banner #mysticky-nav:not(.wrapfixed) .ast-button-wrap .ast-mobile-menu-trigger-outline .ast-mobile-svg {
+ 
+/* body.single-product #mysticky-nav:not(.wrapfixed) .ast-button-wrap .ast-mobile-menu-trigger-outline .ast-mobile-svg, 
+body.page-no-banner #mysticky-nav:not(.wrapfixed) .ast-button-wrap .ast-mobile-menu-trigger-outline .ast-mobile-svg, */
+body.home #mysticky-nav:not(.wrapfixed) .ast-button-wrap .ast-mobile-menu-trigger-outline .ast-mobile-svg {
     fill: #fff
 }
 body.home #mysticky-nav.wrapfixed .ast-button-wrap .ast-mobile-menu-trigger-outline, body.single-product #mysticky-nav.wrapfixed .ast-button-wrap .ast-mobile-menu-trigger-outline, body.page-no-banner #mysticky-nav.wrapfixed .ast-button-wrap .ast-mobile-menu-trigger-outline {
