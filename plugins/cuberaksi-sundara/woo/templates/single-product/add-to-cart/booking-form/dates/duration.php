@@ -61,10 +61,10 @@ wp_add_inline_script('jquery-lazy-custom', "const pduration=$duration;", 'before
 
 <div class="yith-wcbk-form-section yith-wcbk-form-section-duration <?php echo esc_attr( $extra_classes ); ?>">
 	<label for="yith-wcbk-booking-to-date" class="yith-wcbk-form-section__label yith-wcbk-booking-form__label">To date</label>
-	<input type="text" id="to-date-cuber" class="yith-wcbk-date-picker--formatted yith-wcbk-booking-date yith-wcbk-booking-to-date" value=" " readonly>
+	<input type="text" id="to-date-cuber" class="yith-cuber-todate cuber-nohide yith-wcbk-date-picker--formatted yith-wcbk-booking-date yith-wcbk-booking-to-date" value=" " readonly>
 
 	<label for="<?php echo esc_attr( $field_id ); ?>" class='yith-wcbk-form-section__label yith-wcbk-booking-form__label'><?php echo esc_html( yith_wcbk_get_label( 'duration' ) ); ?></label>
-	<div class="yith-wcbk-form-section__content">
+	<div class="yith-wcbk-form-section__content cuber-duration-track">
 
 		<?php
 		yith_wcbk_print_field(

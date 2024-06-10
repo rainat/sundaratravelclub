@@ -1,0 +1,23 @@
+{
+  "node_modules/primereact/resources/themes/lara-light-indigo/fonts/Inter-italic.var.woff2": {
+    "file": "Inter-italic.var.woff2",
+    "src": "node_modules/primereact/resources/themes/lara-light-indigo/fonts/Inter-italic.var.woff2"
+  },
+  "node_modules/primereact/resources/themes/lara-light-indigo/fonts/Inter-roman.var.woff2": {
+    "file": "Inter-roman.var.woff2",
+    "src": "node_modules/primereact/resources/themes/lara-light-indigo/fonts/Inter-roman.var.woff2"
+  },
+  "src/main.jsx": {
+    "file": "admin.js",
+    "name": "admin",
+    "src": "src/main.jsx",
+    "isEntry": true,
+    "css": [
+      "admin.css"
+    ],
+    "assets": [
+      "Inter-roman.var.woff2",
+      "Inter-italic.var.woff2"
+    ]
+  }
+}

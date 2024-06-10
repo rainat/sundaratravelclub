@@ -3,7 +3,7 @@
 Plugin Name: Cuberaksi - Sundara - Woocommerce custom
 Plugin URI: http://cuberaksi.com
 Description: Custom woo for sundaratravelclub
-Version: 0.0.1
+Version: 1.0.0
 Author: Custom by Cuberaksi
 Author URI: http://cuberaksi.com
 */
@@ -15,6 +15,7 @@ if (!defined('ABSPATH')) {
 if (!defined('CUBERAKSI_SUNDARA_BASE_NAME')) define('CUBERAKSI_SUNDARA_BASE_NAME', plugin_basename(__DIR__));
 if (!defined('CUBERAKSI_SUNDARA_BASE_DIR')) define('CUBERAKSI_SUNDARA_BASE_DIR', plugin_dir_path(__FILE__));
 if (!defined('CUBERAKSI_SUNDARA_BASE_URL')) define('CUBERAKSI_SUNDARA_BASE_URL', plugin_dir_url(__FILE__));
+if (!defined('CUBERAKSI_SUNDARA_VERSION')) define('CUBERAKSI_SUNDARA_VERSION', '1.0.0');
 
 require_once CUBERAKSI_SUNDARA_BASE_DIR . "google/login-with-google.php";
 require_once CUBERAKSI_SUNDARA_BASE_DIR . "woo/custom.php";

@@ -115,10 +115,13 @@ if (yith_wcbk_is_booking_product($product->get_id())) {
 }
 ?>
 	<div class="flex flex-col gap-2" id="wrap-login-book">
-		<? /* aikhacode enable sementara */ ?>
-		 <button id="submit-bookable" type="submit" class="<?php echo esc_attr($add_to_cart_classes); ?>"
-	 	<?php echo "disabled";?>><?php echo $caption_button; //echo esc_html( $product->single_add_to_cart_text() );  ?></button>
+		<? /* aikhacode enable sementara */ 
+		   $comingsoon = is_this_comingsoon();
+
+		?>
+		 <button comingsoon="<?php if ($comingsoon) echo '1'; else echo '0';?>" id="submit-bookable" type="submit" class="<?php echo esc_attr($add_to_cart_classes); ?>"  > <?php echo $caption_button; //echo esc_html( $product->single_add_to_cart_text() );  ?></button>
 	 	<? /* aikhacode enable sementara */ ?>
+
 <?php
 	/* aikhacode disable sementara 
 	/* <?php if (is_user_logged_in()): ?>

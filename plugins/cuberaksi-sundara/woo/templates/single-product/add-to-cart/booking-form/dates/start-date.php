@@ -39,9 +39,9 @@ list(
 		yith_wcbk_print_field(
 			array(
 				'type'  => yith_wcbk()->settings->display_date_picker_inline() ? 'datepicker-inline' : 'datepicker',
-				'id'    => 'yith-wcbk-booking-start-date-' . $product->get_id(),
+				'id'    => 'yith-cuber-startdate yith-wcbk-booking-start-date-' . $product->get_id(),
 				'name'  => 'start-date',
-				'class' => 'yith-wcbk-booking-date yith-wcbk-booking-start-date',
+				'class' => 'cuber-nohide yith-wcbk-booking-date yith-wcbk-booking-start-date',
 				'data'  => array(
 					'type'                => 'from',
 					'all-day'             => ! ! $all_day_booking ? 'yes' : 'no',

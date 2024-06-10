@@ -115,7 +115,7 @@ if ( ! class_exists( 'YITH_PayPal_EC_Admin' ) ) {
 			$args = array(
 				'create_menu_page' => true,
 				'parent_slug'      => '',
-				'page_title'       => 'PayPal Express Checkout for WooCommerce',
+				'page_title'       => 'YITH PayPal Express Checkout for WooCommerce',
 				'menu_title'       => 'PayPal Express Checkout',
 				'capability'       => 'manage_options',
 				'parent'           => '',
