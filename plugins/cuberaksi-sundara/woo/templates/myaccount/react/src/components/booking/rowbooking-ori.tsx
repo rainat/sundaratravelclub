@@ -136,7 +136,7 @@ export function RowBooking({ item, section }: TRowBookings) {
 			<img src={data.image} className="w-20 h-20 rounded-xl" />
 
 			<div className="flex flex-col gap-2 w-full">
-				{/* <h3 className="text-xl font-[600] leading-6 mb-0">{data.title}</h3> */}
+				<h3 className="text-xl font-[600] leading-6">{data.title}</h3>
 				<div className="flex flex-row gap-4">
 					<div>
 						<div className="text-[16px] text-[#C7C7C7]">From</div>
@@ -162,10 +162,10 @@ export function RowBooking({ item, section }: TRowBookings) {
 
 			<div className="flex md:flex-col flex-row flex-start gap-4 ">
 				<h4 className="flex md:justify-end md:ml-0 ml-24 font-semibold text-2xl text-[600] text-[#A87C51]">{data.price}</h4>
-				{/* <div className="flex gap-4 flex-row-reverse">
+				<div className="flex gap-4 flex-row-reverse">
 					<Content />
 					
-				</div> */}
+				</div>
 			</div>
 
 			</div>

@@ -96,7 +96,25 @@ if (is_user_logged_in())
 
 </form>
 
-<?php do_action('woocommerce_after_checkout_form', $checkout);
+<?php do_action('woocommerce_after_checkout_form', $checkout); ?>
+<script>
+   	
+// jQuery(document).ready(()=>{
+// 	 jQuery('a.showlogin').click((e)=>{ e.preventDefault(); console.log('clicked'); location.href = location.origin +'/login' })
+// 	 console.log('=========================')
+// })
+
+let interval = setInterval(function(){
+	if (document.querySelector('a.showlogin')) {
+		document.querySelector('a.showlogin').addEventListener('click',function(){
+			
+			location.href = location.origin +'/login';
+		})
+	}
+},200)
+
+</script> 
+<?php
 // wp_enqueue_script('unocss', 'https://cdn.jsdelivr.net/npm/@unocss/runtime');
 /*
 echo "<script>

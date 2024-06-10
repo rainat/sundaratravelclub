@@ -74,9 +74,11 @@ class Cuberaksi_Register_Dynamic_Tags
 		require_once "elementor/tag-duration.php";
 		require_once "elementor/tag-comingsoon.php";
 		require_once "elementor/tag-maxpeople.php";
+		require_once "elementor/tag-slot.php";
 		$dynamic_tags_manager->register(new Elementor_Dynamic_Tag_ACF_Duration);
 		$dynamic_tags_manager->register(new Elementor_Dynamic_Tag_ACF_Comingsoon);
 		$dynamic_tags_manager->register(new Elementor_Dynamic_Tag_ACF_Maxpeople);
+		$dynamic_tags_manager->register(new Elementor_Dynamic_Tag_ACF_Slot);
 	}
 
 	function init()

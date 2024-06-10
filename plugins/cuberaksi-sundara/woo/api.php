@@ -3,6 +3,8 @@
 namespace Cuberaksi\WooCommerce;
 
 use DateTime;
+use WP_REST_Request;
+use WP_REST_Response;
 
 class Cuberaksi_Api
 {
@@ -55,6 +57,28 @@ class Cuberaksi_Api
 				// }
 
 			));
+
+			register_rest_route('sundara/v1', '/slots', array(
+				'methods' => 'GET',
+				'callback' => [$this, 'api_get_slots'],
+				'permission_callback' => '__return_true',
+				// 'permission_callback' => function(){ return is_admin();},
+				// 'permission_callback' => function () {
+				// return current_user_can('edit_others_posts');
+				// }
+
+			));
+
+			register_rest_route('sundara/v1', '/slots', array(
+				'methods' => 'POST',
+				'callback' => [$this, 'api_post_slots'],
+				'permission_callback' => '__return_true',
+				// 'permission_callback' => function(){ return is_admin();},
+				// 'permission_callback' => function () {
+				// return current_user_can('edit_others_posts');
+				// }
+
+			));
 		});
 	}
 
@@ -62,6 +86,50 @@ class Cuberaksi_Api
 	{
 		wp_set_current_user(62);
 		$this->ajax_get_bookings();
+	}
+
+	function api_get_slots()
+	{
+		global $wpdb;
+
+		$sql = $wpdb->prepare(
+			"SELECT p.ID,p.post_title,p.post_type,p.post_status,
+		(SELECT meta_value FROM {$wpdb->prefix}postmeta WHERE post_id=p.ID AND meta_key='_sold_out_admin') as _sold_out ,
+		(SELECT meta_value FROM {$wpdb->prefix}postmeta WHERE post_id=p.ID AND meta_key='_slot_count') as _slot_count
+		from {$wpdb->prefix}posts p
+			
+		where p.post_type='product' and p.post_status = 'publish'
+		
+		");
+
+
+
+		$temp = $wpdb->get_results($sql, ARRAY_A);
+		
+		if (!is_wp_error($temp)) {
+			// foreach($temp as &$cell) {
+			// 	if (!$cell['_sold_out']) $cell['_sold_out'] = false;
+			// 	if (!$cell['_slot_count']) $cell['_slot_count'] = 8;
+			// }
+			return new WP_REST_Response($temp);
+		}
+
+		return new WP_REST_Response(['msg' => 'some db processing failed...'],400);
+
+	}
+
+	function api_post_slots(WP_REST_Request $request)
+	{
+		$body = json_decode($request->get_body(),true);
+		if ($body) {
+			$a = update_post_meta($body['post_id'],'_sold_out_admin',$body['_sold_out']);
+			$b = update_post_meta($body['post_id'],'_slot_count',$body['_slot_count']);
+
+			if ((!is_wp_error($a)) && (!is_wp_error($b))) {
+				return new WP_REST_Response(['result' => 'success']);
+			}
+		}
+		return new WP_REST_Response(['error' => $body],400);
 	}
 
 	function ajax_get_bookings()

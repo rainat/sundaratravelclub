@@ -92,6 +92,7 @@ defined('ABSPATH') || exit;
 		<?php if ($checkout->get_checkout_fields('account')) : ?>
 
 			<div class="create-account">
+				
 				<?php foreach ($checkout->get_checkout_fields('account') as $key => $field) : ?>
 					<?php woocommerce_form_field($key, $field, $checkout->get_value($key)); ?>
 				<?php endforeach; ?>

@@ -81,16 +81,31 @@ class Shortcode_Trip
 
 		function render_container_info($data)
 		{
+			$c = wp_json_encode($data['gallery_summary']);
+			$t = $data['description'];
+			$show_gallery = false;
+			$gallery_contents = '';
+			if ($data['gallery_summary']) { 
+				$show_gallery = true;
+				$gallery_contents = "<a class='gallery-summary-link' title='{$t}' data-slide='{$c}' href='javascript:void(0);'>View Imaged Gallery</a>";
+			}
+
 			return
 				"<div class='ht-addinfo'>
-    <div class='ht-addinfo__col ht-addinfo__img'><img src='{$data['icon']}' width='20'></div> <div class='ht-addinfo__col ht-addinfo__desc'>
-        <p class='ht-addinfo__title'>{$data['description']}</p><p class='ht-addinfo__text'></p>
-</div></div>";
+                    <div class='ht-addinfo__col ht-addinfo__img'>
+                        <img src='{$data['icon']}' width='20'>
+                    </div> 
+                    <div class='ht-addinfo__col ht-addinfo__desc'>
+                        <p class='ht-addinfo__title'>{$data['description']}</p>
+                        <p class='ht-addinfo__text'>{$gallery_contents}</p>
+                    </div>
+                 </div>";
 		}
 
 		function render_day_content_summary($content, $index)
 		{
-			// print_r($content);
+			// $c = wp_json_encode(print_r($content,true));
+			// echo "<script>console.log({$c})</script>";
 			$lists = '';
 			foreach ($content['content'] as $list) {
 				$lists = $lists . render_container_info($list);

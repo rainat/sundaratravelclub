@@ -1,5 +1,6 @@
 (function ($) {
 	$(document).ready(() => {
+		$('div.elementor-element.elementor-element-a305e87.elementor-widget.elementor-widget-heading > div > h2').css('display','none')
 		if (typeof galleries !== undefined) {
 			// console.log({ galleries })
 
@@ -68,6 +69,7 @@
 
 				function populate_description(description) {
 					return `<p class="ht-addinfo__text">${description}</p>`
+					// return `<p class="ht-addinfo__text"></p>`
 				}
 
 				function populate_gallery_link(gallery, day, idx) {
@@ -170,6 +172,7 @@
 			})
 
 
+
 			//mobile day 1 ... day5...
 			// if (window.innerWidth<768)
 			// {
@@ -186,8 +189,113 @@
 
 		  	
 			// }
+
+			function doPopupGallerySummary(slideData,title) {
+				if (elementorProFrontend.modules.popup) {
+						
+					elementorProFrontend.modules.popup.showPopup({ id: 7977 });
+					const dataSlide = slideData
+
+					// let flag = slideData.day - 1
+					// // let itenary = document.querySelectorAll('.elementor-testimonial__text')[flag].firstChild.textContent
+					// let itenary = galleries[`day${slideData.day}`][`${slideData.gal}`].title
+
+					// console.log(itenary)
+
+					// let title = $('#title-itenary h2').text()
+					$('#title-itenary h2').text(title.replace('{title_itenary}', title))
+
+					function populateImages(index, mode) {
+						let tmp = ''
+						dataSlide.map((img) => {
+							if (mode === 'full')
+								// 			tmp = tmp + `<li class="splide__slide">
+								//   <a data-fslightbox='gallery' href='${img.full}'><img
+								//     src='${img.full}'
+								//     alt=""
+								//   /></a>
+								// </li>`
+								tmp = tmp + `<li class="splide__slide">
+            <img
+              src='${img.url}'
+              alt=""
+            />
+          </li>`
+
+
+							if (mode === 'thumbnail')
+								tmp = tmp + `<li class="thumbnail">
+         <img src="${img.sizes.thumbnail}" alt="" />
+       </li> `
+
+						})
+						return tmp
+					}
+
+					// let content = `<div class="gal-slider">` + populateImages(slideNum, 'full') + `</div>
+					// <div class="gal-slider-nav">` + populateImages(slideNum, 'thumbnail') + `</div>`
+
+					let content = `<section id="main-slider" class="splide" aria-label="My Sundara Gallery">
+      <div class="splide__track">
+        <ul class="splide__list">` + populateImages(0, 'full') +
+        
+						`</ul>
+      </div>
+    </section>
+
+    <ul id="thumbnails" class="thumbnails">` + populateImages(0, 'thumbnail') +
+      
+						`</ul>`
+
+					$('#gallery-content').html(content)
+				}	
+			}
 		  
-			
+				$('.gallery-summary-link').click((e) => {
+				const slideData = JSON.parse($(e.target).attr('data-slide'))
+				// console.log({ slideData })
+				
+				doPopupGallerySummary(slideData,$(e.target).attr('title'))
+				
+				var splide = new Splide("#main-slider", {
+					width: '100%',
+					// height: 400,
+					heightRatio: 0.5,
+					pagination: true,
+					cover: true
+				});
+
+				var thumbnails = document.getElementsByClassName("thumbnail");
+				var current;
+
+				for (var i = 0; i < thumbnails.length; i++) {
+					initThumbnail(thumbnails[i], i);
+				}
+
+				function initThumbnail(thumbnail, index) {
+					thumbnail.addEventListener("click", function () {
+						splide.go(index);
+					});
+				}
+
+				splide.on("mounted move", function () {
+					var thumbnail = thumbnails[splide.index];
+
+					if (thumbnail) {
+						if (current) {
+							current.classList.remove("is-active");
+						}
+
+						thumbnail.classList.add("is-active");
+						current = thumbnail;
+					}
+				});
+
+				splide.mount();
+
+				
+				
+			})
 		
 			
 				

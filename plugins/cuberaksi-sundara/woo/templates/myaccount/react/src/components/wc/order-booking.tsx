@@ -41,10 +41,10 @@ export function OrderRowbookingElement(data: IOrderRowbookingElement) {
 
 				<div className="flex flex-col gap-4 w-1/3">
 					<h4 className="flex justify-end font-semibold text-2xl text-[600] text-[#A87C51]">$ {new Intl.NumberFormat('en-US').format(Number(data.price))}</h4>
-					<div className="flex gap-4 flex-row-reverse">
+					{/* <div className="flex gap-4 flex-row-reverse">
 						@ $ {new Intl.NumberFormat('en-US').format(priceDetail)} x {data.persons}
 					
-					</div>
+					</div> */}
 				</div>
 
 			</div>

@@ -29,6 +29,74 @@
 
 		// document.querySelector('#payment').outerHTML =''
 		// document.querySelector('#customer_details').innerHTML = document.querySelector('#customer_details').innerHTML + `<div style='margin-top:2em'> </div>${payment}`
+
+		  //select city checkout
+		//   let negoro = $("select#billing_country").val()
+		//   fetch('https://countriesnow.space/api/v0.1/countries/cities',{
+		// 		body:JSON.stringify({country: negoro}),
+		// 		headers:{
+		// 			'Content-Type': 'application/json'
+		// 		}
+		// 	}).then((res)=>res.json()).then((res)=>{
+		// 		if (res.data) {
+		// 			let options = '' 
+		// 			res.data.map((neg)=>{
+		// 				options = options + `<option value='${neg}'>${neg}</option>`
+		// 			})
+		// 			$('select#billing_city').html(`<option value>Select city</option>${options}`)
+		// 		}
+				
+		// 	})
+		// $('select.wc-enhanced-select').select2()
+
+		let negoroValue = $("select#billing_country").val()
+        let negoro = $(`select#billing_country option[value='${negoroValue}']`).text()
+        fetch('https://countriesnow.space/api/v0.1/countries/cities', {
+            method: 'POST',
+            body: JSON.stringify({ country: negoro }),
+            headers: {
+                'Content-Type': 'application/json'
+            }
+        }).then((res) => res.json()).then((res) => {
+            if (res.data) {
+                let options = ''
+                res.data.map((neg) => {
+                    options = options + `<option value='${neg}'>${neg}</option>`
+                })
+                $('select#billing_city').html(`${options}`)
+                // $('select#billing_city').select2()
+            }
+
+        })
+
+
+        $('select#billing_city').select2()
+
+
+        $('select#billing_country').on('change', (e) => {
+            let negoroValue = e.target.value
+            let negoro = $(`select#billing_country option[value='${negoroValue}']`).text()
+            fetch('https://countriesnow.space/api/v0.1/countries/cities', {
+                method: 'POST',
+                body: JSON.stringify({ country: negoro }),
+                headers: {
+                    'Content-Type': 'application/json'
+                }
+            }).then((res) => res.json()).then((res) => {
+                if (res.data) {
+                    let options = ''
+                    res.data.map((neg) => {
+                        options = options + `<option value='${neg}'>${neg}</option>`
+                    })
+                    $('select#billing_city').html(`${options}`)
+                    // $('select#billing_city').select2()
+                }
+
+            })
+
+        })
+		
+		  
 	})
 	
 })(jQuery, document, window)

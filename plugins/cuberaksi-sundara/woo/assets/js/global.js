@@ -435,11 +435,13 @@
 		// let indexArr = 0
 		// let loopitems = $('[data-elementor-type="loop-item"]')
 		$('[data-elementor-type="loop-item"]').hover(() => {
-			$(this).css('cursor', 'pointer')
+			// $(this).css('cursor', 'pointer')
 		})
 		$('[data-elementor-type="loop-item"]').click((e) => {
 			
-			location.href = $(e.target).find(' h2.product_title a').attr('href')
+			// location.href = $(e.target).find('.elementor-heading-title a').attr('href')
+			// location.href = $(e.target).find('.elementor-icon-list-item a').attr('href')
+			// console.log('--',$(e.target).find('.elementor-icon-list-item a'))
 		})
 
 		//if inclusions empty
