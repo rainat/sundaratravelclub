@@ -799,12 +799,12 @@ div.minus {
         display: block !important
     }
 }
-.myaccountpage__custom #myaccountpage button {
+/* .myaccountpage__custom #myaccountpage button {
     border-color: #9D9D9D !important;
     background-color: #fff !important;
     color: #252525 !important;
     font-weight: 600 !important;
-}
+} */
 .myaccountpage__custom #myaccountpage button:disabled {
     opacity: 0.4;
     cursor: not-allowed;
