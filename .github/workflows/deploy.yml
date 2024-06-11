@@ -11,6 +11,17 @@ jobs:
     - name: 🚚 Get latest code
       uses: actions/checkout@v4
 
+    - name: Use Node.js 20
+      uses: actions/setup-node@v4
+      with:
+        node-version: 20
+      
+    - name: 🔨 Build Project
+      run: |
+        cd /plugins/cuberaksi-sundara/woo/templates/myaccount/react
+        npm install
+        npm run build
+
     - name: 📂 Sync files theme
       uses: SamKirkland/FTP-Deploy-Action@v4.3.5
       with:
