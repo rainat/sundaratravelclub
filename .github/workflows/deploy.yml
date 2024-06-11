@@ -18,7 +18,7 @@ jobs:
       
     - name: 🔨 Build Project
       run: |
-        cd /plugins/cuberaksi-sundara/woo/templates/myaccount/react
+        cd plugins/cuberaksi-sundara/woo/templates/myaccount/react
         npm install
         npm run build
 
