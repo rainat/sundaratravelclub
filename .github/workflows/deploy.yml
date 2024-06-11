@@ -35,7 +35,7 @@ jobs:
           **/.git*/**
           **/node_modules/**
 
-    - name: 📂 Sync files plugin suberaksi-sundara
+    - name: 📂 Sync files plugin cuberaksi-sundara
       uses: SamKirkland/FTP-Deploy-Action@v4.3.5
       with:
         server: 151.106.117.144
