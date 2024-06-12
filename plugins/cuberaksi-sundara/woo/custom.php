@@ -193,7 +193,7 @@ class Cuberaksi_Custom
 	{
 		add_action('wp_enqueue_scripts', function () {
 			wp_enqueue_style('cb-xd-globals', CUBERAKSI_SUNDARA_BASE_URL . 'woo/assets/css/global.css', [], CUBERAKSI_SUNDARA_VERSION);
-			wp_enqueue_style('child-style-sundara', "https://sundaratravelclub.com/wp-content/themes/sundara-theme/style.css", [], CUBERAKSI_SUNDARA_VERSION);
+			// wp_enqueue_style('child-style-sundara', "https://sundaratravelclub.com/wp-content/themes/sundara-theme/style.css", [], CUBERAKSI_SUNDARA_VERSION);
 
 			// wp_enqueue_script('jquery-lazy','https://cdnjs.cloudflare.com/ajax/libs/jquery.lazy/1.7.11/jquery.lazy.min.js',['jquery']);
 			// wp_enqueue_script('jquery-lazy-custom', CUBERAKSI_SUNDARA_BASE_URL . 'woo/assets/js/global.js', ['jquery'], '-' . CUBERAKSI_SUNDARA_VERSION);
