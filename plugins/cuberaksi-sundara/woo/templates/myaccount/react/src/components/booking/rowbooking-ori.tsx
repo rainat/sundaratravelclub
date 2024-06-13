@@ -161,7 +161,7 @@ export function RowBooking({ item, section }: TRowBookings) {
 			</div>
 
 			<div className="flex md:flex-col flex-row flex-start gap-4 ">
-				<h4 className="flex md:justify-end md:ml-0 ml-24 font-semibold text-2xl text-[600] text-[#A87C51]">{data.price}</h4>
+				<h4 className="flex md:justify-end md:ml-0 ml-24 font-semibold text-2xl text-[600] text-[#A87C51] mb-0">{data.price}</h4>
 				<div className="flex gap-4 flex-row-reverse">
 					<Content />
 					
