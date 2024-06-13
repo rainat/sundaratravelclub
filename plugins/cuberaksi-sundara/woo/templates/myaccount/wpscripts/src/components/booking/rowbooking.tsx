@@ -87,7 +87,7 @@ export function RowBooking({ item, section }: TRowBookings) {
 
 	const ProcessContent = () => {
 		const paid = 'border-yellow-600 bg-yellow-600 text-yellow-600 text-white hover:font-bold'
-		const hold = 'border-green-600 bg-red-600 text-green-600 text-white hover:font-bold'
+		const hold = 'border-green-600 bg-green-600 text-green-600 text-white hover:font-bold'
 		const failed = 'border-red-600 bg-red-600 text-red-600 text-white hover:font-bold'
 
 		const getStatusClass = (status: string) => {

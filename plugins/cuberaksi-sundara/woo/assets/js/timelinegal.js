@@ -76,11 +76,11 @@
 					if (gallery) return `<a class='gallery-link ' data-slide='{"day":"${day}","gal":"${idx}"}'  href='javascript:void(0);'>View Imaged Gallery > </a>`
 					return '';
 				}
-				console.log('index',index)
+				// console.log('index',index)
 				if (galleries[`day${index}`]) {
 					let results = '';
 					galleries[`day${index}`].map((itm, idx) => {
-						console.log({populate_itenary:1,idx,galleries,itm})
+						// console.log({populate_itenary:1,idx,galleries,itm})
 						img = itm.icon ? `<img src='${itm.icon}' width='20'>` : ' '
 						results = results + `<div class="ht-addinfo">
     <div class="ht-addinfo__col ht-addinfo__img">${img}</div> <div class="ht-addinfo__col ht-addinfo__desc">
@@ -94,10 +94,10 @@
 			//timeline
 			// console.log({galleries})
 			const gal = $('.timeline[data-gol="itenary"] .container .content').each((index, el) => {
-				console.log('.timeline[data-gol="itenary"] .container .content',index,el)
+				// console.log('.timeline[data-gol="itenary"] .container .content',index,el)
 				// const children = $(el).append(populate_itenary(index+1))  
 				if (galleries[`day${index + 1}`]) {
-							 console.log('not summary',index)
+							//  console.log('not summary',index)
 							 $(el).append(populate_itenary(index + 1))  
 				}	
 					// $(el).html(children)
@@ -110,7 +110,7 @@
 			})
 
 			const galn = $('.elementor-testimonial__text').each((index, el) => {
-				console.log('.elementor-testimonial__text',el)
+				// console.log('.elementor-testimonial__text',el)
 				const children = $(el).html() + '<div style="padding-left:10px">' + populate_itenary(index + 1) + '</div>'
 				if (galleries[`day${index + 1}`]) 
 					$(el).html(children)

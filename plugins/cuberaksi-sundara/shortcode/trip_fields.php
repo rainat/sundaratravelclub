@@ -97,6 +97,7 @@ class Shortcode_Trip
                     </div> 
                     <div class='ht-addinfo__col ht-addinfo__desc'>
                         <p class='ht-addinfo__title'>{$data['description']}</p>
+						<p class='ht-addinfo__title'>{$data['itenary_description']}</p>
                         <p class='ht-addinfo__text'>{$gallery_contents}</p>
                     </div>
                  </div>";

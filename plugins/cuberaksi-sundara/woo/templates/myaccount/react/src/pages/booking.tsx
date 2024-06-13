@@ -24,7 +24,8 @@ export default function BookingContent() {
 	return (
 		<>
 			<h1 className="font-semibold text-xl">Bookings</h1>
-			<div className="booking-nav flex gap-4 my-4 mb-8 flex-nowrap" style={{ overflowX: 'auto' }}>
+			<div className="flex gap-4 my-4 mb-8 flex-wrap">
+
 				<Button onClick={() => setActiveTab('All')} variant={'outline'} className={classNames("rounded-full hover:text-white  hover:bg-[#BEB29A] hover:text-bold border-[#9D9D9D]", getCurrentActiveTabClass('All'))} >All</Button>
 				<Button onClick={() => setActiveTab('Unpaid')} variant={'outline'} className={classNames("hover:text-bold rounded-full hover:text-white  hover:bg-[#BEB29A] border-[#9D9D9D]", getCurrentActiveTabClass('Unpaid'))}>Unpaid</Button>
 				<Button onClick={() => setActiveTab('Completed')} variant={'outline'} className={classNames("rounded-full hover:text-bold hover:text-white  hover:bg-[#BEB29A] border-[#9D9D9D]", getCurrentActiveTabClass('Completed'))}>Completed</Button>

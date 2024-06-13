@@ -32,7 +32,7 @@
 					if (elementorProFrontend.modules.popup) {
 						
 						elementorProFrontend.modules.popup.showPopup({ id: 6717 }); 
-						console.log('founded', $('.woocommerce-notices-wrapper .woocommerce-message').text())
+						// console.log('founded', $('.woocommerce-notices-wrapper .woocommerce-message').text())
 						$('#woo-msg-notice').html($('#woo-msg-notice').html().replace("{{message_notice}}", $('.woocommerce-notices-wrapper .woocommerce-message').text()))	
 						clearInterval(interval);
 
@@ -414,10 +414,22 @@
 	
 		// $(`#product-${productme.ID} p.price`).css('display', 'none')
 
-		
+		function renderDetailPrices2(){
+			let a = $('.product p.price')
+			if (a.length)
+				{
+					let price = $(a).text()
+					let priceText = price.substr(0,price.length-8)
+					$('#detail-price').html('')
+					$('#detail-price').html(priceText)
+					$('#detail-total').html('')	
+					$('#detail-total').html(priceText)
+				}
+		}
 		
 		setInterval(() => {
-			renderDetailPrices()	
+			// renderDetailPrices()	
+			renderDetailPrices2()
 			renderIncludeTaxText()
 		}, 300)
 		

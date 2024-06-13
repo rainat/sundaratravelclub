@@ -27,9 +27,9 @@
             if ($('.yith-wcbk-mobile-fixed-form .price').length)
                 {
                     if ($('.yith-wcbk-mobile-fixed-form .price').text().includes('/person')) {
-                        console.log('yes'); 
+                        // console.log('yes'); 
                     } else {
-                        console.log('no')
+                        // console.log('no')
                         let price_1 = $('.yith-wcbk-mobile-fixed-form .price').text()
                         $('.yith-wcbk-mobile-fixed-form .price')
                             .text(price_1)

@@ -47,8 +47,8 @@ foreach (WC()->cart->get_cart() as $cart_item_key => $cart_item) {
 		// $cart_item['line_subtotal'] = 5000;
 		// $cart_item['line_total'] = 5000;
 		$price = $cart_item['line_subtotal'];
-		// console_log($price);
-		// console_log($cart_item);
+		console_log($price);
+		console_log($cart_item);
 
 		?>
 

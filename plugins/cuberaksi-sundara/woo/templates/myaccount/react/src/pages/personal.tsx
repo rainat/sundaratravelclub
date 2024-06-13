@@ -186,7 +186,7 @@ export function Personal() {
 					<div className="mt-2">
 						<h5 className="text-[14px] font-semibold">Profile picture</h5>
 						<input ref={fileref} type="file" onChange={(e) => handlefilechange(e)} hidden accept="image/png, image/gif, image/jpeg" />
-						<button className={clsx("w-[92px] h-[38px] mt-[10px] mr-[23px] hover:bg-[#A87C51] bg-[#ffffff] hover:ease-linear text-black hover:text-white font-semibold text-[14px] rounded-[20px] bordered border-[1px] border-color-[#A87C51]", 
+						<button className={clsx("w-[92px] h-[38px] mt-[10px] mr-[23px] hover:bg-[#A87C51] bg-[#A87C51] hover:ease-linear text-white font-semibold text-[14px] rounded-[20px] bordered border-[1px] border-color-[#A87C51]", 
 							{ 
 								
 								'bg-opacity-60': !editMode,
