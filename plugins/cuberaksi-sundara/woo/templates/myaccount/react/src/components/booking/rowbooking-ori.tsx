@@ -132,10 +132,10 @@ export function RowBooking({ item, section }: TRowBookings) {
 		<a className="flex flex-row gap-4 my-4 mt-4 hover:-translate-y-1  duration-300" href={data.url}>
 
 		    <div className="flex flex-col md:flex-row gap-4">
-		    <div className="flex flex-row gap-4">
+		    <div className="flex flex-row gap-4 md:items-start items-center">
 			<img src={data.image} className="w-20 h-20 rounded-xl" />
 
-			<div className="flex flex-col gap-2 w-full">
+			<div className="flex flex-col gap-2 w-full md:items-start items-center mb-4">
 				<h3 className="text-xl font-[600] leading-6">{data.title}</h3>
 				<div className="flex flex-row gap-4">
 					<div>
