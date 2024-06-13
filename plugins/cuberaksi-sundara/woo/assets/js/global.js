@@ -415,6 +415,17 @@
 		// $(`#product-${productme.ID} p.price`).css('display', 'none')
 
 		function renderDetailPrices2(){
+			// let duration = pduration
+			let idme = `yith-wcbk-booking-hidden-from${productme.ID}`
+
+			if ($(`#${idme}`).val()) {
+				let dt = new Date($(`#${idme}`).val())
+
+				dt.setDate(dt.getDate() + duration)
+
+				$('#to-date-cuber').val(dt.toLocaleDateString("en-US", { year: 'numeric', month: 'long', day: 'numeric' })).css('padding-left', '30px')	
+			}
+			
 			let a = $('.product p.price')
 			if (a.length)
 				{
