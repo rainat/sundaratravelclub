@@ -148,9 +148,7 @@ export function RowBooking({ item, section }: TRowBookings) {
 						<div className="text-sm md:text-base font-[500] text-black leading-6">{data.to}</div>
 					</div>
 
-					<div className="border-l-2 w-2 bordered">
-				 	   	
-					</div>
+					<div className="border-l-2 w-2 bordered"></div>
 
 					<div>
 						<div className="md:text-base text-sm text-[#C7C7C7]">Pax</div>
@@ -163,8 +161,7 @@ export function RowBooking({ item, section }: TRowBookings) {
 			<div className="flex md:flex-col flex-row flex-start gap-4 ">
 				<h4 className="flex md:justify-end md:ml-0 ml-24 font-semibold text-lg text-[600] text-[#A87C51] mb-0">{data.price}</h4>
 				<div className="flex gap-4 flex-row-reverse">
-					<Content />
-					
+					<Content />	
 				</div>
 			</div>
 

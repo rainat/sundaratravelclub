@@ -132,28 +132,26 @@ export function RowBooking({ item, section }: TRowBookings) {
 		<a className="flex flex-row gap-4 my-4 mt-4 hover:-translate-y-1  duration-300   " href={data.url}>
 
 		    <div className="flex flex-col md:flex-row gap-4">
-		    <div className="flex flex-row gap-4">
+		    <div className="flex flex-row gap-4 md:items-start items-center">
 			<img src={data.image} className="w-20 h-20 rounded-xl" />
 
-			<div className="flex flex-col gap-2 w-full">
+			<div className="flex flex-col gap-2 w-full md:items-start items-center mb-4">
 				{/* <h3 className="text-xl font-[600] leading-6 mb-0">{data.title}</h3> */}
 				<div className="flex flex-row gap-4">
 					<div>
-						<div className="text-[16px] text-[#C7C7C7]">From</div>
-						<div className="text-lg font-[500] text-black leading-6">{data.from}</div>	
+						<div className="md:text-base text-sm text-[#C7C7C7]">From</div>
+						<div className="text-sm md:text-base font-[500] text-black leading-6">{data.from}</div>		
 					</div>
 
 					<div>
-						<div className="text-[16px] text-[#C7C7C7]">To</div>
-						<div className="text-lg font-[500] text-black leading-6">{data.to}</div>
+					<div className="md:text-base text-sm text-[#C7C7C7]">To</div>
+					<div className="text-sm md:text-base font-[500] text-black leading-6">{data.to}</div>
 					</div>
 
-					<div className="border-l-2 w-2 bordered">
-				 	   	
-					</div>
+					<div className="border-l-2 w-2 bordered"></div>
 
 					<div>
-						<div className="text-[16px] text-[#C7C7C7]">Pax</div>
+						<div className="md:text-base text-sm text-[#C7C7C7]">Pax</div>
 						<div className="text-lg font-[500] text-black leading-6">{data.persons} persons</div>
 					</div>
 				</div>	
@@ -161,7 +159,7 @@ export function RowBooking({ item, section }: TRowBookings) {
 			</div>
 
 			<div className="flex md:flex-col flex-row flex-start gap-4 ">
-				<h4 className="flex md:justify-end md:ml-0 ml-24 font-semibold text-2xl text-[600] text-[#A87C51]">{data.price}</h4>
+				<h4 className="flex md:justify-end md:ml-0 ml-24 font-semibold text-lg text-[600] text-[#A87C51] mb-0">{data.price}</h4>
 				<div className="flex gap-4 flex-row-reverse">
 					<Content />
 					
