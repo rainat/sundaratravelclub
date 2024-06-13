@@ -873,3 +873,8 @@ input[type="text"], input[type="email"], input[type="number"], input[type="passw
 .timeline-summary .content {
     overflow-x: scroll;
 }
+
+.booking-nav {
+    padding-top: 8px;
+    padding-bottom: 16px;
+}
