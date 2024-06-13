@@ -468,7 +468,8 @@ body.single-product #mysticky-nav.wrapfixed .myfixed {
 #trip-location {
     width: 20px;
 }
-.gallery-link {
+.gallery-link,
+.gallery-summary-link {
     color: var(--e-global-color-secondary)!important;
 }
 p, .entry-content p {
