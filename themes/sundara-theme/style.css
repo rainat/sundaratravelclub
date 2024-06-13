@@ -773,6 +773,9 @@ div.minus {
         width: 100%;
         max-width: 100%;
     }
+    .myaccountpage__custom #myaccountpage {
+        padding-inline: 16px;
+    }
 }
 /*My Account page*/
 

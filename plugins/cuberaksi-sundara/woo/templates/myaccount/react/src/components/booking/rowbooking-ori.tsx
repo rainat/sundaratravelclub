@@ -129,7 +129,7 @@ export function RowBooking({ item, section }: TRowBookings) {
 	} 
 
 	return (<>
-		<a className="flex flex-row gap-4 my-4 mt-4 hover:-translate-y-1  duration-300   " href={data.url}>
+		<a className="flex flex-row gap-4 my-4 mt-4 hover:-translate-y-1  duration-300" href={data.url}>
 
 		    <div className="flex flex-col md:flex-row gap-4">
 		    <div className="flex flex-row gap-4">
