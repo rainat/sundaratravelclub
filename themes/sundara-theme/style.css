@@ -841,10 +841,13 @@ textarea {
 }
 
 /*YITH BOOKING PERSON*/
+.yith-wcbk-booking-form input[type="number"] {
+    padding-left: 30px !important;
+}
+
 @media screen and (min-width: 922px) {
     .yith-wcbk-booking-form input[type="number"] {
-        padding-left: 32px;
-        min-width: 135px;
+        min-width: 138px !important;
     }
 }
 
