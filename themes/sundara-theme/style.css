@@ -832,22 +832,23 @@ textarea {
     font-size: 16px !important;
 }
 
-.yith-wcbk-booking-form input:not([type=checkbox]), 
-.yith-wcbk-booking-form input.yith-wcbk-date-picker--formatted, 
-.yith-wcbk-booking-form select, .yith-wcbk-booking-form textarea {
-    @media screen and (max-width: 922px) {
+@media screen and (max-width: 922px) {
+    .yith-wcbk-booking-form input:not([type=checkbox]), 
+    .yith-wcbk-booking-form input.yith-wcbk-date-picker--formatted, 
+    .yith-wcbk-booking-form select, .yith-wcbk-booking-form textarea {
         font-size: 16px !important;
     }
 }
 
 /*YITH BOOKING PERSON*/
-.yith-wcbk-booking-form input[type="number"] {
-    padding-left: 32px;
-
-    @media screen and (min-width: 922px) {
+@media screen and (min-width: 922px) {
+    .yith-wcbk-booking-form input[type="number"] {
+        padding-left: 32px;
         min-width: 135px;
     }
 }
+
+.yith-wcbk-booking-form input[type="number"]
 /*Yith sticky footer*/
 
 @media screen and (max-width: 56.875em) {
