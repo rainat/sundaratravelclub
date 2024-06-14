@@ -840,6 +840,13 @@ textarea {
     }
 }
 
+/*YITH PREVENT ERROR BORDER 2px*/
+.yith-wcbk-booking-form input:not([type=checkbox]), 
+.yith-wcbk-booking-form input.yith-wcbk-date-picker--formatted, 
+.yith-wcbk-booking-form select, .yith-wcbk-booking-form textarea {
+    border-width: 1px !important;
+}
+
 /*YITH BOOKING PERSON*/
 .yith-wcbk-booking-form input[type="number"] {
     padding-left: 30px !important;
