@@ -821,8 +821,32 @@ button#mobile-book-now {
 }
 /*Remove auto zoom input field*/
 
-input[type="text"], input[type="email"], input[type="number"], input[type="password"], input[type="search"], input[type="tel"], input[type="url"], textarea {
+input[type="text"], 
+input[type="email"], 
+input[type="number"], 
+input[type="password"], 
+input[type="search"], 
+input[type="tel"], 
+input[type="url"], 
+textarea {
     font-size: 16px !important;
+}
+
+.yith-wcbk-booking-form input:not([type=checkbox]), 
+.yith-wcbk-booking-form input.yith-wcbk-date-picker--formatted, 
+.yith-wcbk-booking-form select, .yith-wcbk-booking-form textarea {
+    @media screen and (max-width: 922px) {
+        font-size: 16px !important;
+    }
+}
+
+/*YITH BOOKING PERSON*/
+.yith-wcbk-booking-form input[type="number"] {
+    padding-left: 32px;
+
+    @media screen and (min-width: 922px) {
+        min-width: 135px;
+    }
 }
 /*Yith sticky footer*/
 
