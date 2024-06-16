@@ -918,7 +918,9 @@ textarea {
     padding-bottom: 16px;
 }
 
-.group-inlcusion h3 {
-    font-family: "DM Serif Display", Sans-serif;
-    font-size: 24px;
+.group-inlcusion h3,
+.group-inlcusion h3 span {
+    font-family: "DM Serif Display", Sans-serif !important;
+    font-size: 24px !important;
+    font-weight: 400 !important;
 }
