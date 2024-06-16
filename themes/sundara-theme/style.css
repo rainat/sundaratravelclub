@@ -89,16 +89,11 @@ body.home .main-header-menu li:hover a, body.single-product .main-header-menu li
 .wpforms-form .wpforms-field .wpforms-field-label:before, .wpforms-form .wpforms-field .wpforms-field-row-block:before {
     position: absolute;
     left: 15px;
-    top: 48px;
+    top: 49px;
     z-index: 99999;
     color: #111;
     font-size: 17px;
     opacity: 0.8;
-}
-@media screen and (max-width: 1024px) {
-    .wpforms-form .wpforms-field .wpforms-field-label:before, .wpforms-form .wpforms-field .wpforms-field-row-block:before {
-        top: 44px;
-    }
 }
 .wpforms-field .wpforms-field-label:before, .wpforms-field .wpforms-field-label:before, .wpforms-field .wpforms-field-label:before {
     font-family: "Font Awesome 5 Free";
