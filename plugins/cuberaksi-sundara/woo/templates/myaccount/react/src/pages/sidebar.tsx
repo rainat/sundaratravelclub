@@ -12,6 +12,8 @@ type IMenuItem = {
 	onClick: () => void
 }
 
+const myaccountobj =(window as any).myaccountobj
+console.log({myaccountobj})
 const menu = [
 	{
 		icon: 'https://sundaratravelclub.com/wp-content/plugins/cuberaksi-sundara/woo/templates/myaccount/dist/account.svg',
@@ -34,8 +36,8 @@ const menu = [
 	// },
 	{
 		icon: 'https://sundaratravelclub.com/wp-content/plugins/cuberaksi-sundara/woo/templates/myaccount/dist/logout.svg',
-		title: 'Logout',
-		label: 'Logout',
+		title: <span>Click <a className="text-[#BEB29A]" href={myaccountobj.url_logout}>here</a> to logout'</span>,
+		label: 'Click here to logout',
 		value: 'logout',
 		active: false,
 	},
@@ -106,13 +108,17 @@ export default function Sidebar({ page }: ILayoutPage) {
 		if (index + 1 === MenuItemConstant.personal) navigate('/')
 		if (index + 1 === MenuItemConstant.booking) navigate('/bookings')
 		// if (index + 1 === MenuItemConstant.payment) navigate('/payments')
-		if (index + 1 === MenuItemConstant.logout) navigate('/logout')	
+		if (index + 1 === MenuItemConstant.logout) {
+			// navigate('/logout')	
+		}
 	}
 
 	const gomenu = (val: any) => {
 		if (val.value === 'personal') navigate('/')
 		if (val.value === 'bookings') navigate('/bookings')
-		if (val.value === 'logout') navigate('/logout')	
+		if (val.value === 'logout') {
+			location.href = myaccountobj.url_logout
+		}
 	}
 
 	return (
@@ -124,7 +130,7 @@ export default function Sidebar({ page }: ILayoutPage) {
 				<div className="hidden md:block flex flex-col content-center">
 					{
 						activelist.map((itm, idx) => {
-							return <Menuitem key={idx} onClick={() => chgActive(idx)} active={itm.active} icon={itm.icon} title={itm.title} />
+							return <Menuitem key={idx} onClick={() => chgActive(idx)} active={itm.active} icon={itm.icon} title={itm.title as any} />
 						})
 					}
 				</div>

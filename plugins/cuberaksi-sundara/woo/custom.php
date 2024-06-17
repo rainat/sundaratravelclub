@@ -203,7 +203,10 @@ class Cuberaksi_Custom
 
 
 			wp_enqueue_script('jq-cookie', "https://cdn.jsdelivr.net/npm/js-cookie@3.0.5/dist/js.cookie.min.js", ['jquery']);
+
 			wp_enqueue_script('myaccount', CUBERAKSI_SUNDARA_BASE_URL . 'woo/assets/js/myaccount.js', [], CUBERAKSI_SUNDARA_VERSION);
+
+			
 		});
 
 		add_action('admin_enqueue_scripts', function () {
@@ -342,13 +345,13 @@ class Cuberaksi_Custom
 
 	function init_people_grup_two()
 	{
-		add_action('admin_enqueue_scripts', function () {
-			wp_enqueue_script('cuber-people', CUBERAKSI_SUNDARA_BASE_URL . "woo/people.js", ['jquery'], CUBERAKSI_SUNDARA_VERSION, true);
-			global $post;
-			$people = get_post_meta($post->ID, '_cuber_people_two', true);
-			if ($people)
-				wp_add_inline_script('cuber-people', "const cuber_people_two='$people';", 'before');
-		});
+		// add_action('admin_enqueue_scripts', function () {
+		// 	wp_enqueue_script('cuber-people', CUBERAKSI_SUNDARA_BASE_URL . "woo/people.js", ['jquery'], CUBERAKSI_SUNDARA_VERSION, true);
+		// 	global $post;
+		// 	$people = get_post_meta($post->ID, '_cuber_people_two', true);
+		// 	if ($people)
+		// 		wp_add_inline_script('cuber-people', "const cuber_people_two='$people';", 'before');
+		// });
 
 		add_action('woocommerce_cart_calculate_fees', function () {
 			// WC()->cart->add_fee('Extra people fee',1000);
@@ -537,6 +540,8 @@ class Cuberaksi_Custom
 
 			// }
 
+		
+
 		});
 
 
@@ -545,6 +550,13 @@ class Cuberaksi_Custom
 		add_action('template_redirect', function ($template) {
 			global $post;
 			// console_log(['post'=>$post]);
+
+				if (str_contains($_SERVER['REQUEST_URI'], '/logoutme')) {
+				if (is_user_logged_in()) wp_logout();
+				wp_redirect('/');
+			}
+			
+
 			if ($post->post_name === 'checkout') {
 				if (!is_user_logged_in()) {
 					// echo "Login First";
@@ -574,7 +586,7 @@ class Cuberaksi_Custom
 				wp_redirect(admin_url());
 			}
 
-
+			
 
 			global $post;
 			if (isset($post->post_name)) {

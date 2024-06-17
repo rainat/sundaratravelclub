@@ -67,7 +67,7 @@ export function Personal() {
 	
 
 	useEffect(() => {
-		console.log({ fileState })
+		// console.log({ fileState })
 	}, [fileState])
 	
 	useEffect(() => {
@@ -85,9 +85,9 @@ export function Personal() {
 		if (!editMode) setTitleEdit('Update'); else setTitleEdit('Edit')
 
 		if (editMode) {
-			console.log({ values, fileState })
+			// console.log({ values, fileState })
 			fetchUpdateAjaxWith('user_profile_post', values, fileState).then((res) => res.json()).then((res) => {
-				console.log({ res })
+				// console.log({ res })
 				toast.success('Updating...')
 				queryClient.invalidateQueries({ queryKey: ['userProfile'] })
 

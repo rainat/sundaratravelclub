@@ -40,8 +40,8 @@ class Shortcode_My_Account
 		// 	} else {
 		wp_enqueue_style('accpage-css', CUBERAKSI_SUNDARA_BASE_URL . "woo/templates/myaccount/dist/main.css", [], time());
 		wp_enqueue_script_module('accpage-js', CUBERAKSI_SUNDARA_BASE_URL . "woo/templates/myaccount/dist/index.js", [], time(), true);
-
-
+		$logout = '/logoutme';
+        echo"<script>myaccountobj = { url_logout: '$logout' } </script>";
 		// Vite\enqueue_asset(
 		// 	CUBERAKSI_SUNDARA_BASE_DIR . "woo/templates/myaccount/dist",
 		// 	'src/main.tsx',

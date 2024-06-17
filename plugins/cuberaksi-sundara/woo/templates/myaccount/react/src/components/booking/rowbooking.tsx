@@ -64,11 +64,11 @@ export function RowBookings({ section, data }: TRowBookings) {
 	useEffect(() => {
 		if (data)
 			setRows(data.filter((f) => f.section === section))
-		console.log(section)
+		// console.log(section)
 	}, [section, data])
 
 	useEffect(() => {
-		console.log(rows)
+		// console.log(rows)
 	}, [rows])
 		
 	return (

@@ -415,22 +415,23 @@
 		// $(`#product-${productme.ID} p.price`).css('display', 'none')
 
 		function renderDetailPrices2(){
-			// let duration = pduration
-			let idme = `yith-wcbk-booking-hidden-from${productme.ID}`
+				// let duration = pduration
+				let idme = `yith-wcbk-booking-hidden-from${productme.ID}`
 
-			if ($(`#${idme}`).val()) {
-				let dt = new Date($(`#${idme}`).val())
+				if ($(`#${idme}`).val()) {
+					let dt = new Date($(`#${idme}`).val())
 
-				dt.setDate(dt.getDate() + duration)
+					dt.setDate(dt.getDate() + duration)
 
-				$('#to-date-cuber').val(dt.toLocaleDateString("en-US", { year: 'numeric', month: 'long', day: 'numeric' })).css('padding-left', '30px')	
-			}
-			
+					$('#to-date-cuber').val(dt.toLocaleDateString("en-US", { year: 'numeric', month: 'long', day: 'numeric' })).css('padding-left', '30px')	
+				}
+				
+				
 			let a = $('.product p.price')
 			if (a.length)
 				{
 					let price = $(a).text()
-					let priceText = price.substr(0,price.length-8)
+					let priceText = price.replace('/person','')
 					$('#detail-price').html('')
 					$('#detail-price').html(priceText)
 					$('#detail-total').html('')	

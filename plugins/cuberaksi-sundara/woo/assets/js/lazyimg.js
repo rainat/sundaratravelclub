@@ -14,35 +14,40 @@
 
         })
 
-      
+        $('input#yith-wcbk-booking-persons').on('keydown', (e) => { e.preventDefault() })
         setInterval(() => { $('div#ui-datepicker-div').remove() }, 200)
 
-      
 
-       
+
+
 
         // price per person 
-        console.log('..>>>') 
+        console.log('..>>>')
         setInterval(() => {
-            if ($('.yith-wcbk-mobile-fixed-form .price').length)
-                {
-                    if ($('.yith-wcbk-mobile-fixed-form .price').text().includes('/person')) {
-                        // console.log('yes'); 
-                    } else {
-                        // console.log('no')
-                        let price_1 = $('.yith-wcbk-mobile-fixed-form .price').text()
+            if ($('.yith-wcbk-mobile-fixed-form .price').length) {
+                if ($('.yith-wcbk-mobile-fixed-form .price').text().includes('/person')) {
+                    // console.log('yes'); 
+                    if ($('#yith-wcbk-booking-persons').val() > 1) {
+                        let prc = $('.yith-wcbk-mobile-fixed-form .price').text().replace('/person', '')
+
+                        $('.yith-wcbk-mobile-fixed-form .price').text(prc)
+                    }
+                } else {
+                    // console.log('no')
+                    let price_1 = $('.yith-wcbk-mobile-fixed-form .price').text()
+                    if ($('#yith-wcbk-booking-persons').val() <= 1)
                         $('.yith-wcbk-mobile-fixed-form .price')
                             .text(price_1)
-                            .append($('<span> /person</span>').css({'font-weight':'400', 'font-size':'17px'}))
-                    }
-                    
-                }   
-                
+                            .append($('<span> /person</span>').css({ 'font-weight': '400', 'font-size': '17px' }))
+                }
+
+            }
+
         }, 200);
-        
 
 
-        
+
+
 
         $('[data-elementor-type="loop-item"]').click((e) => {
 
