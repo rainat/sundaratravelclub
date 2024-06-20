@@ -1,42 +1,44 @@
 (function ($) {
 
+
 	$(document).ready(() => {
+
 		// $('.yith_wcbk_booking_product_form_widget').css('position', 'fixed')
 		//triger click on desktop
 		$('#yith-form-fake').click(() => {
 			// $('#hidingme').css('display','block')
 			$('.yith_wcbk_booking_product_form_widget').css({ 'top': '15%', 'left': '40%' })
-			
-			
+
+
 		})
 		$('#btn-yith-form-fake').click(() => {
 			// $('#hidingme').css('display','block')
 			$('.yith_wcbk_booking_product_form_widget').css({ 'top': '15%', 'left': '40%' })
-			
-		}) 
 
-		if ($('#booking .elementor-button-text')) 
+		})
+
+		if ($('#booking .elementor-button-text'))
 			$('#booking .elementor-button-text').text($('#mobile-book-now').text());
 
 		if (typeof productme !== undefined) {
 
-				
-				
+
+
 			if ($('.woocommerce-notices-wrapper').children().length > 0) {
 
 				if ($('.woocommerce-notices-wrapper .woocommerce-message').text().includes('Request for booking confirmation sent')) {
 					location.href = location.origin + "/my-account/bookings?confirm=yes"
 				}
-				
+
 				const interval = setInterval(() => {
 					if (elementorProFrontend.modules.popup) {
-						
-						elementorProFrontend.modules.popup.showPopup({ id: 6717 }); 
+
+						elementorProFrontend.modules.popup.showPopup({ id: 6717 });
 						// console.log('founded', $('.woocommerce-notices-wrapper .woocommerce-message').text())
-						$('#woo-msg-notice').html($('#woo-msg-notice').html().replace("{{message_notice}}", $('.woocommerce-notices-wrapper .woocommerce-message').text()))	
+						$('#woo-msg-notice').html($('#woo-msg-notice').html().replace("{{message_notice}}", $('.woocommerce-notices-wrapper .woocommerce-message').text()))
 						clearInterval(interval);
 
-						
+
 
 					}
 				}, 100)
@@ -44,10 +46,10 @@
 				//elementorProFrontend.modules.popup.showPopup({ id: 6717 });  
 				//$('#woo-notice-dialog').click()
 
-				
+
 			}
-			
-				
+
+
 		}
 
 		$("img.lazy").each((idx, el) => {
@@ -72,10 +74,10 @@
 					children[i - 1].style.display = 'none'
 				}
 			}
-			
+
 		}
 
-		
+
 
 
 		let times = $(".yith-wcbk-booking-form__label");
@@ -151,15 +153,15 @@
 				if (checkin.length > 0) {
 					let tmpVal = $('.yith-booking-checkin > .yith-booking-meta__value').text()
 					minHour = Number(tmpVal.substr(0, 2))
-					
+
 				}
 
 				let checkout = $('.yith-booking-checkout > .yith-booking-meta__value')
-				
+
 				if (checkout.length > 0) {
 					let tmpVal = $('.yith-booking-checkout > .yith-booking-meta__value').text()
 					maxHour = Number(tmpVal.substr(0, 2))
-					
+
 				}
 
 				// console.log({a:minHour,b:maxHour})
@@ -217,7 +219,7 @@
 				case "IDR":
 					currency_text = "Rp";
 					break;
-				
+
 			}
 		}
 
@@ -246,7 +248,7 @@
 			// if (peopletwo === 'active')
 			// $('input.yith-wcbk-booking-persons').attr('step', '2')
 		}
-		
+
 		//accordion deskripsi
 		// $('[data-id="e176e3e"]').addClass('flex flex-row justify-between').append('<i aria-hidden="true" class="fa-toggle fas fa-plus btn-deskripsi mr-3"></i>')
 
@@ -265,7 +267,7 @@
 		// 		$('.btn-deskripsi').removeClass('fa-minus').addClass('fa-plus')	
 		// 	} 
 
-			
+
 		// })
 
 		//accordion highlight
@@ -286,13 +288,13 @@
 		// 	} else {
 		// 		$('.btn-highligto').removeClass('fa-minus').addClass('fa-plus')	
 		// 	} 
-			
+
 		// })
-	
+
 
 		// $('.swiper-slide[data-swiper-slide-index="5"]').remove()
 		// console.log('delete 5')
-		
+
 
 		//accordion meetingpoin
 		// $('.wrap-lt-sc').addClass('flex flex-row justify-between').append('<i aria-hidden="true" class="fa-toggle fas fa-plus btn-meetingpoint mr-3 " style="font-size:16px;"></i>')
@@ -327,7 +329,7 @@
 		// 	console.log(price,person)
 		// clearInterval(intval1)
 		// }
-	
+
 		// },100)
 		if ($('span.yith-wcbk-booking-duration__label').length)
 			var duration = Number($('span.yith-wcbk-booking-duration__label')[0].textContent.replace(' days', ''))
@@ -337,7 +339,7 @@
 			if (document.querySelectorAll('.woocommerce-Price-amount.amount').length > 0) {
 
 				// duration = $('.yith-wcbk-booking-real-duration').val()
-				
+
 				// let duration = pduration
 				let idme = `yith-wcbk-booking-hidden-from${productme.ID}`
 
@@ -346,13 +348,13 @@
 
 					dt.setDate(dt.getDate() + duration)
 
-					$('#to-date-cuber').val(dt.toLocaleDateString("en-US", { year: 'numeric', month: 'long', day: 'numeric' })).css('padding-left', '30px')	
+					$('#to-date-cuber').val(dt.toLocaleDateString("en-US", { year: 'numeric', month: 'long', day: 'numeric' })).css('padding-left', '30px')
 				}
-				
+
 
 				let length = document.querySelectorAll('.product .woocommerce-Price-amount.amount').length
 				let price = document.querySelectorAll('.product .woocommerce-Price-amount.amount')[length - 1].textContent
-				
+
 				// console.log(Array.from(document.querySelectorAll('.product .woocommerce-Price-amount.amount')).map((itm) => {
 				// 	return {
 				// 		value: itm.textContent
@@ -362,7 +364,7 @@
 				$('[name="persons"]').attr('style', 'padding-left:30px!important')
 				let person = $('[name="persons"]').val()
 				let cost_title = 'Additional charge people'
-				let cost = extra_cost_people.product_price 
+				let cost = extra_cost_people.product_price
 				let cost_currency = new Intl.NumberFormat('en-US', {
 					style: 'currency', currency: 'USD'
 				}).format(cost).replace('.00', '')
@@ -373,33 +375,33 @@
 				if ((person % extra_cost_people.min_persons) === 0) {
 					$('#detail-price').html(new Intl.NumberFormat('en-US', {
 						style: 'currency', currency: 'USD'
-					}).format(val_price).replace('.00', ''))		
+					}).format(val_price).replace('.00', ''))
 				} else {
 					$('#detail-price').html(new Intl.NumberFormat('en-US', {
 						style: 'currency', currency: 'USD'
-					}).format(val_price - cost).replace('.00', ''))		
+					}).format(val_price - cost).replace('.00', ''))
 				}
 
 				// if (person === 2) {
 				$('#detail-price').html(new Intl.NumberFormat('en-US', {
 					style: 'currency', currency: 'USD'
-				}).format(val_price).replace('.00', ''))		
+				}).format(val_price).replace('.00', ''))
 				// }
-			
+
 
 				$('#detail-total').html(price)
 				// console.log(person, extra_cost_people.min_persons, person % extra_cost_people.min_persons)
 				if ((person % extra_cost_people.min_persons) > 0) {
 					if (person > extra_cost_people.min_persons) {
-						$('#detail-cost').html(cost_title)	
-						$('#detail-cost-price').html(cost_currency)								
+						$('#detail-cost').html(cost_title)
+						$('#detail-cost-price').html(cost_currency)
 					} else {
-						$('#detail-cost').html('')								
-						$('#detail-cost-price').html('')								
+						$('#detail-cost').html('')
+						$('#detail-cost-price').html('')
 					}
 				} else {
-					$('#detail-cost').html('')								
-					$('#detail-cost-price').html('')								
+					$('#detail-cost').html('')
+					$('#detail-cost-price').html('')
 				}
 				// console.log(price,person)
 				// clearInterval(intval1)
@@ -408,43 +410,54 @@
 
 		function renderIncludeTaxText() {
 			if ($('.itaxfee').length <= 0)
-				$('.yith_wcbk_booking_product_form_widget p.price').append('<div class="itaxfee">Includes taxes and fees</div>')	
+				$('.yith_wcbk_booking_product_form_widget p.price').append('<div class="itaxfee">Includes taxes and fees</div>')
 		}
 
-	
+
 		// $(`#product-${productme.ID} p.price`).css('display', 'none')
 
-		function renderDetailPrices2(){
-				// let duration = pduration
-				let idme = `yith-wcbk-booking-hidden-from${productme.ID}`
+		function renderDetailPrices2() {
+			// let duration = pduration
+			let idme = `yith-wcbk-booking-hidden-from${productme.ID}`
 
-				if ($(`#${idme}`).val()) {
-					let dt = new Date($(`#${idme}`).val())
+			if ($(`#${idme}`).val()) {
+				let dt = new Date($(`#${idme}`).val())
 
-					dt.setDate(dt.getDate() + duration)
+				dt.setDate(dt.getDate() + duration)
 
-					$('#to-date-cuber').val(dt.toLocaleDateString("en-US", { year: 'numeric', month: 'long', day: 'numeric' })).css('padding-left', '30px')	
-				}
-				
-				
+				$('#to-date-cuber').val(dt.toLocaleDateString("en-US", { year: 'numeric', month: 'long', day: 'numeric' })).css('padding-left', '30px')
+			}
+
+
 			let a = $('.product p.price')
-			if (a.length)
-				{
-					let price = $(a).text()
-					let priceText = price.replace('/person','')
-					$('#detail-price').html('')
-					$('#detail-price').html(priceText)
-					$('#detail-total').html('')	
-					$('#detail-total').html(priceText)
-				}
+			let b = $('.price-desktop')
+			// console.log({a:a[0]})
+			if (a.length) {
+				// console.log('a',$(a).text())
+				let price = $(a).text()
+				let priceText = price.replace('/ person', '')
+				$('#detail-price').html('')
+				$('#detail-price').html(priceText)
+				$('#detail-total').html('')
+				$('#detail-total').html(priceText)
+			}
+			if (b.length) {
+				// console.log('b',$(b).text())
+				let price = $(a).text()
+				// $('.price-desktop').text(price)
+				// $('#detail-price').html('')
+				// $('#detail-price').html(priceText)
+				// $('#detail-total').html('')	
+				// $('#detail-total').html(priceText)
+			}
 		}
-		
+
 		setInterval(() => {
 			// renderDetailPrices()	
 			renderDetailPrices2()
 			renderIncludeTaxText()
 		}, 300)
-		
+
 
 		$('#yith-wcbk-booking-persons').on('change', () => {
 			// renderDetailPrices()
@@ -462,17 +475,17 @@
 			// $(this).css('cursor', 'pointer')
 		})
 		$('[data-elementor-type="loop-item"]').click((e) => {
-			
+
 			// location.href = $(e.target).find('.elementor-heading-title a').attr('href')
 			// location.href = $(e.target).find('.elementor-icon-list-item a').attr('href')
 			// console.log('--',$(e.target).find('.elementor-icon-list-item a'))
 		})
 
 		//if inclusions empty
-		if (!inclusions[0]) $('#inc').toggle() 
+		if (!inclusions[0]) $('#inc').toggle()
 
-		if (!inclusions[1]) $('#non-inc').toggle() 
-		
+		if (!inclusions[1]) $('#non-inc').toggle()
+
 		// .click(()=>{
 
 		// }) 
@@ -517,7 +530,7 @@
 		// 	document.querySelector('form.cart input[name="persons"]').stepDown()
 		// 	refreshprice()
 		// });	
-		
+
 	});
 
 	// let val1 = setInterval(()=>{

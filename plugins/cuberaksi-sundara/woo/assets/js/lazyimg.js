@@ -1,5 +1,15 @@
 (function ($) {
+    var completeLoaded = 0
     $(document).ready(() => {
+        $('.preloader-content').append('<div class="cube-loader cube-loader-color"></div><p class="cube-loader-percentage"></p>')
+        var loaderInterval = setInterval(() => {
+            completeLoaded = completeLoaded + 5
+            $('.cube-loader-percentage').text(completeLoaded + ' %')
+            if (completeLoaded >= 100) {
+                clearInterval(loaderInterval)
+                completeLoaded = 0
+            }
+        }, 100)
         //peroduct carousel
         $('[data-elementor-type="loop-item"]').hover(() => {
             // $(this).css('cursor', 'pointer')
@@ -14,6 +24,18 @@
 
         })
 
+        $('[data-widget-number="213"] button').click((e) => {
+            if ($(e.currentTarget).attr('data-tab-index') >= '4') {
+                // console.log('yes')
+                setTimeout(() => {
+                    $('[data-widget-number="213"] .e-n-tabs-heading').scrollLeft(100)
+                    // clearInterval(interval)
+                }, 400)
+
+            }
+        })
+
+
         $('input#yith-wcbk-booking-persons').on('keydown', (e) => { e.preventDefault() })
         setInterval(() => { $('div#ui-datepicker-div').remove() }, 200)
 
@@ -25,10 +47,10 @@
         console.log('..>>>')
         setInterval(() => {
             if ($('.yith-wcbk-mobile-fixed-form .price').length) {
-                if ($('.yith-wcbk-mobile-fixed-form .price').text().includes('/person')) {
+                if ($('.yith-wcbk-mobile-fixed-form .price').text().includes('/ person')) {
                     // console.log('yes'); 
                     if ($('#yith-wcbk-booking-persons').val() > 1) {
-                        let prc = $('.yith-wcbk-mobile-fixed-form .price').text().replace('/person', '')
+                        let prc = $('.yith-wcbk-mobile-fixed-form .price').text().replace('/ person', '')
 
                         $('.yith-wcbk-mobile-fixed-form .price').text(prc)
                     }
@@ -38,7 +60,7 @@
                     if ($('#yith-wcbk-booking-persons').val() <= 1)
                         $('.yith-wcbk-mobile-fixed-form .price')
                             .text(price_1)
-                            .append($('<span> /person</span>').css({ 'font-weight': '400', 'font-size': '17px' }))
+                            .append($('<span> / person</span>').css({ 'font-weight': '400', 'font-size': '17px' }))
                 }
 
             }

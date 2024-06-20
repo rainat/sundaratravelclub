@@ -75,6 +75,7 @@
 }
 
 @media screen and (max-width: 48em) {
+
   .timeline .container,
   .timeline-summary .container {
     padding-inline: 20px;
@@ -210,5 +211,9 @@ div.plusminus {
 }*/
 
 button[comingsoon=1] {
-  background: red!important;
+  background: red !important;
+}
+
+input.yith-wcbk-booking-persons {
+  caret-color: transparent;
 }

@@ -17,7 +17,7 @@
 		$('#yith-top-form .yith-wcbk-form-section-dates-wrapper.yith-wcbk-form-section-wrapper').addClass('flex gap-4')
 		$('#yith-top-form #wrap-login-book').addClass('w-1/5 rounded-full')
 		$('#yith-top-form form.cart').css('display', 'flex').addClass('gap-4 justify-between')
-		$('#yith-top-form #wrap-login-book').before('<div class="flex flex-col gap-2"><span class="price-desc-add text-[24px] text-[#BFB198] font-semibold text-right">...</span><span class="tax-desc text-[10px] text-[#8C8C8C] leading-none text-right">@ ... includes taxes & fees</span></div>')
+		$('#yith-top-form #wrap-login-book').before('<div class="flex flex-col gap-2"><span class="price-desktop price-desc-add text-[24px] text-[#BFB198] font-semibold text-right">...</span><span class="tax-desc text-[10px] text-[#8C8C8C] leading-none text-right">@ ... includes taxes & fees</span></div>')
 		// $('#yith-top-form .cuber-nohide').css('display','block')
 		setInterval(function () {
 			// let price = $('#yith-top-form .woocommerce-Price-amount.amount').text()
@@ -30,6 +30,7 @@
 			}).format(val_price).replace('.00', '')
 			// console.log(formatted_price)
 			if (formatted_price!='$NaN') {
+				if(formatted_price!='$0')
 				$('#yith-top-form .price-desc-add').text(formatted_price)
 				$('#yith-top-form .tax-desc').text(`@ ${formatted_price} includes taxes & fees`)
 			}

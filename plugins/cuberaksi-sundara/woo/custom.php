@@ -86,40 +86,40 @@ class Cuberaksi_Custom
 
 			// Copy from here
 
-		/**
-		 * Change the checkout city field to a dropdown field.
-		 */
+			/**
+			 * Change the checkout city field to a dropdown field.
+			 */
 
-		//   fetch('https://countriesnow.space/api/v0.1/countries/cities',{
-		// 		body:JSON.stringify({country: negoro}),
-		// 		headers:{
-		// 			'Content-Type': 'application/json'
-		// 		}
-		// 	}).then((res)=>res.json()).then((res)=>{
-		$city_args = wp_parse_args(array(
-			'type' => 'select',
-			'options' => array(
-				'birmingham' => 'Birmingham',
-				// 'cambridge' => 'Cambridge',
-				// 'leicester'   => 'Leicester',
-				// 'liverpool' => 'Liverpool',
-				// 'london'    => 'London',
-				// 'manchester'  => 'Manchester',
-			),
-			'input_class' => array(
-				'wc-enhanced-select',
-			)
-		), $fields['shipping']['shipping_city']);
+			//   fetch('https://countriesnow.space/api/v0.1/countries/cities',{
+			// 		body:JSON.stringify({country: negoro}),
+			// 		headers:{
+			// 			'Content-Type': 'application/json'
+			// 		}
+			// 	}).then((res)=>res.json()).then((res)=>{
+			$city_args = wp_parse_args(array(
+				'type' => 'select',
+				'options' => array(
+					'birmingham' => 'Birmingham',
+					// 'cambridge' => 'Cambridge',
+					// 'leicester'   => 'Leicester',
+					// 'liverpool' => 'Liverpool',
+					// 'london'    => 'London',
+					// 'manchester'  => 'Manchester',
+				),
+				'input_class' => array(
+					'wc-enhanced-select',
+				)
+			), $fields['shipping']['shipping_city']);
 
-		$fields['shipping']['shipping_city'] = $city_args;
-		$fields['billing']['billing_city'] = $city_args; // Also change for billing field
+			$fields['shipping']['shipping_city'] = $city_args;
+			$fields['billing']['billing_city'] = $city_args; // Also change for billing field
 
-		
+
 
 			return $fields;
 		});
 
-		
+
 
 
 		// 	// $state_args = wp_parse_args( array(
@@ -205,8 +205,7 @@ class Cuberaksi_Custom
 			wp_enqueue_script('jq-cookie', "https://cdn.jsdelivr.net/npm/js-cookie@3.0.5/dist/js.cookie.min.js", ['jquery']);
 
 			wp_enqueue_script('myaccount', CUBERAKSI_SUNDARA_BASE_URL . 'woo/assets/js/myaccount.js', [], CUBERAKSI_SUNDARA_VERSION);
-
-			
+			wp_enqueue_style('cube-loader', CUBERAKSI_SUNDARA_BASE_URL . 'woo/assets/css/preloader.css', [], CUBERAKSI_SUNDARA_VERSION);
 		});
 
 		add_action('admin_enqueue_scripts', function () {
@@ -540,7 +539,7 @@ class Cuberaksi_Custom
 
 			// }
 
-		
+
 
 		});
 
@@ -551,11 +550,11 @@ class Cuberaksi_Custom
 			global $post;
 			// console_log(['post'=>$post]);
 
-				if (str_contains($_SERVER['REQUEST_URI'], '/logoutme')) {
+			if (str_contains($_SERVER['REQUEST_URI'], '/logoutme')) {
 				if (is_user_logged_in()) wp_logout();
 				wp_redirect('/');
 			}
-			
+
 
 			if ($post->post_name === 'checkout') {
 				if (!is_user_logged_in()) {
@@ -586,7 +585,7 @@ class Cuberaksi_Custom
 				wp_redirect(admin_url());
 			}
 
-			
+
 
 			global $post;
 			if (isset($post->post_name)) {
@@ -745,7 +744,7 @@ class Cuberaksi_Custom
 
 					$product_yith = yith_wcbk_get_booking_product($product_id);
 					$min_persons = $product_yith->get_minimum_number_of_people();
-					
+
 					$product_price =  get_post_meta($product_id, '_yith_booking_extra_costs', true)['10059']['cost'];
 
 					if (!$product_price) $product_price = 0;
@@ -875,7 +874,7 @@ class Cuberaksi_Custom
 		// console_log($fields);
 
 
-		
+
 
 		return $fields;
 	}
