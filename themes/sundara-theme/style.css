@@ -853,9 +853,7 @@ textarea {
     }
 }
 
-.yith-wcbk-booking-form input[type="number"]
 /*Yith sticky footer*/
-
 @media screen and (max-width: 56.875em) {
     .yith-wcbk-mobile-fixed-form {
         transition-duration: 0.3s,0.3s,0s !important;
