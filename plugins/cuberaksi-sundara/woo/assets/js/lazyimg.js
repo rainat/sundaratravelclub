@@ -1,15 +1,15 @@
 (function ($) {
-    var completeLoaded = 0
+    // var completeLoaded = 0
     $(document).ready(() => {
-        $('.preloader-content').append('<div class="cube-loader cube-loader-color"></div><p class="cube-loader-percentage"></p>')
-        var loaderInterval = setInterval(() => {
-            completeLoaded = completeLoaded + 5
-            $('.cube-loader-percentage').text(completeLoaded + ' %')
-            if (completeLoaded >= 100) {
-                clearInterval(loaderInterval)
-                completeLoaded = 0
-            }
-        }, 100)
+        // $('.preloader-content').append('<div class="cube-loader cube-loader-color"></div><p class="cube-loader-percentage"></p>')
+        // var loaderInterval = setInterval(() => {
+        //     completeLoaded = completeLoaded + 5
+        //     $('.cube-loader-percentage').text(completeLoaded + ' %')
+        //     if (completeLoaded >= 100) {
+        //         clearInterval(loaderInterval)
+        //         completeLoaded = 0
+        //     }
+        // }, 100)
         //peroduct carousel
         $('[data-elementor-type="loop-item"]').hover(() => {
             // $(this).css('cursor', 'pointer')
@@ -74,7 +74,10 @@
         $('[data-elementor-type="loop-item"]').click((e) => {
 
             // location.href = $(e.target).find('.elementor-heading-title a').attr('href')
-            location.href = $(e.target).find('.elementor-icon-list-item a').attr('href')
+
+            console.log($(e.target).find('.elementor-icon-list-item a').attr('href'))
+            // location.href = $(e.target).find('.elementor-icon-list-item a').attr('href')
+
             // console.log('--title',$(e.target).find('.elementor-heading-title a').attr('href'))
             // console.log('--icon',$(e.target).find('.elementor-icon-list-item a').attr('href'))
         })

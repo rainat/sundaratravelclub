@@ -141,10 +141,10 @@ class Elementor_Dynamic_Tag_ACF_Slot extends \Elementor\Core\DynamicTags\Tag
 		// (SELECT guid FROM {$wpdb->prefix}posts WHERE ID=thumbnail_id) as thumbnail_src,
 		// (SELECT meta_value FROM {$wpdb->prefix}postmeta WHERE post_id=product_id AND meta_key='_price') as price
 		// from {$wpdb->prefix}posts p
-			
+
 		// where p.post_type='yith_booking' AND product_id=%d AND p.post_status = 'bk-completed'
 		// having product_status != 'trash'
-		
+
 		// ",
 		// 	$post->ID
 		// );
@@ -153,7 +153,7 @@ class Elementor_Dynamic_Tag_ACF_Slot extends \Elementor\Core\DynamicTags\Tag
 		// $results = [];
 		// if (!is_wp_error($temp)) {
 		// }
-	
+
 
 		// if ($fields == 'title') {
 
@@ -194,14 +194,16 @@ class Elementor_Dynamic_Tag_ACF_Slot extends \Elementor\Core\DynamicTags\Tag
 		$value = '';
 		$sold_out = get_field('_sold_out_admin');
 		$slot_count = get_field('_slot_count');
-		
-		if ($sold_out =='On') $value = "0"; else {
-			if (!$slot_count) $value = "∞"; else $value = $slot_count;
 
+		if ($sold_out == 'On') $value = "0";
+		else {
+
+			if (!$slot_count && $slot_count != '0') $value = "∞";
+			else $value = $slot_count;
 		}
-		
-		
-		
+
+
+
 		echo $value;
 	}
 }

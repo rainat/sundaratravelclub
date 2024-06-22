@@ -20,20 +20,27 @@
 		$('#yith-top-form #wrap-login-book').before('<div class="flex flex-col gap-2"><span class="price-desktop price-desc-add text-[24px] text-[#BFB198] font-semibold text-right">...</span><span class="tax-desc text-[10px] text-[#8C8C8C] leading-none text-right">@ ... includes taxes & fees</span></div>')
 		// $('#yith-top-form .cuber-nohide').css('display','block')
 		setInterval(function () {
-			// let price = $('#yith-top-form .woocommerce-Price-amount.amount').text()
-			let price = $('#yith-top-form p.price').text()
-			price = price.substr(0, price.length - 8)
-			// console.log(price)
-			let val_price = price.replace('$', '').replace(',', '')
-			let formatted_price = new Intl.NumberFormat('en-US', {
-				style: 'currency', currency: 'USD'
-			}).format(val_price).replace('.00', '')
-			// console.log(formatted_price)
-			if (formatted_price!='$NaN') {
-				if(formatted_price!='$0')
-				$('#yith-top-form .price-desc-add').text(formatted_price)
-				$('#yith-top-form .tax-desc').text(`@ ${formatted_price} includes taxes & fees`)
-			}
+			// // let price = $('#yith-top-form .woocommerce-Price-amount.amount').text()
+			// let price = $('#yith-top-form p.price').text()
+
+			// price = price.substr(0, price.length - 8)
+			// // console.log(price)
+			// let val_price = price.replace('$', '').replace(',', '')
+
+			// let formatted_price = new Intl.NumberFormat('en-US', {
+			// 	style: 'currency', currency: 'USD'
+			// }).format(val_price).replace('.00', '')
+			// console.log(val_price,formatted_price)
+			// if (formatted_price!='$NaN') {
+			// 	if(formatted_price!='$0')
+			// 	$('#yith-top-form .price-desc-add').text(formatted_price)
+			// 	$('#yith-top-form .tax-desc').text(`@ ${formatted_price} includes taxes & fees`)
+			// }
+			let formatted_price = $('#yith-top-form p.price').text()
+			if (formatted_price.includes('/ person')) formatted_price = formatted_price.replace('/ person', '')
+			$('#yith-top-form .price-desc-add').text(formatted_price)
+			$('#yith-top-form .tax-desc').text(`@ ${formatted_price} includes taxes & fees`)
+
 
 
 		}, 200)
@@ -42,10 +49,12 @@
 		var person = $('input#yith-wcbk-booking-persons')
 		$(person).after('<div class="plusminus"><div class="minus">-</div><div class="plus">+</div></div>')
 
+		var maxsc = Number($('.slot-count-data').attr('data-slotcount'))
 		$('div.minus').click(function () {
 			var $input = $('input#yith-wcbk-booking-persons')
 			var count = parseInt($input.val()) - 1;
 			count = count < 1 ? 1 : count;
+
 			$input.val(count);
 			$input.change();
 			$($input).attr('value', count)
@@ -56,9 +65,13 @@
 		$('div.plus').click(function () {
 			var $input = $('input#yith-wcbk-booking-persons')
 			count = parseInt($input.val()) + 1
-			$input.val(count);
-			$input.change();
-			$($input).attr('value', count)
+			// console.log(maxsc, count)
+			if (count > maxsc) { count = maxsc } else {
+				$input.val(count);
+				$input.change();
+				$($input).attr('value', count)
+			}
+
 			// console.log('plus', $input)
 			// return false;
 		});
@@ -87,7 +100,7 @@
 
 		$('button[comingsoon=1]').css({ 'cursor': 'not-allowed' })
 		$('button[comingsoon=1]').click((e) => {
-			// e.preventDefault();
+			e.preventDefault();
 
 		})
 

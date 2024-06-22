@@ -40,7 +40,7 @@ function get_current_usd()
 {
 	// return [
 	// 			'USD' => 1,
-				
+
 	// 			'IDR' => 15700
 	// 		];
 
@@ -49,7 +49,7 @@ function get_current_usd()
 	//pass dev.sundaratravel@gmail.com1234
 	// $exchange_api_key = '4f6a30b958046690718d9bbf663f427c';
 	// $exchange_api_url = "http://api.exchangeratesapi.io/v1/latest?access_key=$exchange_api_key&symbols=IDR,USD";
-	$exchange_api_url='https://v6.exchangerate-api.com/v6/782ce3e525cc0522ed894b8a/pair/usd/idr';
+	$exchange_api_url = 'https://v6.exchangerate-api.com/v6/782ce3e525cc0522ed894b8a/pair/usd/idr';
 
 	$response = wp_remote_get($exchange_api_url);
 	if (is_array($response) && !is_wp_error($response)) {
@@ -57,7 +57,7 @@ function get_current_usd()
 
 		$body    = json_decode($response['body'], true); // use the content
 
-		if ($body['result']==='success') {
+		if ($body['result'] === 'success') {
 
 			return [
 				'USD' => 1,
@@ -113,24 +113,31 @@ function console_log($obj)
 // delete_transient('currency_rate_');
 
 function is_commingsoon($date1, $date2)
-		{
-			$diff = date_diff($date1, $date2);
-			$invert = $diff->invert;
-			$between = $invert ? -$diff->days : $diff->days;
+{
+	$diff = date_diff($date1, $date2);
+	$invert = $diff->invert;
+	$between = $invert ? -$diff->days : $diff->days;
 
-			if ($between >= 0) return false;
-			if ($between < 0) return true;
-		}
+	if ($between >= 0) return false;
+	if ($between < 0) return true;
+}
 
 function is_this_comingsoon()
 {
 	$temp = get_field('comingsoon');
-	if ($temp) {
-				$exp = explode('.', $temp);
-				$date1 = date_create("{$exp[2]}-{$exp[1]}-{$exp[0]}");
-				$date2 = date_create();
+	if ($temp && $temp != '') {
+		$exp = explode('.', $temp);
+		$date1 = date_create("{$exp[2]}-{$exp[1]}-{$exp[0]}");
+		$date2 = date_create();
 
-				return is_commingsoon($date1, $date2);
-			}
-	// return false;
+		return is_commingsoon($date1, $date2);
+	}
+	return false;
+}
+
+function get_slot_product($post_id)
+{
+	$sold_out = get_post_meta($post_id, '_sold_out_admin', true);
+	$slot_count = get_post_meta($post_id, '_slot_count', true);
+	return ['sold_out' => $sold_out, 'slot_count' => $slot_count];
 }

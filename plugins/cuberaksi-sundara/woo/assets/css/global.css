@@ -204,6 +204,7 @@ div.plusminus {
   font-size: 11px;
 }
 
+
 #yith-wcbk-booking-persons {
   display: inline-block !important;
 }
@@ -222,4 +223,8 @@ button[comingsoon=1] {
 
 input.yith-wcbk-booking-persons {
   caret-color: transparent;
+}
+
+input#yith-wcbk-booking-persons {
+  cursor: default;
 }
