@@ -186,6 +186,8 @@ div.plusminus {
   gap: 5px;
   top: 13px;
   right: 15px;
+  align-items: flex-start;
+  font-size: 14px;
 }
 
 @media screen and (max-width: 700px) {
@@ -196,6 +198,10 @@ div.plusminus {
     top: 53px;
     right: 15px;
   }
+}
+
+.plusminus .plus {
+  font-size: 11px;
 }
 
 #yith-wcbk-booking-persons {
