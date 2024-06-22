@@ -75,7 +75,7 @@
 
             // location.href = $(e.target).find('.elementor-heading-title a').attr('href')
 
-            console.log($(e.target).find('.elementor-icon-list-item a').attr('href'))
+            // console.log($(e.target).find('.elementor-icon-list-item a').attr('href'))
             // location.href = $(e.target).find('.elementor-icon-list-item a').attr('href')
 
             // console.log('--title',$(e.target).find('.elementor-heading-title a').attr('href'))

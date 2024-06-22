@@ -957,6 +957,7 @@ require_once CUBERAKSI_SUNDARA_BASE_DIR . "woo/api.php";
 require_once CUBERAKSI_SUNDARA_BASE_DIR . "woo/dynamic-tags.php";
 
 require_once CUBERAKSI_SUNDARA_BASE_DIR . "woo/admin/admin.php";
+require_once CUBERAKSI_SUNDARA_BASE_DIR . "woo/toaster.php";
 
 // require_once CUBERAKSI_SUNDARA_BASE_DIR . 'shortcode/ameliabooking.php';
 // require_once CUBERAKSI_SUNDARA_BASE_DIR . 'woo/approval.php';
