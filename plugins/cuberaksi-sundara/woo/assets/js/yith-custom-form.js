@@ -89,6 +89,7 @@
 					text: "Sorry max person allowed reach.",
 					showHideTransition: "fade",
 					icon: "error",
+					position: "top-center",
 				});
 			} else {
 				$input.val(count);
