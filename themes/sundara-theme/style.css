@@ -942,5 +942,5 @@ textarea {
 }
 
 .jq-toast-wrap .jq-icon-error .jq-toast-loader {
-    background-color: #9EC600 !important;
+    background: #9EC600 !important;
 }
