@@ -917,3 +917,21 @@ textarea {
     font-size: 24px !important;
     font-weight: 400 !important;
 }
+
+/*Cookies section*/
+.cky-consent-container .cky-consent-bar {
+    box-shadow: none !important;
+}
+
+.cky-notice-btn-wrapper .cky-btn {
+   border-width: 1px  !important;
+   font-size: 12px !important;
+}
+
+.cky-notice-des *, 
+.cky-preference-content-wrapper *, 
+.cky-dma-content-wrapper *, 
+.cky-accordion-header-des *, 
+.cky-gpc-wrapper .cky-gpc-desc * {
+    font-size: 12px !important;
+}
