@@ -935,3 +935,12 @@ textarea {
 .cky-gpc-wrapper .cky-gpc-desc * {
     font-size: 12px !important;
 }
+
+/*Max Person notification*/
+.jq-toast-wrap .jq-icon-error {
+ background-color: #beb299 !important;
+}
+
+.jq-toast-wrap .jq-icon-error .jq-toast-loader {
+    background-color: #9EC600 !important;
+}
