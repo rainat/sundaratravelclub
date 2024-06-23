@@ -130,7 +130,7 @@ $add_to_cart_classes = implode(' ', array_filter($add_to_cart_classes));
 
 		// console_log([get_field('comingsoon'), $comingsoon, $slots]);
 		$slot_count = $slots['slot_count'];
-		if ($slot_count == '' || $slot_count == '1') $slot_count = 1;
+		if ($slot_count == '') $slot_count = 9999;
 		?>
 		<span class='slot-count-data' data-slotcount='<?php echo $slot_count; ?>'></span>
 		<button comingsoon="<?php if ($comingsoon) echo '1';
