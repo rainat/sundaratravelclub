@@ -30,7 +30,7 @@
 			.css("display", "flex")
 			.addClass("gap-4 justify-between");
 		$("#yith-top-form #wrap-login-book").before(
-			'<div class="flex flex-col gap-x2"><span class="price-desktop price-desc-add text-[24px] text-[#BFB198] font-semibold text-right">...</span><span class="tax-desc text-[10px] text-[#8C8C8C] leading-none text-right">@ ... includes taxes & fees</span></div>',
+			'<div class="flex flex-col gap-x-2"><span class="price-desktop price-desc-add text-[24px] text-[#BFB198] font-semibold text-right">...</span><span class="tax-desc text-[10px] text-[#8C8C8C] leading-none text-right">@ ... includes taxes & fees</span></div>',
 		);
 		// $('#yith-top-form .cuber-nohide').css('display','block')
 		setInterval(function () {
