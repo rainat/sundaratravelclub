@@ -130,7 +130,10 @@ $add_to_cart_classes = implode(' ', array_filter($add_to_cart_classes));
 
 		// console_log([get_field('comingsoon'), $comingsoon, $slots]);
 		$slot_count = $slots['slot_count'];
-		if ($slot_count == '') $slot_count = 9999;
+		if (($slot_count == '') && ($slots['sold_out'] != 'On')) {
+			$slot_count = 9999;
+			update_post_meta($post->ID, '_yith_booking_max_persons', $slot_count);
+		}
 		?>
 		<span class='slot-count-data' data-slotcount='<?php echo $slot_count; ?>'></span>
 		<button comingsoon="<?php if ($comingsoon) echo '1';

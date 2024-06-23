@@ -100,12 +100,13 @@ class Cuberaksi_Api
 			
 		where p.post_type='product' and p.post_status = 'publish'
 		
-		");
+		"
+		);
 
 
 
 		$temp = $wpdb->get_results($sql, ARRAY_A);
-		
+
 		if (!is_wp_error($temp)) {
 			// foreach($temp as &$cell) {
 			// 	if (!$cell['_sold_out']) $cell['_sold_out'] = false;
@@ -114,22 +115,27 @@ class Cuberaksi_Api
 			return new WP_REST_Response($temp);
 		}
 
-		return new WP_REST_Response(['msg' => 'some db processing failed...'],400);
-
+		return new WP_REST_Response(['msg' => 'some db processing failed...'], 400);
 	}
 
 	function api_post_slots(WP_REST_Request $request)
 	{
-		$body = json_decode($request->get_body(),true);
+		$body = json_decode($request->get_body(), true);
 		if ($body) {
-			$a = update_post_meta($body['post_id'],'_sold_out_admin',$body['_sold_out']);
-			$b = update_post_meta($body['post_id'],'_slot_count',$body['_slot_count']);
+			$a = update_post_meta($body['post_id'], '_sold_out_admin', $body['_sold_out']);
+			$b = update_post_meta($body['post_id'], '_slot_count', $body['_slot_count']);
+			// $max_person = intval(get_post_meta($body['post_id'], '_yith_booking_max_persons', true));
+
+			// if (intval($body['_slot_count']) > $max_person) {
+			// 	update_post_meta($body['post_id'], '_yith_booking_max_persons', intval($body['_slot_count']));
+			// }
+
 
 			if ((!is_wp_error($a)) && (!is_wp_error($b))) {
 				return new WP_REST_Response(['result' => 'success']);
 			}
 		}
-		return new WP_REST_Response(['error' => $body],400);
+		return new WP_REST_Response(['error' => $body], 400);
 	}
 
 	function ajax_get_bookings()
@@ -143,7 +149,7 @@ class Cuberaksi_Api
 		$user = wp_get_current_user();
 		$userid = $user->ID;
 		$status_sql = '';
-		$body_request = json_decode(stripslashes($_POST['data']),true);
+		$body_request = json_decode(stripslashes($_POST['data']), true);
 		$status_request = $body_request['status'];
 		switch ($status_request) {
 			case 'All':
@@ -151,23 +157,23 @@ class Cuberaksi_Api
 				break;
 			case 'Unpaid':
 				$status_sql = "AND p.post_status = 'bk-unpaid' ";
-			break;
+				break;
 			case 'Completed':
 				$status_sql = "AND p.post_status = 'bk-completed' ";
-			break;
+				break;
 			case 'Cancelled':
 				$status_sql = "AND p.post_status = 'bk-cancelled' ";
-			break;
+				break;
 			case 'Confirmed':
 				$status_sql = "AND p.post_status = 'bk-confirmed' ";
-			break;
+				break;
 			case 'Rejected':
 				$status_sql = "AND p.post_status = 'bk-unconfirmed' ";
-			break;
+				break;
 			default:
-			$status_sql = '';
-		} 
-		
+				$status_sql = '';
+		}
+
 
 		$sql = $wpdb->prepare(
 			"SELECT p.ID,p.post_title,p.post_type,p.post_author,p.post_status,
@@ -194,7 +200,7 @@ class Cuberaksi_Api
 			foreach ($temp as $row) {
 				$section = $status_request;
 				$status = '';
-				if ($row['post_status'] === 'bk-completed') { 
+				if ($row['post_status'] === 'bk-completed') {
 					$section = 'Completed';
 					$status = "Completed";
 				}
@@ -236,7 +242,7 @@ class Cuberaksi_Api
 						'to' => date('d M Y', $row['_to']),
 						'persons' =>  $row['persons'] ? $row['persons'] : '-',
 						'price' => "$ " . number_format($row['price']),
-						'section' => $status_request ,
+						'section' => $status_request,
 						'status' => $status
 					];
 			}

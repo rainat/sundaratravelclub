@@ -108,13 +108,7 @@ class Elementor_Dynamic_Tag_ACF_Slot extends \Elementor\Core\DynamicTags\Tag
 			return;
 		}
 
-		// foreach (explode(',', $fields) as $index => $field_name) {
-		// 	$field = get_field($field_name);
-		// 	if ((int) $field > 0) {
-		// 		$sum += (int) $field;
-		// 		$count++;
-		// 	}
-		// }
+
 
 		// if (0 !== $count) {
 		// 	$value = $sum / $count;
@@ -195,11 +189,18 @@ class Elementor_Dynamic_Tag_ACF_Slot extends \Elementor\Core\DynamicTags\Tag
 		$sold_out = get_field('_sold_out_admin');
 		$slot_count = get_field('_slot_count');
 
-		if ($sold_out == 'On') $value = "0";
+		if ($sold_out == 'On') $value = "SOLD OUT";
 		else {
 
 			if (!$slot_count && $slot_count != '0') $value = "∞";
 			else $value = $slot_count;
+		}
+
+
+		if ($fields == 'desc') {
+			if ($value != 'SOLD OUT') $value = 'SLOTS LEFT'; else $value = '';
+		} else {
+			if ($value == 'SOLD OUT') $value = 'SOLD OUT';
 		}
 
 
