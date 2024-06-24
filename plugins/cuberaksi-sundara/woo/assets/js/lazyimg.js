@@ -19,7 +19,9 @@
             // if (href.length) location.href = href.attr('href')
         });
 
+        //tab custom
         $('[data-widget-number="213"] button').click((e) => {
+
             if ($(e.currentTarget).attr("data-tab-index") >= "4") {
                 // console.log('yes')
                 setTimeout(() => {
@@ -27,6 +29,34 @@
                         '[data-widget-number="213"] .e-n-tabs-heading',
                     ).scrollLeft(100);
                     // clearInterval(interval)
+                }, 400);
+            }
+        });
+
+        var TabWidthButtons = {
+            totalWidth: 0,
+            elementsWidth: []
+        };
+        $('[data-widget-number="118"] button').each((idx, el) => {
+            TabWidthButtons.totalWidth = TabWidthButtons.totalWidth + $(el).width()
+            TabWidthButtons.elementsWidth[idx] = TabWidthButtons.totalWidth + 20 * (idx + 1)
+        })
+
+
+
+        $('[data-widget-number="118"] button').click((e) => {
+            console.log(TabWidthButtons)
+            if ($(e.currentTarget).attr("data-tab-index") >= "3") {
+                // let wTarget = e.currentTarget.offsetWidth
+
+                setTimeout(() => {
+                    let wHeading = $(
+                        '[data-widget-number="118"] .e-n-tabs-heading'
+                    ).width()
+                    $(
+                        '[data-widget-number="118"] .e-n-tabs-heading',
+                    ).scrollLeft(TabWidthButtons.elementsWidth[Number($(e.currentTarget).attr("data-tab-index")) - 2]);
+
                 }, 400);
             }
         });
