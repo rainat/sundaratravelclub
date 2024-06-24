@@ -41,9 +41,11 @@ Text Domain:     sundara-theme
     border-radius: 8px !important;
 }
 
-#gallery-content .splide__arrows .splide__arrow--prev, .splide__arrow--next {
+#gallery-content .splide__arrows .splide__arrow--prev, 
+#gallery-content .splide__arrows .splide__arrow--next {
     width: 30px !important;
 }
+
 #gallery-content #thumbnails {
     padding: 20px !important;
 }
