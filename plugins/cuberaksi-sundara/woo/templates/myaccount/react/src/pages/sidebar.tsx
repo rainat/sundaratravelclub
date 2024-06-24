@@ -137,7 +137,7 @@ export default function Sidebar({ page }: ILayoutPage) {
 
 				<div className="md:hidden flex flex-col content-center">
 					<Select options={menu} defaultValue={menu[0]} onChange={(val) => gomenu(val)} components={{ Option: IconOption, Control } as any} classNames={{
-						control: (state) => 'rounded-full pl-16',
+						control: (state) => 'rounded-full pl-2',
 					}}  theme={(theme) => ({
 						...theme,
 						borderRadius: 0,
