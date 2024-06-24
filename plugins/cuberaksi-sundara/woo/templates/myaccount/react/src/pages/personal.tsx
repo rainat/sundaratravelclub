@@ -118,7 +118,7 @@ export function Personal() {
 		}
 		return (<>
 			{editMode ? <Input onChange={onChange} value={values[`${field}` as keyof typeof initialpersonal]} key={field} className="mt-1 px-3 py-2 bg-white border shadow-sm border-slate-300 placeholder-slate-400 focus:outline-none focus:border-sky-500 focus:ring-sky-500 block w-full rounded-md sm:text-sm focus:ring-1" name={field} type="text" /> :
-				<h6 className="text-[16px]">{values[`${field}` as keyof typeof initialpersonal]}</h6>
+				<h6 className="text-[14px]">{values[`${field}` as keyof typeof initialpersonal]}</h6>
 			} 
 		</>
 		)
@@ -140,7 +140,7 @@ export function Personal() {
 		return (<>
 			{editMode ? <SelectCountry field={field} value={countries_.getCountryName(values['billing_country'])} setter={(c) => setValues({ ...values, billing_country: c })} />
 				:
-				<h6 className="text-[16px]">{countries_.getCountryName(values['billing_country'])}</h6>
+				<h6 className="text-[15px]">{countries_.getCountryName(values['billing_country'])}</h6>
 			} 
 		</>
 		)
@@ -184,7 +184,7 @@ export function Personal() {
 				<div className="flex gap-6 mt-8">
 					<img src={getImageUrl()} className="h-[84px] w-[84px] rounded-full" />
 					<div className="mt-2">
-						<h5 className="text-[14px] font-semibold">Profile picture</h5>
+						<h5 className="text-[14px] font-semibold mt-0">Profile picture</h5>
 						<input ref={fileref} type="file" onChange={(e) => handlefilechange(e)} hidden accept="image/png, image/gif, image/jpeg" />
 						<button className={clsx("w-[92px] h-[38px] mt-[10px] mr-[23px] hover:bg-[#A87C51] bg-[#A87C51] hover:ease-linear text-white font-semibold text-[14px] rounded-[20px] bordered border-[1px] border-color-[#A87C51]", 
 							{ 
@@ -196,7 +196,7 @@ export function Personal() {
 					</div>
 				</div>
 
-				<div className="grid grid-cols-2 w-[60%] mt-6 gap-4">
+				<div className="grid grid-cols-2 w-[60%] mt-6 gap-4 ">
 					<div>
 						<h6 className="text-[14px] text-[#8C8C8C]">First name</h6>
 						{InputText({ field: "first_name" })}
