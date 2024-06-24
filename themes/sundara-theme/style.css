@@ -913,9 +913,10 @@ textarea {
 
 .group-inlcusion h3,
 .group-inlcusion h3 span {
-    font-family: "DM Serif Display", Sans-serif !important;
+    color: #656565 !important;
+    font-family: "Georgia", Sans-serif !important;
     font-size: 24px !important;
-    font-weight: 400 !important;
+    font-weight: 600 !important;
 }
 
 /*Cookies section*/
@@ -943,4 +944,8 @@ textarea {
 
 .jq-toast-wrap .jq-icon-error .jq-toast-loader {
     background: #9EC600 !important;
+}
+
+#wrap-login-book.gap-2 {
+    row-gap: 0 !important;
 }
