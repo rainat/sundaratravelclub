@@ -588,6 +588,11 @@ class Cuberaksi_Custom
 
 
 			global $post;
+
+			if ($post->post_name === 'login') {
+				wp_enqueue_script('login-cst',CUBERAKSI_SUNDARA_BASE_URL . 
+					"woo/assets/js/login.js",['jquery']);
+			}
 			if (isset($post->post_name)) {
 				// error_log(wp_upload_dir(),3,.);
 				// echo wp_upload_dir();

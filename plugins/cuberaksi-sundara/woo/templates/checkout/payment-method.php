@@ -31,3 +31,4 @@ if ( ! defined( 'ABSPATH' ) ) {
 		</div>
 	<?php endif; ?>
 </li>
+<script>(function($){ $(document).ready(()=>{ $('.about_paypal').css('display','none'); $('.payment_box.payment_method_yith-paypal-ec').css('display','none') }) })(jQuery)</script>

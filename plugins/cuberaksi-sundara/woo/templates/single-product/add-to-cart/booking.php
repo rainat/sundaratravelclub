@@ -118,7 +118,8 @@ $add_to_cart_classes = implode(' ', array_filter($add_to_cart_classes));
 	<div class="flex flex-col gap-2" id="wrap-login-book">
 		<? /* aikhacode enable sementara */
 		global $post;
-		$comingsoon = is_this_comingsoon();
+		// $comingsoon = is_this_comingsoon();
+		$comingsoon = false;
 		$slots = get_slot_product($post->ID);
 
 		if ($slots['sold_out'] == 'On') $comingsoon = true;
@@ -134,6 +135,8 @@ $add_to_cart_classes = implode(' ', array_filter($add_to_cart_classes));
 			$slot_count = 9999;
 			update_post_meta($post->ID, '_yith_booking_max_persons', $slot_count);
 		}
+
+
 		?>
 		<span class='slot-count-data' data-slotcount='<?php echo $slot_count; ?>'></span>
 		<button comingsoon="<?php if ($comingsoon) echo '1';

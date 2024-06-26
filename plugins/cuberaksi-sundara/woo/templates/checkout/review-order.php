@@ -121,7 +121,7 @@ do_action('woocommerce_review_order_after_cart_contents');
 
 	<div class="flex flex-row justify-content-end gap-8 mb-2">
 		<div class="text-right text-lg text-black"><?php esc_html_e('Grand Total', 'woocommerce'); ?></div>
-		<div class="text-right  w-1 text-xl " style="color:#A87C51"><?php wc_cart_totals_order_total_html(); ?></div>
+		<div class="text-right  w-2 text-2xl " style="color:#A87C51"><?php wc_cart_totals_order_total_html(); ?></div>
 
 	</div>
 	<div class="w-full text-right text-sm text-gray-900">Include taxes and fees</div>
@@ -136,11 +136,11 @@ do_action('woocommerce_review_order_after_cart_contents');
 		$post_ID = '9712';
 		$pluginElementor = \Elementor\Plugin::instance();
 		$contentElementor = $pluginElementor->frontend->get_builder_content($post_ID, false);
-		// ob_start();
+		
 		echo "<div class='priceinfo123'>";
-		echo $contentElementor;
+		// echo $contentElementor;
 		echo "</div>";
-		// echo ob_get_clean();
+		
 	}
 
 	// echo "<script>jQuery(jQuery('.priceinfo123')[1]).css('display','block')</script>";
