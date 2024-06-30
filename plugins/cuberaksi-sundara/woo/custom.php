@@ -143,9 +143,7 @@ class Cuberaksi_Custom
 		// add_filter( 'woocommerce_checkout_fields', 'awcfe_city_dropdown_field', 999999, 1 );
 	}
 
-	function currency_api()
-	{
-	}
+	function currency_api() {}
 
 	function init_custom_payment_channel()
 	{
@@ -203,7 +201,8 @@ class Cuberaksi_Custom
 
 
 			wp_enqueue_script('jq-cookie', "https://cdn.jsdelivr.net/npm/js-cookie@3.0.5/dist/js.cookie.min.js", ['jquery']);
-
+			global $post;
+			if ($post->post_name == 'my-account')
 			wp_enqueue_script('myaccount', CUBERAKSI_SUNDARA_BASE_URL . 'woo/assets/js/myaccount.js', [], CUBERAKSI_SUNDARA_VERSION);
 			wp_enqueue_style('cube-loader', CUBERAKSI_SUNDARA_BASE_URL . 'woo/assets/css/preloader.css', [], CUBERAKSI_SUNDARA_VERSION);
 		});
@@ -590,8 +589,8 @@ class Cuberaksi_Custom
 			global $post;
 
 			if ($post->post_name === 'login') {
-				wp_enqueue_script('login-cst',CUBERAKSI_SUNDARA_BASE_URL . 
-					"woo/assets/js/login.js",['jquery']);
+				wp_enqueue_script('login-cst', CUBERAKSI_SUNDARA_BASE_URL .
+					"woo/assets/js/login.js", ['jquery']);
 			}
 			if (isset($post->post_name)) {
 				// error_log(wp_upload_dir(),3,.);
@@ -775,7 +774,8 @@ class Cuberaksi_Custom
 
 					wp_enqueue_style('timeline-custom-css', CUBERAKSI_SUNDARA_BASE_URL . 'woo/assets/js/gal.css', [], CUBERAKSI_SUNDARA_VERSION);
 
-					wp_enqueue_script('tailwindcss', 'https://cdn.tailwindcss.com');
+					wp_enqueue_style('tailwindcss', CUBERAKSI_SUNDARA_BASE_URL . 'woo/assets/css/twn.css');
+					// wp_enqueue_script('cdntailwind', 'https://cdn.talwindcss.com');
 					// wp_enqueue_script('unocss', 'https://cdn.jsdelivr.net/npm/@unocss/runtime');
 					if (is_user_logged_in()) {
 						// $bookings = yith_wcbk_booking_helper()->get_bookings_by_user(wp_get_current_user()->ID);
@@ -885,9 +885,7 @@ class Cuberaksi_Custom
 	}
 
 
-	function smooth_scroll()
-	{
-	}
+	function smooth_scroll() {}
 
 	function override_checkout()
 	{
@@ -1017,3 +1015,54 @@ function console_log($obj)
 	$json = json_encode($obj);
 	echo "<script>console.log($json)</script>";
 }
+
+// add_filter('password_change_email', 
+// function ( $pass_change_email, $user, $userdata ) {
+//   $pass_change_email['message'] = str_replace( '###ADMIN_EMAIL###', get_option('admin_email','support@sundaratravelclub.com'), $pass_change_email['message'] );
+  
+//   wp_remote_post('https://webhook.site/d0857b3e-ac88-4503-8ab4-01dbd86943b9',['body' => print_r($pass_change_email,true)]); 
+//   return $pass_change_email;
+// }, 10, 3);
+
+
+add_filter( 'wp_mail_content_type', function () {
+    if($GLOBALS["use_html_content_type"]){
+        return 'text/html';
+    }else{
+        return 'text/plain';
+    }
+} );
+
+add_filter( 'retrieve_password_message', function ( $message, $key, $user_login ) {
+	$site_name  = wp_specialchars_decode( get_option( 'blogname' ), ENT_QUOTES );
+	$reset_link = network_site_url( "wp-login.php?action=rp&key=$key&login=" . rawurlencode( $user_login ), 'login' );
+
+	// Create new message
+	// $message = __( 'Someoness has requested a password reset for the following account:' . $user_login, 'text_domain' ) . "\n";
+	// $message .= sprintf(__('admin: %s'), get_option('admin_email')) . "\n";
+	// $message .= sprintf( __( 'Site Name: %s' ), network_home_url( '/' ) ) . "\n";
+	// $message .= sprintf( __( 'Username: %s', 'text_domain' ), $user_login ) . "\n";
+	// $message .= __( 'If this was a mistake, just ignore this email and nothing will happen.', 'text_domain' ) . "\n";
+	// $message .= __( 'To reset your password, visit the following address:', 'text_domain' ) . "\n";
+	// $message .= $reset_link . "\n";
+
+	ob_start();
+	$GLOBALS["use_html_content_type"] = TRUE;
+	viwec_render_email_template(2625);
+	$message = ob_get_clean();
+	$message = str_replace('http://cuber_reset_password_url',$reset_link,$message);
+	$message = str_replace('{cuber_user_login}',$user_login,$message);
+	// $message .= $reset_link . "\n";
+	// $message .= get_post_meta( 2625, 'viwec_email_structure', true );
+
+	return $message;
+}, 20, 3 );
+
+add_filter( 'wp_mail_from', function ( $original_email_address ) {
+    return get_option('admin_email');
+} );
+ 
+// Change the From name.
+add_filter( 'wp_mail_from_name', function ( $original_email_from ) {
+    return get_option('blogname');
+} );

@@ -11,6 +11,18 @@
         //     }
         // }, 100)
         //peroduct carousel
+        console.log("c");
+        if (
+            $(
+                ".woocommerce-form__input.woocommerce-form__input-checkbox.input-checkbox#create",
+            ).length
+        ) {
+            console.log("c");
+            $(
+                ".woocommerce-form__input.woocommerce-form__input-checkbox.input-checkbox#create",
+            )[0].checked = true;
+        }
+
         $('[data-elementor-type="loop-item"]').hover(() => {
             // $(this).css('cursor', 'pointer')
         });
@@ -21,7 +33,6 @@
 
         //tab custom
         $('[data-widget-number="213"] button').click((e) => {
-
             if ($(e.currentTarget).attr("data-tab-index") >= "4") {
                 // console.log('yes')
                 setTimeout(() => {
@@ -35,28 +46,32 @@
 
         var TabWidthButtons = {
             totalWidth: 0,
-            elementsWidth: []
+            elementsWidth: [],
         };
         $('[data-widget-number="118"] button').each((idx, el) => {
-            TabWidthButtons.totalWidth = TabWidthButtons.totalWidth + $(el).width()
-            TabWidthButtons.elementsWidth[idx] = TabWidthButtons.totalWidth + 20 * (idx + 1)
-        })
-
-
+            TabWidthButtons.totalWidth =
+                TabWidthButtons.totalWidth + $(el).width();
+            TabWidthButtons.elementsWidth[idx] =
+                TabWidthButtons.totalWidth + 20 * (idx + 1);
+        });
 
         $('[data-widget-number="118"] button').click((e) => {
-            console.log(TabWidthButtons)
+            console.log(TabWidthButtons);
             if ($(e.currentTarget).attr("data-tab-index") >= "3") {
                 // let wTarget = e.currentTarget.offsetWidth
 
                 setTimeout(() => {
                     let wHeading = $(
-                        '[data-widget-number="118"] .e-n-tabs-heading'
-                    ).width()
+                        '[data-widget-number="118"] .e-n-tabs-heading',
+                    ).width();
                     $(
                         '[data-widget-number="118"] .e-n-tabs-heading',
-                    ).scrollLeft(TabWidthButtons.elementsWidth[Number($(e.currentTarget).attr("data-tab-index")) - 2]);
-
+                    ).scrollLeft(
+                        TabWidthButtons.elementsWidth[
+                            Number($(e.currentTarget).attr("data-tab-index")) -
+                                2
+                        ],
+                    );
                 }, 400);
             }
         });

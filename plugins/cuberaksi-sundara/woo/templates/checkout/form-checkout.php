@@ -99,19 +99,21 @@ if (is_user_logged_in())
 <?php do_action('woocommerce_after_checkout_form', $checkout); ?>
 <script>
    	
-// jQuery(document).ready(()=>{
-// 	 jQuery('a.showlogin').click((e)=>{ e.preventDefault(); console.log('clicked'); location.href = location.origin +'/login' })
-// 	 console.log('=========================')
-// })
+jQuery(document).ready(($)=>{
+	 // jQuery('a.showlogin').click((e)=>{ e.preventDefault(); console.log('clicked'); location.href = location.origin +'/login' })
+	 // console.log('=========================')
+	$('.e-woocommerce-login-nudge.e-description').css('display','none')
+})
 
-let interval = setInterval(function(){
-	if (document.querySelector('a.showlogin')) {
-		document.querySelector('a.showlogin').addEventListener('click',function(){
+// let interval = setInterval(function(){
+// 	if (document.querySelector('a.showlogin')) {
+// 		document.querySelector('a.showlogin').addEventListener('click',function(){
 			
-			location.href = location.origin +'/login';
-		})
-	}
-},200)
+// 			location.href = location.origin +'/login';
+// 		})
+// 	}
+// },200)
+
 
 </script> 
 <?php

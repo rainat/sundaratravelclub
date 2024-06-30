@@ -203,6 +203,10 @@ class Elementor_Dynamic_Tag_ACF_Slot extends \Elementor\Core\DynamicTags\Tag
 			if ($value == 'SOLD OUT') $value = 'SOLD OUT';
 		}
 
+		if ($fields == 'sold-out-class'){
+			$value = $sold_out == 'On' ?  'slots-box slot-sold-out-on' : 'slots-box';
+		}
+
 
 
 		echo $value;

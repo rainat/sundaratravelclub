@@ -35,7 +35,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 		<?php esc_html_e( 'Click here to reset your passwordss', 'woocommerce' ); ?>
 	</a>
 </p>
-
+yyyyyyyy
 <?php
 /**
  * Show user-defined additional content - this is set in each email's settings.
