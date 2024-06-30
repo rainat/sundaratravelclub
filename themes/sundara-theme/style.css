@@ -578,7 +578,7 @@ ul, ol {
     display: flex;
     flex-wrap: wrap;
     gap: 16px;
-    margin-top: 0.9rem;
+    margin-top: 0
 }
 .ht-addinfo__col {
     max-width: 100%;
