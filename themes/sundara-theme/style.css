@@ -977,3 +977,7 @@ textarea {
     font-size: 16px !important;
     font-weight: 700 !important;
 }
+
+a.dialog-close-button.dialog-lightbox-close-button {
+    outline: none !important;
+}
