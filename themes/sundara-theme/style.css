@@ -968,7 +968,7 @@ textarea {
 .tml input[type="tel"], 
 .tml input[type="url"], 
 .tml textarea {
-    border-radius:  100px !important;
+    border-radius: 100px !important;
 }
 
 .tml .tml-submit-wrap {
