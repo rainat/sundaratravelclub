@@ -958,3 +958,22 @@ textarea {
 #wrap-login-book.gap-2 {
     row-gap: 0 !important;
 }
+
+/*Lost Password*/
+.tml input[type="text"], 
+.tml input[type="email"],
+.tml input[type="number"],
+.tml input[type="password"],
+.tml input[type="search"], 
+.tml input[type="tel"], 
+.tml input[type="url"], 
+.tml textarea {
+    border-radius:  100px !important;
+}
+
+.tml .tml-submit-wrap {
+    border-radius: 100px !important;
+    color: #fff !important;
+    font-size: 16px !important;
+    font-weight: 700 !important;
+}
