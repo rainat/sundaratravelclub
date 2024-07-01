@@ -942,11 +942,18 @@ textarea {
 /*Max Person notification*/
 .jq-toast-wrap .jq-icon-error {
  background-color: #beb299 !important;
+ color: #fff !important;
 }
 
 .jq-toast-wrap .jq-icon-error .jq-toast-loader {
     background: #9EC600 !important;
 }
+
+.jq-toast-wrap h2.jq-toast-heading {
+    margin-bottom: 4px !important;
+}
+
+.jq-toast-wrap h2.jq-toast-heading
 
 #wrap-login-book.gap-2 {
     row-gap: 0 !important;
