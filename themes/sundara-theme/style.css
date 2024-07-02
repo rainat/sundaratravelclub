@@ -981,3 +981,8 @@ textarea {
 a.dialog-close-button.dialog-lightbox-close-button {
     outline: none !important;
 }
+
+/*Slot Sold out on*/
+.slot-sold-out-on .elementor-icon-box-title a {
+    color: #000;
+}
