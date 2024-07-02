@@ -864,6 +864,19 @@ textarea {
         bottom: -100%;
     }
 }
+
+/*Yith Booking Proce*/
+.yith-wcbk-booking-form .price-desktop.price-desc-add {
+    font-size: 20px;
+    color: #2d2d2d;
+    font-weight: 700;
+    text-align: right;
+}
+
+.yith-wcbk-booking-form .tax-desc {
+    text-align: right;
+    font-size: 12px;
+}
 /*Select Dropdown*/
 
 .e-woo-select2-wrapper .select2-results__option:hover, .select2-container--default .select2-results__option[aria-selected=true]:hover, .select2-container--default .select2-results__option[data-selected=true]:hover, .select2-container--default .select2-results__option[aria-selected=true], .select2-container--default .select2-results__option[data-selected=true] {
