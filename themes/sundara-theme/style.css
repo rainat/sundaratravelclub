@@ -983,6 +983,6 @@ a.dialog-close-button.dialog-lightbox-close-button {
 }
 
 /*Slot Sold out on*/
-.slot-sold-out-on .elementor-icon-box-title a {
-    color: #000;
+.elementor-widget-icon-box.slot-sold-out-on .elementor-icon-box-title a {
+    color: #000 !important;
 }
