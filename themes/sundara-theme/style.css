@@ -636,6 +636,7 @@ ul, ol {
     }
     .yith-wcbk-booking-form {
         margin-bottom: 0 !important;
+        max-width: 600px !important;
     }
 }
 [data-elementor-type='loop-item'] h2.product_title a, [data-elementor-type='loop-item'] a[rel='tag'] {
@@ -876,6 +877,7 @@ textarea {
 .yith-booking form .tax-desc {
     text-align: right;
     font-size: 12px;
+    line-height: 1.2;
 }
 /*Select Dropdown*/
 
