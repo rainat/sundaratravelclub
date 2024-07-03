@@ -205,13 +205,6 @@ div.plusminus {
   display: inline-block !important;
 }
 
-/*@media screen {
-  .yith_wcbk_booking_product_form_widget.yith-wcbk-mobile-fixed-form {
-    position: relative !important;
-
-  }
-}*/
-
 button[comingsoon="1"] {
   /* background: red !important; */
 }

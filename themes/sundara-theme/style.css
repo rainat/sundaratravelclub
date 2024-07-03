@@ -301,7 +301,7 @@ body.home .site-content #primary {
 }
 #mysticky-nav .myfixed {
     width: 100% !important;
-    transition: all 0.5s !important;
+    transition: all 0.3s !important;
 }
 body.home #mysticky-nav .site-header::after {
     content: '';
@@ -311,7 +311,7 @@ body.home #mysticky-nav .site-header::after {
     left: 0;
     width: 100%;
     height: 100%;
-    transition: all .2s linear;
+    transition: all .2s ease-in-out;
 }
 /*Sticky-nav pseudo :after*/
 
@@ -858,9 +858,6 @@ textarea {
 
 /*Yith sticky footer*/
 @media screen and (max-width: 56.875em) {
-    .yith-wcbk-mobile-fixed-form {
-        transition-duration: 0.3s,0.3s,0s !important;
-    }
     .yith-wcbk-mobile-fixed-form:not(.active) {
         bottom: -100%;
     }
