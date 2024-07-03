@@ -90,17 +90,20 @@ class Shortcode_Trip
 				$gallery_contents = "<a class='gallery-summary-link' title='{$t}' data-slide='{$c}' href='javascript:void(0);'>View Imaged Gallery</a>";
 			}
 
-			return
-				"<div class='ht-addinfo'>
-                    <div class='ht-addinfo__col ht-addinfo__img'>
+			$html_icon = "";
+			if ($data['icon']) 
+				$html_icon = "<div class='ht-addinfo__col ht-addinfo__img'>
                         <img src='{$data['icon']}' width='20'>
-                    </div> 
+                    </div> ";
+			$render_html = "<div class='ht-addinfo'>" . $html_icon . "                    
                     <div class='ht-addinfo__col ht-addinfo__desc'>
                         <p class='ht-addinfo__title'>{$data['description']}</p>
 						<p class='ht-addinfo__title'>{$data['itenary_description']}</p>
                         <p class='ht-addinfo__text'>{$gallery_contents}</p>
                     </div>
                  </div>";
+			return $render_html;
+				
 		}
 
 		function render_day_content_summary($content, $index)
