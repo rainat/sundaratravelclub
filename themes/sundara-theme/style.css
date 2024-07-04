@@ -861,7 +861,13 @@ textarea {
     .yith-wcbk-mobile-fixed-form:not(.active) {
         bottom: -100%;
     }
+
+    .yith-wcbk-mobile-fixed-form{
+        transition: all 0.3s linear !important;
+    }
 }
+
+
 
 /*Yith Booking Proce*/
 .yith-booking form .price-desktop.price-desc-add {
