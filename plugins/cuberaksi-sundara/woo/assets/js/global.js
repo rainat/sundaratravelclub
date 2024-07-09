@@ -31,25 +31,25 @@ jQuery(document).ready(($) => {
 					location.origin + "/my-account/bookings?confirm=yes";
 			}
 
-			const interval = setInterval(() => {
-				if (elementorProFrontend.modules.popup) {
-					elementorProFrontend.modules.popup.showPopup({
-						id: 6717,
-					});
-					// console.log('founded', $('.woocommerce-notices-wrapper .woocommerce-message').text())
-					$("#woo-msg-notice").html(
-						$("#woo-msg-notice")
-							.html()
-							.replace(
-								"{{message_notice}}",
-								$(
-									".woocommerce-notices-wrapper .woocommerce-message",
-								).text(),
-							),
-					);
-					clearInterval(interval);
-				}
-			}, 100);
+			// const interval = setInterval(() => {
+			// 	if (elementorProFrontend.modules.popup) {
+			// 		elementorProFrontend.modules.popup.showPopup({
+			// 			id: 6717,
+			// 		});
+			// 		// console.log('founded', $('.woocommerce-notices-wrapper .woocommerce-message').text())
+			// 		$("#woo-msg-notice").html(
+			// 			$("#woo-msg-notice")
+			// 				.html()
+			// 				.replace(
+			// 					"{{message_notice}}",
+			// 					$(
+			// 						".woocommerce-notices-wrapper .woocommerce-message",
+			// 					).text(),
+			// 				),
+			// 		);
+			// 		clearInterval(interval);
+			// 	}
+			// }, 100);
 
 			//elementorProFrontend.modules.popup.showPopup({ id: 6717 });
 			//$('#woo-notice-dialog').click()

@@ -44,7 +44,7 @@ class Cuberaksi_Api
 	{
 
 		add_action('init', function () {
-			header("Access-Control-Allow-Origin: *");
+			// header("Access-Control-Allow-Origin: *");
 		});
 
 		add_action('rest_api_init', function () {

@@ -11,13 +11,13 @@ jQuery(document).ready(($) => {
     //     }
     // }, 100)
     //peroduct carousel
-    console.log("c");
+    // console.log("c");
     if (
         $(
             ".woocommerce-form__input.woocommerce-form__input-checkbox.input-checkbox#create",
         ).length
     ) {
-        console.log("c");
+        // console.log("c");
         $(
             ".woocommerce-form__input.woocommerce-form__input-checkbox.input-checkbox#create",
         )[0].checked = true;
@@ -55,7 +55,7 @@ jQuery(document).ready(($) => {
     });
 
     $('[data-widget-number="118"] button').click((e) => {
-        console.log(TabWidthButtons);
+        // console.log(TabWidthButtons);
         if ($(e.currentTarget).attr("data-tab-index") >= "3") {
             // let wTarget = e.currentTarget.offsetWidth
 
@@ -80,7 +80,7 @@ jQuery(document).ready(($) => {
     }, 200);
 
     // price per person
-    console.log("..>>>");
+    // console.log("..>>>");
     setInterval(() => {
         if ($(".yith-wcbk-mobile-fixed-form .price").length) {
             if (

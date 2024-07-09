@@ -116,7 +116,7 @@ $add_to_cart_classes = implode(' ', array_filter($add_to_cart_classes));
 	}
 	?>
 	<div class="flex flex-col gap-2" id="wrap-login-book">
-		<? /* aikhacode enable sementara */
+		<?php /* aikhacode enable sementara */
 		global $post;
 		// $comingsoon = is_this_comingsoon();
 		$comingsoon = false;

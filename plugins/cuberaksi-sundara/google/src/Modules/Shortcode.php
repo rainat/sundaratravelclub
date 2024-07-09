@@ -86,14 +86,11 @@ class Shortcode implements ModuleInterface {
 	 * @return string
 	 */
 	public function callback( $attrs = [] ): string {
-		
-		
 		$attrs = shortcode_atts(
 			[
-				'button_text'   => __( 'Login with google', 'login-with-google' ),
+				'button_text'   => __( 'Login', 'login-with-google' ),
 				'force_display' => 'no',
-				'redirect_to'   => $_SERVER['REQUEST_URI'],
-				'custom_btn_text' => '',
+				'redirect_to'   => get_permalink(),
 			],
 			$attrs,
 			self::TAG

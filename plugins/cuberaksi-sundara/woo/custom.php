@@ -538,20 +538,22 @@ class Cuberaksi_Custom
 
 			// }
 
-		
+
 		});
 
 
+		add_action('init', function () {
+			if (str_contains($_SERVER['REQUEST_URI'], '/logoutme')) {
+				if (is_user_logged_in()) wp_logout();
+				wp_redirect('/');
+			}
+		});
 
 
 		add_action('template_redirect', function ($template) {
 			global $post;
 			// console_log(['post'=>$post]);
 
-			if (str_contains($_SERVER['REQUEST_URI'], '/logoutme')) {
-				if (is_user_logged_in()) wp_logout();
-				wp_redirect('/');
-			}
 
 
 			if ($post->post_name === 'checkout') {
@@ -623,10 +625,12 @@ class Cuberaksi_Custom
 				}
 
 				if ($post->post_name === 'login') {
-					if (is_user_logged_in()) {
-						if (!is_admin())
-							wp_redirect('/my-account');
-					}
+
+						if (is_user_logged_in()) {
+							if (!str_contains($_SERVER['REQUEST_URI'],'elementor'))
+							if (!is_admin())
+								wp_redirect('/my-account');
+						}
 				}
 
 				if ($post->post_name === 'my-account') {
@@ -927,7 +931,7 @@ class Cuberaksi_Custom
 
 		$template_directory = trailingslashit(CUBERAKSI_SUNDARA_BASE_DIR) . 'woo/templates/';
 		$path = $template_directory . $template_name;
-
+		if (str_contains($template_name, 'email')) $path = '/maybenone';
 		// console_log([$template, $template_name, $args, $template_path, $default_path]);
 		// if (str_contains($template_name, 'booking-form'))
 		// 	console_log(['wc_get_template' => $template_name]);
