@@ -28,6 +28,10 @@
                 $secTarget.addClass('active');
             }
         });
+
+        $(window).load(()=> {
+            $( '.preloaderz' ).delay(2000).fadeOut( 'slow' );
+        });
     });
 })(jQuery)
 //test
