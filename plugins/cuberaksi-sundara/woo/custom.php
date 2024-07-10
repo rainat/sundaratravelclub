@@ -1073,3 +1073,4 @@ add_filter('wp_mail_from', function ($original_email_address) {
 add_filter('wp_mail_from_name', function ($original_email_from) {
 	return get_option('blogname');
 });
+
