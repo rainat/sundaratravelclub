@@ -1017,6 +1017,7 @@ a.dialog-close-button.dialog-lightbox-close-button {
     height: 100%;
     z-index: 9999999; /*9999999*/
     background-color: #fff;
+    padding-left: 18px;
 }
 
 .preloaderz > img {
