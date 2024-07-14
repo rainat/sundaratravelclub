@@ -1034,3 +1034,11 @@ a.dialog-close-button.dialog-lightbox-close-button {
         transform: rotate(360deg);
     }
 }
+
+/*Login Google center on mobile*/
+@media screen and (max-width: 920px) {
+    .wp_google_login {
+        margin: 16px auto 4px;
+        margin-top: 16px;
+    }
+}
