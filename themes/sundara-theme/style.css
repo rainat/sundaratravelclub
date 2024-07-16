@@ -898,10 +898,10 @@ input[type="text"], input[type="email"], input[type="number"], input[type="passw
     padding-bottom: 16px;
 }
 .group-inlcusion h3, .group-inlcusion h3 span {
-    color: #656565 !important;
-    font-family: "Georgia", Sans-serif !important;
-    font-size: 24px !important;
-    font-weight: 600 !important;
+    color: #000 !important;
+    font-family: "Montserrat", Sans-serif !important;
+    font-size: 22px !important;
+    font-weight: 700 !important;
 }
 /*Cookies section*/
 
