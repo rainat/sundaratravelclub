@@ -837,7 +837,7 @@ input[type="text"], input[type="email"], input[type="number"], input[type="passw
         bottom: -100px;
     }
     .yith-wcbk-mobile-fixed-form {
-        transition: all 0.8s ease-in-out;
+        transition: all 0.8s ease-in-out !important;
     }
 }
 /*Yith Booking Proce*/
