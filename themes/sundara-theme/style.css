@@ -33,19 +33,15 @@ Text Domain:     sundara-theme
     border-radius: 8px !important;
     max-width: 230px;
 }
-
 #gallery-content #thumbnails li img {
     width: 100% !important;
     height: 100% !important;
     object-fit: cover !important;
     border-radius: 8px !important;
 }
-
-#gallery-content .splide__arrows .splide__arrow--prev, 
-#gallery-content .splide__arrows .splide__arrow--next {
+#gallery-content .splide__arrows .splide__arrow--prev, #gallery-content .splide__arrows .splide__arrow--next {
     width: 30px !important;
 }
-
 #gallery-content #thumbnails {
     padding: 20px !important;
 }
@@ -55,6 +51,7 @@ Text Domain:     sundara-theme
 }
 /* body.single-product .main-header-menu .menu-link, 
 body.page-no-banner .main-header-menu .menu-link,*/
+
 body.home .main-header-menu .menu-link {
     color: #fff !important;
 }
@@ -215,10 +212,6 @@ body.home .main-header-menu li:hover a, body.single-product .main-header-menu li
     transform: translateY(0);
     opacity: 1;
 }
-.yith_wcbk_booking_product_form_widget {
-    transition: all 0.3s ease;
-}
-@media (max-width:767px) {}
 @media (max-width: 910px) {
     .sticky-footer {
         display: none;
@@ -338,9 +331,9 @@ body.home #mysticky-nav.wrapfixed ul.main-header-menu li a, body.single-product 
 body.home #mysticky-nav ul.main-header-menu .sub-menu li a, body.single-product #mysticky-nav ul.main-header-menu .sub-menu li a, body.page-no-banner #mysticky-nav ul.main-header-menu .sub-menu li a {
     color: #111 !important;
 }
- 
 /* body.single-product #mysticky-nav:not(.wrapfixed) .ast-button-wrap .ast-mobile-menu-trigger-outline .ast-mobile-svg, 
 body.page-no-banner #mysticky-nav:not(.wrapfixed) .ast-button-wrap .ast-mobile-menu-trigger-outline .ast-mobile-svg, */
+
 body.home #mysticky-nav:not(.wrapfixed) .ast-button-wrap .ast-mobile-menu-trigger-outline .ast-mobile-svg {
     fill: #fff
 }
@@ -348,9 +341,9 @@ body.home #mysticky-nav.wrapfixed .ast-button-wrap .ast-mobile-menu-trigger-outl
     color: #111 !important;
     filter: brightness(0) !important;
 }
-
 /* body.single-product #mysticky-nav .site-header:not(.myfixed) .site-logo-img img, 
 body.page-no-banner #mysticky-nav .site-header:not(.myfixed) .site-logo-img img, */
+
 body.home #mysticky-nav .site-header:not(.myfixed) .site-logo-img img {
     -webkit-filter: invert(100%) !important;
     filter: invert(100%) !important;
@@ -399,11 +392,10 @@ body.home .main-header-bar-wrap, body.single-product .main-header-bar-wrap {
 
 /* body.home #mysticky-nav.wrapfixed, 
 body.home #mysticky-nav.wrapfixed .myfixed,*/
-body.single-product #mysticky-nav.wrapfixed,
-body.single-product #mysticky-nav.wrapfixed .myfixed {
-  background: #fff !important;
-} 
 
+body.single-product #mysticky-nav.wrapfixed, body.single-product #mysticky-nav.wrapfixed .myfixed {
+    background: #fff !important;
+}
 .ast-mobile-header-wrap .ast-mobile-header-content {
     display: block;
     right: auto;
@@ -465,8 +457,7 @@ body.single-product #mysticky-nav.wrapfixed .myfixed {
 #trip-location {
     width: 20px;
 }
-.gallery-link,
-.gallery-summary-link {
+.gallery-link, .gallery-summary-link {
     color: var(--e-global-color-secondary)!important;
 }
 p, .entry-content p {
@@ -502,6 +493,7 @@ ul, ol {
 /*Header homepage Sticky*/
 
 /*body.single-product #mysticky-nav .ast-main-header-wrap .main-header-bar,*/
+
 .home.ast-theme-transparent-header .main-header-bar {
     background-color: transparent !important;
 }
@@ -607,11 +599,7 @@ ul, ol {
 }
 /*Custom YITH Bookign Form*/
 
-.yith-wcbk-booking-form input:not([type='checkbox']), 
-.yith-wcbk-booking-form input.yith-wcbk-date-picker--formatted, 
-.yith-wcbk-booking-form select, 
-.yith-wcbk-booking-form textarea,
-.yith-wcbk-date-range-picker  {
+.yith-wcbk-booking-form input:not([type='checkbox']), .yith-wcbk-booking-form input.yith-wcbk-date-picker--formatted, .yith-wcbk-booking-form select, .yith-wcbk-booking-form textarea, .yith-wcbk-date-range-picker {
     border-radius: 100px !important;
     color: #8C8C8C;
     font-size: 14px !important;
@@ -623,7 +611,6 @@ ul, ol {
     padding-left: 10px !important;
     padding-right: 10px !important;
 }
-
 .yith-wcbk-form-section__content:before {
     color: #BEB29A;
 }
@@ -807,6 +794,7 @@ div.minus {
     color: #252525 !important;
     font-weight: 600 !important;
 } */
+
 .myaccountpage__custom #myaccountpage button:disabled {
     opacity: 0.4;
     cursor: not-allowed;
@@ -819,64 +807,47 @@ button#mobile-book-now {
 }
 /*Remove auto zoom input field*/
 
-input[type="text"], 
-input[type="email"], 
-input[type="number"], 
-input[type="password"], 
-input[type="search"], 
-input[type="tel"], 
-input[type="url"], 
-textarea {
+input[type="text"], input[type="email"], input[type="number"], input[type="password"], input[type="search"], input[type="tel"], input[type="url"], textarea {
     font-size: 16px !important;
 }
-
 @media screen and (max-width: 922px) {
-    .yith-wcbk-booking-form input:not([type=checkbox]), 
-    .yith-wcbk-booking-form input.yith-wcbk-date-picker--formatted, 
-    .yith-wcbk-booking-form select, .yith-wcbk-booking-form textarea {
+    .yith-wcbk-booking-form input:not([type=checkbox]), .yith-wcbk-booking-form input.yith-wcbk-date-picker--formatted, .yith-wcbk-booking-form select, .yith-wcbk-booking-form textarea {
         font-size: 16px !important;
     }
 }
-
 /*YITH PREVENT ERROR BORDER 2px*/
-.yith-wcbk-booking-form input:not([type=checkbox]), 
-.yith-wcbk-booking-form input.yith-wcbk-date-picker--formatted, 
-.yith-wcbk-booking-form select, .yith-wcbk-booking-form textarea {
+
+.yith-wcbk-booking-form input:not([type=checkbox]), .yith-wcbk-booking-form input.yith-wcbk-date-picker--formatted, .yith-wcbk-booking-form select, .yith-wcbk-booking-form textarea {
     border-width: 1px !important;
 }
-
 /*YITH BOOKING PERSON*/
+
 .yith-wcbk-booking-form input[type="number"] {
     padding-left: 30px !important;
 }
-
 @media screen and (min-width: 922px) {
     .yith-wcbk-booking-form input[type="number"] {
         min-width: 138px !important;
     }
 }
-
 /*Yith sticky footer*/
+
 @media screen and (max-width: 56.875em) {
     .yith-wcbk-mobile-fixed-form:not(.active) {
-        bottom: -100%;
+        bottom: -100px;
     }
-
-    .yith-wcbk-mobile-fixed-form{
-        transition: all 0.3s linear !important;
+    .yith-wcbk-mobile-fixed-form {
+        transition: all 0.8s ease-in-out;
     }
 }
-
-
-
 /*Yith Booking Proce*/
+
 .yith-booking form .price-desktop.price-desc-add {
     font-size: 20px;
     color: #656565;
     font-weight: 700;
     text-align: right;
 }
-
 .yith-booking form .tax-desc {
     text-align: right;
     font-size: 12px;
@@ -908,104 +879,78 @@ textarea {
     display: none;
 }
 /*Woocommerce Error Notification*/
+
 .woocommerce-error {
-  border-top-color: #c0b198;
-  background-color: #f4efe8;
+    border-top-color: #c0b198;
+    background-color: #f4efe8;
 }
-
 .woocommerce-error::before {
-  color:#c0b198;
+    color: #c0b198;
 }
-
 .cky-btn-revisit-wrapper {
     display: none !important;
 }
-
-.timeline .content, 
-.timeline-summary .content {
+.timeline .content, .timeline-summary .content {
     overflow-x: scroll;
 }
-
 .booking-nav {
     padding-top: 8px;
     padding-bottom: 16px;
 }
-
-.group-inlcusion h3,
-.group-inlcusion h3 span {
+.group-inlcusion h3, .group-inlcusion h3 span {
     color: #656565 !important;
     font-family: "Georgia", Sans-serif !important;
     font-size: 24px !important;
     font-weight: 600 !important;
 }
-
 /*Cookies section*/
+
 .cky-consent-container .cky-consent-bar {
     box-shadow: none !important;
 }
-
 .cky-notice-btn-wrapper .cky-btn {
-   border-width: 1px  !important;
-   font-size: 12px !important;
-}
-
-.cky-notice-des *, 
-.cky-preference-content-wrapper *, 
-.cky-dma-content-wrapper *, 
-.cky-accordion-header-des *, 
-.cky-gpc-wrapper .cky-gpc-desc * {
+    border-width: 1px !important;
     font-size: 12px !important;
 }
-
-/*Max Person notification*/
-.jq-toast-wrap .jq-icon-error {
- background-color: #beb299 !important;
- color: #fff !important;
+.cky-notice-des *, .cky-preference-content-wrapper *, .cky-dma-content-wrapper *, .cky-accordion-header-des *, .cky-gpc-wrapper .cky-gpc-desc * {
+    font-size: 12px !important;
 }
+/*Max Person notification*/
 
+.jq-toast-wrap .jq-icon-error {
+    background-color: #beb299 !important;
+    color: #fff !important;
+}
 .jq-toast-wrap .jq-icon-error .jq-toast-loader {
     background: #9EC600 !important;
 }
-
 .jq-toast-wrap h2.jq-toast-heading {
     margin-bottom: 4px !important;
 }
-
-.jq-toast-wrap h2.jq-toast-heading
-
-#wrap-login-book.gap-2 {
+.jq-toast-wrap h2.jq-toast-heading #wrap-login-book.gap-2 {
     row-gap: 0 !important;
 }
-
 /*Lost Password*/
-.tml input[type="text"], 
-.tml input[type="email"],
-.tml input[type="number"],
-.tml input[type="password"],
-.tml input[type="search"], 
-.tml input[type="tel"], 
-.tml input[type="url"], 
-.tml textarea {
+
+.tml input[type="text"], .tml input[type="email"], .tml input[type="number"], .tml input[type="password"], .tml input[type="search"], .tml input[type="tel"], .tml input[type="url"], .tml textarea {
     border-radius: 100px !important;
 }
-
 .tml .tml-submit-wrap button {
     border-radius: 100px !important;
     color: #fff !important;
     font-size: 16px !important;
     font-weight: 700 !important;
 }
-
 a.dialog-close-button.dialog-lightbox-close-button {
     outline: none !important;
 }
-
 /*Slot Sold out on*/
+
 .elementor-widget-icon-box.slot-sold-out-on .elementor-icon-box-title a {
     color: #000 !important;
 }
-
 /*Preloader*/
+
 .preloaderz {
     position: fixed;
     top: 0;
@@ -1015,27 +960,26 @@ a.dialog-close-button.dialog-lightbox-close-button {
     justify-content: center;
     width: 100%;
     height: 100%;
-    z-index: 9999999; /*9999999*/
+    z-index: 9999999;
+    /*9999999*/
     background-color: #fff;
     padding-left: 18px;
 }
-
-.preloaderz > img {
+.preloaderz>img {
     width: 40px;
     height: auto;
     animation: animrotate 2s linear infinite;
 }
-
 @keyframes animrotate {
-    0%{
+    0% {
         transform: rotate(0deg);
     }
-    100%{
+    100% {
         transform: rotate(360deg);
     }
 }
-
 /*Login Google center on mobile*/
+
 @media screen and (max-width: 920px) {
     .wp_google_login {
         margin: 16px auto 4px;
