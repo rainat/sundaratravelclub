@@ -8,7 +8,7 @@
  	 	add_action( 'wp_body_open', function(){
  		?>
  		<div class="preloaderz">
-			<img src="./images/sun-sundara-transaprent-compress.png" alt="sundara logo">
+			<img src="<?php echo get_stylesheet_directory_uri(); ?>/images/sun-sundara-transaprent-compress.png" alt="sundara logo">
 		</div>
  		<?php
  	} );  
