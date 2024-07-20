@@ -8,8 +8,8 @@
  	 	add_action( 'wp_body_open', function(){
  		?>
  		<div class="preloaderz">
-	<img src="https://sundaratravelclub.com/wp-content/uploads/2024/06/logo-sundara-preload.svg" alt="sundara logo">
-</div>
+			<img src="<?php echo get_stylesheet_directory_uri(); ?>/images/sun-sundara-transaprent-compress.png" alt="sundara logo">
+		</div>
  		<?php
  	} );  
  ?>
