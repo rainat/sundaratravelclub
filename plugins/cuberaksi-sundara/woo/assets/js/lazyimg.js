@@ -12,6 +12,39 @@ jQuery(document).ready(($) => {
     // }, 100)
     //peroduct carousel
     // console.log("c");
+
+    $('#submit-bookable[type="submit"]:not(.yith-wcbk-not-allowed)').on('click', function (e) {
+        // e.preventDefault()
+        // console.log(e)
+        // location.href = location.origin + "/checkout"
+
+    })
+
+    $('form.checkout').on('submit', function (e) {
+        // e.preventDefault()
+        // console.log('clicked..')
+        $('.preloaderz').attr('style', '')
+        setTimeout(() => {
+            $('.preloaderz').attr('style', 'display:none')
+        }, 1000)
+    })
+
+    const interval = setInterval(() => {
+
+        let urlParams = new URLSearchParams(window.location.search);
+        // console.log('check params ', urlParams)
+        if (urlParams.get('checkemail') == 'confirm')
+            // console.log('check params success')
+            if (elementorProFrontend.modules.popup) {
+                elementorProFrontend.modules.popup.showPopup({
+                    id: 16166,
+                });
+                // console.log('founded', $('.woocommerce-notices-wrapper .woocommerce-message').text())
+
+                clearInterval(interval);
+            }
+    }, 100);
+
     if (
         $(
             ".woocommerce-form__input.woocommerce-form__input-checkbox.input-checkbox#create",
@@ -36,9 +69,10 @@ jQuery(document).ready(($) => {
         if ($(e.currentTarget).attr("data-tab-index") >= "4") {
             // console.log('yes')
             setTimeout(() => {
-                $('[data-widget-number="213"] .e-n-tabs-heading').scrollLeft(
-                    100,
-                );
+
+                $('[data-widget-number="213"] .e-n-tabs-heading').animate({
+                    scrollLeft: 100
+                }, 800)
                 // clearInterval(interval)
             }, 400);
         }
@@ -63,12 +97,24 @@ jQuery(document).ready(($) => {
                 let wHeading = $(
                     '[data-widget-number="118"] .e-n-tabs-heading',
                 ).width();
-                $('[data-widget-number="118"] .e-n-tabs-heading').scrollLeft(
-                    TabWidthButtons.elementsWidth[
+
+                $('[data-widget-number="118"] .e-n-tabs-heading').animate({
+                    scrollLeft: TabWidthButtons.elementsWidth[
                         Number($(e.currentTarget).attr("data-tab-index")) - 2
-                    ],
-                );
+                    ]
+                }, 800)
+                // $('[data-widget-number="118"] .e-n-tabs-heading').scrollLeft(
+                //     TabWidthButtons.elementsWidth[
+                //     Number($(e.currentTarget).attr("data-tab-index")) - 2
+                //     ],
+                // );
             }, 400);
+
+            // $('[data-widget-number="118"] .e-n-tabs-heading').smoothScroll('-=' + TabWidthButtons.elementsWidth[Number($(e.currentTarget).attr("data-tab-index")) - 2])
+            // $.smoothScroll({
+            //     scrollElement: $('[data-widget-number="118"] .e-n-tabs-heading'),
+
+            // }, '-=' + TabWidthButtons.elementsWidth[Number($(e.currentTarget).attr("data-tab-index")) - 2])
         }
     });
 

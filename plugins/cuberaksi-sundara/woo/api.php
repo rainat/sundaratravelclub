@@ -158,6 +158,9 @@ class Cuberaksi_Api
 			case 'Unpaid':
 				$status_sql = "AND p.post_status = 'bk-unpaid' ";
 				break;
+			case 'Paid':
+				$status_sql = "AND p.post_status = 'bk-paid' ";
+				break;
 			case 'Completed':
 				$status_sql = "AND p.post_status = 'bk-completed' ";
 				break;
@@ -169,6 +172,9 @@ class Cuberaksi_Api
 				break;
 			case 'Rejected':
 				$status_sql = "AND p.post_status = 'bk-unconfirmed' ";
+				break;
+			case 'Pending':
+				$status_sql = "AND p.post_status = 'bk-pending-confirm' ";
 				break;
 			default:
 				$status_sql = '';
@@ -199,15 +205,15 @@ class Cuberaksi_Api
 		if (!is_wp_error($temp)) {
 			foreach ($temp as $row) {
 				$section = $status_request;
-				$status = '';
+				$status = $row['post_status'];
 				if ($row['post_status'] === 'bk-completed') {
 					$section = 'Completed';
 					$status = "Completed";
 				}
-				// if ($row['bk-paid']) {
-				// 	$section = 'Completed';
-				// 	// $status = 'Paid';
-				// }
+				if ($row['post_status'] === 'bk-paid') {
+					$section = 'Paid';
+					$status = 'Paid';
+				}
 				if ($row['post_status'] === 'bk-unpaid') {
 					$section = 'Unpaid';
 					$status = 'Unpaid';
@@ -223,6 +229,10 @@ class Cuberaksi_Api
 				if ($row['post_status'] === 'bk-cancelled') {
 					$section = 'Cancelled';
 					$status = 'Cancelled';
+				}
+				if ($row['post_status'] === 'bk-pending-confirm') {
+					$section = 'Pending';
+					$status = 'Pending';
 				}
 
 				//Past 
@@ -243,7 +253,8 @@ class Cuberaksi_Api
 						'persons' =>  $row['persons'] ? $row['persons'] : '-',
 						'price' => "$ " . number_format($row['price']),
 						'section' => $status_request,
-						'status' => $status
+						'status' => $status,
+						'status_db' => $row['post_status']
 					];
 			}
 			return wp_send_json($results);

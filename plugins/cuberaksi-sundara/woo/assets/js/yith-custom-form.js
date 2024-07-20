@@ -64,6 +64,9 @@ jQuery(document).ready(($) => {
 	);
 
 	var maxsc = Number($(".slot-count-data").attr("data-slotcount"));
+
+	$('#detail-people').text($("input#yith-wcbk-booking-persons").val())
+
 	$("div.minus").click(function () {
 		var $input = $("input#yith-wcbk-booking-persons");
 		var count = parseInt($input.val()) - 1;
@@ -72,6 +75,7 @@ jQuery(document).ready(($) => {
 		$input.val(count);
 		$input.change();
 		$($input).attr("value", count);
+		$('#detail-people').text(count)
 		// console.log('minus', $input)
 		// return false;
 	});
@@ -93,6 +97,7 @@ jQuery(document).ready(($) => {
 			$input.val(count);
 			$input.change();
 			$($input).attr("value", count);
+			$('#detail-people').text(count)
 		}
 
 		// console.log('plus', $input)

@@ -47,8 +47,8 @@ foreach (WC()->cart->get_cart() as $cart_item_key => $cart_item) {
 		// $cart_item['line_subtotal'] = 5000;
 		// $cart_item['line_total'] = 5000;
 		$price = $cart_item['line_subtotal'];
-		console_log($price);
-		console_log($cart_item);
+		// console_log($price);
+		// console_log($cart_item);
 
 		?>
 
@@ -136,11 +136,10 @@ do_action('woocommerce_review_order_after_cart_contents');
 		$post_ID = '9712';
 		$pluginElementor = \Elementor\Plugin::instance();
 		$contentElementor = $pluginElementor->frontend->get_builder_content($post_ID, false);
-		
+
 		echo "<div class='priceinfo123'>";
 		// echo $contentElementor;
 		echo "</div>";
-		
 	}
 
 	// echo "<script>jQuery(jQuery('.priceinfo123')[1]).css('display','block')</script>";

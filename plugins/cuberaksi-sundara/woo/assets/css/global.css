@@ -220,3 +220,38 @@ input#yith-wcbk-booking-persons {
 .jq-toast-wrap {
   z-index: 999999 !important;
 }
+
+.woocommerce ul.products li.product .onsale:after,
+.widget_shopping_cart_content .loading:before,
+.woocommerce .widget_product_categories .loading:before,
+.woocommerce-page .widget_layered_nav_filters .loading:before,
+.woocommerce-page .widget_rating_filter .wc-layered-nav-rating.loading:before {
+  background-image: url('https://sundaratravelclub.com/wp-content/uploads/2024/06/logo-sundara-preload.svg')
+}
+
+.woocommerce .blockUI.blockOverlay {
+  /* opacity: 1 !important;
+  position: absolute !important;
+  width: 100% !important;
+  height: 100% !important; */
+  display: none !important;
+}
+
+/* .woocommerce .blockUI.blockOverlay::before {
+  height: 1em;
+  width: 1em;
+  display: block;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin-left: -.5em;
+  margin-top: -.5em;
+  content: "";
+  animation: spin 1s ease-in-out infinite;
+  background-image: url(https://sundaratravelclub.com/wp-content/uploads/2024/06/logo-sundara-preload.svg) !important;
+   line-height: 1;
+  text-align: center;
+  font-size: 2em;
+  background-color: transparent;
+  color: rgba(0, 0, 0, 1) !important;
+} */

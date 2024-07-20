@@ -143,7 +143,9 @@ class Cuberaksi_Custom
 		// add_filter( 'woocommerce_checkout_fields', 'awcfe_city_dropdown_field', 999999, 1 );
 	}
 
-	function currency_api() {}
+	function currency_api()
+	{
+	}
 
 	function init_custom_payment_channel()
 	{
@@ -190,12 +192,13 @@ class Cuberaksi_Custom
 	function enqueue_scripts()
 	{
 		add_action('wp_enqueue_scripts', function () {
-			wp_enqueue_style('cb-xd-globals', CUBERAKSI_SUNDARA_BASE_URL . 'woo/assets/css/global.css', [], CUBERAKSI_SUNDARA_VERSION);
+			wp_enqueue_style('cb-xd-globals', CUBERAKSI_SUNDARA_BASE_URL . 'woo/assets/css/global.css', [], CUBERAKSI_SUNDARA_VERSION . '-' . time());
 			// wp_enqueue_style('child-style-sundara', "https://sundaratravelclub.com/wp-content/themes/sundara-theme/style.css", [], CUBERAKSI_SUNDARA_VERSION);
 
 			// wp_enqueue_script('jquery-lazy','https://cdnjs.cloudflare.com/ajax/libs/jquery.lazy/1.7.11/jquery.lazy.min.js',['jquery']);
 			// wp_enqueue_script('jquery-lazy-custom', CUBERAKSI_SUNDARA_BASE_URL . 'woo/assets/js/global.js', ['jquery'], '-' . CUBERAKSI_SUNDARA_VERSION);
-			wp_enqueue_script('jq-lazyimg', CUBERAKSI_SUNDARA_BASE_URL . 'woo/assets/js/lazyimg.js', ['jquery'], '-' . CUBERAKSI_SUNDARA_VERSION, true);
+			wp_enqueue_script('jq-lazyimg', CUBERAKSI_SUNDARA_BASE_URL . 'woo/assets/js/lazyimg.js', ['jquery'], CUBERAKSI_SUNDARA_VERSION . "-" . time(), true);
+			// wp_enqueue_script('jq-scrollsmooth', 'https://cdn.jsdelivr.net/npm/jquery-smooth-scroll@2.2.0/jquery.smooth-scroll.min.js', ['jquery'], false, true);
 			wp_enqueue_script('jq-tipy1', 'https://unpkg.com/@popperjs/core@2', ['jq-lazyimg'], '-' . CUBERAKSI_SUNDARA_VERSION, true);
 			wp_enqueue_script('jq-tipy2', 'https://unpkg.com/tippy.js@6', ['jq-lazyimg'], '-' . CUBERAKSI_SUNDARA_VERSION, true);
 
@@ -203,8 +206,8 @@ class Cuberaksi_Custom
 			wp_enqueue_script('jq-cookie', "https://cdn.jsdelivr.net/npm/js-cookie@3.0.5/dist/js.cookie.min.js", ['jquery']);
 			global $post;
 			if ($post->post_name == 'my-account')
-				wp_enqueue_script('myaccount', CUBERAKSI_SUNDARA_BASE_URL . 'woo/assets/js/myaccount.js', [], CUBERAKSI_SUNDARA_VERSION);
-			wp_enqueue_style('cube-loader', CUBERAKSI_SUNDARA_BASE_URL . 'woo/assets/css/preloader.css', [], CUBERAKSI_SUNDARA_VERSION);
+				wp_enqueue_script('myaccount', CUBERAKSI_SUNDARA_BASE_URL . 'woo/assets/js/myaccount.js', [], CUBERAKSI_SUNDARA_VERSION . '-' . time());
+			// wp_enqueue_style('cube-loader', CUBERAKSI_SUNDARA_BASE_URL . 'woo/assets/css/preloader.css', [], CUBERAKSI_SUNDARA_VERSION);
 		});
 
 		add_action('admin_enqueue_scripts', function () {
@@ -329,16 +332,16 @@ class Cuberaksi_Custom
 		// add_filter('woocommerce_product_get_sale_price',[$this,'change_price_regular_member'], 10, 2);
 		// add_filter('woocommerce_available_payment_gateways', [$this, 'change_available_payment_gateways']);
 
-		add_action('yith_wcbk_booking_form_end', function ($product) {
-			// $bookings = yith_wcbk_booking_helper()->get_bookings_by_user(wp_get_current_user()->ID);
-			// $obj_b64 = base64_encode(print_r($product, true)) . " #toto# ";
-			// error_log($obj_b64, 3, CUBERAKSI_SUNDARA_BASE_DIR . "woo/logs.txt");
-			// $user_id = wp_get_current_user()->ID;
-			// $booking_id = $product->get_id();
-			// $session_id = random_bytes(3);
-			// update_option("user$user_id", json_encode(['session_id' => $session_id, 'user_id' => $user_id, 'product_id' => $booking_id, 'session_book' => true]));
+		// add_action('yith_wcbk_booking_form_end', function ($product) {
+		// $bookings = yith_wcbk_booking_helper()->get_bookings_by_user(wp_get_current_user()->ID);
+		// $obj_b64 = base64_encode(print_r($product, true)) . " #toto# ";
+		// error_log($obj_b64, 3, CUBERAKSI_SUNDARA_BASE_DIR . "woo/logs.txt");
+		// $user_id = wp_get_current_user()->ID;
+		// $booking_id = $product->get_id();
+		// $session_id = random_bytes(3);
+		// update_option("user$user_id", json_encode(['session_id' => $session_id, 'user_id' => $user_id, 'product_id' => $booking_id, 'session_book' => true]));
 
-		});
+		// });
 	}
 
 	function init_people_grup_two()
@@ -542,37 +545,41 @@ class Cuberaksi_Custom
 		});
 
 
-		add_action('init', function () {
-			if (str_contains($_SERVER['REQUEST_URI'], '/logoutme')) {
-				if (is_user_logged_in()) wp_logout();
-				wp_redirect('/');
-			}
-		});
+
 
 
 		add_action('template_redirect', function ($template) {
-			global $post;
+			// global $post;
 			// console_log(['post'=>$post]);
 
 
 
-			if ($post->post_name === 'checkout') {
-				if (!is_user_logged_in()) {
-					// echo "Login First";
-				}
-				if (is_checkout()) {
-					$cart = WC()->cart->get_cart();
-					$count = count($cart);
-					if ($count > 1) {
-						$i = 1;
-						foreach ($cart as $cart_item_key => $cart_item) {
-							if ($i < $count)
-								WC()->cart->remove_cart_item($cart_item_key);
-							$i++;
-						}
+			// if ($post->post_name === 'checkout') {
+			if (!is_user_logged_in()) {
+				// echo "Login First";
+			}
+			if (is_checkout()) {
+				$cart = WC()->cart->get_cart();
+				$count = count($cart);
+				if ($count > 1) {
+					$i = 1;
+					foreach ($cart as $cart_item_key => $cart_item) {
+						if ($i < $count)
+							WC()->cart->remove_cart_item($cart_item_key);
+						$i++;
 					}
 				}
 			}
+			//clear cart if at product page 
+			if (is_product()) {
+				WC()->cart->empty_cart();
+			}
+
+			if (is_cart()) {
+				wp_redirect('/');
+				exit;
+			}
+			// }
 			return $template;
 		});
 		add_action('template_include', function ($template) {
@@ -581,7 +588,7 @@ class Cuberaksi_Custom
 			// console_log(['#1', $request_uri]);
 
 			if (($request_uri === '/cube') || ($request_uri === '/cube\/')) {
-				console_log(['#2', $request_uri]);
+				// console_log(['#2', $request_uri]);
 				wp_redirect(admin_url());
 			}
 
@@ -589,11 +596,12 @@ class Cuberaksi_Custom
 
 			global $post;
 
-			if ($post->post_name === 'login') {
-				wp_enqueue_script('login-cst', CUBERAKSI_SUNDARA_BASE_URL .
-					"woo/assets/js/login.js", ['jquery']);
-			}
+
 			if (isset($post->post_name)) {
+				if ($post->post_name === 'login') {
+					wp_enqueue_script('login-cst', CUBERAKSI_SUNDARA_BASE_URL .
+						"woo/assets/js/login.js", ['jquery']);
+				}
 				// error_log(wp_upload_dir(),3,.);
 				// echo wp_upload_dir();
 				if ($post->post_name === 'my-account') {
@@ -626,11 +634,11 @@ class Cuberaksi_Custom
 
 				if ($post->post_name === 'login') {
 
-						if (is_user_logged_in()) {
-							if (!str_contains($_SERVER['REQUEST_URI'],'elementor'))
+					if (is_user_logged_in()) {
+						if (!str_contains($_SERVER['REQUEST_URI'], 'elementor'))
 							if (!is_admin())
 								wp_redirect('/my-account');
-						}
+					}
 				}
 
 				if ($post->post_name === 'my-account') {
@@ -681,11 +689,11 @@ class Cuberaksi_Custom
 
 			if (is_checkout()) {
 
-				wp_enqueue_script('checkoutme', CUBERAKSI_SUNDARA_BASE_URL . 'woo/assets/js/checkout.js', ['jquery'], CUBERAKSI_SUNDARA_VERSION);
+				wp_enqueue_script('checkoutme', CUBERAKSI_SUNDARA_BASE_URL . 'woo/assets/js/checkout.js', ['jquery'], CUBERAKSI_SUNDARA_VERSION . '-' . time());
 
-				wp_enqueue_style('accpage-css', CUBERAKSI_SUNDARA_BASE_URL . "woo/templates/myaccount/dist/main.css", [], CUBERAKSI_SUNDARA_VERSION);
-				wp_enqueue_script_module('accpage-js', CUBERAKSI_SUNDARA_BASE_URL . "woo/templates/myaccount/dist/index.js", [], CUBERAKSI_SUNDARA_VERSION, true);
-				wp_enqueue_script_module('accpagewc-js', CUBERAKSI_SUNDARA_BASE_URL . "woo/templates/myaccount/dist/wc.js", [], CUBERAKSI_SUNDARA_VERSION, true);
+				wp_enqueue_style('accpage-css', CUBERAKSI_SUNDARA_BASE_URL . "woo/templates/myaccount/dist/main.css", [], CUBERAKSI_SUNDARA_VERSION . '-' . time());
+				// wp_enqueue_script_module('accpage-js', CUBERAKSI_SUNDARA_BASE_URL . "woo/templates/myaccount/dist/index.js", [], CUBERAKSI_SUNDARA_VERSION . '-' . time(), true);
+				wp_enqueue_script_module('accpagewc-js', CUBERAKSI_SUNDARA_BASE_URL . "woo/templates/myaccount/dist/wc.js", [], CUBERAKSI_SUNDARA_VERSION . '-' . time(), true);
 
 
 				// Vite\enqueue_asset(
@@ -734,9 +742,9 @@ class Cuberaksi_Custom
 					$json_galleries = json_encode(get_timeline_galleries($product_id));
 
 					// global js
-					wp_enqueue_script('jquery-lazy-custom', CUBERAKSI_SUNDARA_BASE_URL . 'woo/assets/js/global.js?' . CUBERAKSI_SUNDARA_VERSION, ['jquery']);
+					wp_enqueue_script('jquery-lazy-custom', CUBERAKSI_SUNDARA_BASE_URL . 'woo/assets/js/global.js?' . CUBERAKSI_SUNDARA_VERSION . '-' . time(), ['jquery']);
 
-					wp_enqueue_script('yith-custom-form', CUBERAKSI_SUNDARA_BASE_URL . 'woo/assets/js/yith-custom-form.js?' . CUBERAKSI_SUNDARA_VERSION, ['jquery']);
+					wp_enqueue_script('yith-custom-form', CUBERAKSI_SUNDARA_BASE_URL . 'woo/assets/js/yith-custom-form.js?' . CUBERAKSI_SUNDARA_VERSION . '-' . time(), ['jquery']);
 
 					wp_enqueue_script('splidejs', 'https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/js/splide.min.js');
 
@@ -752,11 +760,12 @@ class Cuberaksi_Custom
 					$product_yith = yith_wcbk_get_booking_product($product_id);
 					$min_persons = $product_yith->get_minimum_number_of_people();
 
-					$product_price =  get_post_meta($product_id, '_yith_booking_extra_costs', true)['10059']['cost'];
+					$product_price =  get_post_meta($product_id, '_yith_booking_extra_costs', true);
 
 					if (!$product_price) $product_price = 0;
+					if ($product_price && isset($product_price['10059'])) $product_price = $product_price['10059']['cost'];
 
-					wp_enqueue_script('timelinegal', CUBERAKSI_SUNDARA_BASE_URL . 'woo/assets/js/timelinegal.js?' . CUBERAKSI_SUNDARA_VERSION, ['jquery']);
+					wp_enqueue_script('timelinegal', CUBERAKSI_SUNDARA_BASE_URL . 'woo/assets/js/timelinegal.js?' . CUBERAKSI_SUNDARA_VERSION . '-' . time(), ['jquery']);
 					// wp_enqueue_script('jquery-lazy-custom');
 					// wp_enqueue_script('sa2','https://cdn.jsdelivr.net/npm/sweetalert2@11.10.0/dist/sweetalert2.all.min.js');
 					// wp_enqueue_style('sa2css','https://cdn.jsdelivr.net/npm/sweetalert2@11.10.0/dist/sweetalert2.min.css');
@@ -892,7 +901,9 @@ class Cuberaksi_Custom
 	}
 
 
-	function smooth_scroll() {}
+	function smooth_scroll()
+	{
+	}
 
 	function override_checkout()
 	{
@@ -919,9 +930,12 @@ class Cuberaksi_Custom
 		$template_target = file_exists($path) ? $path : $template;
 		if (str_contains($template_name, 'email')) $template_target = $template;
 
+		if (str_contains($template_name, 'customer-completed-booking.php'))
+			$path = $template_directory . $template_name;
+
 		// // if (str_contains($template_name, 'booking-form'))
 		// // 	console_log(['wc_template' => $template_name]);
-		// wp_remote_post('https://webhook.site/436c6dec-4da8-41a2-a131-90c12f147a74',['body' => ['template' => $template, 'template_name' => $template_name],'sslverify' => false]);
+		// wp_remote_post('https://webhook.site/822bc331-4c29-4ffb-8544-44177e2350e2', ['body' => ['from' => 'wc_template', 'template' => $template, 'template_name' => $template_name], 'sslverify' => false]);
 		// wp_remote_get('https://webhook.site/436c6dec-4da8-41a2-a131-90c12f147a74');
 		return $template_target;
 	}
@@ -932,9 +946,15 @@ class Cuberaksi_Custom
 		$template_directory = trailingslashit(CUBERAKSI_SUNDARA_BASE_DIR) . 'woo/templates/';
 		$path = $template_directory . $template_name;
 		if (str_contains($template_name, 'email')) $path = '/maybenone';
+
+		if (str_contains($template_name, 'customer-completed-booking.php'))
+			$path = $template_directory . $template_name;
 		// console_log([$template, $template_name, $args, $template_path, $default_path]);
 		// if (str_contains($template_name, 'booking-form'))
 		// 	console_log(['wc_get_template' => $template_name]);
+
+		// wp_remote_post('https://webhook.site/822bc331-4c29-4ffb-8544-44177e2350e2', ['body' => ['from' => 'wc_get_template', 'template' => $template, 'template_name' => $template_name], 'sslverify' => false]);
+
 
 		return file_exists($path) ? $path : $template;
 		// return $template;
@@ -1033,6 +1053,7 @@ function console_log($obj)
 
 
 add_filter('wp_mail_content_type', function () {
+	return 'text/html';
 	if ($GLOBALS["use_html_content_type"]) {
 		return 'text/html';
 	} else {
@@ -1074,3 +1095,55 @@ add_filter('wp_mail_from_name', function ($original_email_from) {
 	return get_option('blogname');
 });
 
+
+add_action(
+	'deprecated_function_run',
+	function ($function_name) {
+		wc_get_logger()->debug(
+			'Deprecated function used.',
+			array(
+				'source'    => 'wc_deprecated_function',
+				'function'  => $function_name,
+				'backtrace' => true,
+			)
+		);
+	}
+);
+
+add_action('init', function () {
+	if (str_contains($_SERVER['REQUEST_URI'], '?logoutme=yes')) {
+		if (is_user_logged_in()) wp_logout();
+		wp_redirect('/');
+	}
+});
+
+// define('WP_ADMIN_DIR', 'cube-sundara');
+// define('ADMIN_COOKIE_PATH', SITECOOKIEPATH . WP_ADMIN_DIR);
+
+// add_filter('site_url',  function ($url, $path, $orig_scheme) {
+// 	$request_url = $_SERVER['REQUEST_URI'];
+
+// 	$check_wp_admin = stristr($request_url, 'wp-admin');
+// 	if ($check_wp_admin) {
+// 		wp_redirect(home_url('404'), 302);
+// 		exit();
+// 	}
+
+// 	$old  = array("/(wp-admin)/");
+// 	$admin_dir = WP_ADMIN_DIR;
+// 	$new  = array($admin_dir);
+// 	return preg_replace($old, $new, $url, 1);
+// }, 10, 3);
+
+
+
+// add_rewrite_rule('^' . 'cube-sundara/(.*)', 'wp-admin/$1?%{QUERY_STRING}');
+
+// add_filter('woocommerce_email_classes', function ($emails) {
+// 	if (isset($emails['YITH_WCBK_Email_Customer_Paid_Booking'])) {
+// 		$emails['YITH_WCBK_Email_Customer_Paid_Booking']        = include 'templates/emails/customer-paid-booking.php';
+// 	}
+
+
+// 	return $emails;
+// }, 100, 1);

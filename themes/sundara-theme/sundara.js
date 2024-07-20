@@ -1,4 +1,11 @@
 (function ($) {
+    document.addEventListener("DOMContentLoaded", function () {
+        $(window).load(() => {
+            if ($(".preloaderz").length) {
+                $(".preloaderz").delay(2000).fadeOut("slow");
+            }
+        });
+    });
     $(document).ready(() => {
         document.addEventListener("DOMContentLoaded", function () {
             var mapIframe = document.querySelector("#map iframe");
@@ -27,10 +34,6 @@
             } else {
                 $secTarget.addClass("active");
             }
-        });
-
-        $(window).load(() => {
-            $(".preloaderz").delay(2000).fadeOut("slow");
         });
     });
 })(jQuery);

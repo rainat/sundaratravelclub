@@ -1,0 +1,31 @@
+{
+    "description": "DO NOT DELETE THIS FILE. This file is used to keep track of which files have been synced in the most recent deployment. If you delete this file a resync will need to be done (which can take a while) - read more: https://github.com/SamKirkland/FTP-Deploy-Action",
+    "version": "1.0.0",
+    "generatedTime": 1718121614425,
+    "data": [
+        {
+            "type": "file",
+            "name": "functions.php",
+            "size": 373,
+            "hash": "833654b3a9cf30530972a74ba436856f3bf15a820608b63fd929794f3d416ee5"
+        },
+        {
+            "type": "file",
+            "name": "screenshot.png",
+            "size": 108597,
+            "hash": "d2493e372afab47e14e6717aa2aaf221c46bbb3181b6e93a3bea3b0365f0bb34"
+        },
+        {
+            "type": "file",
+            "name": "style.css",
+            "size": 24413,
+            "hash": "05661861e029973c5fbaca6a78bb23e3fbd72b916bec95f97a8095a60d12f90e"
+        },
+        {
+            "type": "file",
+            "name": "sundara.js",
+            "size": 1130,
+            "hash": "bcb91861ffa692c0cd768aa7e875aab6fe758540a798c28033d5385046476f41"
+        }
+    ]
+}

@@ -97,5 +97,21 @@ jQuery(document).ready(($) => {
 				}
 			});
 	});
+
+	//hide create account 
+	if ($('.woocommerce-account-fields').length) {
+		$('.woocommerce-account-fields').hide()
+	}
+
+	//if error
+	$(document.body).on('checkout_error', function () {
+		// console.warn('woo error broo')
+		if ($('.woocommerce-error a.showlogin').length) {
+			$('.e-show-login').trigger('click')
+			$('.e-login-wrap input[name="username"]').val($('#billing_email').val()).focus()
+			// $('.e-login-wrap input[name="username"]').focus()
+		}
+
+	})
 });
 // })(jQuery, document, window);
