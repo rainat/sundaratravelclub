@@ -760,6 +760,8 @@ class Cuberaksi_Custom
 					$product_yith = yith_wcbk_get_booking_product($product_id);
 					$min_persons = $product_yith->get_minimum_number_of_people();
 
+
+
 					$product_price =  get_post_meta($product_id, '_yith_booking_extra_costs', true);
 
 					if (!$product_price) $product_price = 0;
@@ -1147,3 +1149,12 @@ add_action('init', function () {
 
 // 	return $emails;
 // }, 100, 1);
+
+add_action('woocommerce_order_status_pending_to_on-hold', function ($order_id, $order) {
+	$bookings = get_post_meta($order_id, 'yith_bookings', true);
+	//wp_remote_post('https://webhook.site/822bc331-4c29-4ffb-8544-44177e2350e2', ['body' => wp_json_encode($bookings), 'headers' => ['Content-Type' => 'application/json']]);
+	if ($bookings) {
+		$yith_booking = new \YITH_WCBK_Booking($bookings[0]);
+		$yith_booking->update_status('bk-paid');
+	}
+}, 114, 2);
