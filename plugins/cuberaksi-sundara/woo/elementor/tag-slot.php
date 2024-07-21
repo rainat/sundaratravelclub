@@ -189,6 +189,9 @@ class Elementor_Dynamic_Tag_ACF_Slot extends \Elementor\Core\DynamicTags\Tag
 		$sold_out = get_field('_sold_out_admin');
 		$slot_count = get_field('_slot_count');
 
+		global $post;
+		$tba = get_post_meta($post->ID, '_tba', true);
+
 		if ($sold_out == 'On') $value = "SOLD OUT";
 		else {
 
@@ -196,14 +199,17 @@ class Elementor_Dynamic_Tag_ACF_Slot extends \Elementor\Core\DynamicTags\Tag
 			else $value = $slot_count;
 		}
 
+		if ($tba == 'On') $value = "TBA";
 
 		if ($fields == 'desc') {
-			if ($value != 'SOLD OUT') $value = 'SLOTS LEFT'; else $value = '';
+			if ($value != 'SOLD OUT') $value = 'SLOTS LEFT';
+			else $value = '';
+			if ($tba == 'On') $value = "";
 		} else {
 			if ($value == 'SOLD OUT') $value = 'SOLD OUT';
 		}
 
-		if ($fields == 'sold-out-class'){
+		if ($fields == 'sold-out-class') {
 			$value = $sold_out == 'On' ?  'slots-box slot-sold-out-on' : 'slots-box';
 		}
 

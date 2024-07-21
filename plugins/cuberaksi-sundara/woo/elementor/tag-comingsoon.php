@@ -162,6 +162,9 @@ class Elementor_Dynamic_Tag_ACF_Comingsoon extends \Elementor\Core\DynamicTags\T
 
 		$duration = $product_yith->get_duration();
 
+		global $post;
+		$tba = get_post_meta($post->ID, '_tba', true);
+
 		if ($fields == 'title') {
 
 			$notyet = false;
@@ -209,6 +212,8 @@ class Elementor_Dynamic_Tag_ACF_Comingsoon extends \Elementor\Core\DynamicTags\T
 
 
 				$value = $one[0] . ' - ' . $two[0] . ' ' . $two[1] . ' ' . $two[2];
+
+				if ($tba == 'On') $value = 'COMING SOON';
 			}
 		}
 

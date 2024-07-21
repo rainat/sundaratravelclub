@@ -84,7 +84,7 @@ class Cuberaksi_Api
 
 	function api_get_bookings()
 	{
-		wp_set_current_user(62);
+		// wp_set_current_user(62);
 		$this->ajax_get_bookings();
 	}
 
@@ -95,7 +95,9 @@ class Cuberaksi_Api
 		$sql = $wpdb->prepare(
 			"SELECT p.ID,p.post_title,p.post_type,p.post_status,
 		(SELECT meta_value FROM {$wpdb->prefix}postmeta WHERE post_id=p.ID AND meta_key='_sold_out_admin') as _sold_out ,
-		(SELECT meta_value FROM {$wpdb->prefix}postmeta WHERE post_id=p.ID AND meta_key='_slot_count') as _slot_count
+		(SELECT meta_value FROM {$wpdb->prefix}postmeta WHERE post_id=p.ID AND meta_key='_slot_count') as _slot_count,
+		(SELECT meta_value FROM {$wpdb->prefix}postmeta WHERE post_id=p.ID AND meta_key='comingsoon') as start_date,
+		(SELECT meta_value FROM {$wpdb->prefix}postmeta WHERE post_id=p.ID AND meta_key='_tba') as tba
 		from {$wpdb->prefix}posts p
 			
 		where p.post_type='product' and p.post_status = 'publish'
@@ -124,6 +126,8 @@ class Cuberaksi_Api
 		if ($body) {
 			$a = update_post_meta($body['post_id'], '_sold_out_admin', $body['_sold_out']);
 			$b = update_post_meta($body['post_id'], '_slot_count', $body['_slot_count']);
+			$c = update_post_meta($body['post_id'], 'comingsoon', $body['start_date']);
+			$d = update_post_meta($body['post_id'], '_tba', $body['tba']);
 			// $max_person = intval(get_post_meta($body['post_id'], '_yith_booking_max_persons', true));
 
 			// if (intval($body['_slot_count']) > $max_person) {
