@@ -25,7 +25,7 @@ jobs:
     - name: 📂 Sync files theme
       uses: SamKirkland/FTP-Deploy-Action@v4.3.5
       with:
-        server: 151.106.117.144
+        server: 45.130.228.156
         username: u822946699.sundara
         password: Secret123!
         local-dir: ./themes/sundara-theme/
@@ -38,7 +38,7 @@ jobs:
     - name: 📂 Sync files plugin cuberaksi-sundara
       uses: SamKirkland/FTP-Deploy-Action@v4.3.5
       with:
-        server: 151.106.117.144
+        server: 45.130.228.156
         username: u822946699.sundara
         password: Secret123!
         local-dir: ./plugins/cuberaksi-sundara/
