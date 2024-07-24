@@ -963,7 +963,7 @@ a.dialog-close-button.dialog-lightbox-close-button {
     z-index: 9999999;
     /*9999999*/
     background-color: #fff;
-    padding-left: 11px;
+    padding-left: 8px;
 }
 .preloaderz>img {
     width: 40px;
