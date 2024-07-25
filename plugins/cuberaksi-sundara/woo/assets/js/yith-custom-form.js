@@ -130,6 +130,7 @@ jQuery(document).ready(($) => {
 		e.preventDefault();
 	});
 
+
 	// $("input#yith-wcbk-booking-persons[name='persons']").attr('disabled', 'disabled')
 });
 // })(jQuery);

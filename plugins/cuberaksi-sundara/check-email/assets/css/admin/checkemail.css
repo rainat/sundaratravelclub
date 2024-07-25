@@ -1,0 +1,211 @@
+#checkemail {
+    background-color: #FFF;
+    border: 1px solid #DDD;
+    max-width: 50%;
+    padding: 30px;
+    float: left;
+}
+
+#CKE_banner {
+    float: right;
+    max-width: 30%;
+    padding: 25px;
+    background: #f5fbff;
+    border: 1px solid #CCC;
+    min-height: 150px;
+    margin-right: 5%;
+    text-align: center;
+    vertical-align: middle;
+}
+
+#checkemail label {
+        display: inline-block;
+        width: 150px;
+}
+
+#checkemail .text {
+        width: 30em;
+}
+
+#checkemail ul { 
+    padding-left: 30px; 
+    list-style: square;
+
+}
+#autoheaders { 
+    background-color: #FAFAFA; 
+    border: 1px solid #CCC; 
+    padding: 10px 15px; 
+}
+
+.tab-content.ce_tab_general .check_email_enable_logs,
+.tab-content.ce_tab_general .check_email_display_host_ip,
+.tab-content.ce_tab_general .check_email_reply_to,
+.tab-content.ce_tab_general .check_email_cc,
+.tab-content.ce_tab_general .check_email_bcc,
+.tab-content.ce_tab_general .check_email_log_retention_period,
+.tab-content.ce_tab_general .check_email_retention_amount,
+.tab-content.ce_tab_general .check_email_is_retention_amount_enable,
+.tab-content.ce_tab_general .check_email_is_retention_period_enable,
+.tab-content.ce_tab_general .check_email_log_retention_period_in_days,
+.tab-content.ce_tab_general .check_email_retention,
+.tab-content.ce_tab_general .check_email_enable_dashboard_widget,
+.tab-content.ce_tab_general .check_email_db_size_notification,
+.tab-content.ce_tab_general .check_email_smtp_from, 
+.tab-content.ce_tab_general .check_email_smtp_from_name,
+.tab-content.ce_tab_general .check_email_smtp_secure,
+.tab-content.ce_tab_general .check_email_smtp_host,
+.tab-content.ce_tab_general .check_email_smtp_port,
+.tab-content.ce_tab_general .check_email_smtp_username,
+.tab-content.ce_tab_general .check_email_smtp_auth {
+    display: none;
+}
+
+.tab-content.ce_tab_logging .check_email_allowed_user_roles,
+.tab-content.ce_tab_logging .check_email_remove_on_uninstall,
+.tab-content.ce_tab_logging .check_email_override_emails_from,
+.tab-content.ce_tab_logging .check_email_forward_email,
+.tab-content.ce_tab_logging .check_email_forward_to,
+.tab-content.ce_tab_logging .check_email_forward_cc,
+.tab-content.ce_tab_logging .check_email_forward_bcc,
+.tab-content.ce_tab_logging .check_email_trigger_data,
+.tab-content.ce_tab_logging .check_email_email_from_name,
+.tab-content.ce_tab_logging .check_email_email_from_email,
+.tab-content.ce_tab_logging .check_email_smtp_from,
+.tab-content.ce_tab_logging .check_email_smtp_from_name,
+.tab-content.ce_tab_logging .check_email_smtp_secure,
+.tab-content.ce_tab_logging .check_email_smtp_port,
+.tab-content.ce_tab_logging .check_email_smtp_host,
+.tab-content.ce_tab_logging .check_email_smtp_username,
+.tab-content.ce_tab_logging .check_email_smtp_auth  {
+    display: none;
+}
+
+.tab-content.ce_tab_smtp .check_email_enable_logs,
+.tab-content.ce_tab_smtp .check_email_display_host_ip,
+.tab-content.ce_tab_smtp .check_email_reply_to,
+.tab-content.ce_tab_smtp .check_email_cc,
+.tab-content.ce_tab_smtp .check_email_bcc,
+.tab-content.ce_tab_smtp .check_email_log_retention_period,
+.tab-content.ce_tab_smtp .check_email_retention_amount,
+.tab-content.ce_tab_smtp .check_email_is_retention_amount_enable,
+.tab-content.ce_tab_smtp .check_email_is_retention_period_enable,
+.tab-content.ce_tab_smtp .check_email_log_retention_period_in_days,
+.tab-content.ce_tab_smtp .check_email_retention,
+.tab-content.ce_tab_smtp .check_email_enable_dashboard_widget,
+.tab-content.ce_tab_smtp .check_email_trigger_data,
+.tab-content.ce_tab_smtp .check_email_db_size_notification,
+.tab-content.ce_tab_smtp .check_email_allowed_user_roles,
+.tab-content.ce_tab_smtp .check_email_remove_on_uninstall,
+.tab-content.ce_tab_smtp .check_email_override_emails_from,
+.tab-content.ce_tab_smtp .check_email_forward_email,
+.tab-content.ce_tab_smtp .check_email_forward_to,
+.tab-content.ce_tab_smtp .check_email_forward_cc,
+.tab-content.ce_tab_smtp .check_email_forward_bcc,
+.tab-content.ce_tab_smtp .check_email_email_from_name,
+.tab-content.ce_tab_smtp .check_email_email_from_email{
+    display: none;
+}
+
+.ce-support-container *{
+  font-size: 14px;
+}
+
+.ce-support-label{
+  margin-top: 4px;
+  float: left;
+  width: 70px;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.ce-star-mark{
+  color: red;
+  margin-left: 4px;
+  font-weight: bold;
+}
+
+.ce-hide{
+  display: none;
+}
+
+.ce-query-success{
+  color: #0b920b;
+}
+
+.ce-query-error{
+  color: #FF0000;
+}
+
+.check-email-d-none{
+    display: none;
+}
+
+.check-email-bg-color{
+    background-color: rgba(245, 127, 23, 1);
+}
+
+.check-email-pro-btn{
+    color: #fff; 
+    font-weight: 500; 
+    border: 1px solid rgba(245, 127, 23, 1);
+}
+
+.check-email-pro-btn:hover{
+    background-color: rgba(245, 127, 23, 1);
+    color: #fff;
+}
+
+#check-email-trigger-data-free-note{
+    padding: 12px 10px 15px 10px !important;
+    background-color: #fff;
+    width: 470px;
+    margin-top: 20px;
+    border-radius: 7px;
+    color: #000;
+    text-align: center;
+    border: 1px solid #e19c1f;
+    /* font-weight: 500; */
+    font-size: 16px;
+}
+
+.check-mail-premium-btn{
+    text-decoration: none;
+    margin-left: 13px;
+    color: #fff !important;
+    font-weight: 500;
+    padding: 7px 20px 9px 20px;
+    background: rgba(245, 127, 23, 1);
+    border-radius: 40px;
+    font-size: 15px;
+}
+
+.check-mail-premium-btn:focus{
+    outline: none !important;
+    box-shadow: none !important;
+    color: #fff;
+}
+
+.check-mail-premium-btn:hover{
+    color: #fff;
+}
+
+.check-mail-std-color{
+    color: rgba(245, 127, 23, 1) !important;
+}
+
+.check-email-opt-labels{
+    cursor: pointer;
+}
+
+.check-mail-smtp-secure-label{
+    margin-right: 15px;
+}
+
+.check_email_trigger_data td{
+    position: absolute;
+}
+
+.ce_tab_general table{
+    margin-bottom: 50px;
+}

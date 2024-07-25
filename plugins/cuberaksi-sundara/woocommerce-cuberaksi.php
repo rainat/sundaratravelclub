@@ -12,12 +12,20 @@ if (!defined('ABSPATH')) {
     exit;
 }
 
-if (!defined('CUBERAKSI_SUNDARA_BASE_NAME')) define('CUBERAKSI_SUNDARA_BASE_NAME', plugin_basename(__DIR__));
-if (!defined('CUBERAKSI_SUNDARA_BASE_DIR')) define('CUBERAKSI_SUNDARA_BASE_DIR', plugin_dir_path(__FILE__));
-if (!defined('CUBERAKSI_SUNDARA_BASE_URL')) define('CUBERAKSI_SUNDARA_BASE_URL', plugin_dir_url(__FILE__));
-if (!defined('CUBERAKSI_SUNDARA_VERSION')) define('CUBERAKSI_SUNDARA_VERSION', '1.0.0');
+if (!defined('CUBERAKSI_SUNDARA_BASE_NAME')) {
+    define('CUBERAKSI_SUNDARA_BASE_NAME', plugin_basename(__DIR__));
+}
+if (!defined('CUBERAKSI_SUNDARA_BASE_DIR')) {
+    define('CUBERAKSI_SUNDARA_BASE_DIR', plugin_dir_path(__FILE__));
+}
+if (!defined('CUBERAKSI_SUNDARA_BASE_URL')) {
+    define('CUBERAKSI_SUNDARA_BASE_URL', plugin_dir_url(__FILE__));
+}
+if (!defined('CUBERAKSI_SUNDARA_VERSION')) {
+    define('CUBERAKSI_SUNDARA_VERSION', '1.0.0');
+}
 
-require_once CUBERAKSI_SUNDARA_BASE_DIR . "google/login-with-google.php";
-require_once CUBERAKSI_SUNDARA_BASE_DIR . "woo/custom.php";
- require_once CUBERAKSI_SUNDARA_BASE_DIR . "disable-cart/disable-cart-page-for-woocommerce.php";
-require_once CUBERAKSI_SUNDARA_BASE_DIR . "paypal/init.php";
+require_once CUBERAKSI_SUNDARA_BASE_DIR.'google/login-with-google.php';
+require_once CUBERAKSI_SUNDARA_BASE_DIR.'woo/custom.php';
+require_once CUBERAKSI_SUNDARA_BASE_DIR.'disable-cart/disable-cart-page-for-woocommerce.php';
+require_once CUBERAKSI_SUNDARA_BASE_DIR.'paypal/init.php';
