@@ -674,9 +674,20 @@ body blockquote, body figure, body h1, body h2, body h3, body h4, body h5, body 
 .elementor-widget-woocommerce-checkout-page.cuber-checkout-wrap .e-checkout__column .e-checkout__order_review {
     padding-right: 0;
 }
-@media screen and (max-width: 62em) {
+@media screen and (max-width: 61.875em) {
     .elementor-widget-woocommerce-checkout-page.cuber-checkout-wrap .e-checkout__column .e-checkout__order_review {
         padding-left: 0;
+    }
+
+    .elementor-widget-woocommerce-checkout-page.cuber-checkout-wrap .e-checkout__column {
+        min-width: auto !important;
+        width: 100% !important;
+    }
+
+    .cuber-checkout-wrap.elementor-widget-woocommerce-checkout-page .woocommerce-checkout #payment .payment_methods li label img {
+        width: 100%;
+        max-width: 230px;
+        margin: auto;
     }
 }
 input[type='text'], input[type='number'], textarea {
@@ -737,9 +748,6 @@ div.minus {
     .cuber-checkout-wrap #order_review cuberaksi-booking>div:nth-child(1) img {
         min-width: auto !important;
         width: 80px !important;
-    }
-    .cuber-checkout-wrap.elementor-widget-woocommerce-checkout-page .woocommerce-checkout #payment .payment_methods li label img {
-        width: auto;
     }
 }
 .myaccountpage__custom h1, .myaccountpage__custom .entry-content h1, .myaccountpage__custom h5, .myaccountpage__custom .entry-content h5, .myaccountpage__custom h3, .myaccountpage__custom .entry-content h3, .myaccountpage__custom h4, .myaccountpage__custom .entry-content h4, .myaccountpage__custom h6, .myaccountpage__custom .entry-content h6 {
