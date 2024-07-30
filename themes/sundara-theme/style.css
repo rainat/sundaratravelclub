@@ -968,13 +968,21 @@ a.dialog-close-button.dialog-lightbox-close-button {
     z-index: 9999999;
     /*9999999*/
     background-color: #fff;
-    padding-left: 8px;
+    padding-left: 0;
 }
+
+@media screen and (max-width: 48em) {
+    .preloaderz {
+        padding-left: 4px;
+    }
+}
+
 .preloaderz>img {
     width: 40px;
     height: auto;
-    animation: animrotate 4s linear infinite;
+    animation: animrotate 2s linear infinite;
 }
+
 @keyframes animrotate {
     0% {
         transform: rotate(0deg);
