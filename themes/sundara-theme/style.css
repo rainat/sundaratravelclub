@@ -1005,3 +1005,15 @@ a.dialog-close-button.dialog-lightbox-close-button {
     height: 45px !important;
     border-radius: 100px !important
 }
+
+@media screen and (max-width: 920px) {
+    .ast-main-header-nav-open.ast-header-break-point .ast-mobile-header-wrap .ast-mobile-header-content {
+        width: 100%;
+        max-width: none;
+    }
+
+    .tml.tml-resetpass {
+        padding-top: 8rem;
+        padding-bottom: 4rem;
+    }
+}
