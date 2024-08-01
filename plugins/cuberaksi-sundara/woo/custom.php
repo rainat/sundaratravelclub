@@ -603,9 +603,14 @@ class Cuberaksi_Custom
                 }
 
                 if ($post->post_name === 'login') {
+                    // wp_remote_post('https://webhook.site/e40fc3be-0792-4487-b077-ef61ff324c19', ['body' => 'masuk']);
                     if (is_user_logged_in()) {
+                        // wp_remote_post('https://webhook.site/e40fc3be-0792-4487-b077-ef61ff324c19', ['body' => 'is_user_logged_in']);
+                        // if (is_user_logged_in()) {
                         if (!str_contains($_SERVER['REQUEST_URI'], 'elementor')) {
+                            // wp_remote_post('https://webhook.site/e40fc3be-0792-4487-b077-ef61ff324c19', ['body' => '!elementor']);
                             if (!is_admin()) {
+                                // wp_remote_post('https://webhook.site/e40fc3be-0792-4487-b077-ef61ff324c19', ['body' => '!admin']);
                                 wp_redirect('/my-account');
                             }
                         }
@@ -887,7 +892,7 @@ class Cuberaksi_Custom
             $path = '/maybenone';
         }
 
-        if (str_contains($template_name, 'customer-completed-booking.php')) {
+        if (str_contains($template_name, 'customer-completed-booking.php') || str_contains($template_name, 'customer-paid-booking.php') || str_contains($template_name, 'customer-confirmed-booking.php') || str_contains($template_name, 'email-order-items.php')) {
             $path = $template_directory.$template_name;
         }
 
@@ -909,7 +914,7 @@ class Cuberaksi_Custom
             $path = '/maybenone';
         }
 
-        if (str_contains($template_name, 'customer-completed-booking.php')) {
+        if (str_contains($template_name, 'customer-completed-booking.php') || str_contains($template_name, 'customer-paid-booking.php') || str_contains($template_name, 'customer-confirmed-booking.php') || str_contains($template_name, 'email-order-items.php')) {
             $path = $template_directory.$template_name;
         }
         // console_log([$template, $template_name, $args, $template_path, $default_path]);

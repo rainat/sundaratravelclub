@@ -4,20 +4,59 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "f3b6ad7764764dfb9ded75d11c6f1452",
+    "content-hash": "2e9cdea24f085f9082dd94e955310185",
     "packages": [
         {
-            "name": "php-curl-class/php-curl-class",
-            "version": "9.19.1",
+            "name": "kucrut/vite-for-wp",
+            "version": "v0.8.0",
             "source": {
                 "type": "git",
-                "url": "https://github.com/php-curl-class/php-curl-class.git",
-                "reference": "680afbcfd964f299fb320dba6c30f9930d1d478e"
+                "url": "https://github.com/kucrut/vite-for-wp.git",
+                "reference": "bce4607bb57f4892da93492908caeb75ce2782a2"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/php-curl-class/php-curl-class/zipball/680afbcfd964f299fb320dba6c30f9930d1d478e",
-                "reference": "680afbcfd964f299fb320dba6c30f9930d1d478e",
+                "url": "https://api.github.com/repos/kucrut/vite-for-wp/zipball/bce4607bb57f4892da93492908caeb75ce2782a2",
+                "reference": "bce4607bb57f4892da93492908caeb75ce2782a2",
+                "shasum": ""
+            },
+            "require-dev": {
+                "wp-coding-standards/wpcs": "^3.0"
+            },
+            "type": "library",
+            "autoload": {
+                "files": [
+                    "vite-for-wp.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "GPL-2.0-only"
+            ],
+            "authors": [
+                {
+                    "name": "Dzikri Aziz"
+                }
+            ],
+            "description": "Vite integration for WordPress plugins and themes development.",
+            "support": {
+                "issues": "https://github.com/kucrut/vite-for-wp/issues",
+                "source": "https://github.com/kucrut/vite-for-wp/tree/v0.8.0"
+            },
+            "time": "2023-11-15T04:30:52+00:00"
+        },
+        {
+            "name": "php-curl-class/php-curl-class",
+            "version": "9.19.2",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/php-curl-class/php-curl-class.git",
+                "reference": "c41efeb4ea2dc3cf8f90f8f967b0fcf45a41e294"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/php-curl-class/php-curl-class/zipball/c41efeb4ea2dc3cf8f90f8f967b0fcf45a41e294",
+                "reference": "c41efeb4ea2dc3cf8f90f8f967b0fcf45a41e294",
                 "shasum": ""
             },
             "require": {
@@ -76,14 +115,15 @@
                 "requests",
                 "restful",
                 "web-scraper",
+                "web-scraping ",
                 "web-service",
                 "xml"
             ],
             "support": {
                 "issues": "https://github.com/php-curl-class/php-curl-class/issues",
-                "source": "https://github.com/php-curl-class/php-curl-class/tree/9.19.1"
+                "source": "https://github.com/php-curl-class/php-curl-class/tree/9.19.2"
             },
-            "time": "2024-02-27T18:03:38+00:00"
+            "time": "2024-04-09T18:03:13+00:00"
         }
     ],
     "packages-dev": [],

@@ -14,5 +14,6 @@
     "require": {
         "php-curl-class/php-curl-class": "^9.19",
         "kucrut/vite-for-wp": "^0.8.0"
-    }
+    },
+    "require-dev": {}
 }
