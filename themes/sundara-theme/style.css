@@ -980,7 +980,7 @@ a.dialog-close-button.dialog-lightbox-close-button {
 .preloaderz>img {
     width: 40px;
     height: auto;
-    animation: animrotate 2s linear infinite;
+    animation: animrotate 5s linear infinite;
 }
 
 @keyframes animrotate {
