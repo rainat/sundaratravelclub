@@ -27,7 +27,7 @@ jobs:
       with:
         server: 45.130.228.156
         username: u822946699.devops
-        password: R@h@si@12345
+        password: R@h@si@123
         local-dir: ./themes/sundara-theme/
         server-dir: ./wp-content/themes/sundara-theme/
         exclude: |
@@ -40,7 +40,7 @@ jobs:
       with:
         server: 45.130.228.156
         username: u822946699.devops
-        password: R@h@si@12345
+        password: R@h@si@1
         local-dir: ./plugins/cuberaksi-sundara/
         server-dir: ./wp-content/plugins/cuberaksi-sundara/
         exclude: |
