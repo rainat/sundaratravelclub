@@ -1041,3 +1041,8 @@ a.dialog-close-button.dialog-lightbox-close-button {
 button.accordion {
     line-height: 1.5 !important;
 }
+
+button.accordion:after {
+    top: 8px !important;
+    right: 0 !important;
+}
