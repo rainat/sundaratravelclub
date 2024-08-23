@@ -903,7 +903,7 @@ input[type="text"], input[type="email"], input[type="number"], input[type="passw
     padding-bottom: 16px;
 }
 .group-inlcusion h3, .group-inlcusion h3 span {
-    color: #444 !important;
+    color: #000 !important;
     font-family: "Montserrat", Sans-serif !important;
     font-size: 22px !important;
     font-weight: 700 !important;
@@ -1045,4 +1045,8 @@ button.accordion {
 button.accordion:after {
     top: 8px !important;
     right: 0 !important;
+}
+
+.group-inlcusion h3, .group-inlcusion h3 span {
+    color: #444 !important;
 }

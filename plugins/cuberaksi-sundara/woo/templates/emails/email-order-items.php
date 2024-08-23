@@ -32,7 +32,7 @@ foreach ($items as $item_id => $item) {
     if (is_object($product)) {
         $sku = $product->get_sku();
         $purchase_note = $product->get_purchase_note();
-        $image = $product->get_image('full');
+        $image = $product->get_image('thumbnail');
     }
 
     ?>

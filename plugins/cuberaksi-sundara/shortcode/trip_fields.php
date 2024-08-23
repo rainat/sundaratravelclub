@@ -4,244 +4,250 @@ namespace Cuberaksi\Shortcode\Tripfields;
 
 class Shortcode_Trip
 {
-	static $instance;
+    public static $instance;
 
-	public function __construct()
-	{
-		$this->init_shortcode();
-	}
+    public function __construct()
+    {
+        $this->init_shortcode();
+    }
 
-	public static function get_instance(): Shortcode_Trip
-	{
+    public static function get_instance(): Shortcode_Trip
+    {
+        if (null !== self::$instance) {
+            return self::$instance;
+        }
 
-		if (null !== self::$instance) {
-			return self::$instance;
-		}
+        self::$instance = new Shortcode_Trip();
 
-		self::$instance = new Shortcode_Trip();
-		return self::$instance;
-	}
+        return self::$instance;
+    }
 
-	function init_shortcode()
-	{
-		add_shortcode('trip_fields', [$this, 'shortcode']);
-		add_shortcode('product_tooltip', [$this, 'shortcode_product_tooltip']);
-		add_shortcode('cuber_timelines', [$this, 'shortcode_cuber_timeline']);
-		add_shortcode('cuber_summary_timelines', [$this, 'shortcode_cuber_summary_timeline']);
-	}
+    public function init_shortcode()
+    {
+        add_shortcode('trip_fields', [$this, 'shortcode']);
+        add_shortcode('product_tooltip', [$this, 'shortcode_product_tooltip']);
+        add_shortcode('cuber_timelines', [$this, 'shortcode_cuber_timeline']);
+        add_shortcode('cuber_summary_timelines', [$this, 'shortcode_cuber_summary_timeline']);
+    }
 
-	function shortcode_product_tooltip($atts = [], $content = null, $shortcode = '')
-	{
-		global $post;
-		$product = wc_get_product($post->ID);
-		$product_tool_tip = $product ?  \get_field('product_tool_tip') : false;
-		$json = json_encode(['msg' => $product_tool_tip]);
-		ob_start();
-		echo "<span productid='{$post->ID}' tip='$json'></span>";
-		return ob_get_clean();
-	}
+    public function shortcode_product_tooltip($atts = [], $content = null, $shortcode = '')
+    {
+        global $post;
+        $product = wc_get_product($post->ID);
+        $product_tool_tip = $product ? \get_field('product_tool_tip') : false;
+        $json = json_encode(['msg' => $product_tool_tip]);
+        ob_start();
+        echo "<span productid='{$post->ID}' tip='$json'></span>";
 
-	function shortcode_cuber_timeline($atts = [], $content = null, $shortcode = '')
-	{
+        return ob_get_clean();
+    }
 
-		function render_day_content($content, $index)
-		{
-			
-			echo "<div class='container right'>
-		        <div class='day-title'>Day $index</div>
-		        <div class='content'>
-		          $content          
+    public function shortcode_cuber_timeline($atts = [], $content = null, $shortcode = '')
+    {
+        function render_day_content($content, $titles, $index)
+        {
+            // $f1 = strpos($content, '<h3>');
+            // $f2 = strpos($content, '</h3>');
+            // $str = substr($content, $f1, $f2);
+
+            echo sprintf("<div class='container right'>
+		        <div class='day-title'>Day %d</div>
+				  <button class='accordion'>%s</button>
+                  <div class='content accordion-content'>
+		          %s
 		        </div>
-		      </div>";
-		}
+		      </div>", $index, $titles[$index - 1], $content);
+        }
 
-		global $post;
-		$product_id = $post->ID;
-		$days = [];
-		for ($i = 1; $i <= 12; $i++) {
-			$days[] = get_field("day_$i", $product_id);
-		}
+        global $post;
+        $product_id = $post->ID;
+        $days = [];
+        $titles = [];
+        for ($i = 1; $i <= 12; ++$i) {
+            $days[] = get_field("day_$i", $product_id);
+            $titles[] = get_field("title_day_$i", $product_id);
+        }
 
-		ob_start();
-		echo "<div class='timeline onest-font-400' data-gol='itenary'>";
-		$count = 1;
-		foreach ($days as $day) {
-			if ($day) render_day_content($day, $count);
-			$count++;
-		}
+        ob_start();
+        echo '<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">';
+        echo "<div class='timeline onest-font-400' data-gol='itenary'>";
+        $count = 1;
+        foreach ($days as $day) {
+            if ($day) {
+                render_day_content($day, $titles, $count);
+            }
+            ++$count;
+        }
 
+        echo '</div>';
 
-		echo '</div>';
+        return ob_get_clean();
+    }
 
-		return ob_get_clean();
-	}
+    public function shortcode_cuber_summary_timeline($atts = [], $content = null, $shortcode = '')
+    {
+        function render_container_info($data)
+        {
+            $c = wp_json_encode($data['gallery_summary']);
+            $t = $data['description'];
+            $show_gallery = false;
+            $gallery_contents = '';
+            if ($data['gallery_summary']) {
+                $show_gallery = true;
+                $gallery_contents = "<a class='gallery-summary-link' title='{$t}' data-slide='{$c}' href='javascript:void(0);'>View Imaged Gallery</a>";
+            }
 
-	function shortcode_cuber_summary_timeline($atts = [], $content = null, $shortcode = '')
-	{
-
-		function render_container_info($data)
-		{
-			$c = wp_json_encode($data['gallery_summary']);
-			$t = $data['description'];
-			$show_gallery = false;
-			$gallery_contents = '';
-			if ($data['gallery_summary']) { 
-				$show_gallery = true;
-				$gallery_contents = "<a class='gallery-summary-link' title='{$t}' data-slide='{$c}' href='javascript:void(0);'>View Imaged Gallery</a>";
-			}
-
-			$html_icon = "";
-			if ($data['icon']) 
-				$html_icon = "<div class='ht-addinfo__col ht-addinfo__img'>
+            $html_icon = '';
+            if ($data['icon']) {
+                $html_icon = "<div class='ht-addinfo__col ht-addinfo__img'>
                         <img src='{$data['icon']}' width='20'>
                     </div> ";
-			$render_html = "<div class='ht-addinfo'>" . $html_icon . "                    
+            }
+            $render_html = "<div class='ht-addinfo'>".$html_icon."                    
                     <div class='ht-addinfo__col ht-addinfo__desc'>
                         <p class='ht-addinfo__title'>{$data['description']}</p>
 						<p class='ht-addinfo__title'>{$data['itenary_description']}</p>
                         <p class='ht-addinfo__text'>{$gallery_contents}</p>
                     </div>
                  </div>";
-			return $render_html;
-				
-		}
 
-		function render_day_content_summary($content, $index)
-		{
-			// $c = wp_json_encode(print_r($content,true));
-			// echo "<script>console.log({$c})</script>";
-			$lists = '';
-			foreach ($content['content'] as $list) {
-				$lists = $lists . render_container_info($list);
-			}
+            return $render_html;
+        }
 
-			echo "<div class='container right'>
+        function render_day_content_summary($content, $index)
+        {
+            // $c = wp_json_encode(print_r($content,true));
+            // echo "<script>console.log({$c})</script>";
+            $lists = '';
+            foreach ($content['content'] as $list) {
+                $lists = $lists.render_container_info($list);
+            }
+
+            echo "<div class='container right'>
 		        <div class='day-title'>Day $index</div>
 		        <div class='content'>
 		          $lists
 		        </div>
 		      </div>";
-		}
+        }
 
-		global $post;
+        global $post;
 
-		$posts = get_posts(array(
-			'posts_per_page'    => -1,
-			'post_type'     => 'product_summary',
-			'meta_key'      => 'product',
-			'meta_value'    => $post->ID
-		));
+        $posts = get_posts([
+            'posts_per_page' => -1,
+            'post_type' => 'product_summary',
+            'meta_key' => 'product',
+            'meta_value' => $post->ID,
+        ]);
 
-		$days = [];
-		$summary_id = '';
-		if (function_exists('is_product')) {
-			if (is_product()) {
-				if ($posts) {
-					$summary_id = $posts[0]->ID;
-					$days = get_field("day", $summary_id);
-				}
-			}
-		}
+        $days = [];
+        $summary_id = '';
+        if (function_exists('is_product')) {
+            if (is_product()) {
+                if ($posts) {
+                    $summary_id = $posts[0]->ID;
+                    $days = get_field('day', $summary_id);
+                }
+            }
+        }
 
+        ob_start();
+        echo "<div class='timeline onest-font-400' data-gol='summary'>";
+        $count = 1;
+        foreach ($days as $day) {
+            if ($day) {
+                render_day_content_summary($day, $count);
+            }
+            ++$count;
+        }
 
+        echo '</div>';
 
-		ob_start();
-		echo "<div class='timeline onest-font-400' data-gol='summary'>";
-		$count = 1;
-		foreach ($days as $day) {
-			if ($day) render_day_content_summary($day, $count);
-			$count++;
-		}
+        return ob_get_clean();
+    }
 
+    public function shortcode($atts = [], $content = null, $shortcode = '')
+    {
+        global $post;
 
-		echo '</div>';
+        // extract(shortcode_atts([
+        // 	'id' => '1650'
+        // ],$atts,$shortcode));
 
-		return ob_get_clean();
-	}
+        // wp_enqueue_style('shortcode_fields', CUBERAKSI_SUNDARA_BASE_URL . 'woo/assets/css/style.css', [], time());
 
-	function shortcode($atts = [], $content = null, $shortcode = '')
-	{
-		global $post;
+        $product = wc_get_product($post->ID);
 
-		// extract(shortcode_atts([
-		// 	'id' => '1650'
-		// ],$atts,$shortcode));
+        $product_meta_duration = $product ? \get_field('duration_trip') : false;
+        $product_meta_max = $product ? \get_field('max_people') : false;
+        $product_price = $product ? $product->get_price_html() : false;
+        $product_info = $product ? \get_field('info') : false;
+        $product_pdf = $product ? \get_field('pdf_download', $post->ID) : false;
+        $product_quoted = $product ? \get_field('product_quote', $post->ID) : false;
+        $meeting_point = $product ? \get_field('meeting_point', $post->ID) : false;
 
-		// wp_enqueue_style('shortcode_fields', CUBERAKSI_SUNDARA_BASE_URL . 'woo/assets/css/style.css', [], time());
+        $view_logo['duration'] = true;
+        $view_logo['max_people'] = true;
+        $view_logo['price'] = true;
+        $view_logo['info'] = true;
+        $view_logo['pdf_download'] = true;
+        $view_logo['product_quoted'] = true;
+        $view_logo['meeting_point'] = true;
 
-		$product = wc_get_product($post->ID);
+        if (!$product_meta_duration) {
+            $product_meta_duration = '-';
+            $view_logo['duration'] = false;
+        }
+        if (!$product_meta_max) {
+            $product_meta_max = '-';
+            $view_logo['max_people'] = false;
+        }
+        if (!$product_info) {
+            $product_info = '';
+            $view_logo['info'] = false;
+        }
 
-		$product_meta_duration = $product ?  \get_field('duration_trip') : false;
-		$product_meta_max = $product ? \get_field('max_people') : false;
-		$product_price = $product ? $product->get_price_html() : false;
-		$product_info =  $product ? \get_field('info') : false;
-		$product_pdf = $product ? \get_field('pdf_download', $post->ID) : false;
-		$product_quoted = $product ? \get_field('product_quote', $post->ID) : false;
-		$meeting_point = $product ? \get_field('meeting_point', $post->ID) : false;
+        if (!$product_price) {
+            $view_logo['price'] = false;
+            $product_price = '';
+        }
 
-		$view_logo['duration'] = true;
-		$view_logo['max_people'] = true;
-		$view_logo['price'] = true;
-		$view_logo['info'] = true;
-		$view_logo['pdf_download'] = true;
-		$view_logo['product_quoted'] = true;
-		$view_logo['meeting_point'] = true;
+        if ((!$product_pdf) || (!is_single())) {
+            $view_logo['pdf_download'] = false;
+        }
 
-		if (!$product_meta_duration) {
-			$product_meta_duration = '-';
-			$view_logo['duration'] = false;
-		}
-		if (!$product_meta_max) {
-			$product_meta_max = '-';
-			$view_logo['max_people'] = false;
-		}
-		if (!$product_info) {
-			$product_info = '';
-			$view_logo['info'] = false;
-		}
+        if ((!$product_quoted) || (!is_single())) {
+            $view_logo['product_quoted'] = false;
+        }
 
-		if (!$product_price) {
-			$view_logo['price'] = false;
-			$product_price = '';
-		}
+        if (!$meeting_point) {
+            $view_logo['meeting_point'] = false;
+        }
 
-		if ((!$product_pdf) || (!is_single())) {
-			$view_logo['pdf_download'] = false;
-		}
+        if (is_product()) {
+            $view_logo['price'] = false;
+            $product_price = '';
+        }
+        // exit;
+        $time = CUBERAKSI_SUNDARA_BASE_URL.'woo/assets/images/time.svg';
+        $user = CUBERAKSI_SUNDARA_BASE_URL.'woo/assets/images/user.svg';
+        $info = CUBERAKSI_SUNDARA_BASE_URL.'woo/assets/images/calendar.svg';
 
-		if ((!$product_quoted) || (!is_single())) {
-			$view_logo['product_quoted'] = false;
-		}
+        $is_single_page_product = false;
+        $margin_zero = '';
 
-		if ((!$meeting_point)) {
-			$view_logo['meeting_point'] = false;
-		}
+        ob_start();
+        if (function_exists('is_product')) {
+            if (is_product()) {
+                $is_single_page_product = true;
+                $margin_zero = 'm-zero';
+            }
+        }
 
-		if (is_product()) {
-			$view_logo['price'] = false;
-			$product_price = '';
-		}
-		// exit;
-		$time = CUBERAKSI_SUNDARA_BASE_URL . 'woo/assets/images/time.svg';
-		$user = CUBERAKSI_SUNDARA_BASE_URL . 'woo/assets/images/user.svg';
-		$info = CUBERAKSI_SUNDARA_BASE_URL . 'woo/assets/images/calendar.svg';
-
-		$is_single_page_product = false;
-		$margin_zero = '';
-
-		ob_start();
-		if (function_exists('is_product')) {
-			if (is_product()) {
-				$is_single_page_product = true;
-				$margin_zero = "m-zero";
-			}
-		}
-
-
-		echo $view_logo['product_quoted'] ? "	
+        echo $view_logo['product_quoted'] ? "	
 		<div id='product-quoted' class='{$margin_zero} text-italic'><span>{$product_quoted}</span></div>" : '';
 
-		echo $view_logo['meeting_point'] ? "<div id='trip-duration' class='{$margin_zero} '><svg style='padding:0.11rem' fill='#000000' height='20px' width='20px' version='1.1' id='Layer_1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' 
+        echo $view_logo['meeting_point'] ? "<div id='trip-duration' class='{$margin_zero} '><svg style='padding:0.11rem' fill='#000000' height='20px' width='20px' version='1.1' id='Layer_1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' 
 	 viewBox='0 0 368.666 368.666' xml:space='preserve'>
 <g id='XMLID_2_'>
 	<g>
@@ -258,24 +264,21 @@ class Shortcode_Trip
 		</g>
 	</g>
 </g>
-</svg><span>{$meeting_point}</span></div>" : "";
+</svg><span>{$meeting_point}</span></div>" : '';
 
+        echo $view_logo['duration'] ? "	
+		<div id='trip-duration' class='{$margin_zero} '><img class='lazy' id='trip-duration-time'  data-src='{$time}'/><span>{$product_meta_duration}</span></div>" : '';
 
-		echo $view_logo['duration'] ? "	
-		<div id='trip-duration' class='{$margin_zero} '><img class='lazy' id='trip-duration-time'  data-src='{$time}'/><span>{$product_meta_duration}</span></div>" : "";
+        echo $view_logo['max_people'] ? "<div class='{$margin_zero}' id='trip-user' ><img class='lazy' id='trip-duration-user' data-src='{$user}'/><span>{$product_meta_max} person</span></div>" : '';
 
-		echo $view_logo['max_people'] ? "<div class='{$margin_zero}' id='trip-user' ><img class='lazy' id='trip-duration-user' data-src='{$user}'/><span>{$product_meta_max} person</span></div>" : "";
+        echo $view_logo['info'] ? "<div class='{$margin_zero}' id='trip-user' ><img class='lazy' id='trip-duration-user' data-src='{$info}'/><span>{$product_info}</span></div>" : '';
 
-		echo $view_logo['info'] ? "<div class='{$margin_zero}' id='trip-user' ><img class='lazy' id='trip-duration-user' data-src='{$info}'/><span>{$product_info}</span></div>" : "";
+        echo $view_logo['price'] ? "<div class='sc-product-price'>$product_price</div>" : '';
 
-		echo $view_logo['price'] ? "<div class='sc-product-price'>$product_price</div>" : "";
+        echo $view_logo['pdf_download'] ? "<div class='{$margin_zero}' id='trip-user' >".do_shortcode('[elementor-template id="7874"]').'</div>' : '';
 
-		echo $view_logo['pdf_download'] ? "<div class='{$margin_zero}' id='trip-user' >" . do_shortcode('[elementor-template id="7874"]') . "</div>" : "";
-
-
-		return ob_get_clean();
-	}
+        return ob_get_clean();
+    }
 }
-
 
 $trip_fields = Shortcode_Trip::get_instance();

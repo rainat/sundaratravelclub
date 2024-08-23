@@ -35,6 +35,21 @@ const menu = [
 	// 	active: false,
 	// },
 	{
+		icon: "https://sundaratravelclub.com/wp-content/plugins/cuberaksi-sundara/woo/templates/myaccount/dist/reset.svg",
+		title: (
+			<span>
+
+				<a className="text-[#BEB29A]" href={myaccountobj.resetpassword}>
+					Reset Password{" "}here
+				</a>{" "}
+
+			</span>
+		),
+		label: "Reset Password",
+		value: "resetpassword",
+		active: false,
+	},
+	{
 		icon: "https://sundaratravelclub.com/wp-content/plugins/cuberaksi-sundara/woo/templates/myaccount/dist/logout.svg",
 		title: (
 			<span>
@@ -136,6 +151,10 @@ export default function Sidebar({ page }: ILayoutPage) {
 		if (val.value === "logout") {
 			location.href = myaccountobj.url_logout;
 		}
+		if (val.value === "resetpassword") {
+			location.href = myaccountobj.resetpassword;
+		}
+
 	};
 
 	return (

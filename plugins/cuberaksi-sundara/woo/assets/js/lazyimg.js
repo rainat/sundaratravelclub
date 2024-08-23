@@ -65,58 +65,50 @@ jQuery(document).ready(($) => {
     });
 
     //tab custom
-    $('[data-widget-number="213"] button').click((e) => {
-        if ($(e.currentTarget).attr("data-tab-index") >= "4") {
-            // console.log('yes')
-            setTimeout(() => {
+    // $('[data-widget-number="213"] button').click((e) => {
+    //     if ($(e.currentTarget).attr("data-tab-index") >= "4") {
+    //         // console.log('yes')
+    //         setTimeout(() => {
 
-                $('[data-widget-number="213"] .e-n-tabs-heading').animate({
-                    scrollLeft: 100
-                }, 800)
-                // clearInterval(interval)
-            }, 400);
-        }
-    });
+    //             $('[data-widget-number="213"] .e-n-tabs-heading').animate({
+    //                 scrollLeft: 100
+    //             }, 800)
+    //             // clearInterval(interval)
+    //         }, 400);
+    //     }
+    // });
 
-    var TabWidthButtons = {
-        totalWidth: 0,
-        elementsWidth: [],
-    };
-    $('[data-widget-number="118"] button').each((idx, el) => {
-        TabWidthButtons.totalWidth = TabWidthButtons.totalWidth + $(el).width();
-        TabWidthButtons.elementsWidth[idx] =
-            TabWidthButtons.totalWidth + 20 * (idx + 1);
-    });
+    // var TabWidthButtons = {
+    //     totalWidth: 0,
+    //     elementsWidth: [],
+    // };
+    // $('[data-widget-number="118"] button').each((idx, el) => {
+    //     TabWidthButtons.totalWidth = TabWidthButtons.totalWidth + $(el).width();
+    //     TabWidthButtons.elementsWidth[idx] =
+    //         TabWidthButtons.totalWidth + 20 * (idx + 1);
+    // });
 
-    $('[data-widget-number="118"] button').click((e) => {
-        // console.log(TabWidthButtons);
-        if ($(e.currentTarget).attr("data-tab-index") >= "3") {
-            // let wTarget = e.currentTarget.offsetWidth
+    // $('[data-widget-number="118"] button').click((e) => {
+    //     // console.log(TabWidthButtons);
+    //     if ($(e.currentTarget).attr("data-tab-index") >= "3") {
+    //         // let wTarget = e.currentTarget.offsetWidth
 
-            setTimeout(() => {
-                let wHeading = $(
-                    '[data-widget-number="118"] .e-n-tabs-heading',
-                ).width();
+    //         setTimeout(() => {
+    //             let wHeading = $(
+    //                 '[data-widget-number="118"] .e-n-tabs-heading',
+    //             ).width();
 
-                $('[data-widget-number="118"] .e-n-tabs-heading').animate({
-                    scrollLeft: TabWidthButtons.elementsWidth[
-                        Number($(e.currentTarget).attr("data-tab-index")) - 2
-                    ]
-                }, 800)
-                // $('[data-widget-number="118"] .e-n-tabs-heading').scrollLeft(
-                //     TabWidthButtons.elementsWidth[
-                //     Number($(e.currentTarget).attr("data-tab-index")) - 2
-                //     ],
-                // );
-            }, 400);
+    //             $('[data-widget-number="118"] .e-n-tabs-heading').animate({
+    //                 scrollLeft: TabWidthButtons.elementsWidth[
+    //                     Number($(e.currentTarget).attr("data-tab-index")) - 2
+    //                 ]
+    //             }, 800)
 
-            // $('[data-widget-number="118"] .e-n-tabs-heading').smoothScroll('-=' + TabWidthButtons.elementsWidth[Number($(e.currentTarget).attr("data-tab-index")) - 2])
-            // $.smoothScroll({
-            //     scrollElement: $('[data-widget-number="118"] .e-n-tabs-heading'),
+    //         }, 400);
 
-            // }, '-=' + TabWidthButtons.elementsWidth[Number($(e.currentTarget).attr("data-tab-index")) - 2])
-        }
-    });
+
+    //     }
+    // });
 
     $("input#yith-wcbk-booking-persons").on("keydown", (e) => {
         e.preventDefault();

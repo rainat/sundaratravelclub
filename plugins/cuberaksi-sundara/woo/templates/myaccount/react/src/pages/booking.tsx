@@ -55,9 +55,9 @@ export default function BookingContent() {
 			<div className="booking-nav flex gap-4 my-4 mb-8 flex-nowrap" style={{ overflowX: 'auto' }}>
 
 				<Button onClick={() => setActiveTab('All')} variant={'outline'} className={classNames("rounded-full hover:text-white  hover:bg-[#BEB29A] hover:text-bold border-[#9D9D9D]", getCurrentActiveTabClass('All'))} >All</Button>
-				<Button onClick={() => setActiveTab('Unpaid')} variant={'outline'} className={classNames("hover:text-bold rounded-full hover:text-white  hover:bg-[#BEB29A] border-[#9D9D9D]", getCurrentActiveTabClass('Unpaid'))}>Unpaid</Button>
-				<Button onClick={() => setActiveTab('Paid')} variant={'outline'} className={classNames("hover:text-bold rounded-full hover:text-white  hover:bg-[#BEB29A] border-[#9D9D9D]", getCurrentActiveTabClass('Paid'))}>Pending</Button>
-				<Button onClick={() => setActiveTab('Confirmed')} variant={'outline'} className={classNames("rounded-full hover:text-white  hover:bg-[#BEB29A] hover:text-bold border-[#9D9D9D]", getCurrentActiveTabClass('Confirmed'))} >On Progress</Button>
+				{/* <Button onClick={() => setActiveTab('Unpaid')} variant={'outline'} className={classNames("hover:text-bold rounded-full hover:text-white  hover:bg-[#BEB29A] border-[#9D9D9D]", getCurrentActiveTabClass('Unpaid'))}>Unpaid</Button>
+				<Button onClick={() => setActiveTab('Paid')} variant={'outline'} className={classNames("hover:text-bold rounded-full hover:text-white  hover:bg-[#BEB29A] border-[#9D9D9D]", getCurrentActiveTabClass('Paid'))}>Pending</Button> */}
+				<Button onClick={() => setActiveTab('Awaiting-Approval')} variant={'outline'} className={classNames("rounded-full hover:text-white  hover:bg-[#BEB29A] hover:text-bold border-[#9D9D9D]", getCurrentActiveTabClass('Awaiting-Approval'))} >Awaiting Approval</Button>
 				<Button onClick={() => setActiveTab('Completed')} variant={'outline'} className={classNames("rounded-full hover:text-bold hover:text-white  hover:bg-[#BEB29A] border-[#9D9D9D]", getCurrentActiveTabClass('Completed'))}>Completed</Button>
 				<Button onClick={() => setActiveTab('Cancelled')} variant={'outline'} className={classNames("rounded-full hover:text-white  hover:bg-[#BEB29A] hover:text-bold border-[#9D9D9D]", getCurrentActiveTabClass('Cancelled'))} >Cancelled</Button>
 				{/* <Button onClick={() => setActiveTab('Pending')} variant={'outline'} className={classNames("rounded-full hover:text-white  hover:bg-[#BEB29A] hover:text-bold border-[#9D9D9D]", getCurrentActiveTabClass('Pending'))} >Pending</Button> */}

@@ -7,6 +7,8 @@
 namespace Cuberaksi\WooCommerce;
 
 use Kucrut\Vite;
+use YITH_WCBK;
+use YITH_WCBK_Booking;
 
 // require_once CUBERAKSI_SUNDARA_BASE_DIR . 'woo/amelia_data.php';
 require_once CUBERAKSI_SUNDARA_BASE_DIR.'vendor/autoload.php';
@@ -182,7 +184,7 @@ class Cuberaksi_Custom
         add_action('wp_enqueue_scripts', function () {
             wp_enqueue_style('cb-xd-globals', CUBERAKSI_SUNDARA_BASE_URL.'woo/assets/css/global.css', [], CUBERAKSI_SUNDARA_VERSION.'-'.time());
             // wp_enqueue_style('child-style-sundara', "https://sundaratravelclub.com/wp-content/themes/sundara-theme/style.css", [], CUBERAKSI_SUNDARA_VERSION);
-
+            // wp_enqueue_script('swiper', 'https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js');
             // wp_enqueue_script('jquery-lazy','https://cdnjs.cloudflare.com/ajax/libs/jquery.lazy/1.7.11/jquery.lazy.min.js',['jquery']);
             // wp_enqueue_script('jquery-lazy-custom', CUBERAKSI_SUNDARA_BASE_URL . 'woo/assets/js/global.js', ['jquery'], '-' . CUBERAKSI_SUNDARA_VERSION);
             wp_enqueue_script('jq-lazyimg', CUBERAKSI_SUNDARA_BASE_URL.'woo/assets/js/lazyimg.js', ['jquery'], CUBERAKSI_SUNDARA_VERSION.'-'.time(), true);
@@ -522,6 +524,17 @@ class Cuberaksi_Custom
             // 	}
 
             // }
+            $request_uri = isset($_SERVER['REQUEST_URI']) ? $_SERVER['REQUEST_URI'] : false;
+            // console_log(['#1', $request_uri]);
+
+            if (str_contains($request_uri, '/wp-admin')) {
+                global $wp_query;
+                $wp_query->set_404();
+                status_header(404);
+                get_template_part(404);
+                exit;
+                // console_log(['#2', $request_uri]);
+            }
         });
 
         add_action('template_redirect', function ($template) {
@@ -566,13 +579,22 @@ class Cuberaksi_Custom
                 // console_log(['#2', $request_uri]);
                 wp_redirect(admin_url());
             }
+            if (str_contains($request_uri, '/wp-admin')) {
+                // console_log(['#2', $request_uri]);
+                wp_redirect('/oops');
+                // global $wp_query;
+                // $wp_query->set_404();
+                // status_header(404);
+                // get_template_part(404);
+                // exit;
+            }
 
             global $post;
 
             if (isset($post->post_name)) {
                 if ($post->post_name === 'login') {
                     wp_enqueue_script('login-cst', CUBERAKSI_SUNDARA_BASE_URL.
-                        'woo/assets/js/login.js', ['jquery']);
+                        'woo/assets/js/login.js', ['jquery'], time());
                 }
                 // error_log(wp_upload_dir(),3,.);
                 // echo wp_upload_dir();
@@ -630,24 +652,24 @@ class Cuberaksi_Custom
                         add_action('wp_footer', function () {
                             if (is_user_logged_in()) {
                                 ?><script>
-									jQuery(document).ready(($) => {
-										const interval = setInterval(() => {
-											if (elementorProFrontend.modules.popup) {
+                                    jQuery(document).ready(($) => {
+                                        const interval = setInterval(() => {
+                                            if (elementorProFrontend.modules.popup) {
 
-												elementorProFrontend.modules.popup.showPopup({
-													id: 6717
-												});
+                                                elementorProFrontend.modules.popup.showPopup({
+                                                    id: 6717
+                                                });
 
-												$('#woo-msg-notice').html($('#woo-msg-notice').html().replace("{{message_notice}}", 'Request booking confirm email sent.'))
-												clearInterval(interval);
+                                                $('#woo-msg-notice').html($('#woo-msg-notice').html().replace("{{message_notice}}", 'Request booking confirm email sent.'))
+                                                clearInterval(interval);
 
 
 
-											}
-										}, 100)
-									})
-								</script>;
-			<?php
+                                            }
+                                        }, 100)
+                                    })
+                                </script>;
+            <?php
                             }
 
                             return; // return nothing by default and do not show the popup.
@@ -711,10 +733,21 @@ class Cuberaksi_Custom
 
                     wp_enqueue_script('yith-custom-form', CUBERAKSI_SUNDARA_BASE_URL.'woo/assets/js/yith-custom-form.js?'.CUBERAKSI_SUNDARA_VERSION.'-'.time(), ['jquery']);
 
+                    wp_enqueue_script('itenary-accord', CUBERAKSI_SUNDARA_BASE_URL.'woo/assets/js/itenary.js?'.CUBERAKSI_SUNDARA_VERSION.'-'.time(), ['jquery']);
+
                     wp_enqueue_script('splidejs', 'https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/js/splide.min.js');
 
                     wp_enqueue_style('splidejscss', 'https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/css/themes/splide-skyblue.min.css');
 
+                    if (defined('WPFORMS_VERSION')) {
+                        wp_enqueue_script(
+                            'wpforms',
+                            WPFORMS_PLUGIN_URL.'assets/js/frontend/wpforms.min.js',
+                            ['jquery'],
+                            WPFORMS_VERSION,
+                            true
+                        );
+                    }
                     // wp_enqueue_script('timelinegal-slick','https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.min.js',['jquery']);
                     // wp_enqueue_script('timelinegal-fslightbox','https://cdnjs.cloudflare.com/ajax/libs/fslightbox/3.0.9/index.min.js');
                     // wp_enqueue_style('timelinegal-slick-css','https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.min.css');
@@ -734,7 +767,7 @@ class Cuberaksi_Custom
                         $product_price = $product_price['10059']['cost'];
                     }
 
-                    wp_enqueue_script('timelinegal', CUBERAKSI_SUNDARA_BASE_URL.'woo/assets/js/timelinegal.js?'.CUBERAKSI_SUNDARA_VERSION.'-'.time(), ['jquery']);
+                    wp_enqueue_script('timelinegal', CUBERAKSI_SUNDARA_BASE_URL.'woo/assets/js/timelinegal.js?'.CUBERAKSI_SUNDARA_VERSION.'-'.time(), ['jquery', 'splidejs']);
                     // wp_enqueue_script('jquery-lazy-custom');
                     // wp_enqueue_script('sa2','https://cdn.jsdelivr.net/npm/sweetalert2@11.10.0/dist/sweetalert2.all.min.js');
                     // wp_enqueue_style('sa2css','https://cdn.jsdelivr.net/npm/sweetalert2@11.10.0/dist/sweetalert2.min.css');
@@ -789,13 +822,13 @@ class Cuberaksi_Custom
         ob_start();
         if (\is_user_logged_in()) {
             ?>
-			<style>
-				.mr-2 {
-					margin-right: 0.4rem;
-				}
-			</style>
+            <style>
+                .mr-2 {
+                    margin-right: 0.4rem;
+                }
+            </style>
 
-			<?php
+            <?php
             // $url_target = "/order-first";
             // if (is_user_logged_in() && defined('AMELIA_VERSION')) {
             // 	$user = wp_get_current_user();
@@ -821,8 +854,8 @@ class Cuberaksi_Custom
             }
             ?>
 
-			<li class="menu-item "><a role="button" style="margin:10px;padding:10px" class="elementor-button elementor-button-link elementor-size-sm pad10 btn-panel" href="<?php echo $url_target; ?>"><i class="fa fa-user mr-2"></i>My Account</a></li>
-			<li class="menu-item "> <a role="button" class="elementor-button elementor-button-link elementor-size-sm pad10 btn-logout" style="margin:10px;padding:10px" href="<?php echo \wp_logout_url($url_logout); ?>"><i class="fa fa-sign-out mr-2" aria-hidden="true"></i>Log Out</a></li>
+            <li class="menu-item "><a role="button" style="margin:10px;padding:10px" class="elementor-button elementor-button-link elementor-size-sm pad10 btn-panel" href="<?php echo $url_target; ?>"><i class="fa fa-user mr-2"></i>My Account</a></li>
+            <li class="menu-item "> <a role="button" class="elementor-button elementor-button-link elementor-size-sm pad10 btn-logout" style="margin:10px;padding:10px" href="<?php echo \wp_logout_url($url_logout); ?>"><i class="fa fa-sign-out mr-2" aria-hidden="true"></i>Log Out</a></li>
 <?php
         } else {
             $redirect_to = $_SERVER['REQUEST_URI'];
@@ -869,62 +902,6 @@ class Cuberaksi_Custom
 
     public function override_checkout()
     {
-        add_filter('woocommerce_locate_template', [$this, 'intercept_wc_template'], 12, 3);
-        add_filter('wc_get_template', [$this, 'intercept_wc_get_template'], 12, 5);
-    }
-
-    /**
-     * Filter the cart template path to use cart.php in this plugin instead of the one in WooCommerce.
-     *
-     * @param string $template      default template file path
-     * @param string $template_name template file slug
-     * @param string $template_path template file name
-     *
-     * @return string the new Template file path
-     */
-    public function intercept_wc_template($template, $template_name, $template_path)
-    {
-        $template_directory = trailingslashit(CUBERAKSI_SUNDARA_BASE_DIR).'woo/templates/';
-
-        $path = $template_directory.$template_name;
-
-        if (str_contains($template_name, 'email')) {
-            $path = '/maybenone';
-        }
-
-        if (str_contains($template_name, 'customer-completed-booking.php') || str_contains($template_name, 'customer-paid-booking.php') || str_contains($template_name, 'customer-confirmed-booking.php') || str_contains($template_name, 'email-order-items.php')) {
-            $path = $template_directory.$template_name;
-        }
-
-        // $template_target = file_exists($path) ? $path : $template;
-
-        // // if (str_contains($template_name, 'booking-form'))
-        // // 	console_log(['wc_template' => $template_name]);
-        // wp_remote_post('https://webhook.site/822bc331-4c29-4ffb-8544-44177e2350e2', ['body' => ['from' => 'wc_template', 'template' => $template, 'template_name' => $template_name], 'sslverify' => false]);
-        // wp_remote_get('https://webhook.site/436c6dec-4da8-41a2-a131-90c12f147a74');
-        // return $template_target;
-        return file_exists($path) ? $path : $template;
-    }
-
-    public function intercept_wc_get_template($template, $template_name, $args, $template_path, $default_path)
-    {
-        $template_directory = trailingslashit(CUBERAKSI_SUNDARA_BASE_DIR).'woo/templates/';
-        $path = $template_directory.$template_name;
-        if (str_contains($template_name, 'email')) {
-            $path = '/maybenone';
-        }
-
-        if (str_contains($template_name, 'customer-completed-booking.php') || str_contains($template_name, 'customer-paid-booking.php') || str_contains($template_name, 'customer-confirmed-booking.php') || str_contains($template_name, 'email-order-items.php')) {
-            $path = $template_directory.$template_name;
-        }
-        // console_log([$template, $template_name, $args, $template_path, $default_path]);
-        // if (str_contains($template_name, 'booking-form'))
-        // 	console_log(['wc_get_template' => $template_name]);
-
-        // wp_remote_post('https://webhook.site/822bc331-4c29-4ffb-8544-44177e2350e2', ['body' => ['from' => 'wc_get_template', 'template' => $template, 'template_name' => $template_name], 'sslverify' => false]);
-
-        return file_exists($path) ? $path : $template;
-        // return $template;
     }
 }
 
@@ -1019,48 +996,30 @@ function console_log($obj)
 //   return $pass_change_email;
 // }, 10, 3);
 
-add_filter('wp_mail_content_type', function () {
-    return 'text/html';
-    if ($GLOBALS['use_html_content_type']) {
-        return 'text/html';
-    } else {
-        return 'text/plain';
-    }
-});
+// add_filter('retrieve_password_message', function ($message, $key, $user_login) {
+//     $site_name = wp_specialchars_decode(get_option('blogname'), ENT_QUOTES);
+//     $reset_link = network_site_url("wp-login.php?action=rp&key=$key&login=".rawurlencode($user_login), 'login');
 
-add_filter('retrieve_password_message', function ($message, $key, $user_login) {
-    $site_name = wp_specialchars_decode(get_option('blogname'), ENT_QUOTES);
-    $reset_link = network_site_url("wp-login.php?action=rp&key=$key&login=".rawurlencode($user_login), 'login');
+//     // Create new message
+//     // $message = __( 'Someoness has requested a password reset for the following account:' . $user_login, 'text_domain' ) . "\n";
+//     // $message .= sprintf(__('admin: %s'), get_option('admin_email')) . "\n";
+//     // $message .= sprintf( __( 'Site Name: %s' ), network_home_url( '/' ) ) . "\n";
+//     // $message .= sprintf( __( 'Username: %s', 'text_domain' ), $user_login ) . "\n";
+//     // $message .= __( 'If this was a mistake, just ignore this email and nothing will happen.', 'text_domain' ) . "\n";
+//     // $message .= __( 'To reset your password, visit the following address:', 'text_domain' ) . "\n";
+//     // $message .= $reset_link . "\n";
 
-    // Create new message
-    // $message = __( 'Someoness has requested a password reset for the following account:' . $user_login, 'text_domain' ) . "\n";
-    // $message .= sprintf(__('admin: %s'), get_option('admin_email')) . "\n";
-    // $message .= sprintf( __( 'Site Name: %s' ), network_home_url( '/' ) ) . "\n";
-    // $message .= sprintf( __( 'Username: %s', 'text_domain' ), $user_login ) . "\n";
-    // $message .= __( 'If this was a mistake, just ignore this email and nothing will happen.', 'text_domain' ) . "\n";
-    // $message .= __( 'To reset your password, visit the following address:', 'text_domain' ) . "\n";
-    // $message .= $reset_link . "\n";
+//     ob_start();
+//     $GLOBALS['use_html_content_type'] = true;
+//     viwec_render_email_template(2625);
+//     $message = ob_get_clean();
+//     $message = str_replace('http://cuber_reset_password_url', $reset_link, $message);
+//     $message = str_replace('{cuber_user_login}', $user_login, $message);
+//     // $message .= $reset_link . "\n";
+//     // $message .= get_post_meta( 2625, 'viwec_email_structure', true );
 
-    ob_start();
-    $GLOBALS['use_html_content_type'] = true;
-    viwec_render_email_template(2625);
-    $message = ob_get_clean();
-    $message = str_replace('http://cuber_reset_password_url', $reset_link, $message);
-    $message = str_replace('{cuber_user_login}', $user_login, $message);
-    // $message .= $reset_link . "\n";
-    // $message .= get_post_meta( 2625, 'viwec_email_structure', true );
-
-    return $message;
-}, 20, 3);
-
-add_filter('wp_mail_from', function ($original_email_address) {
-    return get_option('admin_email');
-});
-
-// Change the From name.
-add_filter('wp_mail_from_name', function ($original_email_from) {
-    return get_option('blogname');
-});
+//     return $message;
+// }, 20, 3);
 
 add_action(
     'deprecated_function_run',
@@ -1106,18 +1065,21 @@ add_action('init', function () {
 // add_rewrite_rule('^' . 'cube-sundara/(.*)', 'wp-admin/$1?%{QUERY_STRING}');
 
 // add_filter('woocommerce_email_classes', function ($emails) {
-// 	if (isset($emails['YITH_WCBK_Email_Customer_Paid_Booking'])) {
-// 		$emails['YITH_WCBK_Email_Customer_Paid_Booking']        = include 'templates/emails/customer-paid-booking.php';
+// 	if (isset($emails['WC_Email_Customer_On_Hold_Order'])) {
+// 		$emails['WC_Email_Customer_On_Hold_Order'] = include 'templates/emails/class-email-none.php';
 // 	}
 
 // 	return $emails;
 // }, 100, 1);
 
-add_action('woocommerce_order_status_pending_to_on-hold', function ($order_id, $order) {
+add_action('woocommerce_order_status_pending_to_on-hold', function ($order_id, \WC_Order $order) {
     $bookings = get_post_meta($order_id, 'yith_bookings', true);
     // wp_remote_post('https://webhook.site/822bc331-4c29-4ffb-8544-44177e2350e2', ['body' => wp_json_encode($bookings), 'headers' => ['Content-Type' => 'application/json']]);
     if ($bookings) {
-        $yith_booking = new \YITH_WCBK_Booking($bookings[0]);
+        $yith_booking = new YITH_WCBK_Booking($bookings[0]);
         $yith_booking->update_status('bk-paid');
     }
 }, 114, 2);
+
+require_once 'emailhook.php';
+require_once 'extrahook.php';

@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Checkout Form
+ * Checkout Form.
  *
  * This template can be overridden by copying it to yourtheme/woocommerce/checkout/form-checkout.php.
  *
@@ -12,20 +12,19 @@
  * the readme will list any important changes.
  *
  * @see https://docs.woocommerce.com/document/template-structure/
- * @package WooCommerce\Templates
+ *
  * @version 3.5.0
  */
-
 if (!defined('ABSPATH')) {
-	exit;
+    exit;
 }
 
 do_action('woocommerce_before_checkout_form', $checkout);
 
 // include CUBERAKSI_SUNDARA_BASE_DIR . 'woo/templates/checkout/form-login.php';
 if (!is_user_logged_in()) {
-	// echo do_shortcode('[google_login]');
-?>
+    // echo do_shortcode('[google_login]');
+    ?>
 
 <?php
 
@@ -33,15 +32,16 @@ if (!is_user_logged_in()) {
 
 // If checkout registration is disabled and not logged in, the user cannot checkout.
 if (!$checkout->is_registration_enabled() && $checkout->is_registration_required() && !is_user_logged_in()) {
-	echo esc_html(apply_filters('woocommerce_checkout_must_be_logged_in_message', __('You must be logged in to checkout.', 'woocommerce')));
-	return;
+    echo esc_html(apply_filters('woocommerce_checkout_must_be_logged_in_message', __('You must be logged in to checkout.', 'woocommerce')));
+
+    return;
 }
 
 // elementor only
 // aikhacomp
 
-if (is_user_logged_in())
-	//echo "<style>	.e-checkout__column.e-checkout__column-start { display:none; }</style>;
+if (is_user_logged_in());
+// echo "<style>	.e-checkout__column.e-checkout__column-start { display:none; }</style>;
 
 ?>
 
@@ -50,22 +50,20 @@ if (is_user_logged_in())
 </style> -->
 <link rel='stylesheet' href='https://unpkg.com/primeflex@latest/primeflex.css'>
 
-<form name="checkout" method="post" class="onest-font checkout woocommerce-checkout flex gap-8" action="<?php echo esc_url(wc_get_checkout_url()); ?>" enctype="multipart/form-data">
+<form name="checkout" id="checkout-extra" method="post" class="onest-font checkout woocommerce-checkout flex gap-8" action="<?php echo esc_url(wc_get_checkout_url()); ?>" enctype="multipart/form-data">
 
-	<?php //................................... 
-	?>
+	<?php // ...................................
+    ?>
 
-	<?php if ($checkout->get_checkout_fields()) : ?>
+	<?php if ($checkout->get_checkout_fields()) { ?>
 
 		<?php do_action('woocommerce_checkout_before_customer_details');
-		//----------------------------
-		?>
+	    // ----------------------------
+	    ?>
 
 		<div class="" id="customer_details">
 
 			<?php do_action('woocommerce_checkout_billing'); ?>
-
-
 
 			<?php do_action('woocommerce_checkout_shipping'); ?>
 
@@ -73,17 +71,17 @@ if (is_user_logged_in())
 
 
 		<?php do_action('woocommerce_checkout_after_customer_details');
-		?>
+	    ?>
 
-	<?php endif; ?>
+	<?php } ?>
 
 	<?php do_action('woocommerce_checkout_before_order_review_heading');
-	?>
+?>
 
 
 
 	<?php do_action('woocommerce_checkout_before_order_review');
-	?>
+?>
 
 	<div id="order_review" class="woocommerce-checkout-review-order" style="width: 750px;">
 		<h3 class="onest-font" id="order_review_headi" style="font-size: 24px;font-family: 'Onest', sans-serif; font-optical-sizing: auto; font-style: normal;"><?php esc_html_e('My orders', 'woocommerce'); ?></h3>
@@ -96,13 +94,19 @@ if (is_user_logged_in())
 
 </form>
 
-<?php do_action('woocommerce_after_checkout_form', $checkout); ?>
+<?php do_action('woocommerce_after_checkout_form', $checkout);
+
+wp_enqueue_script('validation', 'https://cdn.jsdelivr.net/npm/jquery-validation@1.19.5/dist/jquery.validate.min.js', ['jquery']);
+
+?>
 <script>
    	
 jQuery(document).ready(($)=>{
 	 // jQuery('a.showlogin').click((e)=>{ e.preventDefault(); console.log('clicked'); location.href = location.origin +'/login' })
 	 // console.log('=========================')
 	$('.e-woocommerce-login-nudge.e-description').css('display','none')
+
+    $('#checkout-extra').validate()
 })
 
 // let interval = setInterval(function(){
@@ -120,38 +124,38 @@ jQuery(document).ready(($)=>{
 // wp_enqueue_script('unocss', 'https://cdn.jsdelivr.net/npm/@unocss/runtime');
 /*
 echo "<script>
-   	
-   	jQuery(document).ready(($)=>{
-   		$('.wp_google_login').css('display','none')
-   		var gl = $('.wp_google_login').html()
-   		$('.wp_google_login').remove()
-   		$('.e-woocommerce-login-anchor').css('display','block')	
 
-   		$('.e-woocommerce-form-login-submit').wrap("<div id='wrap-login-custom' class='flex flex-col md:flex-row lg:flex-row gap-2 '></div>")
-   		$('#wrap-login-custom').append(gl)
-   		$('.wp_google_login').addClass('w-full md:h-full md:mt-0 md:basis-1/2 lg:h-full lg:mt-0 lg:basis-1/2')
-   		$('.wp_google_login__button-container').css('margin-top','0px').addClass('md:grow lg:grow')
-   		$('.e-woocommerce-form-login-submit').addClass('w-full md:basis-1/2 lg:basis-1/2').css('width','100%')
+jQuery(document).ready(($)=>{
+    $('.wp_google_login').css('display','none')
+    var gl = $('.wp_google_login').html()
+    $('.wp_google_login').remove()
+    $('.e-woocommerce-login-anchor').css('display','block')
+
+    $('.e-woocommerce-form-login-submit').wrap("<div id='wrap-login-custom' class='flex flex-col md:flex-row lg:flex-row gap-2 '></div>")
+    $('#wrap-login-custom').append(gl)
+    $('.wp_google_login').addClass('w-full md:h-full md:mt-0 md:basis-1/2 lg:h-full lg:mt-0 lg:basis-1/2')
+    $('.wp_google_login__button-container').css('margin-top','0px').addClass('md:grow lg:grow')
+    $('.e-woocommerce-form-login-submit').addClass('w-full md:basis-1/2 lg:basis-1/2').css('width','100%')
 
 
 
-   		//rearrange form
-   		
-   		$('.e-woocommerce-login-anchor').css('display','none')
+    //rearrange form
 
-   		const first = document.querySelector('.e-checkout__column.e-checkout__column-start').outerHTML;
-   		const second = document.querySelector('.e-checkout__column.e-checkout__column-end').outerHTML;
-   		const payment = document.querySelector('#payment').outerHTML
+    $('.e-woocommerce-login-anchor').css('display','none')
 
-   		
-   		document.querySelector('.e-checkout__container').innerHTML = `${second} ${first}`
+    const first = document.querySelector('.e-checkout__column.e-checkout__column-start').outerHTML;
+    const second = document.querySelector('.e-checkout__column.e-checkout__column-end').outerHTML;
+    const payment = document.querySelector('#payment').outerHTML
 
-   		document.querySelector('#payment').outerHTML =''
-   		document.querySelector('#customer_details').innerHTML = document.querySelector('#customer_details').innerHTML + `<div style='margin-top:2em'> </div>${payment}`
-   		
-   		
-   	})
-	
+
+    document.querySelector('.e-checkout__container').innerHTML = `${second} ${first}`
+
+    document.querySelector('#payment').outerHTML =''
+    document.querySelector('#customer_details').innerHTML = document.querySelector('#customer_details').innerHTML + `<div style='margin-top:2em'> </div>${payment}`
+
+
+})
+
 
 </script>`
 */

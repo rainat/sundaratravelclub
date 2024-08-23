@@ -1,13 +1,29 @@
 {
     "description": "DO NOT DELETE THIS FILE. This file is used to keep track of which files have been synced in the most recent deployment. If you delete this file a resync will need to be done (which can take a while) - read more: https://github.com/SamKirkland/FTP-Deploy-Action",
     "version": "1.0.0",
-    "generatedTime": 1718121614425,
+    "generatedTime": 1723429159232,
     "data": [
         {
             "type": "file",
+            "name": ".ftp-deploy-sync-state.json",
+            "size": 1157,
+            "hash": "e1198c9a69dd9ad676368eec1c3a206d535e3746bc134b1ef3cbe8472f8a7edb"
+        },
+        {
+            "type": "file",
             "name": "functions.php",
-            "size": 373,
-            "hash": "833654b3a9cf30530972a74ba436856f3bf15a820608b63fd929794f3d416ee5"
+            "size": 602,
+            "hash": "7a06ab544d450bc7281f8118dd55238a1550d9d3081d25eddc2f31e46e67739e"
+        },
+        {
+            "type": "folder",
+            "name": "images"
+        },
+        {
+            "type": "file",
+            "name": "page-single.php",
+            "size": 695,
+            "hash": "3f9022dd6db3e88c81b02a10c34689daf0a08f88b76c7a9b5f1b017a461b035a"
         },
         {
             "type": "file",
@@ -18,14 +34,20 @@
         {
             "type": "file",
             "name": "style.css",
-            "size": 24413,
-            "hash": "05661861e029973c5fbaca6a78bb23e3fbd72b916bec95f97a8095a60d12f90e"
+            "size": 29310,
+            "hash": "7ee1b66f4d7a58fe88694f2f0ff448876de5ee11db7dd847a41ce4bb277d691e"
         },
         {
             "type": "file",
             "name": "sundara.js",
-            "size": 1130,
-            "hash": "bcb91861ffa692c0cd768aa7e875aab6fe758540a798c28033d5385046476f41"
+            "size": 1368,
+            "hash": "06e8c58240b4de60ceb9265edc8096bd564a922c031b87df50b8e15910bf98c2"
+        },
+        {
+            "type": "file",
+            "name": "images/sun-sundara-transaprent-compress.png",
+            "size": 121723,
+            "hash": "1604ba412c3fd3d631791dce86fb61d9596e7d9b86e54edf2f939843f4aacbb8"
         }
     ]
 }
