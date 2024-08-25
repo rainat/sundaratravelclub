@@ -531,7 +531,8 @@ class Cuberaksi_Custom
                 global $wp_query;
                 $wp_query->set_404();
                 status_header(404);
-                get_template_part(404);
+                // get_template_part('404');
+                wp_safe_redirect('/404');
                 exit;
                 // console_log(['#2', $request_uri]);
             }
