@@ -1050,3 +1050,9 @@ button.accordion:after {
 .group-inlcusion h3, .group-inlcusion h3 span {
     color: #444 !important;
 }
+
+@media screen and (max-width: 920px) {
+    body.single-product iframe#tidio-chat-iframe {
+        transform: translateY(-80px);
+    }
+}
