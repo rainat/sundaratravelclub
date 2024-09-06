@@ -1053,6 +1053,6 @@ button.accordion:after {
 
 @media screen and (max-width: 920px) {
     body.single-product iframe#tidio-chat-iframe {
-        transform: translateY(-80px);
+        transform: translateY(-80px) !important;
     }
 }
