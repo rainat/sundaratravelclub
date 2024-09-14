@@ -1051,8 +1051,6 @@ button.accordion:after {
     color: #444 !important;
 }
 
-@media screen and (max-width: 920px) {
-    body.single-product iframe#tidio-chat-iframe {
-        transform: translateY(-80px) !important;
-    }
-}
+body:not(.home) iframe#tidio-chat-iframe {
+    display: none;
+} 
