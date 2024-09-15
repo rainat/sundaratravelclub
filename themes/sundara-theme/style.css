@@ -1054,3 +1054,9 @@ button.accordion:after {
 body:not(.home) iframe#tidio-chat-iframe {
     display: none !important;
 } 
+
+.woocommerce-billing-fields label {
+    font-size: 13px;
+    color: #252525;
+    font-family: 'Montserrat', sans-serif;
+}
