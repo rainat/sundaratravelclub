@@ -729,10 +729,18 @@ div.minus, div.plus {
     color: #fff;
     justify-content: center;
     line-height: 0;
+    font-size: 21px !important;
+    width: 26px !important;
+    height: 26px !important;
+    padding: 6px 5px 8px 5px !important;
 }
-div.minus {
-    align-items: flex-start
+
+@media screen and (max-width: 700px) {
+    div.plusminus {
+        top: 53px !important;
+    }
 }
+
 /*Replacing onest font to montserrat*/
 
 .woocommerce-checkout-review-order .onest-font {
